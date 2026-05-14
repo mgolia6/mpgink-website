@@ -1,0 +1,25 @@
+# Build artifacts
+*.pyc
+__pycache__/
+*.swp
+*.swo
+*~
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+image_data.txt
+
+# Don't ignore the actual site files
+!index.html
+!images/
+!docs/
