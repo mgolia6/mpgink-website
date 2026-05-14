@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>mpgink</title>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -18,9 +17,8 @@
   --text: #e8e8e8;
   --text-muted: #a0a0a0;
   --accent: #ff6b35;
-  --accent-secondary: #ffd23f;
-  --card-bg: rgba(255, 255, 255, 0.03);
   --border: rgba(255, 255, 255, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.04);
 }
 
 /* ------------------------------
@@ -35,7 +33,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Subtle noise texture */
 body::before {
   content: "";
   position: fixed;
@@ -66,7 +63,6 @@ body::before {
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 0 0 rgba(255,255,255,0.15);
 }
 
 .menu-container:hover .menu-icon {
@@ -77,17 +73,14 @@ body::before {
 .menu-label {
   font-size: 0.95rem;
   color: var(--text-muted);
-  letter-spacing: 0.5px;
 }
 
 @media (max-width: 768px) {
-  .menu-label {
-    display: none;
-  }
+  .menu-label { display: none; }
 }
 
 /* ------------------------------
-   HERO SECTION
+   HERO
 --------------------------------*/
 .hero {
   position: relative;
@@ -99,7 +92,6 @@ body::before {
   overflow: hidden;
 }
 
-/* Ambient glow behind image */
 .hero::before {
   content: "";
   position: absolute;
@@ -113,7 +105,6 @@ body::before {
   z-index: 0;
 }
 
-/* Hero image */
 .hero-image {
   position: absolute;
   left: 5%;
@@ -133,7 +124,6 @@ body::before {
   to   { transform: translateY(-52%) translateX(1.5%); }
 }
 
-/* Text block */
 .hero-text {
   position: relative;
   margin-left: 48%;
@@ -163,7 +153,6 @@ body::before {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* CTA buttons */
 .cta-row {
   display: flex;
   gap: 16px;
@@ -182,7 +171,6 @@ body::before {
 
 .cta-primary {
   background: var(--accent);
-  box-shadow: 0 0 0 rgba(255,107,53,0.4);
 }
 
 .cta-primary:hover {
@@ -200,7 +188,6 @@ body::before {
   background: rgba(255,255,255,0.1);
 }
 
-/* Scroll cue */
 .scroll-cue {
   position: absolute;
   bottom: 32px;
@@ -217,11 +204,134 @@ body::before {
 }
 
 /* ------------------------------
-   TRANSITION TO CONTENT
+   CREATIVE OUTLETS
 --------------------------------*/
-.hero-transition {
-  height: 80px;
-  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.25), transparent);
+.outlets-section {
+  padding: 120px 8vw;
+  text-align: center;
+}
+
+.outlets-title {
+  font-family: 'Fraunces', serif;
+  font-size: 2.4rem;
+  margin-bottom: 60px;
+  opacity: 0.9;
+}
+
+.outlets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.outlet-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 32px;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.outlet-card:nth-child(1) { animation-delay: 0.1s; }
+.outlet-card:nth-child(2) { animation-delay: 0.2s; }
+.outlet-card:nth-child(3) { animation-delay: 0.3s; }
+.outlet-card:nth-child(4) { animation-delay: 0.4s; }
+
+.outlet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.outlet-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.outlet-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.outlet-desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ------------------------------
+   FOOTER (Studio style)
+--------------------------------*/
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 8vw 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-image: url('images/image_5.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-brand-name {
+  font-weight: 600;
+}
+
+.footer-brand-line {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>
 </head>
@@ -230,14 +340,13 @@ body::before {
 
 <!-- MENU -->
 <div class="menu-container">
-  <div class="menu-icon" style="background-image:url('images/image_5.png');"></div>
+  <div class="menu-icon" style="background-image:url('images/image_5.jpg');"></div>
   <div class="menu-label">Menu</div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-
-<img src="images/image_1.jpg" class="hero-image" alt="mpgink header">
+  <img src="images/image_1.jpg" class="hero-image" alt="mpgink header">
 
   <div class="hero-text">
     <h1>You’re here. Let’s begin.</h1>
@@ -245,14 +354,66 @@ body::before {
 
     <div class="cta-row">
       <a href="#studio" class="cta cta-primary">Explore the Studio</a>
-      <a href="https://www.etsy.com/shop/MattyMatteModgePodge" class="cta cta-secondary">Visit the Shop</a>
+      <a href="https://www.etsy.com/shop/MattyMatteModgePodge" class="cta cta-secondary" target="_blank" rel="noopener noreferrer">Visit the Shop</a>
     </div>
   </div>
 
   <div class="scroll-cue">⌄</div>
 </section>
 
-<div class="hero-transition"></div>
+<!-- CREATIVE OUTLETS -->
+<section class="outlets-section" id="studio">
+  <h2 class="outlets-title">Creative Outlets</h2>
+
+  <div class="outlets-grid">
+
+    <!-- AFM -->
+    <div class="outlet-card">
+      <img src="images/image_6.jpg" class="outlet-img" alt="Aloha Friday Motivation">
+      <div class="outlet-title">Aloha Friday Motivation</div>
+      <div class="outlet-desc">Weekly storytelling, philosophy, and perspective shifts — your Friday ritual.</div>
+    </div>
+
+    <!-- Arlo & Ash -->
+    <div class="outlet-card">
+      <img src="images/image_4.jpg" class="outlet-img" alt="Arlo & Ash">
+      <div class="outlet-title">Arlo & Ash</div>
+      <div class="outlet-desc">A space for the whimsical, the heartfelt, and the beautifully unexpected.</div>
+    </div>
+
+    <!-- Blog -->
+    <div class="outlet-card">
+      <img src="images/image_2.jpg" class="outlet-img" alt="Blog">
+      <div class="outlet-title">Blog</div>
+      <div class="outlet-desc">Thoughts, essays, and explorations — the things that don’t fit anywhere else.</div>
+    </div>
+
+    <!-- Store -->
+    <div class="outlet-card">
+      <img src="images/image_3.jpg" class="outlet-img" alt="Store">
+      <div class="outlet-title">Store</div>
+      <div class="outlet-desc">Art, prints, and pieces from the studio — made with intention.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="footer-left">
+    <div class="footer-logo"></div>
+    <div class="footer-brand">
+      <div class="footer-brand-name">mpgink</div>
+      <div class="footer-brand-line">A studio for making, exploring, and breathing on purpose.</div>
+    </div>
+  </div>
+
+  <div class="footer-links">
+    <a href="#studio">Creative Outlets</a>
+    <a href="https://www.etsy.com/shop/MattyMatteModgePodge" target="_blank" rel="noopener noreferrer">Shop</a>
+    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</footer>
 
 </body>
 </html>
