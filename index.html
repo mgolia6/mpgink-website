@@ -1,384 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>mpgink</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-/* ------------------------------
-   DESIGN TOKENS
---------------------------------*/
-:root {
-  --bg-start: #0a0e27;
-  --bg-end: #1a1f3a;
-  --text: #e8e8e8;
-  --text-muted: #a0a0a0;
-  --accent: #ff6b35;
-  --border: rgba(255, 255, 255, 0.08);
-  --card-bg: rgba(255, 255, 255, 0.04);
-}
-
-/* ------------------------------
-   GLOBAL
---------------------------------*/
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at 30% 20%, var(--bg-start), var(--bg-end));
-  color: var(--text);
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P4//8/AwAI/AL+WcN6WQAAAABJRU5ErkJggg==');
-  opacity: 0.12;
-  pointer-events: none;
-}
-
-/* ------------------------------
-   MENU
---------------------------------*/
-.menu-container {
-  position: fixed;
-  top: 32px;
-  right: 40px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 1000;
-  cursor: pointer;
-}
-
-.menu-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.menu-container:hover .menu-icon {
-  transform: scale(1.08);
-  box-shadow: 0 0 12px rgba(255,255,255,0.25);
-}
-
-.menu-label {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
-
-@media (max-width: 768px) {
-  .menu-label { display: none; }
-}
-
-/* ------------------------------
-   SIDEBAR PANEL (NEW)
---------------------------------*/
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -280px;
-  width: 260px;
-  height: 100vh;
-  background: rgba(10, 14, 39, 0.92);
-  backdrop-filter: blur(14px);
-  border-left: 1px solid var(--border);
-  padding: 40px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  transition: right 0.35s ease;
-  z-index: 999;
-}
-
-.sidebar.open {
-  right: 0;
-}
-
-.sidebar-header {
-  font-family: 'Fraunces', serif;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.sidebar a {
-  color: var(--text);
-  text-decoration: none;
-  font-size: 1.1rem;
-  opacity: 0.85;
-  transition: opacity 0.2s ease;
-}
-
-.sidebar a:hover {
-  opacity: 1;
-}
-
-/* ------------------------------
-   HERO
---------------------------------*/
-.hero {
-  position: relative;
-  height: 90vh;
-  max-height: 900px;
-  display: flex;
-  align-items: center;
-  padding: 0 8vw;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  left: 10%;
-  top: 40%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
-  filter: blur(80px);
-  transform: translate(-50%, -50%);
-  z-index: 0;
-}
-
-.hero-image {
-  position: absolute;
-  left: 5%;
-  top: 50%;
-  width: 40vw;
-  max-width: 600px;
-  transform: translateY(-50%);
-  opacity: 0.9;
-  filter: brightness(0.85);
-  mask-image: radial-gradient(circle, black 60%, transparent 100%);
-  animation: drift 18s ease-in-out infinite alternate;
-  z-index: 1;
-}
-
-@keyframes drift {
-  from { transform: translateY(-50%) translateX(0); }
-  to   { transform: translateY(-52%) translateX(1.5%); }
-}
-
-.hero-text {
-  position: relative;
-  margin-left: 48%;
-  z-index: 2;
-  max-width: 520px;
-}
-
-.hero-text h1 {
-  font-family: 'Fraunces', serif;
-  font-size: 3.4rem;
-  font-weight: 800;
-  margin: 0 0 20px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.2s;
-}
-
-.hero-text p {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin: 0 0 32px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.4s;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.cta-row {
-  display: flex;
-  gap: 16px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.6s;
-}
-
-.cta {
-  padding: 14px 28px;
-  border-radius: 50px;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--text);
-  transition: all 0.3s ease;
-}
-
-.cta-primary {
-  background: var(--accent);
-}
-
-.cta-primary:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(255,107,53,0.45);
-}
-
-.cta-secondary {
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.05);
-}
-
-.cta-secondary:hover {
-  transform: translateY(-4px);
-  background: rgba(255,255,255,0.1);
-}
-
-.scroll-cue {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.4rem;
-  opacity: 0.6;
-  animation: pulse 2.4s infinite ease-in-out;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
-  50%      { transform: translateX(-50%) translateY(6px); opacity: 1; }
-}
-
-/* ------------------------------
-   CREATIVE OUTLETS
---------------------------------*/
-.outlets-section {
-  padding: 120px 8vw;
-  text-align: center;
-}
-
-.outlets-title {
-  font-family: 'Fraunces', serif;
-  font-size: 2.4rem;
-  margin-bottom: 60px;
-  opacity: 0.9;
-}
-
-.outlets-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-}
-
-.outlet-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  padding: 32px;
-  border-radius: 20px;
-  backdrop-filter: blur(12px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.outlet-card:nth-child(1) { animation-delay: 0.1s; }
-.outlet-card:nth-child(2) { animation-delay: 0.2s; }
-.outlet-card:nth-child(3) { animation-delay: 0.3s; }
-.outlet-card:nth-child(4) { animation-delay: 0.4s; }
-
-.outlet-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-}
-
-.outlet-img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 14px;
-  margin-bottom: 20px;
-  opacity: 0.9;
-}
-
-.outlet-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.outlet-desc {
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* ------------------------------
-   FOOTER
---------------------------------*/
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 40px 8vw 32px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 24px;
-  align-items: center;
-  font-size: 0.95rem;
-}
-
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.footer-logo {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-image: url('images/image_5.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.footer-brand-name {
-  font-weight: 600;
-}
-
-.footer-brand-line {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.footer-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: var(--accent);
-}
-
-@media (max-width: 768px) {
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mpgink</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -389,7 +15,7 @@ body::before {
   <div class="menu-label">Menu</div>
 </div>
 
-<!-- SIDEBAR MENU -->
+<!-- SIDEBAR -->
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-header">mpgink</div>
 
@@ -413,7 +39,7 @@ body::before {
 
     <div class="cta-row">
       <a href="#studio" class="cta cta-primary">Explore the Studio</a>
-      <a href="https://www.etsy.com/shop/MattyMatteModgePodge" class="cta cta-secondary" target="_blank" rel="noopener noreferrer">Visit the Shop</a>
+      <a href="https://www.etsy.com/shop/MattyMatteModgePodge" class="cta cta-secondary" target="_blank">Visit the Shop</a>
     </div>
   </div>
 
@@ -426,33 +52,29 @@ body::before {
 
   <div class="outlets-grid">
 
-    <!-- AFM -->
     <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136"
-       target="_blank" rel="noopener noreferrer" class="outlet-card">
+       target="_blank" class="outlet-card">
       <img src="images/image_6.jpg" class="outlet-img" alt="Aloha Friday Motivation">
       <div class="outlet-title">Aloha Friday Motivation</div>
       <div class="outlet-desc">Weekly storytelling, philosophy, and perspective shifts — your Friday ritual.</div>
     </a>
 
-    <!-- Arlo & Ash (Amazon) -->
     <a href="https://www.amazon.com/dp/B0D889QGV2/"
-       target="_blank" rel="noopener noreferrer" class="outlet-card">
+       target="_blank" class="outlet-card">
       <img src="images/image_4.png" class="outlet-img" alt="Arlo & Ash">
       <div class="outlet-title">Arlo & Ash</div>
       <div class="outlet-desc">A space for the whimsical, the heartfelt, and the beautifully unexpected.</div>
     </a>
 
-    <!-- Blog -->
     <a href="https://www.mattymatte.com"
-       target="_blank" rel="noopener noreferrer" class="outlet-card">
+       target="_blank" class="outlet-card">
       <img src="images/image_2.jpg" class="outlet-img" alt="Blog">
       <div class="outlet-title">Blog</div>
       <div class="outlet-desc">Thoughts, essays, and explorations — the things that don’t fit anywhere else.</div>
     </a>
 
-    <!-- Store (Etsy) -->
     <a href="https://mattymattemodgepodge.etsy.com"
-       target="_blank" rel="noopener noreferrer" class="outlet-card">
+       target="_blank" class="outlet-card">
       <img src="images/image_3.jpg" class="outlet-img" alt="Store">
       <div class="outlet-title">Store</div>
       <div class="outlet-desc">Art, prints, and pieces from the studio — made with intention.</div>
@@ -462,7 +84,7 @@ body::before {
 </section>
 
 <!-- FOOTER -->
-<footer class="footer" id="footer">
+<footer class="footer">
   <div class="footer-left">
     <div class="footer-logo"></div>
     <div class="footer-brand">
@@ -473,8 +95,8 @@ body::before {
 
   <div class="footer-links">
     <a href="#studio">Creative Outlets</a>
-    <a href="https://www.etsy.com/shop/MattyMatteModgePodge" target="_blank" rel="noopener noreferrer">Shop</a>
-    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://www.etsy.com/shop/MattyMatteModgePodge" target="_blank">Shop</a>
+    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank">LinkedIn</a>
   </div>
 </footer>
 
