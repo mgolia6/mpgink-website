@@ -80,6 +80,48 @@ body::before {
 }
 
 /* ------------------------------
+   SIDEBAR PANEL (NEW)
+--------------------------------*/
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100vh;
+  background: rgba(10, 14, 39, 0.92);
+  backdrop-filter: blur(14px);
+  border-left: 1px solid var(--border);
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  transition: right 0.35s ease;
+  z-index: 999;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-header {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.1rem;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar a:hover {
+  opacity: 1;
+}
+
+/* ------------------------------
    HERO
 --------------------------------*/
 .hero {
@@ -270,7 +312,7 @@ body::before {
 }
 
 /* ------------------------------
-   FOOTER (Studio style)
+   FOOTER
 --------------------------------*/
 .footer {
   border-top: 1px solid var(--border);
@@ -347,6 +389,20 @@ body::before {
   <div class="menu-label">Menu</div>
 </div>
 
+<!-- SIDEBAR MENU -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">mpgink</div>
+
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank">Aloha Friday Motivation</a>
+  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
+  <a href="https://mattymattemodgepodge.etsy.com" target="_blank">Store</a>
+  <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank">Arlo & Ash</a>
+  <a href="ai-usage.html">AI Usage</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
   <img src="images/image_1.jpg" class="hero-image" alt="mpgink header">
@@ -421,6 +477,16 @@ body::before {
     <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
   </div>
 </footer>
+
+<!-- SIDEBAR JS -->
+<script>
+  const menu = document.querySelector('.menu-container');
+  const sidebar = document.getElementById('sidebar');
+
+  menu.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+  });
+</script>
 
 </body>
 </html>
