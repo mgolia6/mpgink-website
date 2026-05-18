@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@300;400;600;800&display=swap');
+
 /* ------------------------------------
    DESIGN TOKENS
 ------------------------------------ */
@@ -141,6 +143,14 @@ h1, h2, h3 {
   z-index: 0;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
+  z-index: 0;
+}
+
 .hero-image {
   position: absolute;
   left: 5%;
@@ -186,6 +196,25 @@ h1, h2, h3 {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------------------------
+   SCROLL CUE
+------------------------------------ */
+.scroll-cue {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  opacity: 0.5;
+  animation: bounce 2s infinite;
+  z-index: 3;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%       { transform: translate(-50%, -10px); }
 }
 
 /* ------------------------------------
@@ -273,6 +302,18 @@ h1, h2, h3 {
   margin-bottom: 20px;
 }
 
+.outlet-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.outlet-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
 /* ------------------------------------
    FOOTER
 ------------------------------------ */
@@ -297,9 +338,24 @@ h1, h2, h3 {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-image: url('images/image_5.jpg');
+  background-image: url('images/image_5.png');
   background-size: cover;
   background-position: center;
+}
+
+.footer-brand-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+}
+
+.footer-brand-line {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
 }
 
 .footer-links a {
@@ -334,7 +390,6 @@ h1, h2, h3 {
   line-height: 1.6;
 }
 
-/* Hybrid full-width banners */
 .banner {
   width: 100%;
   max-width: 1100px;
@@ -346,7 +401,6 @@ h1, h2, h3 {
   box-shadow: 0 0 25px rgba(0,0,0,0.35);
 }
 
-/* Section wrapper */
 .section {
   max-width: 900px;
   margin: 0 auto 60px;
@@ -354,7 +408,6 @@ h1, h2, h3 {
   line-height: 1.7;
 }
 
-/* Tenets grid */
 .tenets-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -367,9 +420,10 @@ h1, h2, h3 {
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 6px;
   background: rgba(255,255,255,0.03);
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
-/* Expanders */
 details {
   margin: 20px 0;
   padding: 18px 20px;
@@ -389,12 +443,22 @@ details p {
   opacity: 0.85;
 }
 
-/* CTA */
-.cta {
+/* About page CTA section */
+.cta-section {
   text-align: center;
   margin: 120px auto 80px;
   max-width: 800px;
   padding: 0 20px;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.cta-section p {
+  color: var(--text-muted);
+  margin-bottom: 40px;
 }
 
 .pathways {
@@ -423,88 +487,10 @@ details p {
   text-decoration: none;
   font-weight: 600;
 }
+
 /* ------------------------------------
-   HOMEPAGE FIXES (MISSING BLOCK)
+   RESPONSIVE
 ------------------------------------ */
-
-/* Scroll cue */
-.scroll-cue {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
-  opacity: 0.5;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, -10px); }
-}
-
-/* Responsive hero layout */
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    padding-top: 140px;
-    height: auto;
-    text-align: center;
-  }
-
-  .hero-image {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 70vw;
-    max-width: 360px;
-    transform: none;
-    margin-bottom: 40px;
-    mask-image: none;
-  }
-
-  .hero-text {
-    margin-left: 0;
-    max-width: 90%;
-  }
-
-  .hero-text h1 {
-    font-size: 2.4rem;
-  }
-
-  .hero-text p {
-    font-size: 1.1rem;
-  }
-}
-
-/* Outlets mobile fix */
-@media (max-width: 600px) {
-  .outlet-img {
-    height: 140px;
-  }
-}
-/* ------------------------------------
-   HOMEPAGE FULL RESTORE
------------------------------------- */
-
-/* Scroll cue */
-.scroll-cue {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
-  opacity: 0.5;
-  animation: bounce 2s infinite;
-  z-index: 3;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, -10px); }
-}
-
-/* Hero mobile layout */
 @media (max-width: 1100px) {
   .hero {
     padding-top: 120px;
@@ -549,25 +535,16 @@ details p {
   }
 }
 
-/* Outlets mobile fix */
 @media (max-width: 600px) {
   .outlet-img {
     height: 140px;
   }
-}
 
-/* Extra homepage spacing fixes */
-.hero-text h1,
-.hero-text p,
-.cta-row {
-  position: relative;
-  z-index: 3;
-}
+  .banner {
+    height: 160px;
+  }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
-  z-index: 0;
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
 }
