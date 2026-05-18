@@ -483,3 +483,91 @@ details p {
     height: 140px;
   }
 }
+/* ------------------------------------
+   HOMEPAGE FULL RESTORE
+------------------------------------ */
+
+/* Scroll cue */
+.scroll-cue {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  opacity: 0.5;
+  animation: bounce 2s infinite;
+  z-index: 3;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -10px); }
+}
+
+/* Hero mobile layout */
+@media (max-width: 1100px) {
+  .hero {
+    padding-top: 120px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 160px 20px 80px;
+    text-align: center;
+  }
+
+  .hero-image {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 70vw;
+    max-width: 360px;
+    transform: none;
+    margin-bottom: 40px;
+    mask-image: none;
+    opacity: 1;
+  }
+
+  .hero-text {
+    margin-left: 0;
+    max-width: 90%;
+  }
+
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+  }
+
+  .cta-row {
+    justify-content: center;
+  }
+}
+
+/* Outlets mobile fix */
+@media (max-width: 600px) {
+  .outlet-img {
+    height: 140px;
+  }
+}
+
+/* Extra homepage spacing fixes */
+.hero-text h1,
+.hero-text p,
+.cta-row {
+  position: relative;
+  z-index: 3;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
+  z-index: 0;
+}
