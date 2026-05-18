@@ -4,10 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About • mpgink</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* --- PAGE-SPECIFIC STYLES --- */
 
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ------------------------------
+           DESIGN TOKENS (same as index)
+        --------------------------------*/
+        :root {
+          --bg-start: #0a0e27;
+          --bg-end: #1a1f3a;
+          --text: #e8e8e8;
+          --text-muted: #a0a0a0;
+          --accent: #ff6b35;
+          --border: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ------------------------------
+           GLOBAL
+        --------------------------------*/
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Inter', sans-serif;
+          background: radial-gradient(circle at 30% 20%, var(--bg-start), var(--bg-end));
+          color: var(--text);
+          overflow-x: hidden;
+        }
+
+        body::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P4//8/AwAI/AL+WcN6WQAAAABJRU5ErkJggg==');
+          opacity: 0.12;
+          pointer-events: none;
+        }
+
+        /* ------------------------------
+           MENU
+        --------------------------------*/
+        .menu-container {
+          position: fixed;
+          top: 32px;
+          right: 40px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          z-index: 1000;
+          cursor: pointer;
+        }
+
+        .menu-icon {
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          background-size: cover;
+          background-position: center;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-container:hover .menu-icon {
+          transform: scale(1.08);
+          box-shadow: 0 0 12px rgba(255,255,255,0.25);
+        }
+
+        .menu-label {
+          font-size: 0.95rem;
+          color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+          .menu-label { display: none; }
+        }
+
+        /* ------------------------------
+           SIDEBAR PANEL (NEW)
+        --------------------------------*/
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: -280px;
+          width: 260px;
+          height: 100vh;
+          background: rgba(10, 14, 39, 0.92);
+          backdrop-filter: blur(14px);
+          border-left: 1px solid var(--border);
+          padding: 40px 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 22px;
+          transition: right 0.35s ease;
+          z-index: 999;
+        }
+
+        .sidebar.open {
+          right: 0;
+        }
+
+        .sidebar-header {
+          font-family: 'Fraunces', serif;
+          font-size: 1.8rem;
+          margin-bottom: 20px;
+        }
+
+        .sidebar a {
+          color: var(--text);
+          text-decoration: none;
+          font-size: 1.1rem;
+          opacity: 0.85;
+          transition: opacity 0.2s ease;
+        }
+
+        .sidebar a:hover {
+          opacity: 1;
+        }
+
+        /* ------------------------------
+           PAGE-SPECIFIC STYLES
+        --------------------------------*/
         .hero {
             padding: 140px 20px 120px;
             text-align: center;
@@ -58,7 +173,6 @@
             background: rgba(255,255,255,0.03);
         }
 
-        /* Expanders */
         details {
             margin: 20px 0;
             padding: 18px 20px;
@@ -71,7 +185,6 @@
         details summary {
             font-weight: 600;
             font-size: 1.2rem;
-            outline: none;
         }
 
         details p {
@@ -79,7 +192,6 @@
             opacity: 0.85;
         }
 
-        /* CTA */
         .cta {
             text-align: center;
             margin: 120px auto 80px;
@@ -128,6 +240,26 @@
 
 <body>
 
+    <!-- MENU -->
+    <div class="menu-container">
+      <div class="menu-icon" style="background-image:url('images/image_5.jpg');"></div>
+      <div class="menu-label">Menu</div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">mpgink</div>
+
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank">Aloha Friday Motivation</a>
+      <a href="https://www.mattymatte.com" target="_blank">Blog</a>
+      <a href="https://mattymattemodgepodge.etsy.com" target="_blank">Store</a>
+      <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank">Arlo & Ash</a>
+      <a href="ai-usage.html">AI Usage</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
     <!-- HERO -->
     <section class="hero">
         <h1>This is where ideas learn to breathe.</h1>
@@ -164,7 +296,6 @@
     <section class="section">
         <p><strong>mpgink didn’t start as a studio.</strong> It started as a kid scribbling stories, building worlds, and trying to make sense of the spark that wouldn’t leave him alone.</p>
 
-        <!-- EXPANDERS -->
         <details>
             <summary>The Early Words</summary>
             <p>Childhood writing, Opus/Berk Breathed influence, poetry, short stories — the first spark.</p>
@@ -221,6 +352,16 @@
             <div class="pathway"><a href="contact.html">Say Hello</a></div>
         </div>
     </section>
+
+    <!-- SIDEBAR JS -->
+    <script>
+      const menu = document.querySelector('.menu-container');
+      const sidebar = document.getElementById('sidebar');
+
+      menu.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+    </script>
 
 </body>
 </html>
