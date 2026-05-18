@@ -1,367 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About • mpgink</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <style>
-        /* ------------------------------
-           DESIGN TOKENS (same as index)
-        --------------------------------*/
-        :root {
-          --bg-start: #0a0e27;
-          --bg-end: #1a1f3a;
-          --text: #e8e8e8;
-          --text-muted: #a0a0a0;
-          --accent: #ff6b35;
-          --border: rgba(255, 255, 255, 0.08);
-        }
-
-        /* ------------------------------
-           GLOBAL
-        --------------------------------*/
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: 'Inter', sans-serif;
-          background: radial-gradient(circle at 30% 20%, var(--bg-start), var(--bg-end));
-          color: var(--text);
-          overflow-x: hidden;
-        }
-
-        body::before {
-          content: "";
-          position: fixed;
-          inset: 0;
-          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P4//8/AwAI/AL+WcN6WQAAAABJRU5ErkJggg==');
-          opacity: 0.12;
-          pointer-events: none;
-        }
-
-        /* ------------------------------
-           MENU
-        --------------------------------*/
-        .menu-container {
-          position: fixed;
-          top: 32px;
-          right: 40px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          z-index: 1000;
-          cursor: pointer;
-        }
-
-        .menu-icon {
-          width: 42px;
-          height: 42px;
-          border-radius: 50%;
-          background-size: cover;
-          background-position: center;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .menu-container:hover .menu-icon {
-          transform: scale(1.08);
-          box-shadow: 0 0 12px rgba(255,255,255,0.25);
-        }
-
-        .menu-label {
-          font-size: 0.95rem;
-          color: var(--text-muted);
-        }
-
-        @media (max-width: 768px) {
-          .menu-label { display: none; }
-        }
-
-        /* ------------------------------
-           SIDEBAR PANEL (NEW)
-        --------------------------------*/
-        .sidebar {
-          position: fixed;
-          top: 0;
-          right: -280px;
-          width: 260px;
-          height: 100vh;
-          background: rgba(10, 14, 39, 0.92);
-          backdrop-filter: blur(14px);
-          border-left: 1px solid var(--border);
-          padding: 40px 24px;
-          display: flex;
-          flex-direction: column;
-          gap: 22px;
-          transition: right 0.35s ease;
-          z-index: 999;
-        }
-
-        .sidebar.open {
-          right: 0;
-        }
-
-        .sidebar-header {
-          font-family: 'Fraunces', serif;
-          font-size: 1.8rem;
-          margin-bottom: 20px;
-        }
-
-        .sidebar a {
-          color: var(--text);
-          text-decoration: none;
-          font-size: 1.1rem;
-          opacity: 0.85;
-          transition: opacity 0.2s ease;
-        }
-
-        .sidebar a:hover {
-          opacity: 1;
-        }
-
-        /* ------------------------------
-           PAGE-SPECIFIC STYLES
-        --------------------------------*/
-        .hero {
-            padding: 140px 20px 120px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            opacity: 0.85;
-            line-height: 1.6;
-        }
-
-        .banner {
-            width: 85%;
-            margin: 80px auto 40px;
-            display: block;
-            object-fit: cover;
-            height: 220px;
-            border-radius: 6px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.35);
-        }
-
-        .section {
-            max-width: 900px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
-            line-height: 1.7;
-        }
-
-        .tenets-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .tenet {
-            padding: 18px 20px;
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 6px;
-            background: rgba(255,255,255,0.03);
-        }
-
-        details {
-            margin: 20px 0;
-            padding: 18px 20px;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.15);
-            cursor: pointer;
-        }
-
-        details summary {
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        details p {
-            margin-top: 12px;
-            opacity: 0.85;
-        }
-
-        .cta {
-            text-align: center;
-            margin: 120px auto 80px;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .cta h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .cta p {
-            opacity: 0.8;
-            margin-bottom: 40px;
-        }
-
-        .pathways {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .pathway {
-            padding: 20px;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.15);
-            text-align: center;
-            transition: 0.2s ease;
-        }
-
-        .pathway:hover {
-            transform: translateY(-4px);
-            background: rgba(255,255,255,0.08);
-        }
-
-        .pathway a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About • mpgink</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- MENU -->
-    <div class="menu-container">
-      <div class="menu-icon" style="background-image:url('images/image_5.jpg');"></div>
-      <div class="menu-label">Menu</div>
+<div class="menu-container">
+  <div class="menu-icon" style="background-image:url('images/image_5.jpg');"></div>
+  <div class="menu-label">Menu</div>
+</div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">mpgink</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank">Aloha Friday Motivation</a>
+  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
+  <a href="https://mattymattemodgepodge.etsy.com" target="_blank">Store</a>
+  <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank">Arlo & Ash</a>
+  <a href="ai-usage.html">AI Usage</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="page-hero">
+  <h1>This is where ideas learn to breathe.</h1>
+  <p>Words, images, stories, sounds — anything you can imagine — finds form here. And maybe, in watching things come to life, you’ll feel the pull to make something of your own.</p>
+</section>
+
+<img src="images/mission.png" class="banner" alt="Mission">
+<section class="section">
+  <p>mpgink exists to create, share, and celebrate the act of making things. We put art, writing, music, ideas, inventions, and experiments into the world — not because they’re perfect, but because they’re alive. Creativity is contagious. Sharing it is the spark.</p>
+</section>
+
+<img src="images/vision.png" class="banner" alt="Vision">
+<section class="section">
+  <p>A world where creativity is accessible, unpretentious, and everywhere. Where wonder is normal. Where making things is a way of life. Where connection is the outcome.</p>
+</section>
+
+<img src="images/tenets.png" class="banner" alt="Tenets">
+<section class="section">
+  <div class="tenets-grid">
+    <div class="tenet">Create without permission.</div>
+    <div class="tenet">Joy over perfection.</div>
+    <div class="tenet">Be a catalyst, not a guru.</div>
+    <div class="tenet">Make space for wonder.</div>
+    <div class="tenet">Community is the outcome.</div>
+    <div class="tenet">Stay lofi in mindset, infinite in ambition.</div>
+  </div>
+</section>
+
+<img src="images/history.png" class="banner" alt="History">
+<section class="section">
+  <p><strong>mpgink didn’t start as a studio.</strong> It started as a kid scribbling stories, building worlds, and trying to make sense of the spark that wouldn’t leave him alone.</p>
+
+  <details><summary>The Early Words</summary>
+    <p>Childhood writing, Opus/Berk Breathed influence, poetry, short stories — the first spark.</p>
+  </details>
+
+  <details><summary>The Spoken Word Era</summary>
+    <p>2009. Rap, spoken word, memorizing work, finding rhythm and voice.</p>
+  </details>
+
+  <details><summary>Visual Experiments</summary>
+    <p>Digital art, logos, characters, Friendlybook parody shirt, posters, photography.</p>
+  </details>
+
+  <details><summary>The Blog</summary>
+    <p>mattymatte.com, MattyMatteModgePodge — a home for writing, then a long pause.</p>
+  </details>
+
+  <details><summary>The Inventions</summary>
+    <p>VacBat, Lyric Nest, Phish show scorecard — the tinkerer era.</p>
+  </details>
+
+  <details><summary>The Music</summary>
+    <p>Ableton, beats, piano aspirations — sound as another medium.</p>
+  </details>
+
+  <details><summary>The Present Moment</summary>
+    <p>Etsy, print-on-demand, Arlo & Ash, the kids, wonder, Crunch Labs influence — the spark returning.</p>
+  </details>
+</section>
+
+<img src="images/about.png" class="banner" alt="About mpgink">
+<section class="section">
+  <p>mpgink is the studio where everything converges — writing, art, music, inventions, experiments, and the weekly spark of Aloha Friday Motivation. It’s a place built on curiosity, momentum, and the belief that making things is a way of life. AI is a collaborator here, not a replacement — a tool that accelerates the spark, not one that steals it.</p>
+</section>
+
+<section class="cta">
+  <h2>If something here stirred you, follow it.</h2>
+  <p>mpgink is a catalyst. The rest is yours.</p>
+
+  <div class="pathways">
+    <div class="pathway"><a href="afm.html">Aloha Friday Motivation</a></div>
+    <div class="pathway"><a href="blog.html">Wander the Archives</a></div>
+    <div class="pathway"><a href="store.html">See What’s Being Made</a></div>
+    <div class="pathway"><a href="arloash.html">Explore Arlo & Ash</a></div>
+    <div class="pathway"><a href="ai-usage.html">See How the Studio Works</a></div>
+    <div class="pathway"><a href="contact.html">Say Hello</a></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo"></div>
+    <div class="footer-brand">
+      <div class="footer-brand-name">mpgink</div>
+      <div class="footer-brand-line">A studio for making, exploring, and breathing on purpose.</div>
     </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="https://www.etsy.com/shop/MattyMatteModgePodge" target="_blank">Shop</a>
+    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
 
-    <!-- SIDEBAR -->
-    <nav class="sidebar" id="sidebar">
-      <div class="sidebar-header">mpgink</div>
-
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank">Aloha Friday Motivation</a>
-      <a href="https://www.mattymatte.com" target="_blank">Blog</a>
-      <a href="https://mattymattemodgepodge.etsy.com" target="_blank">Store</a>
-      <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank">Arlo & Ash</a>
-      <a href="ai-usage.html">AI Usage</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero">
-        <h1>This is where ideas learn to breathe.</h1>
-        <p>Words, images, stories, sounds — anything you can imagine — finds form here. And maybe, in watching things come to life, you’ll feel the pull to make something of your own.</p>
-    </section>
-
-    <!-- MISSION -->
-    <img src="images/mission.png" class="banner" alt="Mission">
-    <section class="section">
-        <p>mpgink exists to create, share, and celebrate the act of making things. We put art, writing, music, ideas, inventions, and experiments into the world — not because they’re perfect, but because they’re alive. Creativity is contagious. Sharing it is the spark.</p>
-    </section>
-
-    <!-- VISION -->
-    <img src="images/vision.png" class="banner" alt="Vision">
-    <section class="section">
-        <p>A world where creativity is accessible, unpretentious, and everywhere. Where wonder is normal. Where making things is a way of life. Where connection is the outcome.</p>
-    </section>
-
-    <!-- TENETS -->
-    <img src="images/tenets.png" class="banner" alt="Tenets">
-    <section class="section">
-        <div class="tenets-grid">
-            <div class="tenet">Create without permission.</div>
-            <div class="tenet">Joy over perfection.</div>
-            <div class="tenet">Be a catalyst, not a guru.</div>
-            <div class="tenet">Make space for wonder.</div>
-            <div class="tenet">Community is the outcome.</div>
-            <div class="tenet">Stay lofi in mindset, infinite in ambition.</div>
-        </div>
-    </section>
-
-    <!-- HISTORY -->
-    <img src="images/history.png" class="banner" alt="History">
-    <section class="section">
-        <p><strong>mpgink didn’t start as a studio.</strong> It started as a kid scribbling stories, building worlds, and trying to make sense of the spark that wouldn’t leave him alone.</p>
-
-        <details>
-            <summary>The Early Words</summary>
-            <p>Childhood writing, Opus/Berk Breathed influence, poetry, short stories — the first spark.</p>
-        </details>
-
-        <details>
-            <summary>The Spoken Word Era</summary>
-            <p>2009. Rap, spoken word, memorizing work, finding rhythm and voice.</p>
-        </details>
-
-        <details>
-            <summary>Visual Experiments</summary>
-            <p>Digital art, logos, characters, Friendlybook parody shirt, posters, photography.</p>
-        </details>
-
-        <details>
-            <summary>The Blog</summary>
-            <p>mattymatte.com, MattyMatteModgePodge — a home for writing, then a long pause.</p>
-        </details>
-
-        <details>
-            <summary>The Inventions</summary>
-            <p>VacBat, Lyric Nest, Phish show scorecard — the tinkerer era.</p>
-        </details>
-
-        <details>
-            <summary>The Music</summary>
-            <p>Ableton, beats, piano aspirations — sound as another medium.</p>
-        </details>
-
-        <details>
-            <summary>The Present Moment</summary>
-            <p>Etsy, print-on-demand, Arlo & Ash, the kids, wonder, Crunch Labs influence — the spark returning.</p>
-        </details>
-    </section>
-
-    <!-- ABOUT MPGINK -->
-    <img src="images/about.png" class="banner" alt="About mpgink">
-    <section class="section">
-        <p>mpgink is the studio where everything converges — writing, art, music, inventions, experiments, and the weekly spark of Aloha Friday Motivation. It’s a place built on curiosity, momentum, and the belief that making things is a way of life. AI is a collaborator here, not a replacement — a tool that accelerates the spark, not one that steals it.</p>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-        <h2>If something here stirred you, follow it.</h2>
-        <p>mpgink is a catalyst. The rest is yours.</p>
-
-        <div class="pathways">
-            <div class="pathway"><a href="afm.html">Aloha Friday Motivation</a></div>
-            <div class="pathway"><a href="blog.html">Wander the Archives</a></div>
-            <div class="pathway"><a href="store.html">See What’s Being Made</a></div>
-            <div class="pathway"><a href="arloash.html">Explore Arlo & Ash</a></div>
-            <div class="pathway"><a href="ai-usage.html">See How the Studio Works</a></div>
-            <div class="pathway"><a href="contact.html">Say Hello</a></div>
-        </div>
-    </section>
-
-    <!-- SIDEBAR JS -->
-    <script>
-      const menu = document.querySelector('.menu-container');
-      const sidebar = document.getElementById('sidebar');
-
-      menu.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-      });
-    </script>
+<script>
+const menu=document.querySelector('.menu-container');
+const sidebar=document.getElementById('sidebar');
+menu.addEventListener('click',()=>{sidebar.classList.toggle('open');});
+</script>
 
 </body>
 </html>
