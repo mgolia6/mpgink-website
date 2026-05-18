@@ -423,3 +423,63 @@ details p {
   text-decoration: none;
   font-weight: 600;
 }
+/* ------------------------------------
+   HOMEPAGE FIXES (MISSING BLOCK)
+------------------------------------ */
+
+/* Scroll cue */
+.scroll-cue {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  opacity: 0.5;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -10px); }
+}
+
+/* Responsive hero layout */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding-top: 140px;
+    height: auto;
+    text-align: center;
+  }
+
+  .hero-image {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 70vw;
+    max-width: 360px;
+    transform: none;
+    margin-bottom: 40px;
+    mask-image: none;
+  }
+
+  .hero-text {
+    margin-left: 0;
+    max-width: 90%;
+  }
+
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Outlets mobile fix */
+@media (max-width: 600px) {
+  .outlet-img {
+    height: 140px;
+  }
+}
