@@ -81,7 +81,7 @@ h1, h2, h3 {
 .sidebar {
   position: fixed;
   top: 0;
-  right: -280px;
+  right: -320px;
   width: 260px;
   height: 100vh;
   background: rgba(10, 14, 39, 0.92);
