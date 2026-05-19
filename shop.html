@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop • mpgink</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+  .shop-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 180px 8vw 80px;
+  }
+
+  .shop-intro .eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.2s;
+  }
+
+  .shop-intro h1 {
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 24px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.4s;
+  }
+
+  .shop-intro p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.6s;
+  }
+
+  .shop-intro a.etsy-link {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--accent);
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.8s;
+  }
+
+  .shop-intro a.etsy-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255,107,53,0.4);
+  }
+
+  /* SECTION */
+  .shop-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px 8vw;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .shop-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 36px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .section-header .item-count {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* PRODUCT GRID */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .product-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-color: rgba(255,255,255,0.14);
+  }
+
+  .product-img-wrap {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover .product-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  .product-info {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .product-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text);
+  }
+
+  .product-price {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  .product-tag {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* SECTION DIVIDER */
+  .section-gap {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent);
+    margin: 0 8vw;
+  }
+
+  /* FOOTER CTA */
+  .shop-cta {
+    text-align: center;
+    padding: 80px 8vw 160px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .shop-cta.visible { opacity: 1; transform: translateY(0); }
+
+  .shop-cta p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+
+  .shop-cta a {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--accent);
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: all 0.25s ease;
+  }
+
+  .shop-cta a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255,107,53,0.4);
+  }
+
+  @media (max-width: 768px) {
+    .shop-intro { padding: 160px 6vw 60px; }
+    .shop-section { padding: 50px 6vw; }
+    .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+  }
+
+  @media (max-width: 480px) {
+    .product-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="menu-container">
+  <div class="menu-icon" style="background-image:url('images/image_5.png');"></div>
+  <div class="menu-label">Menu</div>
+</div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">mpgink</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank">Aloha Friday Motivation</a>
+  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
+  <a href="https://mattymattemodgepodge.etsy.com" target="_blank">Store</a>
+  <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank">Arlo & Ash</a>
+  <a href="ai-usage.html">AI Usage</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+
+<div class="shop-intro">
+  <div class="eyebrow">The Store</div>
+  <h1>Made with intention.<br>Shipped to you.</h1>
+  <p>Print-on-demand designs from the studio — tees, hoodies, puzzles, accessories, and more. Everything ships direct. Browse here, buy on Etsy.</p>
+  <a href="https://mattymattemodgepodge.etsy.com" target="_blank" class="etsy-link">View Full Shop on Etsy ↗</a>
+</div>
+
+
+<!-- ── mpgink GEAR ──────────────────────────── -->
+<div class="shop-section" data-scroll>
+  <div class="section-header">
+    <h2>mpgink Gear</h2>
+    <span class="item-count">5 items</span>
+  </div>
+  <div class="product-grid">
+
+    <a href="https://www.etsy.com/listing/4483243244" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/891259/7879371304/il_794xN.7879371304_on44.jpg" alt="mpgink Graffiti Logo Hooded Tee" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">mpgink Graffiti Logo Hooded Tee</div>
+        <div class="product-tag">Streetwear</div>
+        <div class="product-price">from $42.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4483246010" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/062564/7879388310/il_794xN.7879388310_2uv5.jpg" alt="Aloha Friday Motivation Hoodie Tee" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Aloha Friday Motivation Hoodie Tee</div>
+        <div class="product-tag">AFM Collection</div>
+        <div class="product-price">from $42.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4478769964" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/c26202/7879402540/il_794xN.7879402540_gmpl.jpg" alt="Bowln Away Hoodie" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Bowln Away Hoodie</div>
+        <div class="product-tag">mpgink Gear</div>
+        <div class="product-price">$42.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4483981303" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/c26202/7879402540/il_794xN.7879402540_gmpl.jpg" alt="mpgink Graffiti Script Socks" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">mpgink Graffiti Script Socks</div>
+        <div class="product-tag">Accessories</div>
+        <div class="product-price">from $12.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4483988407" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/7261a9/7931489663/il_794xN.7931489663_ql92.jpg" alt="mpgink Paint Splatter Snapback" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">mpgink Paint Splatter Flat Bill Cap</div>
+        <div class="product-tag">Headwear</div>
+        <div class="product-price">from $29.99</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="section-gap"></div>
+
+<!-- ── CLOTHING ──────────────────────────────── -->
+<div class="shop-section" data-scroll>
+  <div class="section-header">
+    <h2>Clothing</h2>
+    <span class="item-count">8 items</span>
+  </div>
+  <div class="product-grid">
+
+    <a href="https://www.etsy.com/listing/4484943134" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/59f713/7889184250/il_794xN.7889184250_4web.jpg" alt="Life is Like a Post It Note Tee" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Life is Like a Post It Note Tee</div>
+        <div class="product-tag">Graphic Tee</div>
+        <div class="product-price">from $22.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4483996636" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/9c2747/7931589075/il_794xN.7931589075_3xro.jpg" alt="Zen AF Crewneck Sweatshirt" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Zen AF Crewneck Sweatshirt</div>
+        <div class="product-tag">Sweatshirt</div>
+        <div class="product-price">from $45.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4478800075" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/b63530/7898258501/il_794xN.7898258501_afv6.jpg" alt="Pau Hana Moana Sunset Surf Tee" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Pau Hana Moana Sunset Surf Tee</div>
+        <div class="product-tag">Hawaiian Vibes</div>
+        <div class="product-price">from $22.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4478783251" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/a61327/7898149929/il_794xN.7898149929_ehyw.jpg" alt="Palm Springs Good Vibes Tank" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Palm Springs Good Vibes Tank Top</div>
+        <div class="product-tag">Women's</div>
+        <div class="product-price">from $18.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4475768834" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/bbdad5/7898032311/il_794xN.7898032311_8i9a.jpg" alt="Be Kind It's Contagious Tee" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Be Kind It's Contagious Tee</div>
+        <div class="product-tag">Graphic Tee</div>
+        <div class="product-price">from $18.45</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4484266619" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/c0f55f/7933290401/il_794xN.7933290401_p2ds.jpg" alt="Coed Naked Lacrosse Tee" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Coed Naked Lacrosse Tee</div>
+        <div class="product-tag">Sports Humor</div>
+        <div class="product-price">from $22.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4481553544" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/d2f2a6/7916276623/il_794xN.7916276623_snup.jpg" alt="Future Orbital Engineer T-shirt" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Future Orbital Engineer T-shirt</div>
+        <div class="product-tag">Space / STEM</div>
+        <div class="product-price">from $24.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4481553744" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/ad2743/7868321370/il_794xN.7868321370_kpb6.jpg" alt="Mission Patch Rocket Emblem Hoodie" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Mission Patch Rocket Emblem Hoodie</div>
+        <div class="product-tag">Space</div>
+        <div class="product-price">from $42.99</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="section-gap"></div>
+
+<!-- ── KIDS ──────────────────────────────────── -->
+<div class="shop-section" data-scroll>
+  <div class="section-header">
+    <h2>Kids</h2>
+    <span class="item-count">4 items</span>
+  </div>
+  <div class="product-grid">
+
+    <a href="https://www.etsy.com/listing/4481557914" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/d03ce9/7868345174/il_794xN.7868345174_3hqu.jpg" alt="Artemis II Toddler Tee" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Artemis II Toddler Tee</div>
+        <div class="product-tag">Space / Toddler</div>
+        <div class="product-price">$19.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4481553662" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/e993c8/7868485938/il_794xN.7868485938_1u0o.jpg" alt="Future Orbital Engineer Sweatshirt" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Future Orbital Engineer Sweatshirt</div>
+        <div class="product-tag">Space / STEM</div>
+        <div class="product-price">from $34.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4475320226" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/e20fae/7827186892/il_794xN.7827186892_qdm1.jpg" alt="I'm Diggin' Bein' Two Toddler Tee" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">I'm Diggin' Bein' Two Toddler Tee</div>
+        <div class="product-tag">Birthday / Construction</div>
+        <div class="product-price">from $19.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4475319586" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/5605b9/7875130195/il_794xN.7875130195_5j3d.jpg" alt="It's My Dirty 3rd Dump Truck Tee" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">It's My Dirty 3rd Toddler Tee</div>
+        <div class="product-tag">Birthday / Construction</div>
+        <div class="product-price">from $19.99</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="section-gap"></div>
+
+<!-- ── ACCESSORIES ───────────────────────────── -->
+<div class="shop-section" data-scroll>
+  <div class="section-header">
+    <h2>Accessories</h2>
+    <span class="item-count">6 items</span>
+  </div>
+  <div class="product-grid">
+
+    <a href="https://www.etsy.com/listing/4479463847" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/cd474e/7902472357/il_794xN.7902472357_s8uo.jpg" alt="Zen AF Sunburst Trucker Cap" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Zen AF Sunburst Trucker Cap</div>
+        <div class="product-tag">Headwear</div>
+        <div class="product-price">from $27.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4481546825" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/d9822d/7868482186/il_794xN.7868482186_1j44.jpg" alt="Future Orbital Engineer Tote Bag" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Future Orbital Engineer Tote Bag</div>
+        <div class="product-tag">Bags</div>
+        <div class="product-price">from $17.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4481553786" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/028a71/7916442559/il_794xN.7916442559_hgcz.jpg" alt="Future Orbital Engineer Sticker" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Future Orbital Engineer Sticker</div>
+        <div class="product-tag">Stickers</div>
+        <div class="product-price">from $3.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4481548275" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/98a8a3/7916437689/il_794xN.7916437689_p2xl.jpg" alt="Future Orbital Engineer Candle" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Future Orbital Engineer Candle</div>
+        <div class="product-tag">9oz Soy Jar</div>
+        <div class="product-price">from $24.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4478761439" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/9a9a77/7850055334/il_794xN.7850055334_5pey.jpg" alt="Retro Sunset Palm Trees iPhone Case" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Retro Sunset Palm Trees iPhone Case</div>
+        <div class="product-tag">Phone Cases</div>
+        <div class="product-price">from $19.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4478794765" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/ec3279/7850261604/il_794xN.7850261604_1u35.jpg" alt="Pink Plumeria Phone Case" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Pink Plumeria Phone Case</div>
+        <div class="product-tag">Phone Cases</div>
+        <div class="product-price">from $19.99</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="section-gap"></div>
+
+<!-- ── PUZZLES & GAMES ───────────────────────── -->
+<div class="shop-section" data-scroll>
+  <div class="section-header">
+    <h2>Puzzles & Games</h2>
+    <span class="item-count">4 items</span>
+  </div>
+  <div class="product-grid">
+
+    <a href="https://www.etsy.com/listing/4471448579" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/63627e/7898040577/il_794xN.7898040577_caao.jpg" alt="Construction Site Cartoon Puzzle" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Construction Site Cartoon Puzzle</div>
+        <div class="product-tag">110–520 pieces</div>
+        <div class="product-price">from $19.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4471459070" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/f51c1f/7857190631/il_794xN.7857190631_l9qx.jpg" alt="Mystery at the Arcade Puzzle" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Mystery at the Arcade Puzzle</div>
+        <div class="product-tag">110 pieces</div>
+        <div class="product-price">from $19.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4471452389" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/d856ad/7808244286/il_794xN.7808244286_nurk.jpg" alt="Unicorn Arcade Puzzle" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Unicorn Arcade Puzzle</div>
+        <div class="product-tag">110 pieces</div>
+        <div class="product-price">from $19.99</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4472567252" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/42197a/7898036233/il_794xN.7898036233_25uh.jpg" alt="Sleeping Giant State Park Puzzle" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Sleeping Giant State Park Puzzle</div>
+        <div class="product-tag">Connecticut</div>
+        <div class="product-price">from $19.99</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="section-gap"></div>
+
+<!-- ── DIGITAL DOWNLOADS ──────────────────────── -->
+<div class="shop-section" data-scroll>
+  <div class="section-header">
+    <h2>Digital Downloads</h2>
+    <span class="item-count">2 items</span>
+  </div>
+  <div class="product-grid">
+
+    <a href="https://www.etsy.com/listing/4471520685" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/ecd5db/7802289104/il_794xN.7802289104_cz0b.jpg" alt="Construction Coloring Page" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Construction Coloring Page</div>
+        <div class="product-tag">Kids Printable · Instant Download</div>
+        <div class="product-price">$0.20</div>
+      </div>
+    </a>
+
+    <a href="https://www.etsy.com/listing/4479158819" target="_blank" class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://i.etsystatic.com/65030338/r/il/3bcfc5/7852537524/il_794xN.7852537524_7wtx.jpg" alt="Etsy + Printify Dropship Business Guide" loading="lazy">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Etsy + Printify Dropship Business Guide</div>
+        <div class="product-tag">PDF · Instant Download</div>
+        <div class="product-price">$8.95</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+
+<!-- CLOSING CTA -->
+<div class="shop-cta" data-scroll>
+  <p>See everything — new listings added regularly.</p>
+  <a href="https://mattymattemodgepodge.etsy.com" target="_blank">Browse the Full Shop ↗</a>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo"></div>
+    <div class="footer-brand">
+      <div class="footer-brand-name">mpgink</div>
+      <div class="footer-brand-line">A studio for making, exploring, and breathing on purpose.</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  const menu = document.querySelector('.menu-container');
+  const sidebar = document.getElementById('sidebar');
+  menu.addEventListener('click', () => { sidebar.classList.toggle('open'); });
+
+  const scrollEls = document.querySelectorAll('[data-scroll]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06 });
+
+  scrollEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
