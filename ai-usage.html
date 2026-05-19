@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Usage • mpgink</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+  .room-intro {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 200px 8vw 160px;
+  }
+
+  .room-intro .eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.2s;
+  }
+
+  .room-intro h1 {
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 32px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.4s;
+  }
+
+  .room-intro p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.6s;
+  }
+
+  .room-divider {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    margin: 0 auto;
+  }
+
+  /* BANNER — full width anchor image */
+  .ai-banner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    display: block;
+    padding: 0 8vw;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .ai-banner.visible { opacity: 1; transform: translateY(0); }
+
+  .ai-banner img {
+    width: 100%;
+    height: clamp(200px, 30vw, 380px);
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+
+  /* MANIFESTO BLOCK — full-width reading experience */
+  .manifesto {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 8vw 80px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .manifesto.visible { opacity: 1; transform: translateY(0); }
+
+  .manifesto-lede {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 48px;
+    color: var(--text);
+  }
+
+  .manifesto-lede em {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .manifesto p {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: rgba(232,232,232,0.85);
+    margin: 0 0 28px;
+  }
+
+  .manifesto p:last-child { margin-bottom: 0; }
+
+  /* SECTION BREAKS within manifesto */
+  .manifesto-section {
+    margin: 60px 0;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .manifesto-section.visible { opacity: 1; transform: translateY(0); }
+
+  .manifesto-section h2 {
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    margin: 0 0 24px;
+    color: var(--text);
+  }
+
+  /* HOW I USE IT — pill list */
+  .use-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 32px 0 40px;
+  }
+
+  .use-pill {
+    padding: 8px 20px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.03);
+    transition: all 0.2s ease;
+  }
+
+  .use-pill:hover {
+    border-color: var(--accent);
+    color: var(--text);
+    background: rgba(255,107,53,0.08);
+  }
+
+  /* PRINCIPLES — numbered list */
+  .principles {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 32px;
+  }
+
+  .principle {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 24px;
+    padding: 28px 24px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.3s ease;
+    align-items: start;
+  }
+
+  .principle:first-child { border-radius: 8px 8px 0 0; }
+  .principle:last-child  { border-radius: 0 0 8px 8px; }
+  .principle:hover { background: rgba(255,255,255,0.045); }
+
+  .principle-num {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent);
+    opacity: 0.6;
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .principle-text strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .principle-text span {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* CLOSING */
+  .room-close {
+    text-align: center;
+    padding: 100px 8vw 180px;
+    max-width: 680px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .room-close.visible { opacity: 1; transform: translateY(0); }
+
+  .room-close h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .room-close p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  .exit-doors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .exit-door {
+    padding: 12px 26px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .exit-door:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    .room-intro { padding: 160px 6vw 100px; }
+    .ai-banner, .manifesto { padding-left: 6vw; padding-right: 6vw; }
+    .principle { grid-template-columns: 36px 1fr; gap: 16px; }
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="menu-container">
+  <div class="menu-icon" style="background-image:url('images/image_5.png');"></div>
+  <div class="menu-label">Menu</div>
+</div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">mpgink</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank">Aloha Friday Motivation</a>
+  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
+  <a href="https://mattymattemodgepodge.etsy.com" target="_blank">Store</a>
+  <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank">Arlo & Ash</a>
+  <a href="ai-usage.html">AI Usage</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+
+<!-- OPENING -->
+<div class="room-intro">
+  <div class="eyebrow">Transparency</div>
+  <h1>AI isn't here to replace the artist.<br>It's here to get you out of your own way.</h1>
+  <p>For years, I created in isolation — endless Word docs, half-finished projects, ideas that lived in my head but never made it out. Not because they weren't good enough. Because the gap between vision and execution felt too wide. AI changed that.</p>
+</div>
+
+<div class="room-divider"></div>
+
+
+<!-- BANNER -->
+<div class="ai-banner" data-scroll>
+  <img src="images/ai_usage.png" alt="AI Usage">
+</div>
+
+
+<!-- MANIFESTO OPENING -->
+<div class="manifesto" data-scroll>
+  <div class="manifesto-lede">
+    It became my <em>force multiplier</em>. My assistant. My collaborator. My confidante. The creative catalyst I didn't know I needed.
+  </div>
+  <p>I don't ask AI to do my work. I give it my thoughts, my energy, a solid prompt — and I see what comes back. Then I refine. Layer after layer. Sculpting the output until it reflects what I envisioned. Sometimes it nails it on the first try. More often, it's a starting point, and the real work is in the iteration. The magic is in the collaboration.</p>
+  <p>This page exists because I believe in being straight about it. Not because I have to — because I want to.</p>
+</div>
+
+
+<!-- HOW I USE IT -->
+<div class="manifesto-section" data-scroll>
+  <div style="max-width: 820px; margin: 0 auto; padding: 0 8vw;">
+    <h2>How I use it.</h2>
+    <p style="font-size: 1.05rem; line-height: 1.8; color: rgba(232,232,232,0.85); margin-bottom: 0;">AI shows up across everything I make. Not as a replacement — as a collaborator that removes friction and keeps me in the flow state where ideas actually get born.</p>
+    <div class="use-list">
+      <div class="use-pill">Writing & essays</div>
+      <div class="use-pill">Poetry & spoken word</div>
+      <div class="use-pill">Screenplays & scripts</div>
+      <div class="use-pill">Newsletters & blogs</div>
+      <div class="use-pill">Music & soundscapes</div>
+      <div class="use-pill">Images & concept art</div>
+      <div class="use-pill">Branding & design</div>
+      <div class="use-pill">Research & analysis</div>
+      <div class="use-pill">Pitches & presentations</div>
+      <div class="use-pill">App prototyping</div>
+      <div class="use-pill">Life & clarity</div>
+      <div class="use-pill">Understanding space (seriously)</div>
+    </div>
+    <p style="font-size: 1.05rem; line-height: 1.8; color: rgba(232,232,232,0.85);">It's not about the tool doing the thing. It's about the tool helping me do the thing better, faster, and with less friction between the idea and the execution.</p>
+  </div>
+</div>
+
+
+<!-- PRINCIPLES -->
+<div class="manifesto-section" data-scroll>
+  <div style="max-width: 820px; margin: 0 auto; padding: 0 8vw;">
+    <h2>How I approach it.</h2>
+    <div class="principles">
+
+      <div class="principle">
+        <div class="principle-num">01</div>
+        <div class="principle-text">
+          <strong>Transparency first.</strong>
+          <span>If AI helped make something, I say so. No smoke and mirrors. That's the whole point of this page.</span>
+        </div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-num">02</div>
+        <div class="principle-text">
+          <strong>Human intent drives everything.</strong>
+          <span>The ideas, the vision, the refinement — that's all me. AI is the assistant, not the author.</span>
+        </div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-num">03</div>
+        <div class="principle-text">
+          <strong>Iteration is the artform.</strong>
+          <span>The first output is never the final product. The craft is in the sculpting — layer after layer until it sounds, reads, or looks like what I heard in my head.</span>
+        </div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-num">04</div>
+        <div class="principle-text">
+          <strong>Ethics matter.</strong>
+          <span>I don't use AI to deceive, to replace human connection, or to churn out soulless content. I use it to amplify what I already bring to the table.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- THE OUTPUT IS MINE -->
+<div class="manifesto-section" data-scroll>
+  <div style="max-width: 820px; margin: 0 auto; padding: 0 8vw;">
+    <h2>The output is mine. The process is collaborative.</h2>
+    <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(232,232,232,0.85); margin-bottom: 24px;">Everything that comes out of mpgink — the writing, the designs, the ideas — reflects my vision, my taste, my voice. AI is the tool I use to bring it to life. Just like I use a camera for photography, a keyboard for writing, or design software for graphics.</p>
+    <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(232,232,232,0.85); margin-bottom: 24px;">The difference is that AI is conversational. It listens. It responds. It helps me think. And that changes everything about what's possible to make — especially for someone who's been carrying ideas around for twenty years with nowhere to put them.</p>
+    <p style="font-size: 1.05rem; line-height: 1.85; color: rgba(232,232,232,0.85);">Responsible creative AI usage is the future. Not because it's a trend — because it democratizes creation. It gives people with ideas but not always the technical skills or resources a way to make things real. If you've ever felt like you had something worth making but didn't know where to start, AI might be your way in.</p>
+  </div>
+</div>
+
+
+<!-- CLOSING -->
+<div class="room-close" data-scroll>
+  <h2>Use it. Own it. Refine it. Make it yours.</h2>
+  <p>That's the mpgink way.</p>
+  <div class="exit-doors">
+    <a href="about.html" class="exit-door">About the Studio</a>
+    <a href="index.html" class="exit-door">Back Home</a>
+    <a href="contact.html" class="exit-door">Say Hello</a>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo"></div>
+    <div class="footer-brand">
+      <div class="footer-brand-name">mpgink</div>
+      <div class="footer-brand-line">A studio for making, exploring, and breathing on purpose.</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="https://www.etsy.com/shop/MattyMatteModgePodge" target="_blank">Shop</a>
+    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  const menu = document.querySelector('.menu-container');
+  const sidebar = document.getElementById('sidebar');
+  menu.addEventListener('click', () => { sidebar.classList.toggle('open'); });
+
+  const scrollEls = document.querySelectorAll('[data-scroll]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  scrollEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
