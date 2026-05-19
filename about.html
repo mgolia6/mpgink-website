@@ -5,6 +5,244 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About • mpgink</title>
 <link rel="stylesheet" href="style.css">
+<style>
+
+  .room-intro {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 200px 8vw 160px;
+  }
+
+  .room-intro .eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.2s;
+  }
+
+  .room-intro h1 {
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 32px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.4s;
+  }
+
+  .room-intro p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.6s;
+  }
+
+  .room-divider {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    margin: 0 auto;
+  }
+
+  .gallery-frame {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 8vw;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .gallery-frame.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .frame-banner {
+    width: 100%;
+    height: clamp(180px, 28vw, 340px);
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 64px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+
+  .frame-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .frame-content.flip {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .frame-content.flip .frame-label { order: 2; }
+  .frame-content.flip .frame-body  { order: 1; }
+
+  .frame-label {
+    position: sticky;
+    top: 120px;
+  }
+
+  .section-num {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .frame-label h2 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .frame-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(232, 232, 232, 0.88);
+  }
+
+  .frame-body p { margin: 0 0 24px; }
+  .frame-body p:last-child { margin-bottom: 0; }
+
+  .tenets-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .tenet-item {
+    padding: 32px 28px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.3s ease;
+  }
+
+  .tenet-item:hover { background: rgba(255,255,255,0.05); }
+  .tenet-item:first-child    { border-radius: 8px 0 0 0; }
+  .tenet-item:nth-child(2)   { border-radius: 0 8px 0 0; }
+  .tenet-item:nth-child(5)   { border-radius: 0 0 0 8px; }
+  .tenet-item:last-child     { border-radius: 0 0 8px 0; }
+
+  .tenet-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .tenet-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .era {
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .era:last-child { border-bottom: none; }
+
+  .era-time {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 4px;
+  }
+
+  .era-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(232,232,232,0.85);
+  }
+
+  .era-text strong { color: var(--text); font-weight: 600; }
+
+  .room-close {
+    text-align: center;
+    padding: 140px 8vw 200px;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .room-close.visible { opacity: 1; transform: translateY(0); }
+
+  .room-close h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .room-close p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  .exit-doors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .exit-door {
+    padding: 12px 26px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .exit-door:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .frame-content, .frame-content.flip { grid-template-columns: 1fr; gap: 40px; }
+    .frame-content.flip .frame-label, .frame-content.flip .frame-body { order: unset; }
+    .frame-label { position: static; }
+    .tenets-list { grid-template-columns: 1fr; }
+    .tenet-item:first-child, .tenet-item:nth-child(2), .tenet-item:nth-child(5), .tenet-item:last-child { border-radius: 0; }
+    .tenet-item:first-child { border-radius: 8px 8px 0 0; }
+    .tenet-item:last-child  { border-radius: 0 0 8px 8px; }
+    .era { grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  @media (max-width: 600px) {
+    .room-intro { padding: 160px 6vw 100px; }
+    .gallery-frame { padding: 60px 6vw; }
+    .frame-banner { margin-bottom: 40px; }
+  }
+
+</style>
 </head>
 
 <body>
@@ -26,85 +264,157 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<section class="page-hero">
+
+<!-- OPENING ROOM -->
+<div class="room-intro">
+  <div class="eyebrow">Come on in</div>
   <h1>This is where ideas learn to breathe.</h1>
-  <p>Words, images, stories, sounds — anything you can imagine — finds form here. And maybe, in watching things come to life, you’ll feel the pull to make something of your own.</p>
-</section>
+  <p>Words, images, stories, sounds — anything you can imagine finds form here. And maybe, in watching things come to life, you'll feel the pull to make something of your own.</p>
+</div>
 
-<img src="images/mission.png" class="banner" alt="Mission">
-<section class="section">
-  <p>mpgink exists to create, share, and celebrate the act of making things. We put art, writing, music, ideas, inventions, and experiments into the world — not because they’re perfect, but because they’re alive. Creativity is contagious. Sharing it is the spark.</p>
-</section>
+<div class="room-divider"></div>
 
-<img src="images/vision.png" class="banner" alt="Vision">
-<section class="section">
-  <p>A world where creativity is accessible, unpretentious, and everywhere. Where wonder is normal. Where making things is a way of life. Where connection is the outcome.</p>
-</section>
 
-<img src="images/tenets.png" class="banner" alt="Tenets">
-<section class="section">
-  <div class="tenets-grid">
-    <div class="tenet">Create without permission.</div>
-    <div class="tenet">Joy over perfection.</div>
-    <div class="tenet">Be a catalyst, not a guru.</div>
-    <div class="tenet">Make space for wonder.</div>
-    <div class="tenet">Community is the outcome.</div>
-    <div class="tenet">Stay lofi in mindset, infinite in ambition.</div>
+<!-- ROOM 1: MISSION -->
+<div class="gallery-frame" data-scroll>
+  <img src="images/mission.png" class="frame-banner" alt="Mission">
+  <div class="frame-content">
+    <div class="frame-label">
+      <div class="section-num">01</div>
+      <h2>Why this exists.</h2>
+    </div>
+    <div class="frame-body">
+      <p>mpgink exists to create, share, and celebrate the act of making things. Not because they're perfect — because they're alive.</p>
+      <p>Creativity is contagious. Sharing it is the spark. Whether it's a beat, a design, a story, a prototype, or a ridiculous idea that might just work — if it brings joy or lights something up in someone else, it's worth putting into the world.</p>
+      <p>This is the studio. The doors are open.</p>
+    </div>
   </div>
-</section>
+</div>
 
-<img src="images/history.png" class="banner" alt="History">
-<section class="section">
-  <p><strong>mpgink didn’t start as a studio.</strong> It started as a kid scribbling stories, building worlds, and trying to make sense of the spark that wouldn’t leave him alone.</p>
 
-  <details><summary>The Early Words</summary>
-    <p>Childhood writing, Opus/Berk Breathed influence, poetry, short stories — the first spark.</p>
-  </details>
+<!-- ROOM 2: VISION -->
+<div class="gallery-frame" data-scroll>
+  <img src="images/vision.png" class="frame-banner" alt="Vision">
+  <div class="frame-content flip">
+    <div class="frame-label">
+      <div class="section-num">02</div>
+      <h2>The world we're reaching for.</h2>
+    </div>
+    <div class="frame-body">
+      <p>A world where creativity isn't gatekept, overthought, or reserved for serious artists. Where kids build things because they're curious, and adults make things because they remember what that feels like.</p>
+      <p>Where communities form around the simple act of saying: <em>hey, I made this — check it out.</em></p>
+      <p>Lo-fi mindset. Infinite ambition. Wonder and experimentation living side by side. The goal was never perfection. It was always connection.</p>
+    </div>
+  </div>
+</div>
 
-  <details><summary>The Spoken Word Era</summary>
-    <p>2009. Rap, spoken word, memorizing work, finding rhythm and voice.</p>
-  </details>
 
-  <details><summary>Visual Experiments</summary>
-    <p>Digital art, logos, characters, Friendlybook parody shirt, posters, photography.</p>
-  </details>
+<!-- ROOM 3: TENETS -->
+<div class="gallery-frame" data-scroll>
+  <img src="images/tenets.png" class="frame-banner" alt="Tenets">
+  <div class="frame-content">
+    <div class="frame-label">
+      <div class="section-num">03</div>
+      <h2>How we move.</h2>
+    </div>
+    <div class="frame-body">
+      <div class="tenets-list">
+        <div class="tenet-item">
+          <div class="tenet-title">Create without permission.</div>
+          <div class="tenet-desc">You don't need credentials or anyone's approval. If you have an idea, make it. If it sucks, make another one.</div>
+        </div>
+        <div class="tenet-item">
+          <div class="tenet-title">Joy over perfection.</div>
+          <div class="tenet-desc">The point is to feel something while you're making it — and let someone else feel something when they see it.</div>
+        </div>
+        <div class="tenet-item">
+          <div class="tenet-title">Be a catalyst, not a guru.</div>
+          <div class="tenet-desc">We're not here to tell you how to create. We're here to get so excited about making things it becomes contagious.</div>
+        </div>
+        <div class="tenet-item">
+          <div class="tenet-title">Make space for wonder.</div>
+          <div class="tenet-desc">Creativity thrives in curiosity, play, and the "what if?" mindset. Wonder is the engine.</div>
+        </div>
+        <div class="tenet-item">
+          <div class="tenet-title">Community is the outcome.</div>
+          <div class="tenet-desc">Art isn't just for the artist. The magic happens when someone connects with what you made — even just one person.</div>
+        </div>
+        <div class="tenet-item">
+          <div class="tenet-title">Stay lo-fi, infinite in ambition.</div>
+          <div class="tenet-desc">Low pressure, high output. No gatekeeping. Just making.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <details><summary>The Blog</summary>
-    <p>mattymatte.com, MattyMatteModgePodge — a home for writing, then a long pause.</p>
-  </details>
 
-  <details><summary>The Inventions</summary>
-    <p>VacBat, Lyric Nest, Phish show scorecard — the tinkerer era.</p>
-  </details>
+<!-- ROOM 4: HISTORY -->
+<div class="gallery-frame" data-scroll>
+  <img src="images/history.png" class="frame-banner" alt="History">
+  <div class="frame-content flip">
+    <div class="frame-label">
+      <div class="section-num">04</div>
+      <h2>Where it all came from.</h2>
+    </div>
+    <div class="frame-body">
 
-  <details><summary>The Music</summary>
-    <p>Ableton, beats, piano aspirations — sound as another medium.</p>
-  </details>
+      <div class="era">
+        <div class="era-time">Early 2000s</div>
+        <div class="era-text">
+          <strong>It started with a name and a feeling.</strong> mpgink had no real direction — just a love for the sound of it and a need to make something. Writing came first. Stories as a kid, worlds built on paper, characters pulled from Berkeley Breathed's Opus. Poetry. Short stories. Whatever needed to get out.
+        </div>
+      </div>
 
-  <details><summary>The Present Moment</summary>
-    <p>Etsy, print-on-demand, Arlo & Ash, the kids, wonder, Crunch Labs influence — the spark returning.</p>
-  </details>
-</section>
+      <div class="era">
+        <div class="era-time">2009</div>
+        <div class="era-text">
+          <strong>The voice found rhythm.</strong> Writing became rap and spoken word — memorizing the work, performing it, feeling what it meant to put words in the air. Around the same time, the visual side woke up: logos, characters, a parody t-shirt (Friendlybook, for the Phish heads), posters, photography. No master plan. Just experimenting.
+        </div>
+      </div>
 
-<img src="images/about.png" class="banner" alt="About mpgink">
-<section class="section">
-  <p>mpgink is the studio where everything converges — writing, art, music, inventions, experiments, and the weekly spark of Aloha Friday Motivation. It’s a place built on curiosity, momentum, and the belief that making things is a way of life. AI is a collaborator here, not a replacement — a tool that accelerates the spark, not one that steals it.</p>
-</section>
+      <div class="era">
+        <div class="era-time">The Blog Years</div>
+        <div class="era-text">
+          <strong>mattymattemodgepodge gave it a home.</strong> A place for the writing that had been living in endless Word docs. It worked, for a while. Then life happened. It's still out there — dormant, not dead. The pull to return is real.
+        </div>
+      </div>
 
-<section class="cta-section">
+      <div class="era">
+        <div class="era-time">The Invention Phase</div>
+        <div class="era-text">
+          <strong>Ideas that wanted to be things.</strong> The VacBat — a battery pack for corded vacuums, ahead of its time. A TV pilot called <em>Pilot</em>. Beats in Ableton. Piano aspirations. App concepts: Lyric Nest (social media for writers), a Phish show scorecard. Some launched. Most didn't. All of them mattered.
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-time">Now</div>
+        <div class="era-text">
+          <strong>Everything converges.</strong> An Etsy store. A son who started writing his own books. Crunch Labs lighting up the next generation's engineering curiosity. And finally — mpgink.com. Not a portfolio. A workshop with the doors open.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- CLOSING ROOM -->
+<div class="room-close" data-scroll>
   <h2>If something here stirred you, follow it.</h2>
   <p>mpgink is a catalyst. The rest is yours.</p>
-
-  <div class="pathways">
-    <div class="pathway"><a href="afm.html">Aloha Friday Motivation</a></div>
-    <div class="pathway"><a href="blog.html">Wander the Archives</a></div>
-    <div class="pathway"><a href="store.html">See What’s Being Made</a></div>
-    <div class="pathway"><a href="arloash.html">Explore Arlo & Ash</a></div>
-    <div class="pathway"><a href="ai-usage.html">See How the Studio Works</a></div>
-    <div class="pathway"><a href="contact.html">Say Hello</a></div>
+  <div class="exit-doors">
+    <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank" class="exit-door">Aloha Friday Motivation</a>
+    <a href="https://www.mattymatte.com" target="_blank" class="exit-door">The Blog</a>
+    <a href="https://mattymattemodgepodge.etsy.com" target="_blank" class="exit-door">The Store</a>
+    <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank" class="exit-door">Arlo & Ash</a>
+    <a href="ai-usage.html" class="exit-door">How the Studio Works</a>
+    <a href="contact.html" class="exit-door">Say Hello</a>
   </div>
-</section>
+</div>
 
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-left">
     <div class="footer-logo"></div>
@@ -121,9 +431,21 @@
 </footer>
 
 <script>
-const menu=document.querySelector('.menu-container');
-const sidebar=document.getElementById('sidebar');
-menu.addEventListener('click',()=>{sidebar.classList.toggle('open');});
+  const menu = document.querySelector('.menu-container');
+  const sidebar = document.getElementById('sidebar');
+  menu.addEventListener('click', () => { sidebar.classList.toggle('open'); });
+
+  const scrollEls = document.querySelectorAll('[data-scroll]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  scrollEls.forEach(el => observer.observe(el));
 </script>
 
 </body>
