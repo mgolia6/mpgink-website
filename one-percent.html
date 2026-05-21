@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Percent — mpgink</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .op-hero {
+      padding: 160px 8vw 80px;
+      max-width: 900px;
+    }
+
+    .op-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .op-hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0 0 24px;
+    }
+
+    .op-hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 0 40px;
+    }
+
+    .op-cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* CARDS */
+    .op-section {
+      padding: 80px 8vw;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .op-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      backdrop-filter: blur(12px);
+      margin-bottom: 32px;
+    }
+
+    .op-card-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-weight: 600;
+    }
+
+    /* HOW IT WORKS */
+    .op-step {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .op-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .op-step-bar {
+      width: 3px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .op-step-content {}
+
+    .op-step-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .op-step-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* CATEGORIES */
+    .op-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    .op-category {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .op-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .op-category-name {
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .op-category-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* ETHOS */
+    .op-ethos p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    .op-ethos strong {
+      color: var(--text);
+    }
+
+    /* BOTTOM CTA */
+    .op-bottom-cta {
+      text-align: center;
+      padding: 80px 8vw 120px;
+    }
+
+    .op-bottom-cta h2 {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+
+    .op-bottom-cta p {
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .op-hero h1 { font-size: 2.6rem; }
+      .op-card { padding: 32px 24px; }
+      .op-categories { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu-container">
+  <div class="menu-icon" style="background-image:url('images/image_5.png');"></div>
+  <div class="menu-label">Menu</div>
+</div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">mpgink</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="newsletter.html">Aloha Friday Motivation</a>
+  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
+  <a href="books.html">Books</a>
+  <a href="shop.html">Store</a>
+  <a href="ai-usage.html">AI Usage</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="op-hero">
+  <div class="op-eyebrow">A new project from mpgink</div>
+  <h1>One concept.<br>One percent better.<br>Every day.</h1>
+  <p>One Percent is a daily micro-learning system built around one idea: small, consistent gains compound into real capability over time. Each entry takes under five minutes and covers one concept — no fluff, no filler.</p>
+  <div class="op-cta-row">
+    <a href="https://one-percent-app.vercel.app" target="_blank" class="cta cta-primary">Try the App</a>
+    <a href="#how-it-works" class="cta cta-secondary">How It Works</a>
+  </div>
+</section>
+
+<div class="op-section">
+
+  <!-- HOW IT WORKS -->
+  <div class="op-card" id="how-it-works">
+    <div class="op-card-label">How It Works</div>
+
+    <div class="op-step">
+      <div class="op-step-bar" style="background: #d4f040;"></div>
+      <div class="op-step-content">
+        <div class="op-step-title" style="color: #d4f040;">Morning Brief</div>
+        <div class="op-step-desc">A sharp, focused explanation of the day's concept. Read it, absorb it, move on.</div>
+      </div>
+    </div>
+
+    <div class="op-step">
+      <div class="op-step-bar" style="background: #40f0c8;"></div>
+      <div class="op-step-content">
+        <div class="op-step-title" style="color: #40f0c8;">Midday Reframe</div>
+        <div class="op-step-desc">A prompt to apply the concept to something real in your day. Takes 60 seconds.</div>
+      </div>
+    </div>
+
+    <div class="op-step">
+      <div class="op-step-bar" style="background: #f04060;"></div>
+      <div class="op-step-content">
+        <div class="op-step-title" style="color: #f04060;">Evening Quiz</div>
+        <div class="op-step-desc">Three questions to lock it in. No grade, no pressure — just a signal for what stuck.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <div class="op-card">
+    <div class="op-card-label">The Categories</div>
+    <div class="op-categories">
+
+      <div class="op-category">
+        <div class="op-dot" style="background: #d4f040;"></div>
+        <div>
+          <div class="op-category-name" style="color: #d4f040;">Sales Craft</div>
+          <div class="op-category-desc">The mechanics of selling — discovery, negotiation, influence, and everything in between.</div>
+        </div>
+      </div>
+
+      <div class="op-category">
+        <div class="op-dot" style="background: #40f0c8;"></div>
+        <div>
+          <div class="op-category-name" style="color: #40f0c8;">AI</div>
+          <div class="op-category-desc">How large language models actually work. Practical literacy for the moment we're in.</div>
+        </div>
+      </div>
+
+      <div class="op-category">
+        <div class="op-dot" style="background: #f0a040;"></div>
+        <div>
+          <div class="op-category-name" style="color: #f0a040;">Vocab & Language</div>
+          <div class="op-category-desc">Words that change how you think — and how others hear you.</div>
+        </div>
+      </div>
+
+      <div class="op-category">
+        <div class="op-dot" style="background: #a040f0;"></div>
+        <div>
+          <div class="op-category-name" style="color: #a040f0;">Mental Models</div>
+          <div class="op-category-desc">Frameworks for clearer thinking, faster decisions, and fewer blind spots.</div>
+        </div>
+      </div>
+
+      <div class="op-category">
+        <div class="op-dot" style="background: #f04080;"></div>
+        <div>
+          <div class="op-category-name" style="color: #f04080;">Philosophy</div>
+          <div class="op-category-desc">Old ideas that still cut. Stoicism, ethics, and the examined life — applied.</div>
+        </div>
+      </div>
+
+      <div class="op-category">
+        <div class="op-dot" style="background: #40a0f0;"></div>
+        <div>
+          <div class="op-category-name" style="color: #40a0f0;">Neuroscience & Cognition</div>
+          <div class="op-category-desc">How your brain actually works, and what to do about it.</div>
+        </div>
+      </div>
+
+      <div class="op-category">
+        <div class="op-dot" style="background: #f0c040;"></div>
+        <div>
+          <div class="op-category-name" style="color: #f0c040;">Communication</div>
+          <div class="op-category-desc">Listening, framing, presence. The skills that make everything else work.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ETHOS -->
+  <div class="op-card op-ethos">
+    <div class="op-card-label">The Ethos</div>
+    <p>This isn't a course. There's no certificate at the end. <strong>One Percent is a practice</strong> — something you return to daily because the compounding is the point. One entry. One concept. <strong>One percent better.</strong></p>
+  </div>
+
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="op-bottom-cta">
+  <h2>Start today.</h2>
+  <p>Five minutes. One concept. Every day.</p>
+  <a href="https://one-percent-app.vercel.app" target="_blank" class="cta cta-primary">Open One Percent</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo"></div>
+    <div class="footer-brand">
+      <div class="footer-brand-name">mpgink</div>
+      <div class="footer-brand-line">A studio for making, exploring, and breathing on purpose.</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html#studio">Creative Outlets</a>
+    <a href="shop.html">Shop</a>
+    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  const menu = document.querySelector('.menu-container');
+  const sidebar = document.getElementById('sidebar');
+  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
+</script>
+</body>
+</html>
