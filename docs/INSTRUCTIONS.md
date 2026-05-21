@@ -1,191 +1,158 @@
-# mpgink.com — Build & Deploy Instructions
+# Working with Claude on mpgink.com — Instructions
+**Last updated: May 20, 2026**
 
-## Quick Deploy (Get Live Now)
+---
 
-### Option 1: Direct Upload
-1. Download `index.html`
-2. Upload to your web host (via FTP, cPanel, or hosting dashboard)
-3. Point mpgink.com domain to that file
-4. Done
+## How to Start a New Session
 
-### Option 2: GitHub Pages (Recommended)
-1. Push this repo to GitHub
-2. Repo Settings → Pages → Source: main branch → Save
-3. GitHub gives you a URL (e.g., `username.github.io/mpgink-website`)
-4. Point mpgink.com to that URL via CNAME record in your domain DNS
+Provide these to Claude at the start of every chat:
 
-**DNS Setup:**
+1. Attach `docs/INSTRUCTIONS.md` and `docs/SESSION_LOG.md` from the repo
+2. State the current task
+3. GitHub token if pushes are needed (Claude cannot store it between sessions)
+
+**Quick start message:**
 ```
-Type: CNAME
-Name: www
-Value: username.github.io
-```
+Working on mpgink.com. Attaching INSTRUCTIONS.md and SESSION_LOG.md.
 
-For apex domain (mpgink.com without www):
-```
-Type: A
-Name: @
-Values: 
-  185.199.108.153
-  185.199.109.153
-  185.199.110.153
-  185.199.111.153
+Token: [paste token]
+Task: [what you need]
 ```
 
 ---
 
-## File Management
+## GitHub Access
 
-### Images
-All images are embedded as base64 in `index.html`. No external image hosting needed.
+**Repo:** `https://github.com/mgolia6/mpgink-website`
+**Live site (GitHub Pages):** `https://mgolia6.github.io/mpgink-website/`
+**Custom domain:** `https://mpgink.com`
 
-If you want to update an image:
-1. Replace the file in `/images/`
-2. Run the image-embedding script (see "Rebuilding" below)
-3. Deploy the new `index.html`
-
-### Adding New Sections
-Future pages (About, Books, Shop, etc.) should follow the same aesthetic:
-- Lo-fi street art vibe
-- Hand-drawn fonts
-- Textured backgrounds
-- Rotated elements
-- Layered shadows
-
-Reference the current `index.html` for color variables and typography.
-
----
-
-## Rebuilding the Site
-
-If you update images or content and need to regenerate `index.html`:
-
-```python
-# Run this from the repo root
-python3 scripts/build.py
-```
-
-This script:
-1. Reads images from `/images/`
-2. Converts them to base64
-3. Injects them into the HTML template
-4. Outputs updated `index.html`
-
-*Note: build script not included in v1.0. Create if needed or rebuild manually with Claude.*
-
----
-
-## Version Control Workflow
-
-### Initial Setup
+**How Claude pushes changes:**
 ```bash
-git init
-git add .
-git commit -m "Initial commit - mpgink.com v1.0"
-git remote add origin https://github.com/username/mpgink-website.git
-git push -u origin main
-```
-
-### Making Changes
-```bash
-# Edit files
-git add .
-git commit -m "Update: describe what you changed"
+git clone https://[token]@github.com/mgolia6/mpgink-website.git
+# make changes
+git config user.email "mpgink@build.com"
+git config user.name "Claude"
+git add -A
+git commit -m "Description"
 git push
 ```
 
-GitHub Pages auto-deploys on push to main.
+GitHub Pages auto-deploys within ~60 seconds of push.
 
 ---
 
-## Design Tokens
+## Repo Structure
 
-Keep these consistent across all pages:
+```
+mpgink-website/
+├── index.html              # Landing page
+├── about.html              # About — BUILT
+├── shop.html               # Store — BUILT
+├── ai-usage.html           # AI Usage — BUILT
+├── books.html              # Books — STUB (needs content)
+├── newsletter.html         # Newsletter — STUB (needs content)
+├── contact.html            # Contact — STUB (needs content)
+├── one-percent.html        # One Percent promo — BUILT (link hidden, beta)
+├── style.css               # Shared stylesheet
+├── images/                 # All image assets
+│   ├── image_1.jpg        # mpgink header
+│   ├── image_2.jpg        # Blog logo
+│   ├── image_3.jpg        # Etsy bottle
+│   ├── image_4.png        # Arlo & Ash logo
+│   ├── image_5.png        # Favicon
+│   ├── image_6.jpg        # AFM header
+│   └── header_v3.jpg      # Cropped header
+└── docs/
+    ├── INSTRUCTIONS.md     # This file
+    ├── SESSION_LOG.md      # Running session history
+    └── PROJECT_PLAN.md     # Roadmap and design tokens
+```
+
+---
+
+## Design System
 
 ### Colors
 ```css
---cream: #f4f1ea;
---charcoal: #2a2a2a;
---rust: #d4634d;
---teal: #3d8f8f;
---mustard: #e8a64a;
---navy: #344d5c;
+--bg-start: #0a0e27;
+--bg-end: #1a1f3a;
+--text: #e8e8e8;
+--text-muted: #a0a0a0;
+--accent: #ff6b35;          /* Orange */
+--card-bg: rgba(255,255,255,0.04);
+--border: rgba(255,255,255,0.08);
 ```
 
 ### Typography
-- Display: Covered By Your Grace (Google Fonts)
-- Headers: Special Elite (Google Fonts)
-- Body: Courier Prime (Google Fonts)
+- **Headings:** Fraunces (Google Fonts) — serif, 600/800 weight
+- **Body:** Inter (Google Fonts) — 300/400/600/800 weight
 
-### Effects
-- Textured background (repeating linear gradient)
-- Rotated elements (-2° to +2°)
-- Layered borders (double-outline cards)
-- Fade-in animations on load
+### Sidebar Nav — Current Links (in order)
+1. Home → `index.html`
+2. About → `about.html`
+3. Aloha Friday Motivation → `newsletter.html`
+4. Blog → `https://www.mattymatte.com` (external)
+5. Books → `books.html`
+6. Store → `shop.html`
+7. One Percent → `one-percent.html`
+8. AI Usage → `ai-usage.html`
+9. Contact → `contact.html`
 
----
+**When adding a nav link:** Update ALL pages — index, about, shop, ai-usage, books, newsletter, contact, one-percent.
 
-## Adding New Creative Outlets
-
-To add a new outlet card to the grid:
-
-1. Add image to `/images/`
-2. Update the base64 embedding
-3. Copy an existing `.outlet-card` block
-4. Update:
-   - Image source
-   - Link URL
-   - Title
-   - Description
-
-Keep descriptions under 25 words. Conversational tone.
-
----
-
-## Troubleshooting
-
-**Problem:** Images not loading
-- Check base64 encoding is complete
-- Verify image paths in HTML
-- Test in different browsers
-
-**Problem:** Domain not pointing to GitHub Pages
-- Wait 24-48hrs for DNS propagation
-- Verify CNAME/A records in domain registrar
-- Check GitHub Pages settings
-
-**Problem:** Layout broken on mobile
-- CSS is responsive by default
-- Test at viewport widths: 320px, 768px, 1024px
-- Use browser dev tools mobile emulation
+### Page Template Pattern
+Every page follows this structure:
+```html
+<!-- MENU (top right) -->
+<!-- SIDEBAR (with full nav) -->
+<!-- PAGE CONTENT -->
+<!-- FOOTER -->
+<!-- SIDEBAR JS (click toggle) -->
+```
 
 ---
 
-## Future Additions
+## Common Tasks
 
-Planned pages (not yet built):
-- About — origin story, tenets, vision
-- Books — Arlo & Ash breakdown, future works
-- Newsletter — AFM archive and podcast links
-- Shop — Etsy categories with direct links
-- AI Usage — transparency manifesto
-- Contact — email or simple form
+### Add a new page
+1. Copy sidebar + footer + JS from any existing page
+2. Add new `<a href="newpage.html">` to sidebar nav in ALL pages
+3. Push
 
-Each page gets its own HTML file with the same aesthetic treatment.
+### Fill in stub content
+Tell Claude: "Fill in books.html with this content: [paste copy]"
+Claude will fetch the current file from GitHub, update it, push.
 
----
+### Update nav across all pages
+Claude can do this with a Python script — just describe the change needed.
 
-## Maintenance
-
-- **Update frequency:** As needed, no schedule
-- **Backups:** Git handles this
-- **Monitoring:** None needed for static site
-- **Security:** Static HTML = minimal attack surface
+### Add images
+Upload image to chat → Claude base64-encodes and embeds, or places in `images/` folder.
 
 ---
 
-## Questions?
+## Deployment Checklist
+- [ ] Test locally (open HTML in browser)
+- [ ] Check mobile view
+- [ ] Verify all links work
+- [ ] Commit with descriptive message
+- [ ] Push → verify on GitHub Pages URL
+- [ ] Check mpgink.com
 
-This is a living document. Update it as the project evolves.
+---
 
-If rebuilding gets complex, Claude can help generate new sections or pages.
+## Rollback
+```bash
+git log --oneline          # find last good commit
+git revert [commit-hash]
+git push
+```
+
+---
+
+## Content Voice
+- Conversational, not corporate
+- Direct — no fluff
+- Lo-fi ethos: done and real > polished and late
+- Active voice, present tense, short sentences
