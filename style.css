@@ -548,3 +548,24 @@ details p {
     font-size: 2.2rem;
   }
 }
+
+/* ------------------------------------
+   FOOTER SOCIAL ICONS
+------------------------------------ */
+.footer-social {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.footer-social a {
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.footer-social a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
