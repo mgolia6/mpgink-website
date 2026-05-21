@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books — mpgink</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="menu-container">
+  <div class="menu-icon" style="background-image:url('images/image_5.png');"></div>
+  <div class="menu-label">Menu</div>
+</div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">mpgink</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank">Aloha Friday Motivation</a>
+  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
+  <a href="shop.html">Store</a>
+  <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank">Arlo & Ash</a>
+  <a href="ai-usage.html">AI Usage</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="page-hero">
+  <h1>Books</h1>
+  <p>Stories for the whimsical, the curious, and the wonderfully lost.</p>
+</section>
+
+<!-- ARLO & ASH FEATURE -->
+<div class="section" style="display:flex; gap:48px; align-items:flex-start; flex-wrap:wrap;">
+  <div style="flex:0 0 220px;">
+    <img src="images/image_4.png" alt="Arlo & Ash" style="width:100%; border-radius:12px; box-shadow: 0 0 30px rgba(0,0,0,0.4);">
+  </div>
+  <div style="flex:1; min-width:260px;">
+    <h2 style="margin-top:0;">Arlo & Ash Explorer Series</h2>
+    <p style="color: var(--text-muted);">[Book description and series overview coming soon]</p>
+    <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank" class="cta cta-primary" style="display:inline-block; margin-top:16px;">Get it on Amazon</a>
+  </div>
+</div>
+
+<!-- FUTURE WORKS -->
+<div class="section" style="margin-top: 80px;">
+  <h2>What's Next</h2>
+  <p style="color: var(--text-muted);">[Future projects and works in progress — coming soon]</p>
+</div>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo"></div>
+    <div class="footer-brand">
+      <div class="footer-brand-name">mpgink</div>
+      <div class="footer-brand-line">A studio for making, exploring, and breathing on purpose.</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html#studio">Creative Outlets</a>
+    <a href="shop.html">Shop</a>
+    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  const menu = document.querySelector('.menu-container');
+  const sidebar = document.getElementById('sidebar');
+  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
+</script>
+</body>
+</html>
