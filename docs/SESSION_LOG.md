@@ -1,6 +1,27 @@
 # mpgink.com — Session Log
 **Living file — append new sessions at the top. Never delete old entries.**
 
+## Session: May 23, 2026 — Open Graph tags + favicon link preview
+
+### What Was Done
+
+- Added Open Graph and Twitter/X Card meta tags to all 8 HTML pages
+- Preview image set to `images/image_5.png` (mpgink favicon) for all pages
+- Each page has a unique `og:title`, `og:description`, and canonical `og:url`
+- Covers LinkedIn, Slack, iMessage, Discord, Facebook unfurls
+
+### Pages Updated
+`index.html` · `about.html` · `ai-usage.html` · `books.html` · `contact.html` · `newsletter.html` · `one-percent.html` · `shop.html`
+
+### Commits
+- `f5218e9` — Add Open Graph meta tags for link preview image (index.html)
+- Next commit — OG tags propagated to all remaining pages
+
+### Next Steps
+- Fill stub pages with real content: books, newsletter, contact
+- Restore One Percent app link when beta opens publicly
+- Consider a richer OG image (custom banner vs. favicon) for better link preview visual impact
+
 ---
 
 ## Session: May 20, 2026 — Site scaffolding + nav + social icons + One Percent page
