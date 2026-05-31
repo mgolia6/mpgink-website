@@ -85,3 +85,26 @@
 - Two legacy GoDaddy A records (15.197.225.128 and 3.33.251.198) could not be deleted via UI — may require GoDaddy support if DNS issues arise
 - HTTPS certificate was pending at end of session — should now be resolved
 
+
+---
+
+## Session — 2026-05-31 (PM Session 003)
+
+### What We Did
+- Renamed all numbered image files to descriptive names
+- Updated all HTML references across 8 pages
+- Deleted old numbered files
+
+### Rename Map
+| Old | New |
+|---|---|
+| image_1.jpg | mpgink-graffiti-hero.jpg |
+| image_2.jpg | mattymattemodgepodge-blog.jpg |
+| image_3.jpg | mattymattemodgepodge-modgepodge.jpg |
+| image_4.png | arlo-ash-logo.png |
+| image_5.png | mpgink-favicon.png |
+| image_6.jpg | afm-hero.jpg |
+
+### Verified
+- No stale references in any HTML file
+- All new files confirmed present in images/
