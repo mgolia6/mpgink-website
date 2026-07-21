@@ -106,22 +106,21 @@
       position: relative;
       overflow: hidden;
     }
-    .product-body { padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .product-body { padding: 20px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
     .product-name { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 800; }
     .product-desc { font-size: 0.93rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
     .product-link { font-size: 0.82rem; letter-spacing: 0.08em; font-weight: 600; }
+    /* status ribbon — sits between the image and the copy, never over the art */
     .chip {
-      position: absolute;
-      top: 12px;
-      right: 12px;
+      align-self: flex-start;
       font-size: 0.66rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 600;
       padding: 5px 11px;
       border-radius: 50px;
-      backdrop-filter: blur(6px);
-      z-index: 2;
+      margin-bottom: 2px;
+      white-space: nowrap;
     }
 
     .v-phreezer { background: #0a0a0a; }
@@ -278,10 +277,10 @@
 
     <a class="product" href="https://phreezer.mpgink.com" target="_blank" rel="noopener">
       <div class="product-visual v-phreezer">
-        <span class="chip chip-phreezer">Signal goes solo Aug 1</span>
         <img src="images/phreezer-logo.png" alt="Phreezer — rate. track. relive.">
       </div>
       <div class="product-body">
+        <span class="chip chip-phreezer">Signal goes solo Aug 1</span>
         <div class="product-name">Phreezer</div>
         <div class="product-desc">Rate, track, and relive Phish shows — live rating during shows, lifetime stats, audio relisten, an AI concierge named Uncle Ebenezer, and a community of phans.</div>
         <div class="product-link l-phreezer">phreezer.mpgink.com →</div>
@@ -301,10 +300,10 @@
 
     <a class="product" href="https://onepercent.mpgink.com" target="_blank" rel="noopener">
       <div class="product-visual v-onepct">
-        <span class="chip chip-onepct">Launching end of August</span>
         <img src="images/one-percent-card.jpg" alt="One Percent — one percent smarter every day">
       </div>
       <div class="product-body">
+        <span class="chip chip-onepct">Launching end of August</span>
         <div class="product-name">One Percent</div>
         <div class="product-desc">One concept a day across ten categories — every factual claim human-verified against primary sources before it publishes. 1% better every day.</div>
         <div class="product-link l-onepct">onepercent.mpgink.com →</div>
@@ -313,10 +312,10 @@
 
     <a class="product" href="newsletter.html">
       <div class="product-visual v-afm">
-        <span class="chip chip-afm">Every Friday since 2018</span>
         <img src="images/afm-hero.jpg" alt="Aloha Friday Motivation">
       </div>
       <div class="product-body">
+        <span class="chip chip-afm">Every Friday since 2018</span>
         <div class="product-name">Aloha Friday Motivation</div>
         <div class="product-desc">Your weekly dose of motivation, every Friday — storytelling, philosophy, and perspective shifts that land in your feed before the weekend does.</div>
         <div class="product-link l-afm">Subscribe on LinkedIn →</div>
