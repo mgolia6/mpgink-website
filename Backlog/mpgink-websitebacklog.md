@@ -64,9 +64,8 @@ original Arlo & Ash line.
 
 ## 📸 Instagram — SHIPPED 2026-07-21 (handles from Matthew)
 @mpgink (index footer icon) · @phreezerapp · @jobodyssey ·
-@getonepercentsmarter · @metta.lvingkindness (⚠ verify spelling — possible
-typo for "lovingkindness"; using Matthew's exact text) — follow links on each
-product page bottom.
+@getonepercentsmarter · @metta.lovingkindness (spelling confirmed by
+Matthew) — follow links on each product page bottom.
 
 ## 🅿 Parked / blocked
 - **13·16·7 cipher: find it a graceful home** — band removed from homepage;
