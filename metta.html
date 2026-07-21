@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metta — mpgink</title>
+  <meta name="description" content="Metta — something new from mpgink. Coming soon.">
+
+  <!-- Open Graph / Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mpgink.com/metta">
+  <meta property="og:title" content="Metta — coming soon">
+  <meta property="og:description" content="Something new is taking shape at mpgink.">
+  <meta property="og:image" content="https://mpgink.com/images/metta-icon.png">
+  <meta property="og:image:width" content="192">
+  <meta property="og:image:height" content="192">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Metta — coming soon">
+  <meta name="twitter:description" content="Something new is taking shape at mpgink.">
+  <meta name="twitter:image" content="https://mpgink.com/images/metta-icon.png">
+
+  <!-- Favicon / home-screen icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0a0e27">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Metta teaser — a held breath. Name and mark only. */
+    .mt-room {
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 8vw 80px;
+      gap: 26px;
+    }
+    .mt-mark {
+      width: 108px; height: 108px;
+      border-radius: 28px;
+      box-shadow: 0 0 60px rgba(139,124,246,0.25);
+      opacity: 0;
+      animation: mtBreathe 0.9s ease forwards 0.2s;
+    }
+    .mt-name {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin: 0;
+      opacity: 0;
+      animation: mtBreathe 0.9s ease forwards 0.45s;
+    }
+    .mt-line {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin: 0;
+      opacity: 0;
+      animation: mtBreathe 0.9s ease forwards 0.7s;
+    }
+    .mt-chip {
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
+      padding: 6px 14px; border-radius: 50px;
+      background: rgba(139,124,246,0.12); color: #a99bf5; border: 1px solid rgba(139,124,246,0.4);
+      opacity: 0;
+      animation: mtBreathe 0.9s ease forwards 0.95s;
+    }
+    @keyframes mtBreathe {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mt-mark, .mt-name, .mt-line, .mt-chip { animation: none; opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu-container">
+  <div class="menu-icon" style="background-image:url('images/mpgink-favicon.png');"></div>
+  <div class="menu-label">Menu</div>
+</div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">mpgink</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="phreezer.html">Phreezer</a>
+  <a href="job-odyssey.html">Job Odyssey</a>
+  <a href="one-percent.html">One Percent</a>
+  <a href="newsletter.html">Aloha Friday Motivation</a>
+  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
+  <a href="books.html">Books</a>
+  <a href="shop.html">Store</a>
+  <a href="ai-usage.html">AI Usage</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="mt-room">
+  <img class="mt-mark" src="images/metta-icon.png" alt="Metta mark">
+  <h1 class="mt-name">metta</h1>
+  <p class="mt-line">Something new is taking shape.</p>
+  <span class="mt-chip">Coming soon</span>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo"></div>
+    <div class="footer-brand">
+      <div class="footer-brand-name">mpgink</div>
+      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html#build">What we build</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const menu = document.querySelector('.menu-container');
+  const sidebar = document.getElementById('sidebar');
+  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
+</script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phreezer — mpgink</title>
+  <meta name="description" content="Phreezer — rate, track, and relive Phish shows. Live rating, lifetime stats, audio relisten, Uncle Ebenezer, and a community of phans.">
+
+  <!-- Open Graph / Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mpgink.com/phreezer">
+  <meta property="og:title" content="Phreezer — rate. track. relive.">
+  <meta property="og:description" content="Rate, track, and relive Phish shows — live rating during shows, lifetime stats, audio relisten, an AI concierge named Uncle Ebenezer, and a community of phans.">
+  <meta property="og:image" content="https://mpgink.com/images/phreezer-shot-scorecard.jpg">
+  <meta property="og:image:width" content="900">
+  <meta property="og:image:height" content="520">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Phreezer — rate. track. relive.">
+  <meta name="twitter:description" content="Rate, track, and relive Phish shows with a community of phans.">
+  <meta name="twitter:image" content="https://mpgink.com/images/phreezer-shot-scorecard.jpg">
+
+  <!-- Favicon / home-screen icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0a0e27">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Phreezer page — the terminal glows inside the mpgink shell */
+    :root {
+      --ph-green: #33ff33;
+      --ph-cyan: #00e0d0;
+      --ph-orange: #ff6600;
+      --ph-bg: #0a0a0a;
+      --ph-panel: #0f0f0f;
+    }
+
+    .ph-hero {
+      padding: 160px 8vw 70px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .ph-chips { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+    .ph-chip {
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+      padding: 6px 13px; border-radius: 50px;
+    }
+    .ph-chip-live { background: rgba(51,255,51,0.1); color: var(--ph-green); border: 1px solid rgba(51,255,51,0.35); }
+    .ph-chip-signal { background: rgba(255,102,0,0.12); color: #ff9d57; border: 1px solid rgba(255,102,0,0.4); }
+
+    .ph-logo { width: min(520px, 82vw); margin: 0 auto 30px; display: block; filter: drop-shadow(0 0 24px rgba(0,224,208,0.25)); }
+    .ph-hero h1 {
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 800;
+      margin: 0 0 20px;
+      text-wrap: balance;
+    }
+    .ph-hero > p {
+      font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;
+      max-width: 62ch; margin: 0 auto 36px;
+    }
+    .ph-cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta.ph-primary { background: var(--ph-cyan); color: #032422; }
+    .cta.ph-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,224,208,0.4); }
+
+    /* terminal-framed screenshots */
+    .ph-shots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 1100px;
+      margin: 60px auto 0;
+      padding: 0 8vw;
+    }
+    @media (max-width: 860px) { .ph-shots { grid-template-columns: 1fr; } }
+    .ph-shot {
+      background: var(--ph-bg);
+      border: 1px solid rgba(51,255,51,0.25);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 0 34px rgba(51,255,51,0.07);
+    }
+    .ph-shot-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(51,255,51,0.18);
+      font-family: "Courier New", monospace;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ph-green);
+    }
+    .ph-shot-bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(51,255,51,0.5); display: block; }
+    .ph-shot img { width: 100%; display: block; }
+
+    /* features */
+    .ph-section { padding: 100px 8vw 20px; max-width: 1160px; margin: 0 auto; }
+    .ph-section-head { text-align: center; margin-bottom: 52px; }
+    .ph-section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 0 0 12px; }
+    .ph-section-head p { color: var(--text-muted); max-width: 60ch; margin: 0 auto; line-height: 1.65; }
+
+    .ph-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .ph-feature {
+      background: var(--ph-panel);
+      border: 1px solid rgba(51,255,51,0.18);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .ph-feature-tag {
+      font-family: "Courier New", monospace;
+      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ph-green); margin-bottom: 12px;
+    }
+    .ph-feature-title { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+    .ph-feature-desc { color: var(--text-muted); font-size: 0.93rem; line-height: 1.65; }
+    .ph-feature-desc em { color: var(--ph-cyan); font-style: normal; }
+
+    /* signal callout */
+    .ph-signal {
+      max-width: 1160px;
+      margin: 70px auto 0;
+      padding: 34px 8vw;
+      border: 1px solid rgba(255,102,0,0.35);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,102,0,0.06), transparent);
+      text-align: center;
+    }
+    .ph-signal h3 { font-size: 1.4rem; margin: 0 0 10px; color: #ff9d57; }
+    .ph-signal p { color: var(--text-muted); max-width: 62ch; margin: 0 auto; line-height: 1.65; }
+
+    .ph-bottom { text-align: center; padding: 90px 8vw 120px; }
+    .ph-bottom h2 { font-size: 2.2rem; margin-bottom: 14px; }
+    .ph-bottom p { color: var(--text-muted); margin-bottom: 36px; }
+  </style>
+</head>
+<body>
+
+<div class="menu-container">
+  <div class="menu-icon" style="background-image:url('images/mpgink-favicon.png');"></div>
+  <div class="menu-label">Menu</div>
+</div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">mpgink</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="phreezer.html">Phreezer</a>
+  <a href="job-odyssey.html">Job Odyssey</a>
+  <a href="one-percent.html">One Percent</a>
+  <a href="newsletter.html">Aloha Friday Motivation</a>
+  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
+  <a href="books.html">Books</a>
+  <a href="shop.html">Store</a>
+  <a href="ai-usage.html">AI Usage</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="ph-hero">
+  <div class="ph-chips">
+    <span class="ph-chip ph-chip-live">Live now</span>
+    <span class="ph-chip ph-chip-signal">Signal goes solo Aug 1</span>
+  </div>
+  <img class="ph-logo" src="images/phreezer-logo.png" alt="Phreezer — rate. track. relive.">
+  <h1>Every show you've ever seen, frozen forever.</h1>
+  <p>Phreezer is where phans rate, track, and relive Phish shows — a living scorecard for the live-music memory you refuse to let melt. Rate songs in real time from the lawn, build your lifetime archive, and relisten to the exact jam that broke your brain.</p>
+  <div class="ph-cta-row">
+    <a href="https://phreezer.mpgink.com" target="_blank" rel="noopener" class="cta ph-primary">Start your archive</a>
+    <a href="#features" class="cta cta-secondary">What's inside</a>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<div class="ph-shots">
+  <div class="ph-shot">
+    <div class="ph-shot-bar"><i></i><i></i><i></i>&nbsp;live scorecard</div>
+    <img src="images/phreezer-shot-scorecard.jpg" alt="Phreezer live scorecard — rating a song with audio relisten" loading="lazy">
+  </div>
+  <div class="ph-shot">
+    <div class="ph-shot-bar"><i></i><i></i><i></i>&nbsp;show score</div>
+    <img src="images/phreezer-shot-score.jpg" alt="Phreezer show score view" loading="lazy">
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="ph-section" id="features">
+  <div class="ph-section-head">
+    <h2>What's inside</h2>
+    <p>Built by a phan, for phans — with the retro-terminal soul the music deserves.</p>
+  </div>
+
+  <div class="ph-features">
+    <div class="ph-feature">
+      <div class="ph-feature-tag">&gt; rate</div>
+      <div class="ph-feature-title">Live scorecard</div>
+      <div class="ph-feature-desc">Rate every song as it happens — from the venue, the couch webcast, or a later relisten. Stars, notes, and the full setlist at your thumb.</div>
+    </div>
+    <div class="ph-feature">
+      <div class="ph-feature-tag">&gt; relive</div>
+      <div class="ph-feature-title">Audio relisten</div>
+      <div class="ph-feature-desc">Jump straight into recordings of the shows you rated. The jam you can't stop thinking about is <em>one tap away</em>.</div>
+    </div>
+    <div class="ph-feature">
+      <div class="ph-feature-tag">&gt; track</div>
+      <div class="ph-feature-title">Deep Phreeze</div>
+      <div class="ph-feature-desc">Your lifetime stats, frozen solid — every show, song counts, gaps, venues, states, eras. The numbers behind your phandom.</div>
+    </div>
+    <div class="ph-feature">
+      <div class="ph-feature-tag">&gt; ask</div>
+      <div class="ph-feature-title">Uncle Ebenezer</div>
+      <div class="ph-feature-desc">An AI concierge who knows the catalog and your history. Ask him anything — he's heard every show and he's got opinions.</div>
+    </div>
+    <div class="ph-feature">
+      <div class="ph-feature-tag">&gt; connect</div>
+      <div class="ph-feature-title">The community</div>
+      <div class="ph-feature-desc">A feed of phans rating in real time, Phriend Overlap to find who was at your shows, leaderboards, and community top shows, songs, and venues.</div>
+    </div>
+    <div class="ph-feature">
+      <div class="ph-feature-tag">&gt; earn</div>
+      <div class="ph-feature-title">Badges</div>
+      <div class="ph-feature-desc">Milestones for the journey — your first rating, your fiftieth show, your streaks. Earned, never given.</div>
+    </div>
+  </div>
+
+  <!-- SIGNAL CALLOUT -->
+  <div class="ph-signal">
+    <h3>◈ The Signal era begins August 1</h3>
+    <p>Phreezer's complete next-generation interface — rebuilt screen by screen on desktop and mobile — goes solo on August 1. New archive home, deep stats, community, and a light mode. Same soul, sharper signal.</p>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div class="ph-bottom">
+  <h2>The vault is open.</h2>
+  <p>Every Phish show back to 1983, waiting for your scores.</p>
+  <a href="https://phreezer.mpgink.com" target="_blank" rel="noopener" class="cta ph-primary">Enter Phreezer</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo"></div>
+    <div class="footer-brand">
+      <div class="footer-brand-name">mpgink</div>
+      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html#build">What we build</a>
+    <a href="index.html#studio">The studio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const menu = document.querySelector('.menu-container');
+  const sidebar = document.getElementById('sidebar');
+  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
+</script>
+</body>
+</html>

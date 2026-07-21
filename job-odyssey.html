@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Odyssey — mpgink</title>
+  <meta name="description" content="Job Odyssey — an AI-powered job-search platform. Openings scored against your actual résumé and goals, tailored materials, pipeline tracking, and career coaching.">
+
+  <!-- Open Graph / Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mpgink.com/job-odyssey">
+  <meta property="og:title" content="Job Odyssey — your search, run like a mission">
+  <meta property="og:description" content="An AI-powered job-search platform: scraped openings scored against your actual résumé and goals on an anchored rubric, tailored materials, pipeline tracking, and career coaching.">
+  <meta property="og:image" content="https://mpgink.com/images/job-odyssey-icon.png">
+  <meta property="og:image:width" content="256">
+  <meta property="og:image:height" content="256">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Job Odyssey — your search, run like a mission">
+  <meta name="twitter:description" content="Openings scored against your actual résumé and goals. Now accepting beta users.">
+  <meta name="twitter:image" content="https://mpgink.com/images/job-odyssey-icon.png">
+
+  <!-- Favicon / home-screen icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0a0e27">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Job Odyssey page — navy + compass gold */
+    :root {
+      --jo-gold: #e8b64c;
+      --jo-navy: #2a3550;
+      --jo-navy-deep: #1c2438;
+    }
+
+    .jo-hero {
+      padding: 160px 8vw 80px;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 56px;
+    }
+    @media (max-width: 860px) { .jo-hero { flex-direction: column; text-align: center; padding-top: 130px; } }
+
+    .jo-compass {
+      flex: 0 0 auto;
+      width: 190px; height: 190px;
+      border-radius: 32px;
+      background: var(--jo-navy);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(232,182,76,0.2);
+    }
+    .jo-compass img { width: 150px; height: 150px; }
+
+    .jo-chip {
+      display: inline-block;
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+      padding: 6px 13px; border-radius: 50px; margin-bottom: 18px;
+      background: rgba(232,182,76,0.12); color: var(--jo-gold); border: 1px solid rgba(232,182,76,0.4);
+    }
+    .jo-hero h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.12; margin: 0 0 18px; text-wrap: balance; }
+    .jo-hero h1 em { font-style: normal; color: var(--jo-gold); }
+    .jo-hero p { font-size: 1.12rem; color: var(--text-muted); line-height: 1.7; margin: 0 0 32px; max-width: 56ch; }
+    .cta.jo-primary { background: var(--jo-gold); color: #221a06; }
+    .cta.jo-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(232,182,76,0.4); }
+
+    /* journey steps */
+    .jo-section { padding: 90px 8vw 20px; max-width: 1160px; margin: 0 auto; }
+    .jo-section-head { text-align: center; margin-bottom: 52px; }
+    .jo-section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 0 0 12px; }
+    .jo-section-head p { color: var(--text-muted); max-width: 62ch; margin: 0 auto; line-height: 1.65; }
+
+    .jo-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; counter-reset: jo; }
+    .jo-step {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      counter-increment: jo;
+    }
+    .jo-step::before {
+      content: "0" counter(jo);
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem; font-weight: 800;
+      color: var(--jo-gold);
+      opacity: 0.7;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .jo-step-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .jo-step-desc { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+
+    /* features */
+    .jo-features { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 60px; }
+    @media (max-width: 780px) { .jo-features { grid-template-columns: 1fr; } }
+    .jo-feature {
+      background: var(--jo-navy-deep);
+      border: 1px solid rgba(232,182,76,0.18);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .jo-feature-title { font-family: 'Fraunces', serif; font-size: 1.12rem; font-weight: 700; margin-bottom: 10px; color: var(--jo-gold); }
+    .jo-feature-desc { color: var(--text-muted); font-size: 0.94rem; line-height: 1.65; }
+
+    .jo-bottom { text-align: center; padding: 100px 8vw 120px; }
+    .jo-bottom h2 { font-size: 2.2rem; margin-bottom: 14px; }
+    .jo-bottom p { color: var(--text-muted); margin-bottom: 36px; }
+  </style>
+</head>
+<body>
+
+<div class="menu-container">
+  <div class="menu-icon" style="background-image:url('images/mpgink-favicon.png');"></div>
+  <div class="menu-label">Menu</div>
+</div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">mpgink</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="phreezer.html">Phreezer</a>
+  <a href="job-odyssey.html">Job Odyssey</a>
+  <a href="one-percent.html">One Percent</a>
+  <a href="newsletter.html">Aloha Friday Motivation</a>
+  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
+  <a href="books.html">Books</a>
+  <a href="shop.html">Store</a>
+  <a href="ai-usage.html">AI Usage</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="jo-hero">
+  <div class="jo-compass">
+    <img src="images/job-odyssey-icon.png" alt="Job Odyssey compass mark">
+  </div>
+  <div>
+    <span class="jo-chip">Now accepting beta users</span>
+    <h1>The job search is a grind.<br>Make it an <em>odyssey</em>.</h1>
+    <p>Job Odyssey is an AI-powered job-search platform. It scrapes fresh openings and scores every one against your actual résumé and your stated goals — so you spend your energy on the roles worth chasing, with materials tailored to land them.</p>
+    <a href="https://jobodyssey.mpgink.com" target="_blank" rel="noopener" class="cta jo-primary">Join the beta</a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="jo-section">
+  <div class="jo-section-head">
+    <h2>How the odyssey works</h2>
+    <p>Four stages, one compass: fit to <strong>your</strong> goals, not just keyword overlap.</p>
+  </div>
+
+  <div class="jo-steps">
+    <div class="jo-step">
+      <div class="jo-step-title">Bring your résumé</div>
+      <div class="jo-step-desc">Upload it, tell the platform where you're headed — target roles, industries, dealbreakers. That becomes the compass everything is measured against.</div>
+    </div>
+    <div class="jo-step">
+      <div class="jo-step-title">Openings come to you</div>
+      <div class="jo-step-desc">Fresh roles are scraped daily and scored 0–100 on an anchored rubric — fit to your experience, skills, and goals, with honest gaps called out.</div>
+    </div>
+    <div class="jo-step">
+      <div class="jo-step-title">Triage and tailor</div>
+      <div class="jo-step-desc">Move the strong fits into your pipeline. Generate a tailored résumé, cover letter, and gap guide for each one — built from your real materials.</div>
+    </div>
+    <div class="jo-step">
+      <div class="jo-step-title">Track to the offer</div>
+      <div class="jo-step-desc">Applications move through a real pipeline — applied, screening, interviewing, offer — with interview practice and coaching along the way.</div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="jo-features">
+    <div class="jo-feature">
+      <div class="jo-feature-title">Fit scores that mean something</div>
+      <div class="jo-feature-desc">One anchored rubric defines what a 90 versus a 60 actually means, so scores are comparable across every opening. Pay never penalizes, and gaps are honest — only the material ones, most critical first.</div>
+    </div>
+    <div class="jo-feature">
+      <div class="jo-feature-title">Materials that match the job</div>
+      <div class="jo-feature-desc">Tailored résumés and cover letters generated from your real experience for each specific role — plus a gap guide for what to address before the interview.</div>
+    </div>
+    <div class="jo-feature">
+      <div class="jo-feature-title">A real pipeline</div>
+      <div class="jo-feature-desc">Every application tracked from research to offer. No more spreadsheet archaeology at week six.</div>
+    </div>
+    <div class="jo-feature">
+      <div class="jo-feature-title">Coaching built in</div>
+      <div class="jo-feature-desc">Interview practice with feedback, a weekly briefing on your momentum, and an AI compass that knows your goals — growing into a full career-coaching marketplace.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div class="jo-bottom">
+  <h2>Chart your course.</h2>
+  <p>Beta is open — bring your résumé and see your first fit scores today.</p>
+  <a href="https://jobodyssey.mpgink.com" target="_blank" rel="noopener" class="cta jo-primary">Join the beta</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo"></div>
+    <div class="footer-brand">
+      <div class="footer-brand-name">mpgink</div>
+      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html#build">What we build</a>
+    <a href="index.html#studio">The studio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const menu = document.querySelector('.menu-container');
+  const sidebar = document.getElementById('sidebar');
+  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
+</script>
+</body>
+</html>
