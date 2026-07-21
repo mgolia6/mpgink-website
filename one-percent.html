@@ -30,6 +30,23 @@
   <meta name="theme-color" content="#0a0e27">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* One Percent app design language (from the app repo: #0e141c / #1a2a3a, DM Sans + DM Mono) */
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+    .op-app { font-family: 'DM Sans', 'Inter', sans-serif; }
+    .op-app .mono { font-family: 'DM Mono', monospace; }
+    .op-lesson-grid { display:grid; grid-template-columns: 1.15fr 1fr; gap:22px; align-items:stretch; }
+    @media (max-width: 880px) { .op-lesson-grid { grid-template-columns: 1fr; } }
+    .op-appcard { background:#0e141c; border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:26px; }
+    .op-appcard .tag { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:14px; display:flex; gap:12px; flex-wrap:wrap; }
+    .op-innercard { background:#1a2a3a; border-radius:14px; padding:20px; }
+    .op-kp { display:flex; gap:12px; align-items:flex-start; margin-bottom:10px; font-size:0.9rem; line-height:1.55; color:rgba(232,232,232,0.9); }
+    .op-kp:last-child { margin-bottom:0; }
+    .op-kp i { width:8px; height:8px; border-radius:50%; background:#FF8C00; flex-shrink:0; margin-top:7px; }
+    .op-chatmsg { border-radius:12px 12px 12px 3px; padding:13px 15px; font-size:0.88rem; line-height:1.6; margin-bottom:10px; background:rgba(71,255,232,0.07); border:1px solid rgba(71,255,232,0.2); color:rgba(232,232,232,0.92); }
+    .op-chatmsg.user { border-radius:12px 12px 3px 12px; background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.1); }
+    .op-featrow { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin:34px 0 10px; }
+    .op-feat { font-size:0.8rem; color:var(--text-muted); border:1px solid var(--border); border-radius:50px; padding:8px 16px; }
+    .op-feat b { color:#4ade80; font-weight:600; }
     .op-hero {
       padding: 160px 8vw 80px;
       max-width: 900px;
@@ -214,7 +231,10 @@
 
 <!-- HERO -->
 <section class="op-hero">
-  <div class="op-eyebrow">From mpgink — launching end of August</div>
+  <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
+    <span style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; padding:6px 13px; border-radius:50px; background:rgba(74,222,128,0.1); color:#4ade80; border:1px solid rgba(74,222,128,0.35);">Launching end of August</span>
+    <a style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; padding:6px 13px; border-radius:50px; background:rgba(74,222,128,0.06); color:#4ade80; border:1px solid rgba(74,222,128,0.3); text-decoration:none;" href="https://www.instagram.com/getonepercentsmarter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@getonepercentsmarter</a>
+  </div>
   <h1>One concept.<br>One percent better.<br>Every day.</h1>
   <p>One Percent is a daily micro-learning practice built around one idea: small, consistent gains compound into real capability. One concept a day across ten categories, under five minutes, no fluff — and every factual claim human-verified against primary sources before it publishes.</p>
   <div class="op-cta-row">
@@ -223,9 +243,61 @@
   </div>
 </section>
 
-<!-- THE APP -->
-<div style="max-width:1200px; margin:0 auto; padding:0 8vw;">
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;" class="op-screens">
+<!-- THE DAILY LOOP — the actual app, recreated with its own design language and a real lesson -->
+<div class="op-app" style="max-width:1200px; margin:0 auto; padding:0 8vw;">
+  <div style="text-align:center; margin-bottom:26px;">
+    <h2 style="font-size:clamp(1.7rem,2.8vw,2.3rem); margin:0 0 10px;">One day inside One Percent</h2>
+    <p style="color:var(--text-muted); max-width:58ch; margin:0 auto; line-height:1.65;">A real lesson from the catalog — this is what lands in the app every morning.</p>
+  </div>
+
+  <div class="op-lesson-grid">
+    <!-- the lesson -->
+    <div class="op-appcard">
+      <div class="tag"><span style="color:#4ade80;">TODAY</span><span style="color:#FF8C00;">CM.5 · COMMUNICATION</span></div>
+      <div style="font-family:'DM Sans',sans-serif; font-size:1.5rem; font-weight:700; margin-bottom:12px;">Intent vs. Impact</div>
+      <p style="color:rgba(232,232,232,0.85); font-size:0.95rem; line-height:1.7; margin:0 0 16px;">You can have the best intentions in the world and still cause real damage. Intent and impact are not the same thing — and only one of them the other person experiences.</p>
+      <div class="tag" style="margin-bottom:10px;"><span style="color:var(--text-muted);">WHY TODAY</span></div>
+      <p style="color:var(--text-muted); font-size:0.88rem; line-height:1.65; margin:0 0 18px;">Most of your hard conversations now happen in writing — Slack, email, a comment thread — where the other person has nothing to go on but the words that landed.</p>
+      <div class="op-innercard">
+        <div class="tag" style="margin-bottom:12px;"><span style="color:#FF8C00;">THE BREAKDOWN</span></div>
+        <div class="op-kp"><i></i>Good intentions don't erase the real harm your words caused</div>
+        <div class="op-kp"><i></i>Only you can see your intent, others only see impact</div>
+        <div class="op-kp"><i></i>Acknowledge what landed before you explain what you meant</div>
+      </div>
+    </div>
+
+    <!-- lock it in + keep it sharp -->
+    <div style="display:flex; flex-direction:column; gap:22px;">
+      <div class="op-appcard" style="flex:1;">
+        <div class="tag"><span style="color:#47FFE8;">LOCK IT IN · AI-COACHED RECALL</span></div>
+        <div class="op-chatmsg">In your own words — what's the difference between intent and impact?</div>
+        <div class="op-chatmsg user">Intent is what I meant. Impact is what actually happened to the other person — and that's the only part they experience.</div>
+        <div class="op-chatmsg">Locked. That's the whole concept — and you said it better than I did. 🔒</div>
+        <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--text-muted); margin-top:12px;">No multiple choice. You say it back until it sticks.</div>
+      </div>
+      <div class="op-appcard">
+        <div class="tag"><span style="color:#C847FF;">KEEP IT SHARP · SPACED REPETITION</span></div>
+        <div class="op-innercard" style="display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;">
+          <div>
+            <div style="font-family:'DM Mono',monospace; font-size:0.66rem; letter-spacing:0.12em; color:#47C8FF; margin-bottom:6px;">RESURFACING · NC.6</div>
+            <div style="font-weight:700; font-size:0.98rem;">Sleep and Memory Consolidation</div>
+          </div>
+          <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--text-muted);">6 days since lock-in</div>
+        </div>
+        <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.6; margin-top:12px;">Old lessons come back right before you'd forget them. The compounding is the point.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="op-featrow">
+    <span class="op-feat"><b>Deep Cut</b> — AI agent for going deeper</span>
+    <span class="op-feat"><b>Listen</b> — every lesson narrated</span>
+    <span class="op-feat"><b>On This Day</b> — a daily bonus</span>
+    <span class="op-feat"><b>Badges &amp; streaks</b> — earned, never given</span>
+    <span class="op-feat"><b>Share cards</b> — the breakdown, ready for LinkedIn</span>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:40px;" class="op-screens">
     <img src="images/one-percent-shot-library.jpg" alt="One Percent — the shelves" style="width:100%; border-radius:12px; border:1px solid rgba(74,222,128,0.25); box-shadow:0 10px 30px rgba(0,0,0,0.35);" loading="lazy">
     <img src="images/one-percent-shot-week.jpg" alt="One Percent — your week" style="width:100%; border-radius:12px; border:1px solid rgba(74,222,128,0.25); box-shadow:0 10px 30px rgba(0,0,0,0.35);" loading="lazy">
     <img src="images/one-percent-shot-month.jpg" alt="One Percent — the almanac" style="width:100%; border-radius:12px; border:1px solid rgba(74,222,128,0.25); box-shadow:0 10px 30px rgba(0,0,0,0.35);" loading="lazy">
@@ -234,36 +306,7 @@
 </div>
 <style>@media (max-width:820px){ .op-screens { grid-template-columns:1fr !important; } }</style>
 
-<div class="op-section">
-
-  <!-- THE LOOP -->
-  <div class="op-card" id="how-it-works">
-    <div class="op-card-label">How It Works</div>
-
-    <div class="op-step">
-      <div class="op-step-bar" style="background: #4ade80;"></div>
-      <div class="op-step-content">
-        <div class="op-step-title" style="color: #4ade80;">1 · The lesson lands</div>
-        <div class="op-step-desc">One concept a day — a hook, why it matters today, and a tight explanation. Under five minutes, with audio narration if you'd rather listen.</div>
-      </div>
-    </div>
-
-    <div class="op-step">
-      <div class="op-step-bar" style="background: #47FFE8;"></div>
-      <div class="op-step-content">
-        <div class="op-step-title" style="color: #47FFE8;">2 · Lock It In</div>
-        <div class="op-step-desc">An AI coach makes you say it back — in your own words, until it actually sticks. No multiple-choice cop-outs.</div>
-      </div>
-    </div>
-
-    <div class="op-step">
-      <div class="op-step-bar" style="background: #C847FF;"></div>
-      <div class="op-step-content">
-        <div class="op-step-title" style="color: #C847FF;">3 · Keep It Sharp</div>
-        <div class="op-step-desc">Spaced repetition resurfaces old lessons right before you'd forget them. The compounding is the point.</div>
-      </div>
-    </div>
-  </div>
+<div class="op-section" style="padding-top:60px;">
 
   <!-- CATEGORIES -->
   <div class="op-card">
