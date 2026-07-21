@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR:-.}/.claude/kit/hooks/kit-session-start.sh\"", "timeout": 30, "statusMessage": "claude-kit briefing" } ] }
+    ],
+    "PostToolUse": [
+      { "matcher": "Write|Edit", "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR:-.}/.claude/kit/hooks/kit-post-edit-check.sh\"", "timeout": 15, "statusMessage": "kit: syntax check" } ] }
+    ],
+    "PreCompact": [
+      { "hooks": [ { "type": "command", "command": "bash \"${CLAUDE_PROJECT_DIR:-.}/.claude/kit/hooks/kit-pre-compact-checkpoint.sh\"", "timeout": 60, "statusMessage": "kit: pre-compact checkpoint" } ] }
+    ]
+  }
+}
