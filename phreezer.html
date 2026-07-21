@@ -118,6 +118,18 @@
     .ph-feature-desc { color: var(--text-muted); font-size: 0.93rem; line-height: 1.65; }
     .ph-feature-desc em { color: var(--ph-cyan); font-style: normal; }
 
+    /* click-to-reveal feature rows */
+    details.ph-reveal { background: var(--ph-panel); border: 1px solid rgba(51,255,51,0.2); border-radius: 14px; margin-bottom: 12px; overflow: hidden; }
+    details.ph-reveal summary { cursor: pointer; padding: 18px 22px; list-style: none; display: flex; align-items: center; gap: 14px; }
+    details.ph-reveal summary::-webkit-details-marker { display: none; }
+    .ph-rev-tag { font-family: "Courier New", monospace; color: var(--ph-green); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; min-width: 84px; }
+    .ph-rev-title { font-family: 'Fraunces', serif; font-weight: 700; }
+    .ph-rev-hint { margin-left: auto; color: var(--text-muted); font-size: 0.75rem; }
+    .ph-rev-body { padding: 0 22px 20px; display: grid; grid-template-columns: 1fr 280px; gap: 20px; align-items: start; }
+    @media (max-width: 700px) { .ph-rev-body { grid-template-columns: 1fr; } }
+    .ph-rev-body p { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; }
+    .ph-rev-body img { border-radius: 8px; border: 1px solid rgba(51,255,51,0.2); width: 100%; }
+
     /* signal callout */
     .ph-signal {
       max-width: 1160px;
@@ -151,9 +163,7 @@
   <a href="job-odyssey.html">Job Odyssey</a>
   <a href="one-percent.html">One Percent</a>
   <a href="newsletter.html">Aloha Friday Motivation</a>
-  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
-  <a href="books.html">Books</a>
-  <a href="shop.html">Store</a>
+  <a href="studio.html">The Studio</a>
   <a href="ai-usage.html">AI Usage</a>
   <a href="contact.html">Contact</a>
 </nav>
@@ -163,27 +173,36 @@
   <div class="ph-chips">
     <span class="ph-chip ph-chip-live">Live now</span>
     <span class="ph-chip ph-chip-signal">Signal goes solo Aug 1</span>
+    <a class="ph-chip" style="background:rgba(0,224,208,0.08); color:var(--ph-cyan); border:1px solid rgba(0,224,208,0.35); text-decoration:none;" href="https://www.instagram.com/phreezerapp" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@phreezerapp</a>
   </div>
   <img class="ph-logo" src="images/phreezer-logo.png" alt="Phreezer — rate. track. relive.">
-  <h1>Every show you've ever seen, frozen forever.</h1>
-  <p>Phreezer is where phans rate, track, and relive Phish shows — a living scorecard for the live-music memory you refuse to let melt. Rate songs in real time from the lawn, build your lifetime archive, and relisten to the exact jam that broke your brain.</p>
+  <h1>Won't you step into the Phreezer…</h1>
+  <p>A living scorecard for the community that tracks everything. Rate shows song by song with the recording playing right there, build your lifetime archive, and watch thirty years of phandom turn into patterns.</p>
   <div class="ph-cta-row">
     <a href="https://phreezer.mpgink.com" target="_blank" rel="noopener" class="cta ph-primary">Start your archive</a>
     <a href="#features" class="cta cta-secondary">What's inside</a>
   </div>
 </section>
 
-<!-- SCREENSHOTS -->
-<div class="ph-shots">
-  <div class="ph-shot">
-    <div class="ph-shot-bar"><i></i><i></i><i></i>&nbsp;live scorecard</div>
-    <img src="images/phreezer-shot-scorecard.jpg" alt="Phreezer live scorecard — rating a song with audio relisten" loading="lazy">
+<!-- VERBS -->
+<div class="ph-shots" style="grid-template-columns:repeat(3,1fr);">
+  <div class="ph-shot" style="padding:22px;">
+    <div style="font-family:'Courier New',monospace; color:var(--ph-green); letter-spacing:0.12em; text-transform:uppercase; font-size:0.85rem; margin-bottom:10px;">&gt; Rate</div>
+    <div style="color:var(--text-muted); font-size:0.92rem; line-height:1.65;">Score a show the way you actually experience it — song by song, 1 to 5 — not one blunt number for the whole night.</div>
   </div>
-  <div class="ph-shot">
-    <div class="ph-shot-bar"><i></i><i></i><i></i>&nbsp;show score</div>
-    <img src="images/phreezer-shot-score.jpg" alt="Phreezer show score view" loading="lazy">
+  <div class="ph-shot" style="padding:22px;">
+    <div style="font-family:'Courier New',monospace; color:var(--ph-green); letter-spacing:0.12em; text-transform:uppercase; font-size:0.85rem; margin-bottom:10px;">&gt; Track</div>
+    <div style="color:var(--text-muted); font-size:0.92rem; line-height:1.65;">What you were there for, what you caught on webcast, what you went back and relistened to. Your history, kept your way.</div>
+  </div>
+  <div class="ph-shot" style="padding:22px;">
+    <div style="font-family:'Courier New',monospace; color:var(--ph-green); letter-spacing:0.12em; text-transform:uppercase; font-size:0.85rem; margin-bottom:10px;">&gt; Relive</div>
+    <div style="color:var(--text-muted); font-size:0.92rem; line-height:1.65;">Deep Phreeze turns it all into patterns — when you see Phish, where, how often, which songs keep finding you.</div>
   </div>
 </div>
+
+<!-- SIGNAL GALLERY — activate when the four screenshots land in images/:
+     phreezer-shot-your-signal.jpg · phreezer-shot-on-this-day.jpg ·
+     phreezer-shot-rated.jpg · phreezer-shot-song-history.jpg -->
 
 <!-- FEATURES -->
 <section class="ph-section" id="features">
@@ -192,43 +211,56 @@
     <p>Built by a phan, for phans — with the retro-terminal soul the music deserves.</p>
   </div>
 
-  <div class="ph-features">
-    <div class="ph-feature">
-      <div class="ph-feature-tag">&gt; rate</div>
-      <div class="ph-feature-title">Live scorecard</div>
-      <div class="ph-feature-desc">Rate every song as it happens — from the venue, the couch webcast, or a later relisten. Stars, notes, and the full setlist at your thumb.</div>
-    </div>
-    <div class="ph-feature">
-      <div class="ph-feature-tag">&gt; relive</div>
-      <div class="ph-feature-title">Audio relisten</div>
-      <div class="ph-feature-desc">Jump straight into recordings of the shows you rated. The jam you can't stop thinking about is <em>one tap away</em>.</div>
-    </div>
-    <div class="ph-feature">
-      <div class="ph-feature-tag">&gt; track</div>
-      <div class="ph-feature-title">Deep Phreeze</div>
-      <div class="ph-feature-desc">Your lifetime stats, frozen solid — every show, song counts, gaps, venues, states, eras. The numbers behind your phandom.</div>
-    </div>
-    <div class="ph-feature">
-      <div class="ph-feature-tag">&gt; ask</div>
-      <div class="ph-feature-title">Uncle Ebenezer</div>
-      <div class="ph-feature-desc">An AI concierge who knows the catalog and your history. Ask him anything — he's heard every show and he's got opinions.</div>
-    </div>
-    <div class="ph-feature">
-      <div class="ph-feature-tag">&gt; connect</div>
-      <div class="ph-feature-title">The community</div>
-      <div class="ph-feature-desc">A feed of phans rating in real time, Phriend Overlap to find who was at your shows, leaderboards, and community top shows, songs, and venues.</div>
-    </div>
-    <div class="ph-feature">
-      <div class="ph-feature-tag">&gt; earn</div>
-      <div class="ph-feature-title">Badges</div>
-      <div class="ph-feature-desc">Milestones for the journey — your first rating, your fiftieth show, your streaks. Earned, never given.</div>
-    </div>
+  <div style="max-width:860px; margin:0 auto;">
+    <details class="ph-reveal" open>
+      <summary><span class="ph-rev-tag">&gt; rate</span><span class="ph-rev-title">Live scorecard</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
+      <div class="ph-rev-body">
+        <p>Rate every song as it happens — from the venue, the couch webcast, or a later relisten. Stars, notes, and the full setlist at your thumb, with the Phish.in recording playing right there.</p>
+        <img src="images/phreezer-shot-scorecard.jpg" alt="Live scorecard" loading="lazy">
+      </div>
+    </details>
+    <details class="ph-reveal">
+      <summary><span class="ph-rev-tag">&gt; relive</span><span class="ph-rev-title">Show scores &amp; relisten</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
+      <div class="ph-rev-body">
+        <p>Every show gets a real score — set by set, song by song — and the jam you can't stop thinking about is one tap from playing again.</p>
+        <img src="images/phreezer-shot-score.jpg" alt="Show score" loading="lazy">
+      </div>
+    </details>
+    <details class="ph-reveal">
+      <summary><span class="ph-rev-tag">&gt; track</span><span class="ph-rev-title">Deep Phreeze</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
+      <div class="ph-rev-body"><p>Your lifetime stats, frozen solid — every show, song counts, gaps, venues, states, eras. Your signal over time, by the numbers.</p></div>
+    </details>
+    <details class="ph-reveal">
+      <summary><span class="ph-rev-tag">&gt; ask</span><span class="ph-rev-title">Uncle Ebenezer</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
+      <div class="ph-rev-body"><p>An AI concierge who knows the catalog and your history. Ask him anything — he's heard every show and he's got opinions.</p></div>
+    </details>
+    <details class="ph-reveal">
+      <summary><span class="ph-rev-tag">&gt; connect</span><span class="ph-rev-title">The community</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
+      <div class="ph-rev-body"><p>A feed of phans rating in real time, Phriend Overlap to find who was at your shows, leaderboards, and community top shows, songs, and venues.</p></div>
+    </details>
+    <details class="ph-reveal">
+      <summary><span class="ph-rev-tag">&gt; earn</span><span class="ph-rev-title">Badges</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
+      <div class="ph-rev-body"><p>Milestones for the journey — your first rating, your fiftieth show, your streaks. Earned, never given.</p></div>
+    </details>
   </div>
 
   <!-- SIGNAL CALLOUT -->
   <div class="ph-signal">
     <h3>◈ The Signal era begins August 1</h3>
     <p>Phreezer's complete next-generation interface — rebuilt screen by screen on desktop and mobile — goes solo on August 1. New archive home, deep stats, community, and a light mode. Same soul, sharper signal.</p>
+  </div>
+
+  <!-- GIANTS -->
+  <div style="margin:70px auto 0; text-align:center;">
+    <h3 style="font-size:1.3rem; margin-bottom:8px;">Standing on the shoulders of giants</h3>
+    <p style="color:var(--text-muted); font-size:0.9rem; max-width:56ch; margin:0 auto 26px; line-height:1.6;">None of this exists without the community's own institutions. Phreezer is a layer on top of their incredible work — not a replacement for any of it.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://phish.net" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; background:var(--ph-panel); border:1px solid rgba(255,255,255,0.1); border-radius:50px; padding:8px 18px 8px 8px; text-decoration:none; color:var(--text); font-size:0.85rem;"><span style="width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:800; font-size:0.85rem; background:#1a3a5c; color:#7fb8e8;">.N</span> Phish.net</a>
+      <a href="https://phish.in" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; background:var(--ph-panel); border:1px solid rgba(255,255,255,0.1); border-radius:50px; padding:8px 18px 8px 8px; text-decoration:none; color:var(--text); font-size:0.85rem;"><span style="width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:800; font-size:0.85rem; background:#3a2a1a; color:#e8b87f;">.IN</span> Phish.in</a>
+      <a href="https://mbird.org" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; background:var(--ph-panel); border:1px solid rgba(255,255,255,0.1); border-radius:50px; padding:8px 18px 8px 8px; text-decoration:none; color:var(--text); font-size:0.85rem;"><img src="images/mockingbird.png" alt="" style="width:34px; height:34px; border-radius:50%; object-fit:cover;"> Mockingbird Foundation</a>
+      <a href="https://helpingfriendlybook.com" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; background:var(--ph-panel); border:1px solid rgba(255,255,255,0.1); border-radius:50px; padding:8px 18px 8px 8px; text-decoration:none; color:var(--text); font-size:0.85rem;"><span style="width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:800; font-size:0.85rem; background:#2a1a3a; color:#c89fe8;">HF</span> Helping Friendly App</a>
+      <a href="http://www.ihoz.com/PhishStats.html" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; background:var(--ph-panel); border:1px solid rgba(255,255,255,0.1); border-radius:50px; padding:8px 18px 8px 8px; text-decoration:none; color:var(--text); font-size:0.85rem;"><span style="width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:800; font-size:0.85rem; background:#1a3a2a; color:#7fe8a8;">ZZ</span> Phishtistics</a>
+    </div>
   </div>
 </section>
 

@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — mpgink</title>
-  <meta name="description" content="Say hello. Collaborate. Or just reach out.">
+  <title>Say Aloha — mpgink</title>
+  <meta name="description" content="Say aloha to mpgink — bugs, ideas, collaborations, or just what stirred you. A real human reads every message.">
 
   <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mpgink.com/contact">
-  <meta property="og:title" content="Contact — mpgink">
-  <meta property="og:description" content="Say hello. Collaborate. Or just reach out.">
-  <meta property="og:image" content="https://mpgink.com/images/mpgink-favicon.png">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
+  <meta property="og:title" content="Say aloha — mpgink">
+  <meta property="og:description" content="Bugs, ideas, collaborations, or just what stirred you. A real human reads every message.">
+  <meta property="og:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
+  <meta property="og:image:width" content="2256">
+  <meta property="og:image:height" content="382">
 
   <!-- Twitter/X Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Contact — mpgink">
-  <meta name="twitter:description" content="Say hello. Collaborate. Or just reach out.">
-  <meta name="twitter:image" content="https://mpgink.com/images/mpgink-favicon.png">
-
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Say aloha — mpgink">
+  <meta name="twitter:description" content="Bugs, ideas, collaborations, or just what stirred you.">
+  <meta name="twitter:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
 
   <!-- Favicon / home-screen icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -28,7 +27,46 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0a0e27">
+
   <link rel="stylesheet" href="style.css">
+  <style>
+    .ct-hero { text-align: center; padding: 170px 8vw 40px; }
+    .ct-hero h1 {
+      font-size: clamp(2.8rem, 6.5vw, 5rem);
+      margin: 0 0 18px; line-height: 1.02; font-weight: 800;
+    }
+    .ct-hero h1 .a1 { color: var(--accent); }
+    .ct-hero h1 .a2 { color: #00e0d0; }
+    .ct-hero h1 .a3 { color: #ffcf6b; }
+    .ct-hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 54ch; margin: 0 auto; line-height: 1.7; }
+
+    .ct-wrap { max-width: 1100px; margin: 0 auto; padding: 0 8vw 60px; }
+    .ct-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 44px 0 30px; }
+    @media (max-width: 960px) { .ct-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .ct-grid { grid-template-columns: 1fr; } }
+    .ct-card {
+      border-radius: 18px; padding: 28px 22px; text-decoration: none; color: var(--text);
+      border: 1px solid var(--border); background: var(--card-bg); text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      display: block;
+    }
+    .ct-card:hover { transform: translateY(-6px) rotate(-1deg); }
+    .ct-card .big { font-size: 1.8rem; display: block; margin-bottom: 12px; }
+    .ct-card h4 { margin: 0 0 6px; font-size: 1.05rem; font-family: 'Fraunces', serif; }
+    .ct-card p { margin: 0; font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; }
+    .ct-c1:hover { box-shadow: 0 10px 30px rgba(255,107,53,0.25); border-color: var(--accent); }
+    .ct-c2:hover { box-shadow: 0 10px 30px rgba(0,224,208,0.2); border-color: #00e0d0; }
+    .ct-c3:hover { box-shadow: 0 10px 30px rgba(255,207,107,0.2); border-color: #ffcf6b; }
+    .ct-c4:hover { box-shadow: 0 10px 30px rgba(169,155,245,0.2); border-color: #a99bf5; }
+
+    .ct-broke {
+      text-align: center; background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 18px; padding: 34px 30px; max-width: 680px; margin: 0 auto;
+    }
+    .ct-broke h3 { margin: 0 0 12px; font-size: 1.35rem; }
+    .ct-broke p { margin: 0; color: var(--text-muted); line-height: 1.75; }
+    .ct-broke em { color: var(--accent); font-style: normal; font-weight: 600; }
+  </style>
 </head>
 <body>
 
@@ -45,40 +83,48 @@
   <a href="job-odyssey.html">Job Odyssey</a>
   <a href="one-percent.html">One Percent</a>
   <a href="newsletter.html">Aloha Friday Motivation</a>
-  <a href="https://www.mattymatte.com" target="_blank">Blog</a>
-  <a href="books.html">Books</a>
-  <a href="shop.html">Store</a>
+  <a href="studio.html">The Studio</a>
   <a href="ai-usage.html">AI Usage</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-<section class="page-hero">
-  <h1>Contact</h1>
-  <p>Say hello. Collaborate. Or just reach out.</p>
+<!-- HERO -->
+<section class="ct-hero">
+  <h1><span class="a1">Say</span> <span class="a2">aloha</span><span class="a3">.</span></h1>
+  <p>Found a bug? Got an idea? Want to collaborate, commission something, or just tell us what stirred you? Every message lands in a real inbox read by a real human — usually before his second coffee.</p>
 </section>
 
-<!-- CONTACT OPTIONS -->
-<div class="section" style="text-align:center;">
-  <div class="pathways">
-    <div class="pathway">
-      <p style="color:var(--text-muted); margin-bottom:12px;">Email</p>
-      <a href="mailto:matthew@mpgink.com">matthew@mpgink.com</a>
-    </div>
-    <div class="pathway">
-      <p style="color:var(--text-muted); margin-bottom:12px;">LinkedIn</p>
-      <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank">matthew-golia</a>
-    </div>
-    <div class="pathway">
-      <p style="color:var(--text-muted); margin-bottom:12px;">Support</p>
-      <a href="https://buymeacoffee.com/mpgink" target="_blank">Buy Me a Coffee</a>
-    </div>
+<div class="ct-wrap">
+  <div class="ct-grid">
+    <a class="ct-card ct-c1" href="mailto:matthew@mpgink.com">
+      <span class="big">✉️</span>
+      <h4>Email</h4>
+      <p>matthew@mpgink.com<br>The front door.</p>
+    </a>
+    <a class="ct-card ct-c2" href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">
+      <span class="big">💼</span>
+      <h4>LinkedIn</h4>
+      <p>Where the collective launched — come say hi.</p>
+    </a>
+    <a class="ct-card ct-c3" href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">
+      <span class="big">📸</span>
+      <h4>Instagram</h4>
+      <p>@mpgink — the visual diary.</p>
+    </a>
+    <a class="ct-card ct-c4" href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">
+      <span class="big">☕</span>
+      <h4>Buy Me a Coffee</h4>
+      <p>Fuel the workshop.</p>
+    </a>
+  </div>
+
+  <div class="ct-broke">
+    <h3>Using one of the apps?</h3>
+    <p>Tell me <em>what broke</em> and <em>what ruled</em>. Every bug report gets read, most get fixed fast, and the best feature ideas have literally shipped with the reporter's badge on them.</p>
   </div>
 </div>
 
-<div class="section" style="margin-top:80px; text-align:center;">
-  <p style="color: var(--text-muted); line-height:1.7; max-width:56ch; margin:0 auto;">Found a bug in one of the apps? Want to collaborate, commission something, or just tell us what stirred you? The inbox is open and a real human reads it.</p>
-</div>
-
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-left">
     <div class="footer-logo"></div>
@@ -88,9 +134,8 @@
     </div>
   </div>
   <div class="footer-links">
-    <a href="index.html#studio">Creative Outlets</a>
-    <a href="shop.html">Shop</a>
-    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank">LinkedIn</a>
+    <a href="index.html#build">What we build</a>
+    <a href="studio.html">The studio</a>
   </div>
 </footer>
 

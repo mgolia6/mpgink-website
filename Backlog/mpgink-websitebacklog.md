@@ -67,6 +67,25 @@ original Arlo & Ash line.
 @getonepercentsmarter · @metta.lovingkindness (spelling confirmed by
 Matthew) — follow links on each product page bottom.
 
+## 🚢 Mock board round — ✅ ALL SIX APPROVED + SHIPPED 2026-07-21
+Phreezer v2 (blog-post copy, verb trio, click-to-reveal features, giants
+links row, IG chip up top) · Job Odyssey v2 (OdysseyVal + Compass drawn as
+brand visuals, copy halved, IG chip; "Make it an odyssey" kept — Claude's
+line, Matthew approved) · One Percent v2 (3 design-comp screens, corrected
+loop: lesson → Lock It In → Keep It Sharp, category chips) · AFM header →
+plaque · The Studio = books+blog+store merged (books.html now redirects;
+nav slimmed to 9 entries) · Contact v2 ("Say aloha", color cards, what
+broke / what ruled).
+
+## ⏳ Waiting on Matthew
+- **4 Phreezer Signal screenshots** (Your Signal · On This Day live · Rated
+  view · Song History) — seen in chat but vision-only; need actual files.
+  Drop into any repo folder (e.g. Phish_Scorecard) or attach again.
+  Gallery markup is staged in phreezer.html behind a comment with final
+  filenames: phreezer-shot-{your-signal,on-this-day,rated,song-history}.jpg
+- **Phreezer mobile images** (Matthew has them)
+- **AFM latest edition links** (Matthew sending)
+
 ## 🅿 Parked / blocked
 - **13·16·7 cipher: find it a graceful home** — band removed from homepage;
   Matthew wants the cipher handled subtly somewhere else (footer whisper?

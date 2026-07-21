@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Studio — mpgink</title>
+  <meta name="description" content="The mpgink studio — books, the blog, and the store. Words, art, and things you can hold.">
+
+  <!-- Open Graph / Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mpgink.com/studio">
+  <meta property="og:title" content="The Studio — mpgink">
+  <meta property="og:description" content="Where mpgink started — books, the blog, and the store. Words, art, and things you can hold.">
+  <meta property="og:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
+  <meta property="og:image:width" content="2256">
+  <meta property="og:image:height" content="382">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Studio — mpgink">
+  <meta name="twitter:description" content="Books, the blog, and the store — words, art, and things you can hold.">
+  <meta name="twitter:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
+
+  <!-- Favicon / home-screen icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0a0e27">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .st-hero { text-align: center; padding: 160px 8vw 50px; max-width: 900px; margin: 0 auto; }
+    .st-hero h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin: 0 0 14px; }
+    .st-hero p { color: var(--text-muted); font-size: 1.15rem; line-height: 1.7; margin: 0 auto; max-width: 56ch; }
+
+    .st-wrap { max-width: 1100px; margin: 0 auto; padding: 20px 8vw 40px; }
+    .st-feature {
+      display: grid; grid-template-columns: 420px 1fr; gap: 48px; align-items: center;
+      padding: 44px 0; border-bottom: 1px solid var(--border);
+    }
+    .st-feature.rev { grid-template-columns: 1fr 420px; }
+    .st-feature.rev .st-media { order: 2; }
+    .st-feature.rev .st-copy { order: 1; }
+    .st-feature:last-child { border-bottom: none; }
+    @media (max-width: 880px) {
+      .st-feature, .st-feature.rev { grid-template-columns: 1fr; }
+      .st-feature.rev .st-media, .st-feature.rev .st-copy { order: unset; }
+    }
+    .st-media img { width: 100%; border-radius: 14px; display: block; }
+    .st-media.big-logo { background: #0a0a0a; border-radius: 14px; padding: 28px; }
+    .st-eyebrow { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+    .st-copy h2 { font-size: 1.6rem; margin: 0 0 12px; }
+    .st-copy p { color: var(--text-muted); line-height: 1.7; margin: 0 0 20px; }
+    .st-copy p strong { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<div class="menu-container">
+  <div class="menu-icon" style="background-image:url('images/mpgink-favicon.png');"></div>
+  <div class="menu-label">Menu</div>
+</div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">mpgink</div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="phreezer.html">Phreezer</a>
+  <a href="job-odyssey.html">Job Odyssey</a>
+  <a href="one-percent.html">One Percent</a>
+  <a href="newsletter.html">Aloha Friday Motivation</a>
+  <a href="studio.html">The Studio</a>
+  <a href="ai-usage.html">AI Usage</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="st-hero">
+  <h1>The studio</h1>
+  <p>Where mpgink started — and where the ink still dries. Words, art, and things you can hold.</p>
+</section>
+
+<div class="st-wrap">
+
+  <!-- BOOKS -->
+  <div class="st-feature" id="books">
+    <div class="st-media big-logo"><img src="images/arlo-ash-logo.png" alt="Arlo &amp; Ash Explorers Series"></div>
+    <div class="st-copy">
+      <div class="st-eyebrow">Books</div>
+      <h2>Arlo &amp; Ash Explorers Series</h2>
+      <p><strong>Arlo and the Million-Mile Truck</strong> — by Arlo Golia <em>(with a little help from dad)</em>.</p>
+      <p>Arlo loves trucks — big ones, important ones, and the ones with stories to tell. When he visits a real fleet shop with his dad, he discovers a million-mile truck and the fleet it belongs to. A true-to-life adventure for young readers who are curious about engines, tools, and the world around them.</p>
+      <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank" rel="noopener" class="cta cta-primary">Get it on Amazon</a>
+    </div>
+  </div>
+
+  <!-- BLOG -->
+  <div class="st-feature rev" id="blog">
+    <div class="st-media"><img src="images/mattymattemodgepodge-blog.jpg" alt="Matty Matte Modge Podge — the blog"></div>
+    <div class="st-copy">
+      <div class="st-eyebrow">The blog</div>
+      <h2>mattymattemodgepodge</h2>
+      <p>Essays and explorations — the things that don't fit anywhere else. Dormant, not dead, and the pull to return is real.</p>
+      <a href="https://www.mattymatte.com" target="_blank" rel="noopener" class="cta cta-secondary">Read the blog</a>
+    </div>
+  </div>
+
+  <!-- STORE -->
+  <div class="st-feature" id="store">
+    <div class="st-media"><img src="images/mattymattemodgepodge-modgepodge.jpg" alt="The mpgink store"></div>
+    <div class="st-copy">
+      <div class="st-eyebrow">The store</div>
+      <h2>Made with intention, shipped with aloha</h2>
+      <p>Art, prints, and pieces from the studio — with brand merch lines for Phreezer, One Percent, and the rest of the collective on the way.</p>
+      <a href="shop.html" class="cta cta-secondary">Browse the store</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <div class="footer-logo"></div>
+    <div class="footer-brand">
+      <div class="footer-brand-name">mpgink</div>
+      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html#build">What we build</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const menu = document.querySelector('.menu-container');
+  const sidebar = document.getElementById('sidebar');
+  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
+</script>
+</body>
+</html>
