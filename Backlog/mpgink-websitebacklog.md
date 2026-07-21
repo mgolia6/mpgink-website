@@ -25,12 +25,12 @@ Canon: BRAND-COPY-2026-07-21.md. Nothing ships without Matthew's review.*
 4. ~~**newsletter.html**~~ ✅ 2026-07-21 — full AFM page: since-2018 story,
    anatomy of an edition, real recent editions (308–312 from the content log),
    subscribe CTAs. No subscriber counts.
-5. ~~**books.html**~~ ✅ 2026-07-21 — real Arlo & Ash copy (no invented plot —
-   only verified facts), What's Next honest line. ⚠ A real series blurb from
-   Matthew would upgrade this.
-6. ~~**contact.html**~~ ✅ 2026-07-21 — email set to matthew@mpgink.com
-   (⚠ CONFIRM — sourced from One Percent's Resend sender record, not from
-   Matthew directly), form placeholder cut.
+5. ~~**books.html**~~ ✅ 2026-07-21 — REAL cover copy pulled from Matthew's
+   Google Drive (Arlo&Ash folder): "Arlo and the Million-Mile Truck" by Arlo
+   Golia (with a little help from dad); series name corrected to "Explorers
+   Series" site-wide.
+6. ~~**contact.html**~~ ✅ 2026-07-21 — email matthew@mpgink.com (CONFIRMED
+   by Matthew), form placeholder cut.
 7. ~~**ai-usage.html**~~ ✅ 2026-07-21 — light tune: "Building & shipping apps"
    pill + 2026 build-partner paragraph. Manifesto untouched otherwise.
 
@@ -47,6 +47,17 @@ Canon: BRAND-COPY-2026-07-21.md. Nothing ships without Matthew's review.*
 - ~~newsletter duplicate stylesheet link~~ ✅ (killed in rewrite)
 - OG images: index/about/one-percent/phreezer/job-odyssey/metta/newsletter done;
   books/contact/shop still on the 512px favicon (low priority)
+
+## 📐 Process rule (Matthew, 2026-07-21)
+**Mocks BEFORE building, always.** Visual/layout changes get a mock in the
+artifact (claude.ai/code/artifact/7e8ae6d9-...) and Matthew's approval before
+touching the live site. Copy corrections from verified sources may ship direct.
+
+## 🖼 Layout restyle — PROPOSED, awaiting Matthew (mock published 2026-07-21)
+Graffiti as gallery plaques, not wallpaper: about.html's four full-width
+banners → framed ~320px tilted plaques in the label column (reclaims ~1200px
+of scroll); section padding 100→64px; homepage cipher band 210→~120px; hero
+painting 40vw→~32vw; ai-usage banner same plaque treatment.
 
 ## 🅿 Parked / blocked
 - **Instagram follow links** — blocked on Matthew supplying the actual handles
