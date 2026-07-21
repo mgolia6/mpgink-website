@@ -36,7 +36,8 @@ random. count the alphabet."
   marketplace.
 - **One Percent** (onepercent.mpgink.com) — one concept a day across ten
   categories; every factual claim human-verified against primary sources
-  before it publishes. 1% better every day.
+  before it publishes. 1% better every day. (Public launch: end of August
+  2026 — Matthew, 2026-07-21. Until then: invite-only beta.)
 - **Aloha Friday Motivation** — your weekly dose of motivation, every Friday.
 - Umbrella line for the rest: "plus reading apps for kids, family tools, and
   creative experiments — all built on the same system."
@@ -56,6 +57,9 @@ public. → mpgink.com
    public site** — no naming the wellness instrument or the family condo app.
    "Family tools" as a category mention is the ceiling. Arlowise may be named
    as "reading apps for my kids" without kids' details.
+   **Amendment (Matthew, 2026-07-21): Metta may be teased BY NAME as
+   "coming soon" — name + mark only, zero description of what it is or does.
+   No health/protocol/wellness detail ever appears on the public site.**
 2. **No user counts or revenue numbers** unless Matthew explicitly approves
    the specific number.
 3. Copy Matthew hasn't reviewed doesn't ship — draft, flag, wait.

@@ -4,23 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mpgink</title>
-  <meta name="description" content="mpgink — a creative studio for making, exploring, and breathing on purpose.">
+  <meta name="description" content="mpgink — a creative collective. Mission · passion · gratitude. Building AI-augmented products people actually use.">
 
   <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mpgink.com/">
-  <meta property="og:title" content="mpgink">
-  <meta property="og:description" content="A creative studio for making, exploring, and breathing on purpose.">
-  <meta property="og:image" content="https://mpgink.com/images/mpgink-favicon.png">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
+  <meta property="og:title" content="mpgink — a creative collective">
+  <meta property="og:description" content="Mission · passion · gratitude. Building AI-augmented products people actually use.">
+  <meta property="og:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
+  <meta property="og:image:width" content="2256">
+  <meta property="og:image:height" content="382">
 
   <!-- Twitter/X Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="mpgink">
-  <meta name="twitter:description" content="A creative studio for making, exploring, and breathing on purpose.">
-  <meta name="twitter:image" content="https://mpgink.com/images/mpgink-favicon.png">
-
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="mpgink — a creative collective">
+  <meta name="twitter:description" content="Mission · passion · gratitude. Building AI-augmented products people actually use.">
+  <meta name="twitter:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
 
   <!-- Favicon / home-screen icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -28,7 +27,195 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0a0e27">
+
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ---- Homepage 2026-07 overhaul: collective framing ---- */
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.1s;
+    }
+
+    .hero-text h1 .dot { color: var(--accent); font-weight: 600; }
+
+    /* Cipher band */
+    .cipher {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: #07091c;
+    }
+    .cipher-strip {
+      display: block;
+      width: 100%;
+      height: clamp(110px, 15vw, 210px);
+      object-fit: cover;
+      object-position: center;
+    }
+    .cipher-caption {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 16px 8vw 20px;
+      text-align: center;
+    }
+    .cipher-nums {
+      font-family: 'Fraunces', serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+    }
+    .cipher-nums em { font-style: normal; color: var(--accent); }
+    .cipher-tease { font-size: 0.92rem; color: var(--text-muted); letter-spacing: 0.03em; }
+
+    /* What we build */
+    .build-section { padding: 110px 8vw 30px; max-width: 1220px; margin: 0 auto; }
+    .build-head { text-align: center; margin-bottom: 56px; }
+    .build-head h2 { font-size: clamp(1.9rem, 3vw, 2.5rem); margin: 0 0 14px; }
+    .build-head p { color: var(--text-muted); font-size: 1.05rem; margin: 0 auto; max-width: 60ch; line-height: 1.65; }
+
+    .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+    @media (max-width: 1080px) { .products { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px)  { .products { grid-template-columns: 1fr; } }
+
+    .product {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product:hover { transform: translateY(-6px); box-shadow: 0 10px 28px rgba(0,0,0,0.3); }
+    .product-visual {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-body { padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .product-name { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 800; }
+    .product-desc { font-size: 0.93rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
+    .product-link { font-size: 0.82rem; letter-spacing: 0.08em; font-weight: 600; }
+    .chip {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 50px;
+      backdrop-filter: blur(6px);
+      z-index: 2;
+    }
+
+    .v-phreezer { background: #0a0a0a; }
+    .v-phreezer::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.35) 2px 4px);
+    }
+    .v-phreezer img { width: 86%; max-height: 80px; object-fit: contain; z-index: 1; filter: drop-shadow(0 0 12px rgba(0,224,208,0.3)); }
+    .chip-phreezer { background: rgba(255,102,0,0.18); color: #ff9d57; border: 1px solid rgba(255,102,0,0.4); }
+    .product-link.l-phreezer { color: #00e0d0; }
+
+    .v-odyssey { background: #2a3550; }
+    .v-odyssey img { height: 112px; width: 112px; }
+    .product-link.l-odyssey { color: #e8b64c; }
+
+    .v-onepct { background: #0b1512; }
+    .v-onepct img { width: 100%; height: 100%; object-fit: cover; }
+    .chip-onepct { background: rgba(20,35,30,0.75); color: #4ade80; border: 1px solid rgba(74,222,128,0.4); }
+    .product-link.l-onepct { color: #4ade80; }
+
+    .v-afm img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+    .chip-afm { background: rgba(255,207,107,0.14); color: #ffcf6b; border: 1px solid rgba(255,207,107,0.35); }
+    .product-link.l-afm { color: #ffcf6b; }
+
+    /* Metta — coming soon strip */
+    .coming-soon {
+      margin-top: 26px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #0c0c10;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px 26px;
+    }
+    .coming-soon img { width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; }
+    .coming-soon-name { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 800; }
+    .coming-soon-note { font-size: 0.9rem; color: var(--text-muted); }
+    .coming-soon-chip {
+      margin-left: auto;
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 50px;
+      background: rgba(139,124,246,0.14);
+      color: #a99bf5;
+      border: 1px solid rgba(139,124,246,0.4);
+      white-space: nowrap;
+    }
+    @media (max-width: 640px) {
+      .coming-soon { flex-wrap: wrap; }
+      .coming-soon-chip { margin-left: 0; }
+    }
+
+    .umbrella {
+      text-align: center;
+      margin: 48px auto 0;
+      max-width: 62ch;
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .umbrella strong { color: var(--text); font-weight: 600; }
+
+    /* The studio */
+    .studio-section { padding: 110px 8vw 30px; max-width: 1220px; margin: 0 auto; }
+    .studio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+    .studio-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+    }
+    .studio-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+    .studio-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 14px; margin-bottom: 18px; }
+    .studio-title { font-family: 'Fraunces', serif; font-size: 1.15rem; margin-bottom: 8px; }
+    .studio-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+
+    .footer { margin-top: 110px; }
+    .footer-brand-line { max-width: 46ch; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-eyebrow { animation: none; opacity: 1; }
+    }
+  </style>
 </head>
 
 <body>
@@ -55,54 +242,123 @@
 
 <!-- HERO -->
 <section class="hero">
-  <img src="images/mpgink-graffiti-hero.jpg" class="hero-image" alt="mpgink header">
+  <img src="images/mpgink-graffiti-hero.jpg" class="hero-image" alt="mpgink graffiti hero painting">
 
   <div class="hero-text">
-    <h1>You’re here. Let’s begin.</h1>
-    <p>A space to make, explore, or simply breathe.</p>
+    <div class="hero-eyebrow">mpgink — a creative collective</div>
+    <h1>mission<span class="dot"> · </span>passion<span class="dot"> · </span>gratitude<span class="dot">.</span></h1>
+    <p>One founder and an AI build partner, run like a full product org — building AI&#8209;augmented products people actually use. Built lo&#8209;fi. Shipped fast. Iterated in public.</p>
 
     <div class="cta-row">
-      <a href="#studio" class="cta cta-primary">Explore the Studio</a>
-      <a href="shop.html" class="cta cta-secondary">Visit the Shop</a>
+      <a href="#build" class="cta cta-primary">See what we build</a>
+      <a href="#studio" class="cta cta-secondary">Step into the studio</a>
     </div>
   </div>
 
   <div class="scroll-cue">⌄</div>
 </section>
 
-<!-- CREATIVE OUTLETS -->
-<section class="outlets-section" id="studio">
-  <h2 class="outlets-title">Creative Outlets</h2>
+<!-- CIPHER BAND -->
+<div class="cipher">
+  <img class="cipher-strip" src="images/mpgink-linkedin-company-cover.jpg" alt="13 16 7 cipher tiles from the mpgink graffiti hero">
+  <div class="cipher-caption">
+    <span class="cipher-nums"><em>13</em> · <em>16</em> · <em>7</em></span>
+    <span class="cipher-tease">the numbers aren't random. count the alphabet.</span>
+  </div>
+</div>
 
-  <div class="outlets-grid">
+<!-- WHAT WE BUILD -->
+<section class="build-section" id="build">
+  <div class="build-head">
+    <h2>What we build</h2>
+    <p>Real products, real users, one operating standard — automated quality gates, daily canaries, and a mission-control dashboard keeping the whole portfolio honest.</p>
+  </div>
 
-    <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136"
-       target="_blank" class="outlet-card">
-      <img src="images/afm-hero.jpg" class="outlet-img" alt="Aloha Friday Motivation">
-      <div class="outlet-title">Aloha Friday Motivation</div>
-      <div class="outlet-desc">Weekly storytelling, philosophy, and perspective shifts — your Friday ritual.</div>
+  <div class="products">
+
+    <a class="product" href="https://phreezer.mpgink.com" target="_blank" rel="noopener">
+      <div class="product-visual v-phreezer">
+        <span class="chip chip-phreezer">Signal goes solo Aug 1</span>
+        <img src="images/phreezer-logo.png" alt="Phreezer — rate. track. relive.">
+      </div>
+      <div class="product-body">
+        <div class="product-name">Phreezer</div>
+        <div class="product-desc">Rate, track, and relive Phish shows — live rating during shows, lifetime stats, audio relisten, an AI concierge named Uncle Ebenezer, and a community of phans.</div>
+        <div class="product-link l-phreezer">phreezer.mpgink.com →</div>
+      </div>
     </a>
 
-    <a href="https://www.amazon.com/dp/B0D889QGV2/"
-       target="_blank" class="outlet-card">
-      <img src="images/arlo-ash-logo.png" class="outlet-img" alt="Arlo & Ash">
-      <div class="outlet-title">Arlo & Ash</div>
-      <div class="outlet-desc">A space for the whimsical, the heartfelt, and the beautifully unexpected.</div>
+    <a class="product" href="https://jobodyssey.mpgink.com" target="_blank" rel="noopener">
+      <div class="product-visual v-odyssey">
+        <img src="images/job-odyssey-icon.png" alt="Job Odyssey compass mark">
+      </div>
+      <div class="product-body">
+        <div class="product-name">Job Odyssey</div>
+        <div class="product-desc">An AI-powered job-search platform — scraped openings scored against your actual résumé and goals on an anchored rubric, tailored materials, pipeline tracking, and a growing career-coaching marketplace.</div>
+        <div class="product-link l-odyssey">jobodyssey.mpgink.com →</div>
+      </div>
     </a>
 
-    <a href="https://www.mattymatte.com"
-       target="_blank" class="outlet-card">
-      <img src="images/mattymattemodgepodge-blog.jpg" class="outlet-img" alt="Blog">
-      <div class="outlet-title">Blog</div>
-      <div class="outlet-desc">Thoughts, essays, and explorations — the things that don’t fit anywhere else.</div>
+    <a class="product" href="https://onepercent.mpgink.com" target="_blank" rel="noopener">
+      <div class="product-visual v-onepct">
+        <span class="chip chip-onepct">Launching end of August</span>
+        <img src="images/one-percent-card.jpg" alt="One Percent — one percent smarter every day">
+      </div>
+      <div class="product-body">
+        <div class="product-name">One Percent</div>
+        <div class="product-desc">One concept a day across ten categories — every factual claim human-verified against primary sources before it publishes. 1% better every day.</div>
+        <div class="product-link l-onepct">onepercent.mpgink.com →</div>
+      </div>
     </a>
 
-    <a href="shop.html" class="outlet-card">
-      <img src="images/mattymattemodgepodge-modgepodge.jpg" class="outlet-img" alt="Store">
-      <div class="outlet-title">Store</div>
-      <div class="outlet-desc">Art, prints, and pieces from the studio — made with intention.</div>
+    <a class="product" href="newsletter.html">
+      <div class="product-visual v-afm">
+        <span class="chip chip-afm">Every Friday since 2018</span>
+        <img src="images/afm-hero.jpg" alt="Aloha Friday Motivation">
+      </div>
+      <div class="product-body">
+        <div class="product-name">Aloha Friday Motivation</div>
+        <div class="product-desc">Your weekly dose of motivation, every Friday — storytelling, philosophy, and perspective shifts that land in your feed before the weekend does.</div>
+        <div class="product-link l-afm">Subscribe on LinkedIn →</div>
+      </div>
     </a>
 
+  </div>
+
+  <div class="coming-soon">
+    <img src="images/metta-icon.png" alt="Metta mark">
+    <div>
+      <div class="coming-soon-name">Metta</div>
+      <div class="coming-soon-note">Something new is taking shape.</div>
+    </div>
+    <span class="coming-soon-chip">Coming soon</span>
+  </div>
+
+  <p class="umbrella">Plus <strong>reading apps for kids, family tools, and creative experiments</strong> — all built on the same system.</p>
+</section>
+
+<!-- THE STUDIO -->
+<section class="studio-section" id="studio">
+  <div class="build-head">
+    <h2>The studio</h2>
+    <p>Where mpgink started — and where the ink still dries. Words, art, and things you can hold.</p>
+  </div>
+  <div class="studio-grid">
+    <a class="studio-card" href="books.html">
+      <img src="images/arlo-ash-logo.png" alt="Arlo &amp; Ash">
+      <div class="studio-title">Books</div>
+      <div class="studio-desc">The Arlo &amp; Ash Explorer Series — stories for the whimsical, the curious, and the wonderfully lost.</div>
+    </a>
+    <a class="studio-card" href="https://www.mattymatte.com" target="_blank" rel="noopener">
+      <img src="images/mattymattemodgepodge-blog.jpg" alt="Matty Matte Modge Podge blog">
+      <div class="studio-title">The Blog</div>
+      <div class="studio-desc">mattymattemodgepodge — essays and explorations, the things that don't fit anywhere else.</div>
+    </a>
+    <a class="studio-card" href="shop.html">
+      <img src="images/mattymattemodgepodge-modgepodge.jpg" alt="mpgink store">
+      <div class="studio-title">The Store</div>
+      <div class="studio-desc">Art, prints, and pieces from the studio — made with intention, shipped with aloha.</div>
+    </a>
   </div>
 </section>
 
@@ -112,13 +368,15 @@
     <div class="footer-logo"></div>
     <div class="footer-brand">
       <div class="footer-brand-name">mpgink</div>
-      <div class="footer-brand-line">A studio for making, exploring, and breathing on purpose.</div>
+      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
     </div>
   </div>
 
   <div class="footer-links">
-    <a href="#studio">Creative Outlets</a>
-    <a href="shop.html">Shop</a>
+    <a href="#build">What we build</a>
+    <a href="#studio">The studio</a>
+    <a href="ai-usage.html">AI Usage</a>
+    <a href="contact.html">Contact</a>
   </div>
   <div class="footer-social">
     <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
