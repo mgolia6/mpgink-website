@@ -85,15 +85,18 @@
 
   .ai-banner.visible { opacity: 1; transform: translateY(0); }
 
+  .ai-banner { text-align: center; }
   .ai-banner img {
-    width: 100%;
-    height: clamp(200px, 30vw, 380px);
-    object-fit: cover;
-    object-position: center;
-    border-radius: 8px;
-    display: block;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.04);
+    width: min(460px, 82vw);
+    border: 10px solid #12162e;
+    outline: 1px solid rgba(255,255,255,0.09);
+    border-radius: 4px;
+    display: inline-block;
+    transform: rotate(-1.6deg);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3), 0 16px 34px rgba(0,0,0,0.35);
+    transition: transform 0.35s ease;
   }
+  .ai-banner img:hover { transform: rotate(0deg) scale(1.02); }
 
   /* MANIFESTO BLOCK — full-width reading experience */
   .manifesto {

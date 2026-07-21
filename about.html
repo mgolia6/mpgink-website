@@ -72,9 +72,9 @@
 
   .gallery-frame {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1150px;
     margin: 0 auto;
-    padding: 100px 8vw;
+    padding: 64px 8vw;
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.9s ease, transform 0.9s ease;
@@ -85,26 +85,39 @@
     transform: translateY(0);
   }
 
-  .frame-banner {
-    width: 100%;
-    height: clamp(180px, 28vw, 340px);
-    object-fit: cover;
-    object-position: center;
-    border-radius: 8px;
+  /* graffiti as gallery plaques — framed canvases in the label column */
+  .plaque {
     display: block;
-    margin-bottom: 64px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.04);
+    width: 100%;
+    max-width: 320px;
+    border: 10px solid #12162e;
+    outline: 1px solid rgba(255,255,255,0.09);
+    border-radius: 4px;
+    margin-top: 24px;
+    transform: rotate(-1.6deg);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3), 0 16px 34px rgba(0,0,0,0.35);
+    transition: transform 0.35s ease;
+  }
+  .flip .plaque { transform: rotate(1.6deg); }
+  .plaque:hover { transform: rotate(0deg) scale(1.02); }
+  .plaque-caption {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 14px;
+    padding-left: 4px;
   }
 
   .frame-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
+    grid-template-columns: 340px 1fr;
+    gap: 64px;
     align-items: start;
   }
 
   .frame-content.flip {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 340px;
   }
 
   .frame-content.flip .frame-label { order: 2; }
@@ -302,11 +315,12 @@
 
 <!-- ROOM 1: MISSION -->
 <div class="gallery-frame" data-scroll>
-  <img src="images/mission.png" class="frame-banner" alt="Mission">
   <div class="frame-content">
     <div class="frame-label">
       <div class="section-num">01</div>
       <h2>Why this exists.</h2>
+      <img src="images/mission.png" class="plaque" alt="Mission graffiti artwork">
+      <div class="plaque-caption">mission — from the graffiti series</div>
     </div>
     <div class="frame-body">
       <p>mpgink exists to create, share, and celebrate the act of making things. Not because they're perfect — because they're alive.</p>
@@ -319,11 +333,12 @@
 
 <!-- ROOM 2: VISION -->
 <div class="gallery-frame" data-scroll>
-  <img src="images/vision.png" class="frame-banner" alt="Vision">
   <div class="frame-content flip">
     <div class="frame-label">
       <div class="section-num">02</div>
       <h2>The world we're reaching for.</h2>
+      <img src="images/vision.png" class="plaque" alt="Vision graffiti artwork">
+      <div class="plaque-caption">vision — from the graffiti series</div>
     </div>
     <div class="frame-body">
       <p>A world where creativity isn't gatekept, overthought, or reserved for serious artists. Where kids build things because they're curious, and adults make things because they remember what that feels like.</p>
@@ -336,11 +351,12 @@
 
 <!-- ROOM 3: TENETS -->
 <div class="gallery-frame" data-scroll>
-  <img src="images/tenets.png" class="frame-banner" alt="Tenets">
   <div class="frame-content">
     <div class="frame-label">
       <div class="section-num">03</div>
       <h2>How we move.</h2>
+      <img src="images/tenets.png" class="plaque" alt="Tenets graffiti artwork">
+      <div class="plaque-caption">tenets — from the graffiti series</div>
     </div>
     <div class="frame-body">
       <div class="tenets-list">
@@ -376,11 +392,12 @@
 
 <!-- ROOM 4: HISTORY -->
 <div class="gallery-frame" data-scroll>
-  <img src="images/history.png" class="frame-banner" alt="History">
   <div class="frame-content flip">
     <div class="frame-label">
       <div class="section-num">04</div>
       <h2>Where it all came from.</h2>
+      <img src="images/history.png" class="plaque" alt="History graffiti artwork">
+      <div class="plaque-caption">history — from the graffiti series</div>
     </div>
     <div class="frame-body">
 

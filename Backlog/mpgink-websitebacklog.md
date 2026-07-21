@@ -53,15 +53,25 @@ Canon: BRAND-COPY-2026-07-21.md. Nothing ships without Matthew's review.*
 artifact (claude.ai/code/artifact/7e8ae6d9-...) and Matthew's approval before
 touching the live site. Copy corrections from verified sources may ship direct.
 
-## 🖼 Layout restyle — PROPOSED, awaiting Matthew (mock published 2026-07-21)
-Graffiti as gallery plaques, not wallpaper: about.html's four full-width
-banners → framed ~320px tilted plaques in the label column (reclaims ~1200px
-of scroll); section padding 100→64px; homepage cipher band 210→~120px; hero
-painting 40vw→~32vw; ai-usage banner same plaque treatment.
+## 🖼 Layout restyle — ✅ APPROVED + SHIPPED 2026-07-21
+Graffiti as gallery plaques (about + ai-usage), hero 40vw→32vw, section
+padding tightened. Per Matthew's feedback the CIPHER BAND WAS DROPPED
+ENTIRELY (duplicate imagery + tease too on-the-nose). Also shipped from the
+same feedback: scroll-cue arrow now anchors to #build, smooth scrolling
+site-wide (reduced-motion aware), umbrella line scrapped, studio card images
+uncropped (object-fit contain), Books card copy restored to the repo's
+original Arlo & Ash line.
+
+## 📸 Instagram — SHIPPED 2026-07-21 (handles from Matthew)
+@mpgink (index footer icon) · @phreezerapp · @jobodyssey ·
+@getonepercentsmarter · @metta.lvingkindness (⚠ verify spelling — possible
+typo for "lovingkindness"; using Matthew's exact text) — follow links on each
+product page bottom.
 
 ## 🅿 Parked / blocked
-- **Instagram follow links** — blocked on Matthew supplying the actual handles
-  (none recorded in any repo; do not guess)
+- **13·16·7 cipher: find it a graceful home** — band removed from homepage;
+  Matthew wants the cipher handled subtly somewhere else (footer whisper?
+  about-page easter egg?) — propose via mock
 - **Regenerate graffiti hero to 13/16/7** — needs image work outside this repo;
   until then the cipher band (correct tiles) carries the cipher
 - **Shop page price verification vs Etsy** — separate arc (PROJECT_PLAN note)

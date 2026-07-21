@@ -16,6 +16,14 @@
 /* ------------------------------------
    GLOBAL
 ------------------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -155,8 +163,8 @@ h1, h2, h3 {
   position: absolute;
   left: 5%;
   top: 50%;
-  width: 40vw;
-  max-width: 600px;
+  width: 32vw;
+  max-width: 480px;
   transform: translateY(-50%);
   opacity: 0.9;
   filter: brightness(0.85);
@@ -210,7 +218,12 @@ h1, h2, h3 {
   opacity: 0.5;
   animation: bounce 2s infinite;
   z-index: 3;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
 }
+
+.scroll-cue:hover { opacity: 0.9; }
 
 @keyframes bounce {
   0%, 100% { transform: translate(-50%, 0); }
