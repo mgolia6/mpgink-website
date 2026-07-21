@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Newsletter — mpgink</title>
-  <meta name="description" content="Weekly storytelling, philosophy, and perspective shifts — your Friday ritual.">
+  <title>Aloha Friday Motivation — mpgink</title>
+  <meta name="description" content="Aloha Friday Motivation — your weekly dose of motivation, every Friday since 2018. Storytelling, philosophy, and perspective shifts.">
 
   <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mpgink.com/newsletter">
-  <meta property="og:title" content="Aloha Friday Motivation — mpgink">
-  <meta property="og:description" content="Weekly storytelling, philosophy, and perspective shifts — your Friday ritual.">
-  <meta property="og:image" content="https://mpgink.com/images/mpgink-favicon.png">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
+  <meta property="og:title" content="Aloha Friday Motivation — every Friday since 2018">
+  <meta property="og:description" content="Your weekly dose of motivation — storytelling, philosophy, and perspective shifts that land before the weekend does.">
+  <meta property="og:image" content="https://mpgink.com/images/afm-hero.jpg">
+  <meta property="og:image:width" content="804">
+  <meta property="og:image:height" content="449">
 
   <!-- Twitter/X Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Aloha Friday Motivation — mpgink">
-  <meta name="twitter:description" content="Weekly storytelling, philosophy, and perspective shifts — your Friday ritual.">
-  <meta name="twitter:image" content="https://mpgink.com/images/mpgink-favicon.png">
-
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aloha Friday Motivation — every Friday since 2018">
+  <meta name="twitter:description" content="Your weekly dose of motivation — storytelling, philosophy, and perspective shifts.">
+  <meta name="twitter:image" content="https://mpgink.com/images/afm-hero.jpg">
 
   <!-- Favicon / home-screen icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -28,8 +27,80 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0a0e27">
+
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* AFM page — warm Friday light on the dark shell */
+    :root { --afm-gold: #ffcf6b; }
+
+    .afm-hero {
+      padding: 150px 8vw 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .afm-chip {
+      display: inline-block;
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+      padding: 6px 13px; border-radius: 50px; margin-bottom: 22px;
+      background: rgba(255,207,107,0.12); color: var(--afm-gold); border: 1px solid rgba(255,207,107,0.4);
+    }
+    .afm-hero h1 { font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 800; margin: 0 0 18px; text-wrap: balance; }
+    .afm-hero > p { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 60ch; margin: 0 auto 34px; }
+    .cta.afm-primary { background: var(--afm-gold); color: #2b1f05; }
+    .cta.afm-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(255,207,107,0.4); }
+
+    .afm-art {
+      display: block;
+      width: min(860px, 90vw);
+      margin: 50px auto 0;
+      border-radius: 16px;
+      box-shadow: 0 14px 44px rgba(0,0,0,0.4);
+    }
+
+    .afm-section { padding: 90px 8vw 20px; max-width: 1100px; margin: 0 auto; }
+    .afm-section-head { text-align: center; margin-bottom: 48px; }
+    .afm-section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 0 0 12px; }
+    .afm-section-head p { color: var(--text-muted); max-width: 62ch; margin: 0 auto; line-height: 1.65; }
+
+    .afm-story {
+      max-width: 68ch;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: rgba(232,232,232,0.88);
+    }
+    .afm-story p { margin: 0 0 24px; }
+    .afm-story strong { color: var(--afm-gold); font-weight: 600; }
+
+    /* anatomy of an edition */
+    .afm-anatomy { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
+    .afm-piece {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+    }
+    .afm-piece-tag { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--afm-gold); font-weight: 600; margin-bottom: 10px; }
+    .afm-piece-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .afm-piece-desc { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+
+    /* recent editions */
+    .afm-editions { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .afm-edition {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 24px;
+    }
+    .afm-edition-num { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--afm-gold); margin-bottom: 8px; }
+    .afm-edition-title { font-family: 'Fraunces', serif; font-size: 1.08rem; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+    .afm-edition-theme { color: var(--text-muted); font-size: 0.86rem; line-height: 1.5; }
+
+    .afm-bottom { text-align: center; padding: 90px 8vw 120px; }
+    .afm-bottom h2 { font-size: 2.2rem; margin-bottom: 14px; }
+    .afm-bottom p { color: var(--text-muted); margin-bottom: 36px; }
+  </style>
 </head>
 <body>
 
@@ -53,48 +124,110 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<section class="page-hero">
+<!-- HERO -->
+<section class="afm-hero">
+  <span class="afm-chip">Every Friday since 2018</span>
   <h1>Aloha Friday Motivation</h1>
-  <p>Weekly storytelling, philosophy, and perspective shifts — your Friday ritual.</p>
-  <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136"
-     target="_blank" class="cta cta-primary" style="display:inline-block; margin-top:24px;">Subscribe on LinkedIn</a>
+  <p>Your weekly dose of motivation — storytelling, philosophy, and perspective shifts that land in your feed before the weekend does. Past Edition 300 and still showing up every single Friday.</p>
+  <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank" rel="noopener" class="cta afm-primary">Subscribe on LinkedIn</a>
+  <img class="afm-art" src="images/afm-hero.jpg" alt="Aloha Friday Motivation artwork">
 </section>
 
-<!-- ABOUT THE NEWSLETTER -->
-<div class="section">
-  <h2>What It Is</h2>
-  <p style="color: var(--text-muted);">[Newsletter overview and what readers can expect — coming soon]</p>
-</div>
-
-<!-- FEATURED ISSUES -->
-<div class="section">
-  <h2>Recent Issues</h2>
-  <p style="color: var(--text-muted);">[Archive of past issues — coming soon]</p>
-  <div class="tenets-grid" style="margin-top:24px;">
-    <div class="tenet">[Issue title] <br><span style="color:var(--text-muted); font-size:0.85rem;">[Date]</span></div>
-    <div class="tenet">[Issue title] <br><span style="color:var(--text-muted); font-size:0.85rem;">[Date]</span></div>
-    <div class="tenet">[Issue title] <br><span style="color:var(--text-muted); font-size:0.85rem;">[Date]</span></div>
+<!-- WHAT IT IS -->
+<section class="afm-section">
+  <div class="afm-section-head">
+    <h2>What it is</h2>
   </div>
+  <div class="afm-story">
+    <p>It started in 2018 as a way to connect with a new team — one email, every Friday, no exceptions. It never stopped.</p>
+    <p>Each edition <strong>connects disparate things</strong>: people born and lost on that date in history, a word worth keeping, a visual puzzle, and a personal story that ties it all together. Somehow, every week, the threads meet in the middle — and you head into the weekend with a little more perspective than you had before.</p>
+  </div>
+</section>
+
+<!-- ANATOMY -->
+<section class="afm-section">
+  <div class="afm-section-head">
+    <h2>Anatomy of an edition</h2>
+    <p>Four pieces, one thread. Every single Friday.</p>
+  </div>
+  <div class="afm-anatomy">
+    <div class="afm-piece">
+      <div class="afm-piece-tag">The date</div>
+      <div class="afm-piece-title">Born &amp; remembered</div>
+      <div class="afm-piece-desc">People who entered and left the world this week in history — and what their lives still have to say.</div>
+    </div>
+    <div class="afm-piece">
+      <div class="afm-piece-tag">The word</div>
+      <div class="afm-piece-title">One worth keeping</div>
+      <div class="afm-piece-desc">A word that earns its place in your vocabulary — arboreal, vernacular, ephemeral, kismet.</div>
+    </div>
+    <div class="afm-piece">
+      <div class="afm-piece-tag">The rebus</div>
+      <div class="afm-piece-title">The puzzle</div>
+      <div class="afm-piece-desc">A visual riddle to chew on. The answer is never given away easy — that's the point.</div>
+    </div>
+    <div class="afm-piece">
+      <div class="afm-piece-tag">The anchor</div>
+      <div class="afm-piece-title">The personal story</div>
+      <div class="afm-piece-desc">The emotional core — a real story from a real life that makes the whole edition land.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT EDITIONS -->
+<section class="afm-section">
+  <div class="afm-section-head">
+    <h2>Recent editions</h2>
+  </div>
+  <div class="afm-editions">
+    <div class="afm-edition">
+      <div class="afm-edition-num">Edition 312</div>
+      <div class="afm-edition-title">Grateful Dogs</div>
+      <div class="afm-edition-theme">Rescue, kismet, and Kauai — part one of a trilogy.</div>
+    </div>
+    <div class="afm-edition">
+      <div class="afm-edition-num">Edition 311</div>
+      <div class="afm-edition-title">Corrugated Dreams &amp; Other Inflated Expectations</div>
+      <div class="afm-edition-theme">Impermanence, creativity, and the joy of making things.</div>
+    </div>
+    <div class="afm-edition">
+      <div class="afm-edition-num">Edition 310</div>
+      <div class="afm-edition-title">Let It Be</div>
+      <div class="afm-edition-theme">Relinquishing control — a Mother's Day meditation.</div>
+    </div>
+    <div class="afm-edition">
+      <div class="afm-edition-num">Edition 309</div>
+      <div class="afm-edition-title">Last Night</div>
+      <div class="afm-edition-theme">Language, time, and childhood.</div>
+    </div>
+    <div class="afm-edition">
+      <div class="afm-edition-num">Edition 308</div>
+      <div class="afm-edition-title">Rooted</div>
+      <div class="afm-edition-theme">Legacy, and planting things for people you'll never meet.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div class="afm-bottom">
+  <h2>Your Friday ritual is waiting.</h2>
+  <p>Join the readers who start their weekend with a little aloha.</p>
+  <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank" rel="noopener" class="cta afm-primary">Subscribe on LinkedIn</a>
 </div>
 
-<!-- PODCAST -->
-<div class="section">
-  <h2>Podcast</h2>
-  <p style="color: var(--text-muted);">[Podcast links and info — coming soon]</p>
-</div>
-
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-left">
     <div class="footer-logo"></div>
     <div class="footer-brand">
       <div class="footer-brand-name">mpgink</div>
-      <div class="footer-brand-line">A studio for making, exploring, and breathing on purpose.</div>
+      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
     </div>
   </div>
   <div class="footer-links">
-    <a href="index.html#studio">Creative Outlets</a>
-    <a href="shop.html">Shop</a>
-    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank">LinkedIn</a>
+    <a href="index.html#build">What we build</a>
+    <a href="index.html#studio">The studio</a>
+    <a href="contact.html">Contact</a>
   </div>
 </footer>
 

@@ -22,15 +22,17 @@ Canon: BRAND-COPY-2026-07-21.md. Nothing ships without Matthew's review.*
    w/ real app shots + Signal Aug 1 callout; Job Odyssey navy/gold w/ 4-stage
    journey + beta CTA; Metta minimal name-and-mark teaser (guardrail held).
    Sidebar nav now canonical across all pages (products grouped).
-4. **newsletter.html** — real AFM page: every Friday since 2018, what an edition
-   is (born/died research + word + rebus + personal anchor), recent editions from
-   the AFM content log, subscribe CTA. No subscriber counts (guardrail).
-5. **books.html** — real Arlo & Ash Explorer Series copy + Amazon CTA; drop
-   placeholders. No kids' details (guardrail).
-6. **contact.html** — real email + LinkedIn + BMAC; cut the "[form coming soon]"
-   block and the literal [your@email.com] placeholder currently live.
-7. **ai-usage.html** — light copy tune to the "AI as build partner, run like a
-   full product org" frame. Structure stays.
+4. ~~**newsletter.html**~~ ✅ 2026-07-21 — full AFM page: since-2018 story,
+   anatomy of an edition, real recent editions (308–312 from the content log),
+   subscribe CTAs. No subscriber counts.
+5. ~~**books.html**~~ ✅ 2026-07-21 — real Arlo & Ash copy (no invented plot —
+   only verified facts), What's Next honest line. ⚠ A real series blurb from
+   Matthew would upgrade this.
+6. ~~**contact.html**~~ ✅ 2026-07-21 — email set to matthew@mpgink.com
+   (⚠ CONFIRM — sourced from One Percent's Resend sender record, not from
+   Matthew directly), form placeholder cut.
+7. ~~**ai-usage.html**~~ ✅ 2026-07-21 — light tune: "Building & shipping apps"
+   pill + 2026 build-partner paragraph. Manifesto untouched otherwise.
 
 ## 🛍 Shop / merch arc (Matthew, 2026-07-21 — next arc after pages)
 - Matthew has shop content changes incoming
@@ -39,12 +41,12 @@ Canon: BRAND-COPY-2026-07-21.md. Nothing ships without Matthew's review.*
 - Retire a batch of current listings — Matthew to specify which
 - Then re-verify shop.html prices/listings against Etsy
 
-## 🔁 Cross-page sweeps (do WITH the page passes)
-- Footer brand line still "A studio for making, exploring, and breathing on
-  purpose" on 7 pages → collective line (done on index)
-- OG images still the 512px favicon on 7 pages → cover-crop / richer preview
-- one-percent.html sidebar is missing its own One Percent link
-- newsletter.html has a duplicated stylesheet <link>
+## 🔁 Cross-page sweeps
+- ~~Footer brand line~~ ✅ collective line on all 11 pages
+- ~~Canonical sidebar nav~~ ✅ all pages (products grouped)
+- ~~newsletter duplicate stylesheet link~~ ✅ (killed in rewrite)
+- OG images: index/about/one-percent/phreezer/job-odyssey/metta/newsletter done;
+  books/contact/shop still on the 512px favicon (low priority)
 
 ## 🅿 Parked / blocked
 - **Instagram follow links** — blocked on Matthew supplying the actual handles
