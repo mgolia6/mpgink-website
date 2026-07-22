@@ -77,6 +77,13 @@ plaque · The Studio = books+blog+store merged (books.html now redirects;
 nav slimmed to 9 entries) · Contact v2 ("Say aloha", color cards, what
 broke / what ruled).
 
+## 🔁 One Percent deep rebuild — ✅ 2026-07-21 (post-feedback)
+Matthew called the v2 pass shallow: rebuilt app-native with a REAL lesson
+(CM.5 Intent vs. Impact w/ verbatim key_points), Lock It In chat, Keep It
+Sharp resurface card — all in the app's own design tokens; IG chip added to
+the hero. Design comps in the app repo render blank outside its runtime —
+native recreation is the pattern for app visuals without screenshots.
+
 ## ⏳ Waiting on Matthew
 - **4 Phreezer Signal screenshots** (Your Signal · On This Day live · Rated
   view · Song History) — seen in chat but vision-only; need actual files.
@@ -98,6 +105,7 @@ broke / what ruled).
   the August launch
 
 ## Session exit
-- Wrap per kit-wrap-protocol: create State/mpgink-websitestate.md +
-  Logs/mpgink-websitelog-2026-07-21.md (this repo's first records), reconcile
-  the May→July log gap honestly, update this backlog, final push.
+- ~~Wrap 2026-07-21~~ ✅ — State/mpgink-websitestate.md +
+  Logs/mpgink-websitelog-2026-07-21.md created (repo's first records,
+  May→July gap reconciled). Session closed; resuming next session with the
+  Waiting-on-Matthew items above.
