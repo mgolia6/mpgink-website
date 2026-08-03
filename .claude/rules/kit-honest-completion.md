@@ -1,4 +1,4 @@
-<!-- managed by mpgink claude-kit v1 — edit in mpgink-program-manager/Standards/claude-kit, not here -->
+<!-- managed by mpgink claude-kit v2 — edit in mpgink-program-manager/Standards/claude-kit, not here -->
 # Honest Completion — "done" is a verified claim, not a hope
 
 Born from two One Percent incidents (2026-07-22 and 2026-07-23) where a session
@@ -78,6 +78,15 @@ When something went wrong — a bad push, a false "done", a spec missed — it g
 the session log AND gets raised to the PM session, not buried. Repeated failures of
 the same class become a rule (like this one). A problem Matthew had to catch himself
 is a process gap; log it as one so the next session inherits the fix, not the trap.
+
+**If the PM repo isn't attached this session, don't reach for a repo you don't
+have.** Write it as `PROPOSAL-<slug>-<date>.md` (or `FINDINGS-<slug>-<date>.md`
+for an incident writeup) at this repo's own root instead — same convention as
+`one-percent-app/PROCESS-PROPOSAL-2026-07-23.md`. Mark it resolved
+(INCORPORATED/RESOLVED/CLOSED/SUPERSEDED) once a PM session actually acts on it;
+until then, `/kit-audit`'s pending-proposals sweep finds it on its own — that's
+what it's for, added specifically so this never again depends on someone
+remembering to grep the whole portfolio by hand (2026-08-03).
 
 ---
 
