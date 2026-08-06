@@ -9,9 +9,10 @@ from `design_handoff_mpgink_website_2026`. See State/ + Logs/ 2026-08-06.
 - [ ] Compress collateral canvases (mission/vision/tenets/history ~3MB each;
       handoff says compress for production — no image toolchain in sandbox)
 - [ ] Shop OG image still favicon (design has no dedicated shop share image)
-- [ ] App Instagram links on product pages: handoff says pending handles —
-      design ships without per-app IG chips; old pages had them. Decide
-      whether to re-add (marked "placeholder" in handoff).
+- [x] App Instagram links — ✅ 2026-08-06 same session: Matthew confirmed the
+      handles exist (on record since 07-21). FOLLOW @… mono links added to
+      the three app-page heroes (@phreezerapp / @jobodyssey /
+      @getonepercentsmarter), Metta pattern; verified headless.
 - [ ] Phreezer Signal gallery (4 files from Matthew) — re-slot into the new
       phreezer.html once files arrive
 *Created 2026-07-21 (overhaul session). The overhaul thesis: catch the site up

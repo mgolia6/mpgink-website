@@ -81,9 +81,14 @@ satisfies the mocks-before-building and copy-review standing rules.
 - STALE records reconciled (top of this file) before build work.
 - State/ regenerated, Backlog updated with the redesign arc.
 
+### Addendum (same session): per-app IG links restored
+Matthew: "You have IG handles" — correct, they're on record since 07-21.
+Added FOLLOW @PHREEZERAPP / @JOBODYSSEY / @GETONEPERCENTSMARTER mono links
+to the three app-page heroes (same pattern as Metta's follow link, muted
+grey → orange hover). Verified headless: all three render, correct hrefs,
+zero JS errors.
+
 ### Open / waiting on Matthew
 - Review branch claude/mpg-website-design-jefdka → merge to main to ship.
 - Post-merge production eyeball: fonts + Etsy images.
-- Decide: re-add per-app IG chips, or wait for the handles the handoff
-  says are pending.
 
