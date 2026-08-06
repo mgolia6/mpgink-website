@@ -4,211 +4,149 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Job Odyssey — mpgink</title>
-  <meta name="description" content="Job Odyssey — an AI-powered job-search platform. Openings scored against your actual résumé and goals, tailored materials, pipeline tracking, and career coaching.">
+  <meta name="description" content="Job Odyssey — an AI-powered job-search platform. An mpgink exhibit.">
 
   <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mpgink.com/job-odyssey">
-  <meta property="og:title" content="Job Odyssey — your search, run like a mission">
-  <meta property="og:description" content="An AI-powered job-search platform: scraped openings scored against your actual résumé and goals on an anchored rubric, tailored materials, pipeline tracking, and career coaching.">
+  <meta property="og:title" content="Job Odyssey — mpgink">
+  <meta property="og:description" content="An AI-powered, field-agnostic job-search platform — six ATS sources, one anchored rubric.">
   <meta property="og:image" content="https://jobodyssey.mpgink.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
 
   <!-- Twitter/X Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Job Odyssey — your search, run like a mission">
-  <meta name="twitter:description" content="Openings scored against your actual résumé and goals. Now accepting beta users.">
-  <meta name="twitter:image" content="https://mpgink.com/images/job-odyssey-icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Job Odyssey — mpgink">
+  <meta name="twitter:description" content="An AI-powered, field-agnostic job-search platform — six ATS sources, one anchored rubric.">
+  <meta name="twitter:image" content="https://jobodyssey.mpgink.com/og-image.png">
 
   <!-- Favicon / home-screen icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#0a0e27">
+  <meta name="theme-color" content="#0f0c07">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&family=DM+Sans:opsz,wght@9..40,400..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Job Odyssey page — navy + compass gold */
-    :root {
-      --jo-gold: #e8b64c;
-      --jo-navy: #2a3550;
-      --jo-navy-deep: #1c2438;
-    }
-
-    .jo-hero {
-      padding: 160px 8vw 80px;
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 56px;
-    }
-    @media (max-width: 860px) { .jo-hero { flex-direction: column; text-align: center; padding-top: 130px; } }
-
-    .jo-compass {
-      flex: 0 0 auto;
-      width: 190px; height: 190px;
-      border-radius: 32px;
-      background: var(--jo-navy);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(232,182,76,0.2);
-    }
-    .jo-compass img { width: 150px; height: 150px; }
-
-    .jo-chip {
-      display: inline-block;
-      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
-      padding: 6px 13px; border-radius: 50px; margin-bottom: 18px;
-      background: rgba(232,182,76,0.12); color: var(--jo-gold); border: 1px solid rgba(232,182,76,0.4);
-    }
-    .jo-hero h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.12; margin: 0 0 18px; text-wrap: balance; }
-    .jo-hero h1 em { font-style: normal; color: var(--jo-gold); }
-    .jo-hero p { font-size: 1.12rem; color: var(--text-muted); line-height: 1.7; margin: 0 0 32px; max-width: 56ch; }
-    .cta.jo-primary { background: var(--jo-gold); color: #221a06; }
-    .cta.jo-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(232,182,76,0.4); }
-
-    /* journey steps */
-    .jo-section { padding: 90px 8vw 20px; max-width: 1160px; margin: 0 auto; }
-    .jo-section-head { text-align: center; margin-bottom: 52px; }
-    .jo-section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 0 0 12px; }
-    .jo-section-head p { color: var(--text-muted); max-width: 62ch; margin: 0 auto; line-height: 1.65; }
-
-    .jo-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; counter-reset: jo; }
-    .jo-step {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 26px;
-      counter-increment: jo;
-    }
-    .jo-step::before {
-      content: "0" counter(jo);
-      font-family: 'Fraunces', serif;
-      font-size: 1.5rem; font-weight: 800;
-      color: var(--jo-gold);
-      opacity: 0.7;
-      display: block;
-      margin-bottom: 12px;
-    }
-    .jo-step-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-    .jo-step-desc { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
-
-    /* features */
-    .jo-features { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 60px; }
-    @media (max-width: 780px) { .jo-features { grid-template-columns: 1fr; } }
-    .jo-feature {
-      background: var(--jo-navy-deep);
-      border: 1px solid rgba(232,182,76,0.18);
-      border-radius: 16px;
-      padding: 28px;
-    }
-    .jo-feature-title { font-family: 'Fraunces', serif; font-size: 1.12rem; font-weight: 700; margin-bottom: 10px; color: var(--jo-gold); }
-    .jo-feature-desc { color: var(--text-muted); font-size: 0.94rem; line-height: 1.65; }
-
-    .jo-bottom { text-align: center; padding: 100px 8vw 120px; }
-    .jo-bottom h2 { font-size: 2.2rem; margin-bottom: 14px; }
-    .jo-bottom p { color: var(--text-muted); margin-bottom: 36px; }
-  </style>
 </head>
 <body>
 
-<div class="menu-container">
-  <div class="menu-icon" style="background-image:url('images/mpgink-favicon.png');"></div>
-  <div class="menu-label">Menu</div>
-</div>
-
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-header">mpgink</div>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="phreezer.html">Phreezer</a>
-  <a href="job-odyssey.html">Job Odyssey</a>
-  <a href="one-percent.html">One Percent</a>
-  <a href="newsletter.html">Aloha Friday Motivation</a>
-  <a href="studio.html">The Studio</a>
-  <a href="ai-usage.html">AI Usage</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<!-- HERO -->
-<section class="jo-hero">
-  <div class="jo-compass">
-    <img src="images/job-odyssey-icon.png" alt="Job Odyssey compass mark">
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/mpgink-favicon.png" alt="mpgink logomark">
+      <span class="nav-wordmark">mpgink</span>
+      <span class="nav-cipher">13·16·7</span>
+    </a>
+    <nav>
+      <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
+      <a class="nav-link" href="newsletter.html">AFM</a>
+      <a class="nav-link" href="studio.html">STUDIO</a>
+      <a class="nav-link" href="shop.html">SHOP</a>
+      <a class="nav-link" href="about.html">ABOUT</a>
+      <a class="nav-link" href="ai-usage.html">AI</a>
+      <a class="nav-cta" href="contact.html">SAY ALOHA</a>
+    </nav>
   </div>
+</header>
+
+<div class="grain"></div>
+
+<section style="max-width:1320px;margin:0 auto;padding:64px 32px 48px;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap">
   <div>
-    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px;">
-      <span class="jo-chip" style="margin-bottom:0;">Now accepting beta users</span>
-      <a class="jo-chip" style="margin-bottom:0; text-decoration:none;" href="https://www.instagram.com/jobodyssey" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@jobodyssey</a>
-    </div>
-    <h1>The job search is a grind.<br>Make it an <em>odyssey</em>.</h1>
-    <p>Not a database — a compass. Job Odyssey scores every fresh opening against your actual résumé and your stated goals, then surfaces the three roles worth your energy today — and tells you exactly why.</p>
-    <a href="https://jobodyssey.mpgink.com" target="_blank" rel="noopener" class="cta jo-primary">Join the beta</a>
+    <div style="font-family:'Courier Prime',monospace;font-size:12.5px;letter-spacing:2.4px;color:#9a8f7d;margin-bottom:20px">EXHIBIT NO. 02 — WING A · <a href="index.html#exhibits" class="kicker-link">BACK TO THE FLOOR</a></div>
+    <h1 style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:clamp(44px,5.5vw,80px);letter-spacing:-2px;margin:0 0 18px">Job Odyssey<span style="color:#ff5a1f">.</span></h1>
+    <p style="font-size:18px;line-height:1.65;color:rgba(243,240,232,0.62);max-width:58ch;margin:0">An AI-powered, field-agnostic job-search platform — openings scraped from six major ATS platforms, scored against your actual résumé and goals on one anchored rubric.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
+    <span style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1.6px;color:#ff6b35;border:1px solid rgba(255,107,53,0.6);padding:6px 12px">NOW ACCEPTING BETA USERS</span>
+    <a href="https://jobodyssey.mpgink.com" target="_blank" rel="noopener" class="btn btn-cream" style="padding:14px 28px;font-size:13px;letter-spacing:2px">ENTER THE APP ↗</a>
   </div>
 </section>
 
-<!-- THE TRAIL -->
-<section class="jo-section" style="padding-top:50px;">
-  <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:60px;">
-    <span style="font-size:0.82rem; color:var(--text-muted); border:1px solid var(--border); border-radius:50px; padding:8px 16px;"><b style="color:var(--jo-gold); font-weight:600;">01</b> Bring your résumé + goals</span>
-    <span style="font-size:0.82rem; color:var(--text-muted); border:1px solid var(--border); border-radius:50px; padding:8px 16px;"><b style="color:var(--jo-gold); font-weight:600;">02</b> Every opening scored</span>
-    <span style="font-size:0.82rem; color:var(--text-muted); border:1px solid var(--border); border-radius:50px; padding:8px 16px;"><b style="color:var(--jo-gold); font-weight:600;">03</b> Tailor &amp; apply</span>
-    <span style="font-size:0.82rem; color:var(--text-muted); border:1px solid var(--border); border-radius:50px; padding:8px 16px;"><b style="color:var(--jo-gold); font-weight:600;">04</b> Track to the offer</span>
-  </div>
-
-  <!-- BRAND COMPONENTS -->
-  <div class="jo-features" style="margin-top:0;">
-    <div class="jo-feature">
-      <div style="font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--jo-gold); font-weight:600; margin-bottom:16px;">OdysseyVal — scoring that means something</div>
-      <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:16px;">
-        <span style="font-family:'Fraunces',serif; font-size:3.2rem; font-weight:800; color:var(--jo-gold); line-height:1;">87</span>
-        <span style="font-size:0.85rem; color:#7fd48a; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;">Strong fit</span>
+<section style="background:#151b2c">
+  <div class="band-split split-jo" style="max-width:1180px;margin:0 auto;padding:70px 32px 84px;font-family:'DM Sans',sans-serif">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="border:1px solid rgba(232,182,76,0.35);border-radius:10px;overflow:hidden;box-shadow:0 0 60px rgba(232,182,76,0.1)">
+        <img src="images/job-odyssey-shot-leads.png" alt="Job Odyssey — Leads dashboard: 71 active leads, OdysseyVal fit scores, relocation flags, pipeline actions" style="width:100%;display:block">
       </div>
-      <div style="margin-bottom:12px;"><div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); margin-bottom:5px;"><span>Experience</span><span>92</span></div><div style="height:6px; border-radius:4px; background:rgba(255,255,255,0.07); overflow:hidden;"><div style="height:100%; width:92%; border-radius:4px; background:linear-gradient(90deg,#b98a2e,var(--jo-gold));"></div></div></div>
-      <div style="margin-bottom:12px;"><div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); margin-bottom:5px;"><span>Skills</span><span>88</span></div><div style="height:6px; border-radius:4px; background:rgba(255,255,255,0.07); overflow:hidden;"><div style="height:100%; width:88%; border-radius:4px; background:linear-gradient(90deg,#b98a2e,var(--jo-gold));"></div></div></div>
-      <div style="margin-bottom:12px;"><div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); margin-bottom:5px;"><span>Industry</span><span>84</span></div><div style="height:6px; border-radius:4px; background:rgba(255,255,255,0.07); overflow:hidden;"><div style="height:100%; width:84%; border-radius:4px; background:linear-gradient(90deg,#b98a2e,var(--jo-gold));"></div></div></div>
-      <div style="margin-bottom:0;"><div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); margin-bottom:5px;"><span>Scope</span><span>79</span></div><div style="height:6px; border-radius:4px; background:rgba(255,255,255,0.07); overflow:hidden;"><div style="height:100%; width:79%; border-radius:4px; background:linear-gradient(90deg,#b98a2e,var(--jo-gold));"></div></div></div>
-      <div style="font-size:0.78rem; color:#e8c987; margin-top:16px; line-height:1.55;"><strong style="color:var(--jo-gold);">To address:</strong> gaps are framed as bridge stories, never red failures. One anchored rubric, so a score means the same thing on every opening.</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:rgba(255,255,255,0.45);text-align:center">ACTUAL PRODUCT SCREEN — LEADS · ODYSSEYVAL™ SCORING</div>
     </div>
-    <div class="jo-feature">
-      <div style="font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--jo-gold); font-weight:600; margin-bottom:16px;">Compass — your AI advisor</div>
-      <div style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">Compass · weekly briefing</div>
-      <div style="background:rgba(232,182,76,0.07); border:1px solid rgba(232,182,76,0.18); border-radius:12px 12px 12px 3px; padding:14px 16px; font-size:0.88rem; line-height:1.6; color:rgba(232,232,232,0.9); margin-bottom:10px;">Good morning. <strong style="color:var(--jo-gold);">3 strong fits</strong> surfaced overnight — one is the role to move on first. Your pipeline: 2 in screening, 1 interview Thursday. Want to run a practice round for Thursday?</div>
-      <div style="background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:12px 12px 3px 12px; padding:14px 16px; font-size:0.88rem; line-height:1.6; color:rgba(232,232,232,0.9);">Let's practice.</div>
-      <div style="font-size:0.78rem; color:var(--text-muted); margin-top:16px; line-height:1.55;">Interview practice with feedback, a weekly momentum briefing, and tailored résumés + cover letters for every role you chase.</div>
+    <div style="color:#fff">
+      <img src="images/job-odyssey-icon.png" alt="Job Odyssey compass mark" style="width:92px;height:92px;margin-bottom:26px;display:block">
+      <h2 style="font-family:'Archivo',sans-serif;font-stretch:112%;font-weight:900;font-size:28px;letter-spacing:-0.5px;margin:0 0 16px;color:#fff">The search runs itself.<br>The judgment stays yours.</h2>
+      <p style="font-size:15px;line-height:1.75;color:rgba(255,255,255,0.65);margin:0 0 26px">While you sleep, Job Odyssey sweeps six ATS platforms, de-dupes against your application log, pulls company health signals, and scores every lead on the same anchored rubric — so the morning triage takes minutes, not hours.</p>
+      <div style="display:flex;flex-direction:column;gap:13px;font-family:'DM Mono',monospace;font-size:13px;color:rgba(255,255,255,0.75)">
+        <span><span style="color:#e8b64c">01</span>&nbsp; scrape — six major ATS platforms, every day</span>
+        <span><span style="color:#e8b64c">02</span>&nbsp; score — your résumé + goals, one anchored rubric</span>
+        <span><span style="color:#e8b64c">03</span>&nbsp; triage — APPLY / MAYBE / PASS with receipts</span>
+        <span><span style="color:#e8b64c">04</span>&nbsp; build — tailored résumé + cover letter on demand</span>
+        <span><span style="color:#e8b64c">05</span>&nbsp; track — pipeline from applied to offer</span>
+        <span><span style="color:#e8b64c">06</span>&nbsp; practice — interviews, with the job in context</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BOTTOM CTA -->
-<div class="jo-bottom">
-  <h2>Chart your course.</h2>
-  <p>Beta is open — bring your résumé and see your first fit scores today.</p>
-  <a href="https://jobodyssey.mpgink.com" target="_blank" rel="noopener" class="cta jo-primary">Join the beta</a>
-  <p style="margin-top:26px; font-size:0.9rem;"><a href="https://www.instagram.com/jobodyssey" target="_blank" rel="noopener" style="color:#e8b64c; text-decoration:none;">Follow @jobodyssey on Instagram →</a></p>
-</div>
+<section style="max-width:1320px;margin:0 auto;padding:88px 32px 100px">
+  <div style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2px;color:#8a8172;margin-bottom:40px">PLACARDS — READ BEFORE VIEWING</div>
+  <div class="placards" style="margin-bottom:56px">
+    <div class="placard"><div class="placard-title"><span class="placard-index">01</span>Anchored rubric scoring</div><p>Every opening is scored against your actual résumé and stated goals — the same yardstick every time, so an 87 today means what it meant last month.</p></div>
+    <div class="placard"><div class="placard-title"><span class="placard-index">02</span>Company health signals</div><p>RepVue quota attainment, Glassdoor ratings, and recent-news checks ride along with every match — so you pass on sinking ships early.</p></div>
+    <div class="placard"><div class="placard-title"><span class="placard-index">03</span>Tailored materials</div><p>Say BUILD and get a résumé and cover letter tuned to that specific role — grounded in your real experience, never invented.</p></div>
+    <div class="placard"><div class="placard-title"><span class="placard-index">04</span>Pipeline tracking</div><p>Every application logged automatically — no duplicates, no "did I already apply here?", full history from first contact to offer.</p></div>
+    <div class="placard"><div class="placard-title"><span class="placard-index">05</span>Interview practice</div><p>Rehearse with an AI that has read the job description, the company signals, and your materials — pressure-tested before the real thing.</p></div>
+    <div class="placard"><div class="placard-title"><span class="placard-index">06</span>Coaching marketplace</div><p>A growing bench of real career coaches for the moments that need a human — offer negotiation, career pivots, the big decision.</p></div>
+  </div>
+  <div style="background:rgba(243,240,232,0.05);border:1px solid rgba(243,240,232,0.14);padding:36px 40px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap">
+    <div style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:1.5px;color:#f3f0e8;line-height:1.9">THE JOB SEARCH IS A GRIND.<br><span style="color:#e8b64c">THE ODYSSEY IS THE POINT.</span></div>
+    <a href="https://jobodyssey.mpgink.com" target="_blank" rel="noopener" id="jo-cta" style="padding:15px 30px;background:#e8b64c;color:#241a04;text-decoration:none;font-family:'Courier Prime',monospace;font-size:13px;font-weight:700;letter-spacing:2px;white-space:nowrap;transition:background 0.15s ease,color 0.15s ease">JOBODYSSEY.MPGINK.COM ↗</a>
+    <style>#jo-cta:hover { background:#ff5a1f !important; color:#fff !important; }</style>
+  </div>
+</section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-left">
-    <div class="footer-logo"></div>
-    <div class="footer-brand">
-      <div class="footer-brand-name">mpgink</div>
-      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="images/mpgink-favicon.png" alt="mpgink logomark" style="width:40px;height:40px;border-radius:9px">
+        <span style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:24px">mpgink</span>
+      </div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.62);max-width:38ch;margin:0 0 20px">a creative collective — mission · passion · gratitude · building AI&#8209;augmented products people actually use.</p>
+      <p style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.2px;color:#8a8172;margin:0">13 · 16 · 7</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE EXHIBITS</span>
+      <a class="footer-link" href="phreezer.html">PHREEZER</a>
+      <a class="footer-link" href="job-odyssey.html">JOB ODYSSEY</a>
+      <a class="footer-link" href="one-percent.html">ONE PERCENT</a>
+      <a class="footer-link" href="newsletter.html">ALOHA FRIDAY MOTIVATION</a>
+      <a class="footer-link" href="metta.html">METTA — SOON</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE STUDIO</span>
+      <a class="footer-link-gold" href="signup.html">JOIN THE LIST ✶</a>
+      <a class="footer-link" href="studio.html">BOOKS + BLOG</a>
+      <a class="footer-link" href="shop.html">THE SHOP</a>
+      <a class="footer-link" href="ai-usage.html">AI USAGE</a>
+      <a class="footer-link" href="about.html">ABOUT</a>
+      <a class="footer-link" href="contact.html">SAY ALOHA</a>
     </div>
   </div>
-  <div class="footer-links">
-    <a href="index.html#build">What we build</a>
-    <a href="index.html#studio">The studio</a>
-    <a href="contact.html">Contact</a>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 MPGINK — BUILT LO-FI. SHIPPED FAST. ITERATED IN PUBLIC.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://mattymattemodgepodge.etsy.com" target="_blank" rel="noopener">ETSY</a>
+        <a href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">COFFEE</a>
+      </span>
+    </div>
   </div>
 </footer>
 
-<script>
-  const menu = document.querySelector('.menu-container');
-  const sidebar = document.getElementById('sidebar');
-  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
-</script>
 </body>
 </html>

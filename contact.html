@@ -9,16 +9,14 @@
   <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mpgink.com/contact">
-  <meta property="og:title" content="Say aloha — mpgink">
+  <meta property="og:title" content="Say Aloha — mpgink">
   <meta property="og:description" content="Bugs, ideas, collaborations, or just what stirred you. A real human reads every message.">
   <meta property="og:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
-  <meta property="og:image:width" content="2256">
-  <meta property="og:image:height" content="382">
 
   <!-- Twitter/X Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Say aloha — mpgink">
-  <meta name="twitter:description" content="Bugs, ideas, collaborations, or just what stirred you.">
+  <meta name="twitter:title" content="Say Aloha — mpgink">
+  <meta name="twitter:description" content="Bugs, ideas, collaborations, or just what stirred you. A real human reads every message.">
   <meta name="twitter:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
 
   <!-- Favicon / home-screen icons -->
@@ -26,123 +24,129 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#0a0e27">
+  <meta name="theme-color" content="#0f0c07">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .ct-hero { text-align: center; padding: 170px 8vw 40px; }
-    .ct-hero h1 {
-      font-size: clamp(2.8rem, 6.5vw, 5rem);
-      margin: 0 0 18px; line-height: 1.02; font-weight: 800;
-    }
-    .ct-hero h1 .a1 { color: var(--accent); }
-    .ct-hero h1 .a2 { color: #00e0d0; }
-    .ct-hero h1 .a3 { color: #ffcf6b; }
-    .ct-hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 54ch; margin: 0 auto; line-height: 1.7; }
-
-    .ct-wrap { max-width: 1100px; margin: 0 auto; padding: 0 8vw 60px; }
-    .ct-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 44px 0 30px; }
-    @media (max-width: 960px) { .ct-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .ct-grid { grid-template-columns: 1fr; } }
-    .ct-card {
-      border-radius: 18px; padding: 28px 22px; text-decoration: none; color: var(--text);
-      border: 1px solid var(--border); background: var(--card-bg); text-align: center;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-      display: block;
-    }
-    .ct-card:hover { transform: translateY(-6px) rotate(-1deg); }
-    .ct-card .big { font-size: 1.8rem; display: block; margin-bottom: 12px; }
-    .ct-card h4 { margin: 0 0 6px; font-size: 1.05rem; font-family: 'Fraunces', serif; }
-    .ct-card p { margin: 0; font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; }
-    .ct-c1:hover { box-shadow: 0 10px 30px rgba(255,107,53,0.25); border-color: var(--accent); }
-    .ct-c2:hover { box-shadow: 0 10px 30px rgba(0,224,208,0.2); border-color: #00e0d0; }
-    .ct-c3:hover { box-shadow: 0 10px 30px rgba(255,207,107,0.2); border-color: #ffcf6b; }
-    .ct-c4:hover { box-shadow: 0 10px 30px rgba(169,155,245,0.2); border-color: #a99bf5; }
-
-    .ct-broke {
-      text-align: center; background: var(--card-bg); border: 1px solid var(--border);
-      border-radius: 18px; padding: 34px 30px; max-width: 680px; margin: 0 auto;
-    }
-    .ct-broke h3 { margin: 0 0 12px; font-size: 1.35rem; }
-    .ct-broke p { margin: 0; color: var(--text-muted); line-height: 1.75; }
-    .ct-broke em { color: var(--accent); font-style: normal; font-weight: 600; }
+    @keyframes ctFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .card-gold { transition: transform 0.2s ease, border-color 0.2s ease; }
+    .card-gold:hover { border-color: #ffcf6b !important; transform: translateY(-4px); color: #f3f0e8; }
   </style>
 </head>
 <body>
 
-<div class="menu-container">
-  <div class="menu-icon" style="background-image:url('images/mpgink-favicon.png');"></div>
-  <div class="menu-label">Menu</div>
-</div>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/mpgink-favicon.png" alt="mpgink logomark">
+      <span class="nav-wordmark">mpgink</span>
+      <span class="nav-cipher">13·16·7</span>
+    </a>
+    <nav>
+      <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
+      <a class="nav-link" href="newsletter.html">AFM</a>
+      <a class="nav-link" href="studio.html">STUDIO</a>
+      <a class="nav-link" href="shop.html">SHOP</a>
+      <a class="nav-link" href="about.html">ABOUT</a>
+      <a class="nav-link" href="ai-usage.html">AI</a>
+      <a class="nav-cta" href="contact.html">SAY ALOHA</a>
+    </nav>
+  </div>
+</header>
 
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-header">mpgink</div>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="phreezer.html">Phreezer</a>
-  <a href="job-odyssey.html">Job Odyssey</a>
-  <a href="one-percent.html">One Percent</a>
-  <a href="newsletter.html">Aloha Friday Motivation</a>
-  <a href="studio.html">The Studio</a>
-  <a href="ai-usage.html">AI Usage</a>
-  <a href="contact.html">Contact</a>
-</nav>
+<div class="grain"></div>
 
-<!-- HERO -->
-<section class="ct-hero">
-  <h1><span class="a1">Say</span> <span class="a2">aloha</span><span class="a3">.</span></h1>
-  <p>Found a bug? Got an idea? Want to collaborate, commission something, or just tell us what stirred you? Every message lands in a real inbox read by a real human — usually before his second coffee.</p>
+<section style="background:radial-gradient(900px 500px at 50% 0%,rgba(255,170,80,0.1),transparent 70%),#0f0c07;max-width:100%;padding:100px 32px 56px;text-align:center">
+  <div style="font-family:'Courier Prime',monospace;font-size:12.5px;letter-spacing:2.4px;color:#9a8f7d;margin-bottom:24px;animation:ctFadeUp 0.7s ease both 0.05s">THE GUESTBOOK — SIGN IT</div>
+  <h1 style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:clamp(52px,7vw,104px);letter-spacing:-0.04em;line-height:0.98;margin:0 0 26px;animation:ctFadeUp 0.7s ease both 0.2s">Say aloha<span style="color:#ff5a1f">.</span></h1>
+  <p style="font-size:17.5px;line-height:1.75;color:rgba(243,240,232,0.62);max-width:56ch;margin:0 auto;animation:ctFadeUp 0.7s ease both 0.35s">Found a bug? Got an idea? Want to collaborate, commission something, or just tell us what stirred you? Every message lands in a real inbox read by a real human — usually before his second coffee.</p>
 </section>
 
-<div class="ct-wrap">
-  <div class="ct-grid">
-    <a class="ct-card ct-c1" href="mailto:matthew@mpgink.com">
-      <span class="big">✉️</span>
-      <h4>Email</h4>
-      <p>matthew@mpgink.com<br>The front door.</p>
+<section style="max-width:1080px;margin:0 auto;padding:16px 32px 56px">
+  <div class="contact-tiles" style="animation:ctFadeUp 0.7s ease both 0.5s">
+    <a href="mailto:matthew@mpgink.com" class="tile">
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#ff6b35" stroke-width="1.6" style="margin-bottom:16px"><rect x="2.5" y="5" width="19" height="14" rx="2"></rect><path d="M3 6.5 12 13l9-6.5"></path></svg>
+      <div style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:2px;color:#9a8f7d;margin-bottom:10px">THE FRONT DOOR</div>
+      <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;margin-bottom:7px">Email</div>
+      <div style="font-family:'Courier Prime',monospace;font-size:12px;color:rgba(243,240,232,0.6)">matthew@mpgink.com</div>
     </a>
-    <a class="ct-card ct-c2" href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">
-      <span class="big">💼</span>
-      <h4>LinkedIn</h4>
-      <p>Where the collective launched — come say hi.</p>
+    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener" class="tile">
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="#ff6b35" style="margin-bottom:16px"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.3 8.2h4.4V23H.3V8.2zM8.6 8.2h4.2v2h.06c.59-1.1 2.03-2.27 4.18-2.27 4.47 0 5.3 2.94 5.3 6.77V23h-4.4v-7.2c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8V23H8.6V8.2z"></path></svg>
+      <div style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:2px;color:#9a8f7d;margin-bottom:10px">WHERE IT LAUNCHED</div>
+      <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;margin-bottom:7px">LinkedIn</div>
+      <div style="font-family:'Courier Prime',monospace;font-size:12px;color:rgba(243,240,232,0.6)">Come say hi ↗</div>
     </a>
-    <a class="ct-card ct-c3" href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">
-      <span class="big">📸</span>
-      <h4>Instagram</h4>
-      <p>@mpgink — the visual diary.</p>
+    <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener" class="tile">
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#ff6b35" stroke-width="1.7" style="margin-bottom:16px"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.4"></circle><circle cx="17.6" cy="6.4" r="1.3" fill="#ff6b35" stroke="none"></circle></svg>
+      <div style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:2px;color:#9a8f7d;margin-bottom:10px">THE VISUAL DIARY</div>
+      <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;margin-bottom:7px">Instagram</div>
+      <div style="font-family:'Courier Prime',monospace;font-size:12px;color:rgba(243,240,232,0.6)">@mpgink ↗</div>
     </a>
-    <a class="ct-card ct-c4" href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">
-      <span class="big">☕</span>
-      <h4>Buy Me a Coffee</h4>
-      <p>Fuel the workshop.</p>
+    <a href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener" class="tile">
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#ff6b35" stroke-width="1.7" style="margin-bottom:16px"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"></path><path d="M17 9.5h1.5a2.5 2.5 0 0 1 0 5H17"></path><path d="M8 4.5c0-1 .8-1.2.8-2M12 4.5c0-1 .8-1.2.8-2"></path></svg>
+      <div style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:2px;color:#9a8f7d;margin-bottom:10px">FUEL THE WORKSHOP</div>
+      <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;margin-bottom:7px">Buy Me a Coffee</div>
+      <div style="font-family:'Courier Prime',monospace;font-size:12px;color:rgba(243,240,232,0.6)">buymeacoffee.com/mpgink ↗</div>
     </a>
   </div>
+</section>
 
-  <div class="ct-broke">
-    <h3>Using one of the apps?</h3>
-    <p>Tell me <em>what broke</em> and <em>what ruled</em>. Every bug report gets read, most get fixed fast, and the best feature ideas have literally shipped with the reporter's badge on them.</p>
+<section class="contact-cards" style="max-width:1080px;margin:0 auto;padding:0 32px 100px">
+  <a href="signup.html" class="card-gold" style="background:rgba(255,207,107,0.06);border:1px solid rgba(255,207,107,0.35);padding:34px 36px;text-decoration:none;color:#f3f0e8;border-radius:2px;display:block">
+    <div style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:2px;color:#ffcf6b;margin-bottom:12px">THE MPGINK LIST</div>
+    <div style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:115%;font-size:22px;margin-bottom:10px">Join the email list →</div>
+    <p style="font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.6);margin:0">Aloha Friday Motivation in your inbox, plus what ships from the studio — no algorithm between us.</p>
+  </a>
+  <div style="background:rgba(243,240,232,0.04);border:1px solid rgba(243,240,232,0.12);padding:34px 36px;border-radius:2px">
+    <div style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:2px;color:#ff6b35;margin-bottom:12px">USING ONE OF THE APPS?</div>
+    <div style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:115%;font-size:22px;margin-bottom:10px">Tell me what broke — and what ruled.</div>
+    <p style="font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.6);margin:0">Every bug report gets read, most get fixed fast, and the best feature ideas have literally shipped with the reporter's badge on them.</p>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-left">
-    <div class="footer-logo"></div>
-    <div class="footer-brand">
-      <div class="footer-brand-name">mpgink</div>
-      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="images/mpgink-favicon.png" alt="mpgink logomark" style="width:40px;height:40px;border-radius:9px">
+        <span style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:24px">mpgink</span>
+      </div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.62);max-width:38ch;margin:0 0 20px">a creative collective — mission · passion · gratitude · building AI&#8209;augmented products people actually use.</p>
+      <p style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.2px;color:#8a8172;margin:0">13 · 16 · 7</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE EXHIBITS</span>
+      <a class="footer-link" href="phreezer.html">PHREEZER</a>
+      <a class="footer-link" href="job-odyssey.html">JOB ODYSSEY</a>
+      <a class="footer-link" href="one-percent.html">ONE PERCENT</a>
+      <a class="footer-link" href="newsletter.html">ALOHA FRIDAY MOTIVATION</a>
+      <a class="footer-link" href="metta.html">METTA — SOON</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE STUDIO</span>
+      <a class="footer-link-gold" href="signup.html">JOIN THE LIST ✶</a>
+      <a class="footer-link" href="studio.html">BOOKS + BLOG</a>
+      <a class="footer-link" href="shop.html">THE SHOP</a>
+      <a class="footer-link" href="ai-usage.html">AI USAGE</a>
+      <a class="footer-link" href="about.html">ABOUT</a>
+      <a class="footer-link" href="contact.html">SAY ALOHA</a>
     </div>
   </div>
-  <div class="footer-links">
-    <a href="index.html#build">What we build</a>
-    <a href="studio.html">The studio</a>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 MPGINK — BUILT LO-FI. SHIPPED FAST. ITERATED IN PUBLIC.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://mattymattemodgepodge.etsy.com" target="_blank" rel="noopener">ETSY</a>
+        <a href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">COFFEE</a>
+      </span>
+    </div>
   </div>
 </footer>
 
-<script>
-  const menu = document.querySelector('.menu-container');
-  const sidebar = document.getElementById('sidebar');
-  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
-</script>
 </body>
 </html>

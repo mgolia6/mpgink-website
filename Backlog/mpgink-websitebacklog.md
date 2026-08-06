@@ -1,4 +1,19 @@
 # mpgink.com — Backlog / Overhaul Roadmap
+
+## 🖼 2026 "Gallery at Night" redesign (Quad Design handoff) — BUILT 2026-08-06
+Branch `claude/mpg-website-design-jefdka`; all 12 pages + style.css rebuilt
+from `design_handoff_mpgink_website_2026`. See State/ + Logs/ 2026-08-06.
+- [ ] **Matthew: review branch + merge to main** (deploy = Pages from main)
+- [ ] Production eyeball after merge: Google Fonts typography + Etsy shop
+      images (sandbox egress blocked both; verified on system-font fallback)
+- [ ] Compress collateral canvases (mission/vision/tenets/history ~3MB each;
+      handoff says compress for production — no image toolchain in sandbox)
+- [ ] Shop OG image still favicon (design has no dedicated shop share image)
+- [ ] App Instagram links on product pages: handoff says pending handles —
+      design ships without per-app IG chips; old pages had them. Decide
+      whether to re-add (marked "placeholder" in handoff).
+- [ ] Phreezer Signal gallery (4 files from Matthew) — re-slot into the new
+      phreezer.html once files arrive
 *Created 2026-07-21 (overhaul session). The overhaul thesis: catch the site up
 to the collective framing established at the 2026-07-21 LinkedIn launch.
 Canon: BRAND-COPY-2026-07-21.md. Nothing ships without Matthew's review.*

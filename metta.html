@@ -9,16 +9,14 @@
   <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mpgink.com/metta">
-  <meta property="og:title" content="Metta — coming soon">
-  <meta property="og:description" content="Something new is taking shape at mpgink.">
+  <meta property="og:title" content="Metta — mpgink">
+  <meta property="og:description" content="Something new is taking shape. Coming soon.">
   <meta property="og:image" content="https://mpgink.com/images/metta-icon.png">
-  <meta property="og:image:width" content="192">
-  <meta property="og:image:height" content="192">
 
   <!-- Twitter/X Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Metta — coming soon">
-  <meta name="twitter:description" content="Something new is taking shape at mpgink.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Metta — mpgink">
+  <meta name="twitter:description" content="Something new is taking shape. Coming soon.">
   <meta name="twitter:image" content="https://mpgink.com/images/metta-icon.png">
 
   <!-- Favicon / home-screen icons -->
@@ -26,107 +24,89 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#0a0e27">
+  <meta name="theme-color" content="#0f0c07">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Metta teaser — a held breath. Name and mark only. */
-    .mt-room {
-      min-height: 92vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 8vw 80px;
-      gap: 26px;
-    }
-    .mt-mark {
-      width: 108px; height: 108px;
-      border-radius: 28px;
-      box-shadow: 0 0 60px rgba(139,124,246,0.25);
-      opacity: 0;
-      animation: mtBreathe 0.9s ease forwards 0.2s;
-    }
-    .mt-name {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(2.6rem, 6vw, 4rem);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      margin: 0;
-      opacity: 0;
-      animation: mtBreathe 0.9s ease forwards 0.45s;
-    }
-    .mt-line {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin: 0;
-      opacity: 0;
-      animation: mtBreathe 0.9s ease forwards 0.7s;
-    }
-    .mt-chip {
-      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
-      padding: 6px 14px; border-radius: 50px;
-      background: rgba(139,124,246,0.12); color: #a99bf5; border: 1px solid rgba(139,124,246,0.4);
-      opacity: 0;
-      animation: mtBreathe 0.9s ease forwards 0.95s;
-    }
-    @keyframes mtBreathe {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .mt-mark, .mt-name, .mt-line, .mt-chip { animation: none; opacity: 1; transform: none; }
-    }
+    .metta-follow { color: #a99bf5; transition: color 0.15s ease; }
+    .metta-follow:hover { color: #ff6b35; }
   </style>
 </head>
 <body>
 
-<div class="menu-container">
-  <div class="menu-icon" style="background-image:url('images/mpgink-favicon.png');"></div>
-  <div class="menu-label">Menu</div>
-</div>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/mpgink-favicon.png" alt="mpgink logomark">
+      <span class="nav-wordmark">mpgink</span>
+      <span class="nav-cipher">13·16·7</span>
+    </a>
+    <nav>
+      <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
+      <a class="nav-link" href="newsletter.html">AFM</a>
+      <a class="nav-link" href="studio.html">STUDIO</a>
+      <a class="nav-link" href="shop.html">SHOP</a>
+      <a class="nav-link" href="about.html">ABOUT</a>
+      <a class="nav-link" href="ai-usage.html">AI</a>
+      <a class="nav-cta" href="contact.html">SAY ALOHA</a>
+    </nav>
+  </div>
+</header>
 
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-header">mpgink</div>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="phreezer.html">Phreezer</a>
-  <a href="job-odyssey.html">Job Odyssey</a>
-  <a href="one-percent.html">One Percent</a>
-  <a href="newsletter.html">Aloha Friday Motivation</a>
-  <a href="studio.html">The Studio</a>
-  <a href="ai-usage.html">AI Usage</a>
-  <a href="contact.html">Contact</a>
-</nav>
+<div class="grain"></div>
 
-<div class="mt-room">
-  <img class="mt-mark" src="images/metta-icon.png" alt="Metta mark">
-  <h1 class="mt-name">metta</h1>
-  <p class="mt-line">Something new is taking shape.</p>
-  <span class="mt-chip">Coming soon</span>
-  <p style="margin:6px 0 0; font-size:0.88rem; opacity:0; animation:mtBreathe 0.9s ease forwards 1.2s;"><a href="https://www.instagram.com/metta.lovingkindness" target="_blank" rel="noopener" style="color:#a99bf5; text-decoration:none;">Follow @metta.lovingkindness →</a></p>
-</div>
+<section style="min-height:78vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 32px 80px;gap:26px">
+  <div style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2.4px;color:#9a8f7d;animation:breathe 0.9s ease both 0.1s">NEXT INSTALLATION — WING A</div>
+  <img src="images/metta-icon.png" alt="Metta mark" style="width:180px;height:180px;border-radius:44px;animation:breathe 0.9s ease both 0.25s, glowPulse 5s ease-in-out infinite">
+  <h1 style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:clamp(44px,6vw,84px);letter-spacing:-2.5px;margin:0;animation:breathe 0.9s ease both 0.45s">metta</h1>
+  <p style="font-size:17px;color:rgba(243,240,232,0.62);margin:0;animation:breathe 0.9s ease both 0.65s">Something new is taking shape.</p>
+  <span style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#a99bf5;border:1px solid rgba(169,155,245,0.5);padding:7px 15px;animation:breathe 0.9s ease both 0.85s">COMING SOON</span>
+  <a href="https://www.instagram.com/metta.lovingkindness" target="_blank" rel="noopener" class="metta-follow" style="font-family:'Courier Prime',monospace;font-size:12.5px;letter-spacing:1.5px;text-decoration:none;animation:breathe 0.9s ease both 1.05s">FOLLOW @METTA.LOVINGKINDNESS →</a>
+</section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-left">
-    <div class="footer-logo"></div>
-    <div class="footer-brand">
-      <div class="footer-brand-name">mpgink</div>
-      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="images/mpgink-favicon.png" alt="mpgink logomark" style="width:40px;height:40px;border-radius:9px">
+        <span style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:24px">mpgink</span>
+      </div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.62);max-width:38ch;margin:0 0 20px">a creative collective — mission · passion · gratitude · building AI&#8209;augmented products people actually use.</p>
+      <p style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.2px;color:#8a8172;margin:0">13 · 16 · 7</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE EXHIBITS</span>
+      <a class="footer-link" href="phreezer.html">PHREEZER</a>
+      <a class="footer-link" href="job-odyssey.html">JOB ODYSSEY</a>
+      <a class="footer-link" href="one-percent.html">ONE PERCENT</a>
+      <a class="footer-link" href="newsletter.html">ALOHA FRIDAY MOTIVATION</a>
+      <a class="footer-link" href="metta.html">METTA — SOON</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE STUDIO</span>
+      <a class="footer-link-gold" href="signup.html">JOIN THE LIST ✶</a>
+      <a class="footer-link" href="studio.html">BOOKS + BLOG</a>
+      <a class="footer-link" href="shop.html">THE SHOP</a>
+      <a class="footer-link" href="ai-usage.html">AI USAGE</a>
+      <a class="footer-link" href="about.html">ABOUT</a>
+      <a class="footer-link" href="contact.html">SAY ALOHA</a>
     </div>
   </div>
-  <div class="footer-links">
-    <a href="index.html#build">What we build</a>
-    <a href="contact.html">Contact</a>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 MPGINK — BUILT LO-FI. SHIPPED FAST. ITERATED IN PUBLIC.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://mattymattemodgepodge.etsy.com" target="_blank" rel="noopener">ETSY</a>
+        <a href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">COFFEE</a>
+      </span>
+    </div>
   </div>
 </footer>
 
-<script>
-  const menu = document.querySelector('.menu-container');
-  const sidebar = document.getElementById('sidebar');
-  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
-</script>
 </body>
 </html>
