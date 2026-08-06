@@ -17,7 +17,9 @@ Courier Prime mono microcopy; Phreezer panels Orbitron/Share Tech Mono; JO/OP
 panels DM Sans/DM Mono. Film-grain overlay (`.grain`), scroll reveals
 (`animation-timeline: view()`, degrades to visible), framed-canvas art
 treatment, hairline placards. Responsive collapses added at 1080/980/700px
-(the handoff was a desktop spec).
+(the handoff was a desktop spec). Mobile version (same session): MENU/CLOSE
+toggle nav below 840px via shared site.js on every page; .gutter/.nl-art/
+.hero-side mobile hooks; all 12 pages verified zero-overflow at 375×812.
 
 ## Site map (as of right now, on the work branch)
 - index.html — hero (mission.passion.gratitude + framed graffiti banner w/

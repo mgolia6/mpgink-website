@@ -32,6 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
 
@@ -42,7 +43,8 @@
       <span class="nav-wordmark">mpgink</span>
       <span class="nav-cipher">13·16·7</span>
     </a>
-    <nav>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    <nav id="site-menu">
       <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
       <a class="nav-link" href="newsletter.html">AFM</a>
       <a class="nav-link" href="studio.html">STUDIO</a>
@@ -71,7 +73,7 @@
 <div class="grain"></div>
 
 <section style="position:relative;overflow:hidden;background:radial-gradient(1100px 500px at 50% 12%,rgba(255,170,80,0.12),transparent 70%),#0f0c07">
-  <div style="max-width:1440px;margin:0 auto;padding:76px 40px 72px">
+  <div class="gutter" style="max-width:1440px;margin:0 auto;padding:76px 40px 72px">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;margin-bottom:56px">
       <div>
         <div style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:3px;color:#9a8f7d;margin-bottom:28px;animation:fadeUp 0.8s ease both 0.05s">MPGINK — A CREATIVE COLLECTIVE · THE GALLERY IS OPEN LATE</div>
@@ -98,14 +100,14 @@
 </section>
 
 <div style="border-top:1px solid rgba(243,240,232,0.14);border-bottom:1px solid rgba(243,240,232,0.14);background:#0f0c07">
-  <div class="grid-3" style="max-width:1440px;margin:0 auto;padding:28px 40px;gap:32px">
+  <div class="grid-3 gutter" style="max-width:1440px;margin:0 auto;padding:28px 40px;gap:32px">
     <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Courier Prime',monospace;font-size:11px;color:#ff5a1f">01</span><span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:rgba(243,240,232,0.85)">Built lo-fi, shipped fast</span></div>
     <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Courier Prime',monospace;font-size:11px;color:#ff5a1f">02</span><span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:rgba(243,240,232,0.85)">Iterated in public</span></div>
     <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Courier Prime',monospace;font-size:11px;color:#ff5a1f">03</span><span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:rgba(243,240,232,0.85)">Real products, real users</span></div>
   </div>
 </div>
 
-<section id="exhibits" style="max-width:1440px;margin:0 auto;padding:130px 40px 40px">
+<section id="exhibits" class="gutter" style="max-width:1440px;margin:0 auto;padding:130px 40px 40px">
   <div class="reveal-40">
     <div style="display:flex;align-items:baseline;gap:24px;margin-bottom:16px;flex-wrap:wrap">
       <h2 style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:clamp(44px,5.5vw,84px);letter-spacing:-0.04em;margin:0">The exhibits<span style="color:#ff5a1f">.</span></h2>
@@ -192,7 +194,7 @@
 </section>
 
 <section style="border-top:1px solid rgba(243,240,232,0.14);margin-top:110px;padding:100px 0 130px">
-  <div style="max-width:1440px;margin:0 auto;padding:0 40px">
+  <div class="gutter" style="max-width:1440px;margin:0 auto;padding:0 40px">
     <div class="reveal-40">
       <div style="display:flex;align-items:baseline;gap:24px;margin-bottom:16px;flex-wrap:wrap">
         <h2 style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:clamp(44px,5.5vw,84px);letter-spacing:-0.04em;margin:0">The studio<span style="color:#ff5a1f">.</span></h2>

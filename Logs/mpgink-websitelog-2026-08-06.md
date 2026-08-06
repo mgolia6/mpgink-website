@@ -88,7 +88,23 @@ to the three app-page heroes (same pattern as Metta's follow link, muted
 grey → orange hover). Verified headless: all three render, correct hrefs,
 zero JS errors.
 
+### Addendum 2 (same session): mobile version
+Matthew asked for mobile. Built:
+- Compact nav: mono MENU/CLOSE toggle below 840px (new shared site.js,
+  aria-expanded wired), menu opens as full-width column with hairline
+  dividers; desktop nav untouched (toggle hidden ≥840px, verified).
+- Mobile hooks on top of the existing 1080/980/700px collapses: home 40px
+  gutters → 22px below 600px (.gutter), newsletter framed art 40vw → 88vw
+  below 700px (.nl-art), app-page hero side column left-aligns when stacked
+  (.hero-side).
+Evidence: headless Chromium at 375×812 — all 12 pages ZERO horizontal
+overflow (scrollWidth check) and ZERO JS errors; nav toggle
+open/close/label verified; desktop regression check passed (menu visible,
+toggle hidden at 1440px). Screenshots eyeballed: index w/ modal, open menu.
+
 ### Open / waiting on Matthew
-- Review branch claude/mpg-website-design-jefdka → merge to main to ship.
-- Post-merge production eyeball: fonts + Etsy images.
+- Review branch claude/mpg-website-design-jefdka → merge to main to ship
+  (desktop + mobile both on the branch now).
+- Post-merge production eyeball: fonts + Etsy images, and one real-phone
+  pass (headless emulation is not a phone).
 

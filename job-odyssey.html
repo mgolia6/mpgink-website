@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&family=DM+Sans:opsz,wght@9..40,400..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
 
@@ -40,7 +41,8 @@
       <span class="nav-wordmark">mpgink</span>
       <span class="nav-cipher">13·16·7</span>
     </a>
-    <nav>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    <nav id="site-menu">
       <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
       <a class="nav-link" href="newsletter.html">AFM</a>
       <a class="nav-link" href="studio.html">STUDIO</a>
@@ -60,7 +62,7 @@
     <h1 style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:clamp(44px,5.5vw,80px);letter-spacing:-2px;margin:0 0 18px">Job Odyssey<span style="color:#ff5a1f">.</span></h1>
     <p style="font-size:18px;line-height:1.65;color:rgba(243,240,232,0.62);max-width:58ch;margin:0">An AI-powered, field-agnostic job-search platform — openings scraped from six major ATS platforms, scored against your actual résumé and goals on one anchored rubric.</p>
   </div>
-  <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
+  <div class="hero-side" style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
     <span style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1.6px;color:#ff6b35;border:1px solid rgba(255,107,53,0.6);padding:6px 12px">NOW ACCEPTING BETA USERS</span>
     <a href="https://jobodyssey.mpgink.com" target="_blank" rel="noopener" class="btn btn-cream" style="padding:14px 28px;font-size:13px;letter-spacing:2px">ENTER THE APP ↗</a>
     <a href="https://www.instagram.com/jobodyssey" target="_blank" rel="noopener" class="kicker-link" style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.5px;text-decoration:none">FOLLOW @JOBODYSSEY →</a>

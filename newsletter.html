@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
 
@@ -40,7 +41,8 @@
       <span class="nav-wordmark">mpgink</span>
       <span class="nav-cipher">13·16·7</span>
     </a>
-    <nav>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    <nav id="site-menu">
       <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
       <a class="nav-link" href="newsletter.html">AFM</a>
       <a class="nav-link" href="studio.html">STUDIO</a>
@@ -66,7 +68,7 @@
     </div>
   </div>
   <div style="justify-self:center">
-    <img src="images/afm-hero.jpg" alt="Aloha Friday Motivation artwork" style="display:block;width:min(420px,40vw);border:8px solid #fff;outline:1px solid rgba(23,19,12,0.18);box-shadow:0 4px 8px rgba(23,19,12,0.12), 0 26px 60px rgba(23,19,12,0.25);transform:rotate(1.6deg)">
+    <img src="images/afm-hero.jpg" alt="Aloha Friday Motivation artwork" class="nl-art" style="display:block;width:min(420px,40vw);border:8px solid #fff;outline:1px solid rgba(23,19,12,0.18);box-shadow:0 4px 8px rgba(23,19,12,0.12), 0 26px 60px rgba(23,19,12,0.25);transform:rotate(1.6deg)">
     <div style="margin-top:18px;font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.6px;color:#9a8f7d">ALOHA FRIDAY MOTIVATION — HEADER ART, ARTIST'S OWN</div>
   </div>
 </section>
