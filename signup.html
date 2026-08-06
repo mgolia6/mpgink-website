@@ -87,7 +87,19 @@
       font-size: 0.98rem; font-family: inherit; outline: none; box-sizing: border-box;
     }
     .su-survey textarea:focus { border-color: var(--afm-gold); }
-    .su-survey .su-mini { margin-top: 12px; padding: 12px 22px; }
+    .su-progress { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--afm-gold); margin-bottom: 12px; }
+    .su-choices { display: grid; gap: 10px; }
+    .su-choices button {
+      text-align: left; padding: 14px 18px; border-radius: 12px; cursor: pointer;
+      border: 1px solid var(--border); background: var(--card-bg); color: var(--text);
+      font-size: 0.98rem; font-family: inherit;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .su-choices button:hover { border-color: var(--afm-gold); background: rgba(255,207,107,0.08); }
+    .su-skip {
+      display: inline-block; margin-top: 14px; background: none; border: none; cursor: pointer;
+      color: var(--text-muted); font-size: 0.85rem; text-decoration: underline; padding: 4px;
+    }
 
     .su-bottom { text-align: center; padding: 70px 8vw 110px; color: var(--text-muted); }
     .su-bottom a { color: var(--afm-gold); }
@@ -131,11 +143,39 @@
 
   <div class="su-state" id="suState" role="status"></div>
 
+  <!-- Post-signup survey: 3 steps, one question per screen, every step
+       skippable. Answers post progressively so a half-finished survey still
+       counts. -->
   <div class="su-survey" id="suSurvey">
-    <label for="suStuck">One question while you're here: what are you stuck on right now?</label>
-    <p>15 seconds, optional — your answer directly shapes what I write and build next.</p>
-    <textarea id="suStuck" maxlength="500" placeholder="The thing you keep circling and not finishing…"></textarea>
-    <button class="su-mini su-form button" id="suStuckBtn" style="background:var(--afm-gold);color:#2b1f05;border:none;border-radius:12px;font-weight:700;cursor:pointer;">Send answer</button>
+    <div class="su-step" data-step="1">
+      <div class="su-progress">Question 1 of 3 · all optional</div>
+      <label>What brought you here?</label>
+      <div class="su-choices">
+        <button type="button" data-q="brought_here" data-v="Aloha Friday Motivation">Aloha Friday Motivation</button>
+        <button type="button" data-q="brought_here" data-v="Building things with AI">Building things with AI</button>
+        <button type="button" data-q="brought_here" data-v="One of the apps">One of the apps</button>
+        <button type="button" data-q="brought_here" data-v="Just curious">Just curious</button>
+      </div>
+      <button type="button" class="su-skip" data-skip="1">Skip</button>
+    </div>
+    <div class="su-step" data-step="2" hidden>
+      <div class="su-progress">Question 2 of 3</div>
+      <label>Are you building (or wanting to build) something of your own?</label>
+      <div class="su-choices">
+        <button type="button" data-q="building" data-v="Yes, actively">Yes, actively</button>
+        <button type="button" data-q="building" data-v="Thinking about it">Thinking about it</button>
+        <button type="button" data-q="building" data-v="No — here for the reading">No — here for the reading</button>
+      </div>
+      <button type="button" class="su-skip" data-skip="2">Skip</button>
+    </div>
+    <div class="su-step" data-step="3" hidden>
+      <div class="su-progress">Last one</div>
+      <label for="suStuck">What are you stuck on right now?</label>
+      <p>Your answer directly shapes what I write and build next.</p>
+      <textarea id="suStuck" maxlength="500" placeholder="The thing you keep circling and not finishing…"></textarea>
+      <button class="su-mini" id="suStuckBtn" style="background:var(--afm-gold);color:#2b1f05;border:none;border-radius:12px;font-weight:700;cursor:pointer;padding:12px 22px;margin-top:12px;">Send answer</button>
+      <button type="button" class="su-skip" data-skip="3">Skip</button>
+    </div>
   </div>
 </section>
 
@@ -229,24 +269,49 @@
     }
   });
 
+  // Survey stepper: answers accumulate in `answers` and post progressively
+  // (full object each time — the API replaces the stored value), so a
+  // half-finished survey still counts. Skips just advance.
+  const answers = {};
+  function showStep(n) {
+    document.querySelectorAll('.su-step').forEach((s) => { s.hidden = s.dataset.step !== String(n); });
+    if (n > 3) {
+      survey.classList.remove('show');
+      const answered = Object.keys(answers).length > 0 || stuckEl.value.trim();
+      setState('ok', answered
+        ? 'Got it — thank you. Those answers genuinely shape what gets built next. 🙏'
+        : 'All set — welcome aboard. 🤙');
+    }
+  }
+  function sendAnswers(extra) {
+    // Fire-and-forget on purpose: the signup already succeeded, and a survey
+    // answer that fails to send must not scare the subscriber with an error.
+    post({
+      email: emailEl.value.trim(),
+      source: 'signup-page',
+      survey: answers,
+      ...(extra || {}),
+      website: form.elements.website.value,
+    }).catch(() => {});
+  }
+  document.querySelectorAll('.su-choices button').forEach((b) => {
+    b.addEventListener('click', () => {
+      answers[b.dataset.q] = b.dataset.v;
+      sendAnswers();
+      showStep(Number(b.closest('.su-step').dataset.step) + 1);
+    });
+  });
+  document.querySelectorAll('.su-skip').forEach((b) => {
+    b.addEventListener('click', () => showStep(Number(b.dataset.skip) + 1));
+  });
   stuckBtn.addEventListener('click', async () => {
     const answer = stuckEl.value.trim();
-    if (!answer) { survey.classList.remove('show'); return; }
-    stuckBtn.disabled = true;
-    try {
-      await post({
-        email: emailEl.value.trim(),
-        source: 'signup-page',
-        stuck_on: answer,
-        website: form.elements.website.value,
-      });
-      survey.classList.remove('show');
-      setState('ok', 'Got it — thank you. That answer genuinely shapes what gets built next. 🙏');
-    } catch (err) {
-      setState('err', 'Couldn’t send your answer — your signup is safe though. Feel free to just reply to the welcome email instead.');
-    } finally {
+    if (answer) {
+      stuckBtn.disabled = true;
+      sendAnswers({ stuck_on: answer });
       stuckBtn.disabled = false;
     }
+    showStep(4);
   });
 </script>
 </body>
