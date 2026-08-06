@@ -3,11 +3,13 @@
 
 ## Current status
 The full 2026 "Gallery at Night" redesign (Quad Design handoff package,
-`design_handoff_mpgink_website_2026`) is BUILT on branch
-`claude/mpg-website-design-jefdka` — every page recreated as static
-HTML/CSS/JS against the handoff's high-fidelity templates. NOT yet merged to
-main; the live site still runs the 2026-07-21 overhaul design until Matthew
-reviews and merges. Deploys remain GitHub Pages from `main`.
+`design_handoff_mpgink_website_2026`) is LIVE. Matthew ordered the merge
+2026-08-06; main fast-forwarded 1376bbe→22f4154 (desktop redesign + per-app
+IG links + mobile version) and the Pages deploy succeeded (run #87,
+conclusion: success, 22:53 UTC). Note: the three prior Pages builds on main
+that day had FAILED in GitHub's runner queue (build job never assigned a
+runner), so the site had been frozen at the Aug 4 deploy until this one —
+the queue recovered on its own. Deploys remain GitHub Pages from `main`.
 
 ## The design system (style.css, fully rewritten)
 Digital art gallery at night: wall `#0f0c07`, ink panel `#17130c`, cream

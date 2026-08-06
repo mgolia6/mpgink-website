@@ -102,9 +102,20 @@ overflow (scrollWidth check) and ZERO JS errors; nav toggle
 open/close/label verified; desktop regression check passed (menu visible,
 toggle hidden at 1440px). Screenshots eyeballed: index w/ modal, open menu.
 
+### Addendum 3 (same session): MERGED + DEPLOYED on Matthew's go
+- main fast-forwarded 1376bbe→22f4154, pushed 22:52 UTC.
+- Pages run #87 (id 31129285153): status completed, conclusion SUCCESS,
+  22:53:12 UTC — the redesign is live.
+- Finding while verifying: the three prior Pages builds on main (6cd2321,
+  adc2424, 1376bbe — all 2026-08-06) FAILED. Evidence from run 31128359282:
+  build job conclusion "cancelled", runner_id 0 / empty runner name after
+  15 min queued (21:30:56→21:46:00), deploy skipped. GitHub runner-queue
+  starvation, not a repo fault; last successful deploy before ours was
+  9b39590 (Aug 4) — meaning the signup-survey-v2 merge had never actually
+  reached production until today's redesign deploy carried it.
+
 ### Open / waiting on Matthew
-- Review branch claude/mpg-website-design-jefdka → merge to main to ship
-  (desktop + mobile both on the branch now).
-- Post-merge production eyeball: fonts + Etsy images, and one real-phone
-  pass (headless emulation is not a phone).
+- Production eyeball on mpgink.com (sandbox cannot reach it): Google Fonts
+  typography, Etsy shop images, and a real-phone pass of the mobile nav.
+- Hard-refresh may be needed (GitHub Pages caches aggressively).
 
