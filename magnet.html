@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Solo Operating Standard — a free field guide — mpgink</title>
+  <meta name="description" content="How one person and an AI run five live products without dropping any of them — the actual rulebook, quality gates, and daily checks. Free, and about ten minutes to read.">
+
+  <!-- Open Graph / Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mpgink.com/magnet">
+  <meta property="og:title" content="The Solo Operating Standard — a free field guide">
+  <meta property="og:description" content="How one person and an AI run five live products without dropping any of them. The actual rulebook — free, ten minutes.">
+  <meta property="og:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Solo Operating Standard — a free field guide">
+  <meta name="twitter:description" content="How one person and an AI run five live products without dropping any of them.">
+  <meta name="twitter:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
+
+  <!-- Favicon / home-screen icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0f0c07">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+  <style>
+    .mg-page a { color: #ffcf6b; }
+    .mg-page a:hover { color: #ff6b35; }
+    @keyframes mgFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .mg-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: start; }
+    @media (max-width: 900px) { .mg-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .mg-chapter { border-top: 1px solid rgba(255,207,107,0.35); padding: 20px 0 6px; }
+  </style>
+</head>
+<body class="mg-page">
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/mpgink-favicon.png" alt="mpgink logomark">
+      <span class="nav-wordmark">mpgink</span>
+      <span class="nav-cipher">13·16·7</span>
+    </a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    <nav id="site-menu">
+      <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
+      <a class="nav-link" href="newsletter.html">AFM</a>
+      <a class="nav-link" href="studio.html">STUDIO</a>
+      <a class="nav-link" href="shop.html">SHOP</a>
+      <a class="nav-link" href="about.html">ABOUT</a>
+      <a class="nav-link" href="ai-usage.html">AI</a>
+      <a class="nav-cta" href="contact.html">SAY ALOHA</a>
+    </nav>
+  </div>
+</header>
+
+<div class="grain"></div>
+
+<section style="position:relative;background:radial-gradient(900px 500px at 50% 0%,rgba(255,207,107,0.1),transparent 70%),#0f0c07;padding:88px 32px 72px">
+  <div style="max-width:1180px;margin:0 auto" class="mg-grid">
+    <div>
+      <div style="display:inline-block;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2.4px;color:#ffcf6b;border:1px solid rgba(255,207,107,0.45);padding:7px 15px;margin-bottom:28px;animation:mgFadeUp 0.7s ease both 0.05s">A FREE FIELD GUIDE</div>
+      <h1 style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:clamp(36px,4.4vw,60px);letter-spacing:-0.03em;line-height:1.05;margin:0 0 22px;animation:mgFadeUp 0.7s ease both 0.15s">The Solo Operating Standard<span style="color:#ff5a1f">.</span></h1>
+      <p style="font-size:18px;line-height:1.7;color:rgba(243,240,232,0.72);max-width:54ch;margin:0 0 20px;animation:mgFadeUp 0.7s ease both 0.25s">How one person and an AI run five live products without dropping any of them — the actual rulebook, not the theory.</p>
+      <p style="font-size:16px;line-height:1.75;color:rgba(243,240,232,0.6);max-width:54ch;margin:0 0 34px;animation:mgFadeUp 0.7s ease both 0.3s">Every rule in here exists because something broke first. Ten minutes to read. Steal any of it.</p>
+
+      <form id="mg-form" style="display:flex;gap:12px;flex-wrap:wrap;max-width:520px;animation:mgFadeUp 0.7s ease both 0.4s" novalidate>
+        <input type="email" id="mg-email" class="su-input" placeholder="you@example.com" autocomplete="email" required>
+        <input type="text" id="mg-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none">
+        <button type="submit" id="mg-submit" class="su-btn">SEND ME THE GUIDE</button>
+      </form>
+      <div style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.4px;color:#9a8f7d;margin-top:18px;max-width:54ch;line-height:1.8">DELIVERED STRAIGHT TO YOUR INBOX. YOU'LL ALSO START GETTING ALOHA FRIDAY MOTIVATION EACH FRIDAY — UNSUBSCRIBE ANYTIME.</div>
+      <div id="mg-state" role="status" hidden style="max-width:56ch;margin:26px 0 0;padding:16px 20px;font-size:15px;line-height:1.6;color:#f3f0e8;border:1px solid transparent"></div>
+    </div>
+
+    <div style="animation:mgFadeUp 0.7s ease both 0.5s">
+      <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#8a8172;margin-bottom:22px">WHAT'S INSIDE</div>
+      <div class="mg-chapter">
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b;margin-bottom:10px">01 — ONE RULEBOOK</div>
+        <p style="font-size:14px;line-height:1.65;color:rgba(243,240,232,0.62);margin:0">Why every project shares one operating standard, and what happens the week you let one drift.</p>
+      </div>
+      <div class="mg-chapter">
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b;margin-bottom:10px">02 — PROVE IT EXISTS</div>
+        <p style="font-size:14px;line-height:1.65;color:rgba(243,240,232,0.62);margin:0">The reality check that runs before any change: if you can't prove it's there, you don't touch it.</p>
+      </div>
+      <div class="mg-chapter">
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b;margin-bottom:10px">03 — "DONE" IS A CLAIM</div>
+        <p style="font-size:14px;line-height:1.65;color:rgba(243,240,232,0.62);margin:0">Honest completion — why a green build isn't proof, and what evidence you hand over instead.</p>
+      </div>
+      <div class="mg-chapter">
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b;margin-bottom:10px">04 — THE SAME THING TWICE</div>
+        <p style="font-size:14px;line-height:1.65;color:rgba(243,240,232,0.62);margin:0">One repo, one day, eight copies of the same logic — and the user-visible bug each one caused.</p>
+      </div>
+      <div class="mg-chapter">
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b;margin-bottom:10px">05 — WHAT IT COSTS</div>
+        <p style="font-size:14px;line-height:1.65;color:rgba(243,240,232,0.62);margin:0">Unmeasured is worse than expensive. How to find the bill nobody has looked at yet.</p>
+      </div>
+      <div class="mg-chapter">
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b;margin-bottom:10px">06 — THE DAILY RHYTHM</div>
+        <p style="font-size:14px;line-height:1.65;color:rgba(243,240,232,0.62);margin:0">Session start, session wrap, and the checks that catch drift before a person does.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid rgba(243,240,232,0.14)">
+  <div style="max-width:760px;margin:0 auto;padding:70px 32px 90px">
+    <div style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2px;color:#8a8172;margin-bottom:14px">WHO WROTE IT</div>
+    <p style="font-size:16.5px;line-height:1.8;color:rgba(243,240,232,0.72);margin:0 0 18px">I'm Matthew. mpgink is a creative collective founded by one person — the name is the operating system: <strong style="color:#f3f0e8">mission · passion · gratitude</strong>.</p>
+    <p style="font-size:16.5px;line-height:1.8;color:rgba(243,240,232,0.72);margin:0 0 18px">I design, build, and ship real products for real users — a Phish companion, an AI-powered job-search platform, a daily learning app, reading apps for my kids — working with AI as a build partner and run like a full product org. Built lo-fi. Shipped fast. Iterated in public.</p>
+    <p style="font-size:16.5px;line-height:1.8;color:rgba(243,240,232,0.72);margin:0">This guide is the standard that keeps it from falling over. It's free because writing it down is how I keep myself honest.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="images/mpgink-favicon.png" alt="mpgink logomark" style="width:40px;height:40px;border-radius:9px">
+        <span style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:24px">mpgink</span>
+      </div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.62);max-width:38ch;margin:0 0 20px">a creative collective — mission · passion · gratitude · building AI&#8209;augmented products people actually use.</p>
+      <p style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.2px;color:#8a8172;margin:0">13 · 16 · 7</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE EXHIBITS</span>
+      <a class="footer-link" href="phreezer.html">PHREEZER</a>
+      <a class="footer-link" href="job-odyssey.html">JOB ODYSSEY</a>
+      <a class="footer-link" href="one-percent.html">ONE PERCENT</a>
+      <a class="footer-link" href="newsletter.html">ALOHA FRIDAY MOTIVATION</a>
+      <a class="footer-link" href="metta.html">METTA — SOON</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE STUDIO</span>
+      <a class="footer-link-gold" href="signup.html">JOIN THE LIST ✶</a>
+      <a class="footer-link" href="studio.html">BOOKS + BLOG</a>
+      <a class="footer-link" href="shop.html">THE SHOP</a>
+      <a class="footer-link" href="ai-usage.html">AI USAGE</a>
+      <a class="footer-link" href="about.html">ABOUT</a>
+      <a class="footer-link" href="contact.html">SAY ALOHA</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 MPGINK — BUILT LO-FI. SHIPPED FAST. ITERATED IN PUBLIC.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://mattymattemodgepodge.etsy.com" target="_blank" rel="noopener">ETSY</a>
+        <a href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">COFFEE</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Magnet signup posts to the SAME capture endpoint as every other door —
+  // no duplicate capture logic (kit-single-source). The magnet is identified
+  // by the source tag; delivery of the file itself is wired server-side.
+  var MAGNET = 'solo-operating-standard';
+  var form = document.getElementById('mg-form');
+  if (!form) return;
+  var stateBox = document.getElementById('mg-state');
+
+  function setState(kind, msg) {
+    var borders = { ok: 'rgba(255,207,107,0.55)', pending: 'rgba(255,207,107,0.4)', err: 'rgba(255,90,90,0.55)' };
+    var bgs = { ok: 'rgba(255,207,107,0.08)', pending: 'rgba(255,207,107,0.05)', err: 'rgba(255,90,90,0.07)' };
+    stateBox.hidden = false;
+    stateBox.style.borderColor = borders[kind];
+    stateBox.style.background = bgs[kind];
+    stateBox.textContent = msg;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('mg-email').value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      setState('err', 'That email doesn’t look complete — double-check it and try again.');
+      return;
+    }
+    var btn = document.getElementById('mg-submit');
+    btn.disabled = true;
+    setState('pending', 'Sending the guide…');
+    fetch('https://pm.mpgink.com/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        source: 'magnet-' + MAGNET,
+        magnet: MAGNET,
+        website: document.getElementById('mg-website').value || ''
+      })
+    }).then(function (r) {
+      return r.json().catch(function () { return null; }).then(function (d) {
+        if (r.status === 200 && d && d.ok) {
+          // Honest states: only claim the guide is sent when the server says an
+          // email actually went out. `welcomed:false` means saved-but-not-sent.
+          if (d.welcomed) setState('ok', 'Check your inbox — the guide is on its way. (Peek in spam the first time.)');
+          else if (d.already) setState('ok', 'You’re already on the list — I’ve re-sent the guide to this address. Give it a minute.');
+          else setState('ok', 'You’re on the list, but the email is lagging behind — it may take a few minutes. If it never lands, reply to any AFM email and I’ll send it by hand.');
+        } else if (r.status === 429) {
+          setState('err', 'Too many signups from this connection right now — wait a few minutes and try again.');
+        } else {
+          setState('err', 'That failed on our end — this one’s on us, not you. Try again in a minute, or email matthew@mpgink.com and I’ll send it over.');
+        }
+      });
+    }).catch(function () {
+      setState('err', 'Couldn’t reach the signup service — check your connection and try again. Still stuck? Email matthew@mpgink.com.');
+    }).then(function () { btn.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
