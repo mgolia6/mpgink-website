@@ -205,6 +205,9 @@
   menu.addEventListener('click', () => sidebar.classList.toggle('open'));
 
   const API = 'https://pm.mpgink.com/api/subscribe';
+  // ?src= tags which door someone came through (linkedin-post-07, one-percent-email, …)
+  const srcParam = new URLSearchParams(location.search).get('src');
+  const SOURCE = srcParam && /^[a-z0-9-]{1,40}$/.test(srcParam) ? srcParam : 'signup-page';
   const form = document.getElementById('suForm');
   const emailEl = document.getElementById('suEmail');
   const btn = document.getElementById('suBtn');
@@ -241,7 +244,7 @@
     try {
       const { status, data } = await post({
         email,
-        source: 'signup-page',
+        source: SOURCE,
         website: form.elements.website.value,
       });
       if (status === 200 && data && data.ok) {
@@ -288,7 +291,7 @@
     // answer that fails to send must not scare the subscriber with an error.
     post({
       email: emailEl.value.trim(),
-      source: 'signup-page',
+      source: SOURCE,
       survey: answers,
       ...(extra || {}),
       website: form.elements.website.value,
