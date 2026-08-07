@@ -158,6 +158,9 @@
 <script>
 (function () {
   var API = 'https://pm.mpgink.com/api/subscribe';
+  // ?src= tags which door someone came through (linkedin-post-07, one-percent-email, ...)
+  var srcParam = new URLSearchParams(location.search).get('src');
+  var SOURCE = (srcParam && /^[a-z0-9-]{1,40}$/.test(srcParam)) ? srcParam : 'signup-page';
   var form = document.getElementById('signup-form');
   var emailEl = document.getElementById('su-email');
   var hpEl = document.getElementById('su-website');
@@ -204,7 +207,7 @@
   function sendAnswers(extra) {
     var payload = {
       email: (emailEl.value || '').trim(),
-      source: 'signup-page',
+      source: SOURCE,
       survey: answers,
       website: hpEl.value || ''
     };
@@ -260,7 +263,7 @@
     btn.disabled = true;
     btn.textContent = 'Joining…';
     setState('pending', 'Adding you to the list…');
-    post({ email: email, source: 'signup-page', website: hpEl.value || '' })
+    post({ email: email, source: SOURCE, website: hpEl.value || '' })
       .then(function (res) {
         if (res.status === 200 && res.data && res.data.ok) {
           var msg;

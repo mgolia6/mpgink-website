@@ -119,6 +119,73 @@
   </div>
 </section>
 
+
+<!-- JOIN THE LIST — landing spot for the daily reminder email's CTA (#join) -->
+<section id="join" style="border-top:1px solid rgba(243,240,232,0.14)">
+  <div style="max-width:720px;margin:0 auto;padding:76px 32px 84px;text-align:center">
+    <div style="display:inline-block;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2.4px;color:#3DE88A;border:1px solid rgba(61,232,138,0.45);padding:7px 15px;margin-bottom:26px">THE MPGINK LIST</div>
+    <h2 style="font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:900;font-size:clamp(28px,3.4vw,44px);letter-spacing:-1px;margin:0 0 16px">One Percent, in your inbox too<span style="color:#ff5a1f">.</span></h2>
+    <p style="font-size:16px;line-height:1.7;color:rgba(243,240,232,0.65);max-width:52ch;margin:0 auto 34px">Launch news and new features first, plus Aloha Friday Motivation every Friday — from the studio that builds One Percent. No algorithm decides whether you see it.</p>
+    <form id="op-join-form" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:540px;margin:0 auto" novalidate>
+      <input type="email" id="opj-email" class="su-input" placeholder="you@example.com" autocomplete="email" required>
+      <input type="text" id="opj-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none">
+      <button type="submit" id="opj-submit" class="su-btn">JOIN THE LIST</button>
+    </form>
+    <div id="opj-state" role="status" hidden style="max-width:56ch;margin:26px auto 0;padding:16px 20px;font-size:15px;line-height:1.6;text-align:left;color:#f3f0e8;border:1px solid transparent"></div>
+    <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1.5px;color:#9a8f7d;margin-top:20px">DELIVERED STRAIGHT TO YOUR INBOX. UNSUBSCRIBE ANYTIME.</div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var form = document.getElementById('op-join-form');
+  if (!form) return;
+  var stateBox = document.getElementById('opj-state');
+  // ?src= (e.g. the daily reminder email) overrides the default source tag so
+  // each door stays distinguishable in the data.
+  var srcParam = new URLSearchParams(location.search).get('src');
+  var SOURCE = (srcParam && /^[a-z0-9-]{1,40}$/.test(srcParam)) ? srcParam : 'one-percent-page';
+  function setState(kind, msg) {
+    var borders = { ok: 'rgba(61,232,138,0.55)', pending: 'rgba(255,207,107,0.5)', err: 'rgba(255,90,90,0.55)' };
+    var bgs = { ok: 'rgba(61,232,138,0.07)', pending: 'rgba(255,207,107,0.07)', err: 'rgba(255,90,90,0.07)' };
+    stateBox.hidden = false;
+    stateBox.style.borderColor = borders[kind];
+    stateBox.style.background = bgs[kind];
+    stateBox.textContent = msg;
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('opj-email').value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      setState('err', 'That email doesn\u2019t look complete \u2014 double-check it and try again.');
+      return;
+    }
+    var btn = document.getElementById('opj-submit');
+    btn.disabled = true;
+    setState('pending', 'Adding you to the list\u2026');
+    fetch('https://pm.mpgink.com/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: SOURCE, website: document.getElementById('opj-website').value || '' })
+    }).then(function (r) {
+      return r.json().catch(function () { return null; }).then(function (d) {
+        if (r.status === 200 && d && d.ok) {
+          if (d.already) setState('ok', 'You\u2019re already on the list \u2014 nothing more to do.');
+          else if (d.welcomed) setState('ok', 'You\u2019re in! A welcome email is on its way \u2014 check your inbox (and spam, the first time).');
+          else setState('ok', 'You\u2019re on the list! The welcome email is lagging behind \u2014 it may arrive later, but your spot is saved either way.');
+        } else if (r.status === 429) {
+          setState('err', 'Too many signups from this connection right now \u2014 wait a few minutes and try again.');
+        } else {
+          setState('err', 'Signup failed on our end \u2014 this one\u2019s on us, not you. Try again in a minute, or email matthew@mpgink.com and I\u2019ll add you by hand.');
+        }
+      });
+    }).catch(function () {
+      setState('err', 'Couldn\u2019t reach the signup service \u2014 check your connection and try again. Still stuck? Email matthew@mpgink.com.');
+    }).then(function () { btn.disabled = false; });
+  });
+})();
+</script>
+
 <footer class="site-footer">
   <div class="footer-grid">
     <div>
