@@ -4,21 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Phreezer — mpgink</title>
-  <meta name="description" content="Phreezer — rate, track, and relive Phish shows. Live rating, lifetime stats, audio relisten, Uncle Ebenezer, and a community of phans.">
+  <meta name="description" content="Phreezer — rate, track, and relive Phish shows. An mpgink exhibit.">
 
   <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mpgink.com/phreezer">
-  <meta property="og:title" content="Phreezer — rate. track. relive.">
-  <meta property="og:description" content="Rate, track, and relive Phish shows — live rating during shows, lifetime stats, audio relisten, an AI concierge named Uncle Ebenezer, and a community of phans.">
+  <meta property="og:title" content="Phreezer — mpgink">
+  <meta property="og:description" content="Rate, track, and relive Phish shows — live rating, lifetime stats, audio relisten, Uncle Ebenezer.">
   <meta property="og:image" content="https://mpgink.com/images/phreezer-shot-scorecard.jpg">
-  <meta property="og:image:width" content="900">
-  <meta property="og:image:height" content="520">
 
   <!-- Twitter/X Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Phreezer — rate. track. relive.">
-  <meta name="twitter:description" content="Rate, track, and relive Phish shows with a community of phans.">
+  <meta name="twitter:title" content="Phreezer — mpgink">
+  <meta name="twitter:description" content="Rate, track, and relive Phish shows — live rating, lifetime stats, audio relisten, Uncle Ebenezer.">
   <meta name="twitter:image" content="https://mpgink.com/images/phreezer-shot-scorecard.jpg">
 
   <!-- Favicon / home-screen icons -->
@@ -26,272 +24,155 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#0a0e27">
+  <meta name="theme-color" content="#0f0c07">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Phreezer page — the terminal glows inside the mpgink shell */
-    :root {
-      --ph-green: #33ff33;
-      --ph-cyan: #00e0d0;
-      --ph-orange: #ff6600;
-      --ph-bg: #0a0a0a;
-      --ph-panel: #0f0f0f;
-    }
-
-    .ph-hero {
-      padding: 160px 8vw 70px;
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .ph-chips { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
-    .ph-chip {
-      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
-      padding: 6px 13px; border-radius: 50px;
-    }
-    .ph-chip-live { background: rgba(51,255,51,0.1); color: var(--ph-green); border: 1px solid rgba(51,255,51,0.35); }
-    .ph-chip-signal { background: rgba(255,102,0,0.12); color: #ff9d57; border: 1px solid rgba(255,102,0,0.4); }
-
-    .ph-logo { width: min(520px, 82vw); margin: 0 auto 30px; display: block; filter: drop-shadow(0 0 24px rgba(0,224,208,0.25)); }
-    .ph-hero h1 {
-      font-size: clamp(1.6rem, 3vw, 2.3rem);
-      font-weight: 800;
-      margin: 0 0 20px;
-      text-wrap: balance;
-    }
-    .ph-hero > p {
-      font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;
-      max-width: 62ch; margin: 0 auto 36px;
-    }
-    .ph-cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .cta.ph-primary { background: var(--ph-cyan); color: #032422; }
-    .cta.ph-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,224,208,0.4); }
-
-    /* terminal-framed screenshots */
-    .ph-shots {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      max-width: 1100px;
-      margin: 60px auto 0;
-      padding: 0 8vw;
-    }
-    @media (max-width: 860px) { .ph-shots { grid-template-columns: 1fr; } }
-    .ph-shot {
-      background: var(--ph-bg);
-      border: 1px solid rgba(51,255,51,0.25);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 0 34px rgba(51,255,51,0.07);
-    }
-    .ph-shot-bar {
-      display: flex; align-items: center; gap: 8px;
-      padding: 10px 14px;
-      border-bottom: 1px solid rgba(51,255,51,0.18);
-      font-family: "Courier New", monospace;
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--ph-green);
-    }
-    .ph-shot-bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(51,255,51,0.5); display: block; }
-    .ph-shot img { width: 100%; display: block; }
-
-    /* features */
-    .ph-section { padding: 100px 8vw 20px; max-width: 1160px; margin: 0 auto; }
-    .ph-section-head { text-align: center; margin-bottom: 52px; }
-    .ph-section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 0 0 12px; }
-    .ph-section-head p { color: var(--text-muted); max-width: 60ch; margin: 0 auto; line-height: 1.65; }
-
-    .ph-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-    .ph-feature {
-      background: var(--ph-panel);
-      border: 1px solid rgba(51,255,51,0.18);
-      border-radius: 16px;
-      padding: 28px;
-    }
-    .ph-feature-tag {
-      font-family: "Courier New", monospace;
-      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--ph-green); margin-bottom: 12px;
-    }
-    .ph-feature-title { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
-    .ph-feature-desc { color: var(--text-muted); font-size: 0.93rem; line-height: 1.65; }
-    .ph-feature-desc em { color: var(--ph-cyan); font-style: normal; }
-
-    /* click-to-reveal feature rows */
-    details.ph-reveal { background: var(--ph-panel); border: 1px solid rgba(51,255,51,0.2); border-radius: 14px; margin-bottom: 12px; overflow: hidden; }
-    details.ph-reveal summary { cursor: pointer; padding: 18px 22px; list-style: none; display: flex; align-items: center; gap: 14px; }
-    details.ph-reveal summary::-webkit-details-marker { display: none; }
-    .ph-rev-tag { font-family: "Courier New", monospace; color: var(--ph-green); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; min-width: 84px; }
-    .ph-rev-title { font-family: 'Fraunces', serif; font-weight: 700; }
-    .ph-rev-hint { margin-left: auto; color: var(--text-muted); font-size: 0.75rem; }
-    .ph-rev-body { padding: 0 22px 20px; display: grid; grid-template-columns: 1fr 280px; gap: 20px; align-items: start; }
-    @media (max-width: 700px) { .ph-rev-body { grid-template-columns: 1fr; } }
-    .ph-rev-body p { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; }
-    .ph-rev-body img { border-radius: 8px; border: 1px solid rgba(51,255,51,0.2); width: 100%; }
-
-    /* signal callout */
-    .ph-signal {
-      max-width: 1160px;
-      margin: 70px auto 0;
-      padding: 34px 8vw;
-      border: 1px solid rgba(255,102,0,0.35);
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(255,102,0,0.06), transparent);
-      text-align: center;
-    }
-    .ph-signal h3 { font-size: 1.4rem; margin: 0 0 10px; color: #ff9d57; }
-    .ph-signal p { color: var(--text-muted); max-width: 62ch; margin: 0 auto; line-height: 1.65; }
-
-    .ph-bottom { text-align: center; padding: 90px 8vw 120px; }
-    .ph-bottom h2 { font-size: 2.2rem; margin-bottom: 14px; }
-    .ph-bottom p { color: var(--text-muted); margin-bottom: 36px; }
-  </style>
+  <script src="site.js" defer></script>
 </head>
 <body>
 
-<div class="menu-container">
-  <div class="menu-icon" style="background-image:url('images/mpgink-favicon.png');"></div>
-  <div class="menu-label">Menu</div>
-</div>
-
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-header">mpgink</div>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="phreezer.html">Phreezer</a>
-  <a href="job-odyssey.html">Job Odyssey</a>
-  <a href="one-percent.html">One Percent</a>
-  <a href="newsletter.html">Aloha Friday Motivation</a>
-  <a href="studio.html">The Studio</a>
-  <a href="ai-usage.html">AI Usage</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<!-- HERO -->
-<section class="ph-hero">
-  <div class="ph-chips">
-    <span class="ph-chip ph-chip-live">Live now</span>
-    <span class="ph-chip ph-chip-signal">Signal goes solo Aug 1</span>
-    <a class="ph-chip" style="background:rgba(0,224,208,0.08); color:var(--ph-cyan); border:1px solid rgba(0,224,208,0.35); text-decoration:none;" href="https://www.instagram.com/phreezerapp" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px; margin-right:6px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>@phreezerapp</a>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/mpgink-favicon.png" alt="mpgink logomark">
+      <span class="nav-wordmark">mpgink</span>
+      <span class="nav-cipher">13·16·7</span>
+    </a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    <nav id="site-menu">
+      <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
+      <a class="nav-link" href="newsletter.html">AFM</a>
+      <a class="nav-link" href="studio.html">STUDIO</a>
+      <a class="nav-link" href="shop.html">SHOP</a>
+      <a class="nav-link" href="about.html">ABOUT</a>
+      <a class="nav-link" href="ai-usage.html">AI</a>
+      <a class="nav-cta" href="contact.html">SAY ALOHA</a>
+    </nav>
   </div>
-  <img class="ph-logo" src="images/phreezer-logo.png" alt="Phreezer — rate. track. relive.">
-  <h1>Won't you step into the Phreezer…</h1>
-  <p>A living scorecard for the community that tracks everything. Rate shows song by song with the recording playing right there, build your lifetime archive, and watch thirty years of phandom turn into patterns.</p>
-  <div class="ph-cta-row">
-    <a href="https://phreezer.mpgink.com" target="_blank" rel="noopener" class="cta ph-primary">Start your archive</a>
-    <a href="#features" class="cta cta-secondary">What's inside</a>
+</header>
+
+<div class="grain"></div>
+
+<section style="max-width:1320px;margin:0 auto;padding:64px 32px 48px;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap">
+  <div>
+    <div style="font-family:'Courier Prime',monospace;font-size:12.5px;letter-spacing:2.4px;color:#9a8f7d;margin-bottom:20px">EXHIBIT NO. 01 — WING A · <a href="index.html#exhibits" class="kicker-link">BACK TO THE FLOOR</a></div>
+    <h1 style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:clamp(44px,5.5vw,80px);letter-spacing:-2px;margin:0 0 18px">Phreezer<span style="color:#ff5a1f">.</span></h1>
+    <p style="font-size:18px;line-height:1.65;color:rgba(243,240,232,0.62);max-width:56ch;margin:0">Rate, track, and relive Phish shows — live rating during shows, lifetime stats, audio relisten, an AI concierge named Uncle Ebenezer, and a community of phans.</p>
+  </div>
+  <div class="hero-side" style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
+    <span style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1.6px;color:#ff6b35;border:1px solid rgba(255,107,53,0.6);padding:6px 12px">SIGNAL SKIN GOES SOLO AUG 1</span>
+    <a href="https://phreezer.mpgink.com" target="_blank" rel="noopener" class="btn btn-cream" style="padding:14px 28px;font-size:13px;letter-spacing:2px">ENTER THE APP ↗</a>
+    <a href="https://www.instagram.com/phreezerapp" target="_blank" rel="noopener" class="kicker-link" style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.5px;text-decoration:none">FOLLOW @PHREEZERAPP →</a>
   </div>
 </section>
 
-<!-- VERBS -->
-<div class="ph-shots" style="grid-template-columns:repeat(3,1fr);">
-  <div class="ph-shot" style="padding:22px;">
-    <div style="font-family:'Courier New',monospace; color:var(--ph-green); letter-spacing:0.12em; text-transform:uppercase; font-size:0.85rem; margin-bottom:10px;">&gt; Rate</div>
-    <div style="color:var(--text-muted); font-size:0.92rem; line-height:1.65;">Score a show the way you actually experience it — song by song, 1 to 5 — not one blunt number for the whole night.</div>
+<section style="background:#000;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,0.35) 2px 4px);pointer-events:none;z-index:5"></div>
+  <div style="border-top:1px solid rgba(51,255,51,0.2);border-bottom:1px solid rgba(51,255,51,0.2);overflow:hidden;padding:9px 0">
+    <div style="display:flex;width:max-content;animation:marq 22s linear infinite;font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:2px;color:#33ff33;white-space:nowrap;text-shadow:0 0 10px rgba(51,255,51,0.5)">
+      <span style="padding-right:36px">◈&nbsp;&nbsp;DON'T SUCK AT PHISH&nbsp;&nbsp;◈&nbsp;&nbsp;RATE. TRACK. RELIVE.&nbsp;&nbsp;◈&nbsp;&nbsp;DON'T SUCK AT PHISH&nbsp;&nbsp;◈&nbsp;&nbsp;RATE. TRACK. RELIVE.&nbsp;&nbsp;◈&nbsp;&nbsp;</span>
+      <span style="padding-right:36px">◈&nbsp;&nbsp;DON'T SUCK AT PHISH&nbsp;&nbsp;◈&nbsp;&nbsp;RATE. TRACK. RELIVE.&nbsp;&nbsp;◈&nbsp;&nbsp;DON'T SUCK AT PHISH&nbsp;&nbsp;◈&nbsp;&nbsp;RATE. TRACK. RELIVE.&nbsp;&nbsp;◈&nbsp;&nbsp;</span>
+    </div>
   </div>
-  <div class="ph-shot" style="padding:22px;">
-    <div style="font-family:'Courier New',monospace; color:var(--ph-green); letter-spacing:0.12em; text-transform:uppercase; font-size:0.85rem; margin-bottom:10px;">&gt; Track</div>
-    <div style="color:var(--text-muted); font-size:0.92rem; line-height:1.65;">What you were there for, what you caught on webcast, what you went back and relistened to. Your history, kept your way.</div>
-  </div>
-  <div class="ph-shot" style="padding:22px;">
-    <div style="font-family:'Courier New',monospace; color:var(--ph-green); letter-spacing:0.12em; text-transform:uppercase; font-size:0.85rem; margin-bottom:10px;">&gt; Relive</div>
-    <div style="color:var(--text-muted); font-size:0.92rem; line-height:1.65;">Deep Phreeze turns it all into patterns — when you see Phish, where, how often, which songs keep finding you.</div>
-  </div>
-</div>
-
-<!-- SIGNAL GALLERY — activate when the four screenshots land in images/:
-     phreezer-shot-your-signal.jpg · phreezer-shot-on-this-day.jpg ·
-     phreezer-shot-rated.jpg · phreezer-shot-song-history.jpg -->
-
-<!-- FEATURES -->
-<section class="ph-section" id="features">
-  <div class="ph-section-head">
-    <h2>What's inside</h2>
-    <p>Built by a phan, for phans — with the retro-terminal soul the music deserves.</p>
-  </div>
-
-  <div style="max-width:860px; margin:0 auto;">
-    <details class="ph-reveal" open>
-      <summary><span class="ph-rev-tag">&gt; rate</span><span class="ph-rev-title">Live scorecard</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
-      <div class="ph-rev-body">
-        <p>Rate every song as it happens — from the venue, the couch webcast, or a later relisten. Stars, notes, and the full setlist at your thumb, with the Phish.in recording playing right there.</p>
-        <img src="images/phreezer-shot-scorecard.jpg" alt="Live scorecard" loading="lazy">
+  <div class="band-split split-phreezer" style="max-width:1180px;margin:0 auto;padding:64px 32px 80px">
+    <div>
+      <img src="images/phreezer-logo.png" alt="Phreezer — rate. track. relive." style="width:82%;max-width:340px;filter:drop-shadow(0 0 18px rgba(0,224,208,0.35));margin-bottom:30px;display:block">
+      <div style="font-family:'Share Tech Mono',monospace;font-size:14px;line-height:1.9;color:#f0fff0">
+        <div style="font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:2.5px;margin-bottom:12px;color:#ff6600;text-shadow:0 0 12px rgba(255,102,0,0.5)">◈ WHAT IT DOES</div>
+        <div style="border-left:2px solid rgba(51,255,51,0.25);padding-left:16px;display:flex;flex-direction:column;gap:10px">
+          <span><span style="color:#00ffff">&gt;</span> rate every song of every show, 1–5</span>
+          <span><span style="color:#00ffff">&gt;</span> live mode: score the show as it happens</span>
+          <span><span style="color:#00ffff">&gt;</span> lifetime stats from phish.net + your ratings</span>
+          <span><span style="color:#00ffff">&gt;</span> relisten to the audio of shows you rated</span>
+          <span><span style="color:#00ffff">&gt;</span> ask Uncle Ebenezer, the AI concierge</span>
+          <span><span style="color:#00ffff">&gt;</span> join the PHAN ROLL — a community, not a contest</span>
+        </div>
+        <div style="margin-top:24px;font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:1.5px;color:rgba(51,255,51,0.55)">↗ PHISH.NET DATA IN CYAN · ↗ PHREEZER DATA IN ORANGE</div>
       </div>
-    </details>
-    <details class="ph-reveal">
-      <summary><span class="ph-rev-tag">&gt; relive</span><span class="ph-rev-title">Show scores &amp; relisten</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
-      <div class="ph-rev-body">
-        <p>Every show gets a real score — set by set, song by song — and the jam you can't stop thinking about is one tap from playing again.</p>
-        <img src="images/phreezer-shot-score.jpg" alt="Show score" loading="lazy">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="border:1px solid rgba(51,255,51,0.25);box-shadow:0 0 40px rgba(51,255,51,0.12)">
+        <img src="images/phreezer-shot-archive.png" alt="Phreezer — My Archive: signal over time, lifetime stats, badge tiers, Uncle Ebenezer" style="width:100%;display:block">
       </div>
-    </details>
-    <details class="ph-reveal">
-      <summary><span class="ph-rev-tag">&gt; track</span><span class="ph-rev-title">Deep Phreeze</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
-      <div class="ph-rev-body"><p>Your lifetime stats, frozen solid — every show, song counts, gaps, venues, states, eras. Your signal over time, by the numbers.</p></div>
-    </details>
-    <details class="ph-reveal">
-      <summary><span class="ph-rev-tag">&gt; ask</span><span class="ph-rev-title">Uncle Ebenezer</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
-      <div class="ph-rev-body"><p>An AI concierge who knows the catalog and your history. Ask him anything — he's heard every show and he's got opinions.</p></div>
-    </details>
-    <details class="ph-reveal">
-      <summary><span class="ph-rev-tag">&gt; connect</span><span class="ph-rev-title">The community</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
-      <div class="ph-rev-body"><p>A feed of phans rating in real time, Phriend Overlap to find who was at your shows, leaderboards, and community top shows, songs, and venues.</p></div>
-    </details>
-    <details class="ph-reveal">
-      <summary><span class="ph-rev-tag">&gt; earn</span><span class="ph-rev-title">Badges</span><span class="ph-rev-hint">click to reveal ▾</span></summary>
-      <div class="ph-rev-body"><p>Milestones for the journey — your first rating, your fiftieth show, your streaks. Earned, never given.</p></div>
-    </details>
-  </div>
-
-  <!-- SIGNAL CALLOUT -->
-  <div class="ph-signal">
-    <h3>◈ The Signal era begins August 1</h3>
-    <p>Phreezer's complete next-generation interface — rebuilt screen by screen on desktop and mobile — goes solo on August 1. New archive home, deep stats, community, and a light mode. Same soul, sharper signal.</p>
-  </div>
-
-  <!-- GIANTS -->
-  <div style="margin:70px auto 0; text-align:center;">
-    <h3 style="font-size:1.3rem; margin-bottom:8px;">Standing on the shoulders of giants</h3>
-    <p style="color:var(--text-muted); font-size:0.9rem; max-width:56ch; margin:0 auto 26px; line-height:1.6;">None of this exists without the community's own institutions. Phreezer is a layer on top of their incredible work — not a replacement for any of it.</p>
-    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-      <a href="https://phish.net" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; background:var(--ph-panel); border:1px solid rgba(255,255,255,0.1); border-radius:50px; padding:8px 18px 8px 8px; text-decoration:none; color:var(--text); font-size:0.85rem;"><span style="width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:800; font-size:0.85rem; background:#1a3a5c; color:#7fb8e8;">.N</span> Phish.net</a>
-      <a href="https://phish.in" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; background:var(--ph-panel); border:1px solid rgba(255,255,255,0.1); border-radius:50px; padding:8px 18px 8px 8px; text-decoration:none; color:var(--text); font-size:0.85rem;"><span style="width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:800; font-size:0.85rem; background:#3a2a1a; color:#e8b87f;">.IN</span> Phish.in</a>
-      <a href="https://mbird.org" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; background:var(--ph-panel); border:1px solid rgba(255,255,255,0.1); border-radius:50px; padding:8px 18px 8px 8px; text-decoration:none; color:var(--text); font-size:0.85rem;"><img src="images/mockingbird.png" alt="" style="width:34px; height:34px; border-radius:50%; object-fit:cover;"> Mockingbird Foundation</a>
-      <a href="https://helpingfriendlybook.com" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; background:var(--ph-panel); border:1px solid rgba(255,255,255,0.1); border-radius:50px; padding:8px 18px 8px 8px; text-decoration:none; color:var(--text); font-size:0.85rem;"><span style="width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:800; font-size:0.85rem; background:#2a1a3a; color:#c89fe8;">HF</span> Helping Friendly App</a>
-      <a href="http://www.ihoz.com/PhishStats.html" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; background:var(--ph-panel); border:1px solid rgba(255,255,255,0.1); border-radius:50px; padding:8px 18px 8px 8px; text-decoration:none; color:var(--text); font-size:0.85rem;"><span style="width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:800; font-size:0.85rem; background:#1a3a2a; color:#7fe8a8;">ZZ</span> Phishtistics</a>
+      <div class="grid-2" style="gap:20px">
+        <div style="border:1px solid rgba(51,255,51,0.25);box-shadow:0 0 40px rgba(51,255,51,0.12)">
+          <img src="images/phreezer-shot-score.jpg" alt="Phreezer — show score, set-by-set averages and overall rating" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="border:1px solid rgba(51,255,51,0.25);box-shadow:0 0 40px rgba(51,255,51,0.12)">
+          <img src="images/phreezer-shot-scorecard.jpg" alt="Phreezer — song rating with audio relisten via phish.in" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+      </div>
+      <div style="font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:1.5px;color:rgba(51,255,51,0.55);text-align:center">ACTUAL PRODUCT SCREENS — MY ARCHIVE · SHOW SCORE · RATE + RELISTEN</div>
     </div>
   </div>
 </section>
 
-<!-- BOTTOM CTA -->
-<div class="ph-bottom">
-  <h2>The vault is open.</h2>
-  <p>Every Phish show back to 1983, waiting for your scores.</p>
-  <a href="https://phreezer.mpgink.com" target="_blank" rel="noopener" class="cta ph-primary">Enter Phreezer</a>
-  <p style="margin-top:26px; font-size:0.9rem;"><a href="https://www.instagram.com/phreezerapp" target="_blank" rel="noopener" style="color:#00e0d0; text-decoration:none;">Follow @phreezerapp on Instagram →</a></p>
-</div>
+<section style="max-width:1320px;margin:0 auto;padding:88px 32px 40px">
+  <div style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2px;color:#8a8172;margin-bottom:40px">PLACARDS — READ BEFORE VIEWING</div>
+  <div class="placards">
+    <div class="placard"><div class="placard-title"><span class="placard-index">01</span>Live Mode</div><p>Rate the show as it happens, song by song, from the floor. The setlist syncs from phish.net in near-real time.</p></div>
+    <div class="placard"><div class="placard-title"><span class="placard-index">02</span>Lifetime stats</div><p>Every show you've seen, every song you've rated — top songs, top venues, eras, gaps, and a Deep Phreeze analytics dive.</p></div>
+    <div class="placard"><div class="placard-title"><span class="placard-index">03</span>Audio relisten</div><p>Jump from your scorecard straight back into the tape. Relive the jam you rated 5★ and check your own judgment.</p></div>
+    <div class="placard"><div class="placard-title"><span class="placard-index">04</span>Uncle Ebenezer</div><p>An AI concierge who knows the catalog, your history, and the community's — ask him anything, including the Vibe Check review synthesis.</p></div>
+    <div class="placard"><div class="placard-title"><span class="placard-index">05</span>The Phan Roll</div><p>Community top shows, top songs, phriend overlaps and companions — deliberately non&#8209;competitive. A member board, not a leaderboard.</p></div>
+    <div class="placard"><div class="placard-title"><span class="placard-index">06</span>Badges</div><p>From 1ST FREEZE to the 100 CLUB to HALL OF PHAME — milestones for showing up and writing it down.</p></div>
+  </div>
+</section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-left">
-    <div class="footer-logo"></div>
-    <div class="footer-brand">
-      <div class="footer-brand-name">mpgink</div>
-      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
+<section style="max-width:1320px;margin:0 auto;padding:40px 32px 100px">
+  <div style="background:rgba(243,240,232,0.05);border:1px solid rgba(243,240,232,0.14);padding:36px 40px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap">
+    <div>
+      <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#8a8172;margin-bottom:10px">LEARN THE VOCABULARY</div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:14px;color:#f3f0e8;line-height:2"><span style="color:#33ff33">PHROZEN</span> — rated a show · <span style="color:#00ffff">PHREEZE</span> — the act of rating · <span style="color:#ff6600">PHRIEND</span> — another phan on the roll</div>
+    </div>
+    <a href="https://phreezer.mpgink.com" target="_blank" rel="noopener" id="ph-cta" style="padding:15px 30px;background:#33ff33;color:#031403;text-decoration:none;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;white-space:nowrap;transition:background 0.15s ease,color 0.15s ease">PHREEZER.MPGINK.COM ↗</a>
+    <style>#ph-cta:hover { background:#ff6600 !important; color:#fff !important; }</style>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="images/mpgink-favicon.png" alt="mpgink logomark" style="width:40px;height:40px;border-radius:9px">
+        <span style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:24px">mpgink</span>
+      </div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.62);max-width:38ch;margin:0 0 20px">a creative collective — mission · passion · gratitude · building AI&#8209;augmented products people actually use.</p>
+      <p style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.2px;color:#8a8172;margin:0">13 · 16 · 7</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE EXHIBITS</span>
+      <a class="footer-link" href="phreezer.html">PHREEZER</a>
+      <a class="footer-link" href="job-odyssey.html">JOB ODYSSEY</a>
+      <a class="footer-link" href="one-percent.html">ONE PERCENT</a>
+      <a class="footer-link" href="newsletter.html">ALOHA FRIDAY MOTIVATION</a>
+      <a class="footer-link" href="metta.html">METTA — SOON</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE STUDIO</span>
+      <a class="footer-link-gold" href="signup.html">JOIN THE LIST ✶</a>
+      <a class="footer-link" href="studio.html">BOOKS + BLOG</a>
+      <a class="footer-link" href="shop.html">THE SHOP</a>
+      <a class="footer-link" href="ai-usage.html">AI USAGE</a>
+      <a class="footer-link" href="about.html">ABOUT</a>
+      <a class="footer-link" href="contact.html">SAY ALOHA</a>
     </div>
   </div>
-  <div class="footer-links">
-    <a href="index.html#build">What we build</a>
-    <a href="index.html#studio">The studio</a>
-    <a href="contact.html">Contact</a>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 MPGINK — BUILT LO-FI. SHIPPED FAST. ITERATED IN PUBLIC.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://mattymattemodgepodge.etsy.com" target="_blank" rel="noopener">ETSY</a>
+        <a href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">COFFEE</a>
+      </span>
+    </div>
   </div>
 </footer>
 
-<script>
-  const menu = document.querySelector('.menu-container');
-  const sidebar = document.getElementById('sidebar');
-  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
-</script>
 </body>
 </html>

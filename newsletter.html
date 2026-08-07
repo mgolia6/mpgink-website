@@ -4,21 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aloha Friday Motivation — mpgink</title>
-  <meta name="description" content="Aloha Friday Motivation — your weekly dose of motivation, every Friday since 2018. Storytelling, philosophy, and perspective shifts.">
+  <meta name="description" content="Aloha Friday Motivation — your weekly dose of motivation, every Friday since 2018.">
 
   <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mpgink.com/newsletter">
-  <meta property="og:title" content="Aloha Friday Motivation — every Friday since 2018">
-  <meta property="og:description" content="Your weekly dose of motivation — storytelling, philosophy, and perspective shifts that land before the weekend does.">
+  <meta property="og:title" content="Aloha Friday Motivation — mpgink">
+  <meta property="og:description" content="Your weekly dose of motivation — every Friday since 2018. No exceptions.">
   <meta property="og:image" content="https://mpgink.com/images/afm-hero.jpg">
-  <meta property="og:image:width" content="804">
-  <meta property="og:image:height" content="449">
 
   <!-- Twitter/X Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aloha Friday Motivation — every Friday since 2018">
-  <meta name="twitter:description" content="Your weekly dose of motivation — storytelling, philosophy, and perspective shifts.">
+  <meta name="twitter:title" content="Aloha Friday Motivation — mpgink">
+  <meta name="twitter:description" content="Your weekly dose of motivation — every Friday since 2018. No exceptions.">
   <meta name="twitter:image" content="https://mpgink.com/images/afm-hero.jpg">
 
   <!-- Favicon / home-screen icons -->
@@ -26,271 +24,164 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#0a0e27">
+  <meta name="theme-color" content="#0f0c07">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* AFM page — warm Friday light on the dark shell */
-    :root { --afm-gold: #ffcf6b; }
-
-    .afm-hero {
-      padding: 150px 8vw 60px;
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .afm-chip {
-      display: inline-block;
-      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
-      padding: 6px 13px; border-radius: 50px; margin-bottom: 22px;
-      background: rgba(255,207,107,0.12); color: var(--afm-gold); border: 1px solid rgba(255,207,107,0.4);
-    }
-    .afm-hero h1 { font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 800; margin: 0 0 18px; text-wrap: balance; }
-    .afm-hero > p { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; max-width: 60ch; margin: 0 auto 34px; }
-    .cta.afm-primary { background: var(--afm-gold); color: #2b1f05; }
-    .cta.afm-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(255,207,107,0.4); }
-
-    .afm-art {
-      display: block;
-      width: min(860px, 90vw);
-      margin: 50px auto 0;
-      border-radius: 16px;
-      box-shadow: 0 14px 44px rgba(0,0,0,0.4);
-    }
-
-    .afm-section { padding: 90px 8vw 20px; max-width: 1100px; margin: 0 auto; }
-    .afm-section-head { text-align: center; margin-bottom: 48px; }
-    .afm-section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 0 0 12px; }
-    .afm-section-head p { color: var(--text-muted); max-width: 62ch; margin: 0 auto; line-height: 1.65; }
-
-    .afm-story {
-      max-width: 68ch;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.85;
-      color: rgba(232,232,232,0.88);
-    }
-    .afm-story p { margin: 0 0 24px; }
-    .afm-story strong { color: var(--afm-gold); font-weight: 600; }
-
-    /* anatomy of an edition */
-    .afm-anatomy { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
-    .afm-piece {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 26px;
-    }
-    .afm-piece-tag { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--afm-gold); font-weight: 600; margin-bottom: 10px; }
-    .afm-piece-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-    .afm-piece-desc { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
-
-    /* recent editions */
-    .afm-editions { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .afm-edition {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 22px 24px;
-    }
-    .afm-edition-num { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--afm-gold); margin-bottom: 8px; }
-    .afm-edition-title { font-family: 'Fraunces', serif; font-size: 1.08rem; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
-    .afm-edition-theme { color: var(--text-muted); font-size: 0.86rem; line-height: 1.5; }
-
-    .afm-bottom { text-align: center; padding: 90px 8vw 120px; }
-    .afm-bottom h2 { font-size: 2.2rem; margin-bottom: 14px; }
-    .afm-bottom p { color: var(--text-muted); margin-bottom: 36px; }
-  </style>
+  <script src="site.js" defer></script>
 </head>
 <body>
 
-<div class="menu-container">
-  <div class="menu-icon" style="background-image:url('images/mpgink-favicon.png');"></div>
-  <div class="menu-label">Menu</div>
-</div>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/mpgink-favicon.png" alt="mpgink logomark">
+      <span class="nav-wordmark">mpgink</span>
+      <span class="nav-cipher">13·16·7</span>
+    </a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    <nav id="site-menu">
+      <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
+      <a class="nav-link" href="newsletter.html">AFM</a>
+      <a class="nav-link" href="studio.html">STUDIO</a>
+      <a class="nav-link" href="shop.html">SHOP</a>
+      <a class="nav-link" href="about.html">ABOUT</a>
+      <a class="nav-link" href="ai-usage.html">AI</a>
+      <a class="nav-cta" href="contact.html">SAY ALOHA</a>
+    </nav>
+  </div>
+</header>
 
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-header">mpgink</div>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="phreezer.html">Phreezer</a>
-  <a href="job-odyssey.html">Job Odyssey</a>
-  <a href="one-percent.html">One Percent</a>
-  <a href="newsletter.html">Aloha Friday Motivation</a>
-  <a href="studio.html">The Studio</a>
-  <a href="ai-usage.html">AI Usage</a>
-  <a href="contact.html">Contact</a>
-</nav>
+<div class="grain"></div>
 
-<!-- HERO -->
-<section class="afm-hero" style="text-align:left; display:grid; grid-template-columns:1fr 380px; gap:50px; align-items:center; max-width:1050px;">
+<section class="nl-hero" style="max-width:1320px;margin:0 auto;padding:64px 32px 72px">
   <div>
-    <span class="afm-chip">Every Friday since 2018</span>
-    <h1 style="text-align:left;">Aloha Friday Motivation</h1>
-    <p style="margin:0 0 26px; max-width:50ch;">Your weekly dose of motivation — storytelling, philosophy, and perspective shifts that land in your feed before the weekend does. Past Edition 300 and still showing up every single Friday.</p>
-    <form id="afmForm" style="display:flex; gap:10px; flex-wrap:wrap; max-width:460px;" novalidate>
-      <input type="email" id="afmEmail" placeholder="you@example.com" autocomplete="email" required
-             style="flex:1 1 220px; padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:var(--card-bg); color:var(--text); font-size:1rem; outline:none;">
-      <input type="text" id="afmHp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; opacity:0;">
-      <button type="submit" id="afmBtn" class="cta afm-primary" style="border:none; cursor:pointer;">Get it by email</button>
-    </form>
-    <div id="afmState" role="status" style="display:none; margin-top:14px; max-width:52ch; padding:12px 16px; border-radius:12px; font-size:0.95rem; line-height:1.55;"></div>
-    <p style="margin:14px 0 0; font-size:0.85rem;">Also on <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank" rel="noopener" style="color:var(--afm-gold);">LinkedIn</a>, if that's your home turf.</p>
+    <div style="font-family:'Courier Prime',monospace;font-size:12.5px;letter-spacing:2.4px;color:#9a8f7d;margin-bottom:20px">EXHIBIT NO. 04 — WING A · <a href="index.html#exhibits" class="kicker-link">BACK TO THE FLOOR</a></div>
+    <h1 style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:clamp(40px,4.8vw,68px);letter-spacing:-2px;line-height:1.02;margin:0 0 18px">Aloha Friday Motivation<span style="color:#ff5a1f">.</span></h1>
+    <p style="font-size:18px;line-height:1.65;color:rgba(243,240,232,0.62);max-width:52ch;margin:0 0 30px">Your weekly dose of motivation — storytelling, philosophy, and perspective shifts that land in your feed before the weekend does. Past Edition 300 and still showing up every single Friday.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+      <a href="signup.html" class="btn btn-gold" style="padding:15px 30px;font-size:13px;letter-spacing:2px">JOIN THE EMAIL LIST →</a>
+      <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank" rel="noopener" class="btn btn-outline" style="padding:15px 30px;font-size:13px;letter-spacing:2px">OR ON LINKEDIN ↗</a>
+      <span style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1.6px;color:#ff6b35;border:1px solid rgba(255,107,53,0.6);padding:6px 12px">EVERY FRIDAY SINCE 2018</span>
+    </div>
   </div>
-  <img src="images/afm-hero.jpg" alt="Aloha Friday Motivation artwork" style="width:100%; max-width:380px; border:10px solid #12162e; outline:1px solid rgba(255,255,255,0.09); border-radius:4px; transform:rotate(1.8deg); box-shadow:0 3px 6px rgba(0,0,0,0.3), 0 16px 34px rgba(0,0,0,0.35); justify-self:center;">
-</section>
-<style>@media (max-width:860px){ .afm-hero { grid-template-columns:1fr !important; text-align:center !important; } .afm-hero h1 { text-align:center !important; } .afm-hero p { margin:0 auto 26px !important; } }</style>
-
-<!-- WHAT IT IS -->
-<section class="afm-section">
-  <div class="afm-section-head">
-    <h2>What it is</h2>
-  </div>
-  <div class="afm-story">
-    <p>It started in 2018 as a way to connect with a new team — one email, every Friday, no exceptions. It never stopped.</p>
-    <p>Each edition <strong>connects disparate things</strong>: people born and lost on that date in history, a word worth keeping, a visual puzzle, and a personal story that ties it all together. Somehow, every week, the threads meet in the middle — and you head into the weekend with a little more perspective than you had before.</p>
+  <div style="justify-self:center">
+    <img src="images/afm-hero.jpg" alt="Aloha Friday Motivation artwork" class="nl-art" style="display:block;width:min(420px,40vw);border:8px solid #fff;outline:1px solid rgba(23,19,12,0.18);box-shadow:0 4px 8px rgba(23,19,12,0.12), 0 26px 60px rgba(23,19,12,0.25);transform:rotate(1.6deg)">
+    <div style="margin-top:18px;font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.6px;color:#9a8f7d">ALOHA FRIDAY MOTIVATION — HEADER ART, ARTIST'S OWN</div>
   </div>
 </section>
 
-<!-- ANATOMY -->
-<section class="afm-section">
-  <div class="afm-section-head">
-    <h2>Anatomy of an edition</h2>
-    <p>Four pieces, one thread. Every single Friday.</p>
-  </div>
-  <div class="afm-anatomy">
-    <div class="afm-piece">
-      <div class="afm-piece-tag">The date</div>
-      <div class="afm-piece-title">Born &amp; remembered</div>
-      <div class="afm-piece-desc">People who entered and left the world this week in history — and what their lives still have to say.</div>
-    </div>
-    <div class="afm-piece">
-      <div class="afm-piece-tag">The word</div>
-      <div class="afm-piece-title">One worth keeping</div>
-      <div class="afm-piece-desc">A word that earns its place in your vocabulary — arboreal, vernacular, ephemeral, kismet.</div>
-    </div>
-    <div class="afm-piece">
-      <div class="afm-piece-tag">The rebus</div>
-      <div class="afm-piece-title">The puzzle</div>
-      <div class="afm-piece-desc">A visual riddle to chew on. The answer is never given away easy — that's the point.</div>
-    </div>
-    <div class="afm-piece">
-      <div class="afm-piece-tag">The anchor</div>
-      <div class="afm-piece-title">The personal story</div>
-      <div class="afm-piece-desc">The emotional core — a real story from a real life that makes the whole edition land.</div>
+<section style="border-top:1px solid rgba(243,240,232,0.14)">
+  <div style="max-width:1180px;margin:0 auto;padding:76px 32px 84px">
+    <div style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2px;color:#8a8172;margin-bottom:14px">HOW IT'S MADE</div>
+    <h2 style="font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:900;font-size:clamp(28px,3vw,42px);letter-spacing:-1px;margin:0 0 18px">Anatomy of an edition<span style="color:#ffcf6b">.</span></h2>
+    <p style="font-size:16px;line-height:1.7;color:rgba(243,240,232,0.65);max-width:66ch;margin:0 0 48px">It started in 2018 as a way to connect with a new team — one email, every Friday, no exceptions. It never stopped. Each edition connects disparate things, and somehow, every week, the threads meet in the middle.</p>
+    <div class="grid-4" style="gap:0 40px">
+      <div style="border-top:1px solid rgba(255,207,107,0.35);padding:24px 0 10px">
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b;margin-bottom:12px">01 — THE DATE</div>
+        <div style="font-weight:800;font-size:17px;margin-bottom:8px">Born &amp; remembered</div>
+        <p style="font-size:13.5px;line-height:1.65;color:rgba(243,240,232,0.6);margin:0">People who entered and left the world this week in history — and what their lives still have to say.</p>
+      </div>
+      <div style="border-top:1px solid rgba(255,207,107,0.35);padding:24px 0 10px">
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b;margin-bottom:12px">02 — THE WORD</div>
+        <div style="font-weight:800;font-size:17px;margin-bottom:8px">One worth keeping</div>
+        <p style="font-size:13.5px;line-height:1.65;color:rgba(243,240,232,0.6);margin:0">A word that earns its place in your vocabulary — arboreal, vernacular, ephemeral, kismet.</p>
+      </div>
+      <div style="border-top:1px solid rgba(255,207,107,0.35);padding:24px 0 10px">
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b;margin-bottom:12px">03 — THE REBUS</div>
+        <div style="font-weight:800;font-size:17px;margin-bottom:8px">The puzzle</div>
+        <p style="font-size:13.5px;line-height:1.65;color:rgba(243,240,232,0.6);margin:0">A visual riddle to chew on. The answer is never given away easy — that's the point.</p>
+      </div>
+      <div style="border-top:1px solid rgba(255,207,107,0.35);padding:24px 0 10px">
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b;margin-bottom:12px">04 — THE ANCHOR</div>
+        <div style="font-weight:800;font-size:17px;margin-bottom:8px">The personal story</div>
+        <p style="font-size:13.5px;line-height:1.65;color:rgba(243,240,232,0.6);margin:0">The emotional core — a real story from a real life that makes the whole edition land.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- RECENT EDITIONS -->
-<section class="afm-section">
-  <div class="afm-section-head">
-    <h2>Recent editions</h2>
+<section style="max-width:1320px;margin:0 auto;padding:88px 32px 100px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:8px">
+    <div style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2px;color:#9a8f7d">FROM THE ARCHIVE — THE CATALOG</div>
+    <div style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2px;color:#ffcf6b">ED. 313 DROPS THIS FRIDAY. NO EXCEPTIONS.</div>
   </div>
-  <div class="afm-editions">
-    <div class="afm-edition">
-      <div class="afm-edition-num">Edition 312</div>
-      <div class="afm-edition-title">Grateful Dogs</div>
-      <div class="afm-edition-theme">Rescue, kismet, and Kauai — part one of a trilogy.</div>
+  <div style="margin-bottom:64px">
+    <div class="catalog-row">
+      <span style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:34px;letter-spacing:-0.03em;color:#ffcf6b">312</span>
+      <span><span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;display:block;margin-bottom:5px">Grateful Dogs</span><span style="font-size:14px;color:rgba(243,240,232,0.55)">Rescue, kismet, and Kauai — part one of a trilogy.</span></span>
+      <span style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1.6px;color:#9a8f7d">LATEST</span>
     </div>
-    <div class="afm-edition">
-      <div class="afm-edition-num">Edition 311</div>
-      <div class="afm-edition-title">Corrugated Dreams &amp; Other Inflated Expectations</div>
-      <div class="afm-edition-theme">Impermanence, creativity, and the joy of making things.</div>
+    <div class="catalog-row">
+      <span style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:34px;letter-spacing:-0.03em;color:rgba(243,240,232,0.35)">311</span>
+      <span><span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;display:block;margin-bottom:5px">Corrugated Dreams &amp; Other Inflated Expectations</span><span style="font-size:14px;color:rgba(243,240,232,0.55)">Impermanence, creativity, and the joy of making things.</span></span>
+      <span></span>
     </div>
-    <div class="afm-edition">
-      <div class="afm-edition-num">Edition 310</div>
-      <div class="afm-edition-title">Let It Be</div>
-      <div class="afm-edition-theme">Relinquishing control — a Mother's Day meditation.</div>
+    <div class="catalog-row">
+      <span style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:34px;letter-spacing:-0.03em;color:rgba(243,240,232,0.35)">310</span>
+      <span><span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;display:block;margin-bottom:5px">Let It Be</span><span style="font-size:14px;color:rgba(243,240,232,0.55)">Relinquishing control — a Mother's Day meditation.</span></span>
+      <span></span>
     </div>
-    <div class="afm-edition">
-      <div class="afm-edition-num">Edition 309</div>
-      <div class="afm-edition-title">Last Night</div>
-      <div class="afm-edition-theme">Language, time, and childhood.</div>
+    <div class="catalog-row">
+      <span style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:34px;letter-spacing:-0.03em;color:rgba(243,240,232,0.35)">309</span>
+      <span><span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;display:block;margin-bottom:5px">Last Night</span><span style="font-size:14px;color:rgba(243,240,232,0.55)">Language, time, and childhood.</span></span>
+      <span></span>
     </div>
-    <div class="afm-edition">
-      <div class="afm-edition-num">Edition 308</div>
-      <div class="afm-edition-title">Rooted</div>
-      <div class="afm-edition-theme">Legacy, and planting things for people you'll never meet.</div>
+    <div class="catalog-row">
+      <span style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:34px;letter-spacing:-0.03em;color:rgba(243,240,232,0.35)">308</span>
+      <span><span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;display:block;margin-bottom:5px">Rooted</span><span style="font-size:14px;color:rgba(243,240,232,0.55)">Legacy, and planting things for people you'll never meet.</span></span>
+      <span></span>
     </div>
+  </div>
+  <div style="text-align:center">
+    <div style="font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:900;font-size:clamp(26px,2.8vw,38px);letter-spacing:-1px;margin-bottom:12px">Your Friday ritual is waiting<span style="color:#ff5a1f">.</span></div>
+    <p style="font-size:15.5px;color:rgba(243,240,232,0.6);margin:0 0 28px">Join the readers who start their weekend with a little aloha.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap"><a href="signup.html" class="btn btn-gold" style="padding:16px 34px;font-size:13px;letter-spacing:2px">JOIN THE EMAIL LIST →</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank" rel="noopener" class="btn btn-outline" style="padding:16px 34px;font-size:13px;letter-spacing:2px">OR ON LINKEDIN ↗</a></div>
   </div>
 </section>
 
-<!-- BOTTOM CTA -->
-<div class="afm-bottom">
-  <h2>Your Friday ritual is waiting.</h2>
-  <p>Join the readers who start their weekend with a little aloha.</p>
-  <a href="signup.html" class="cta afm-primary">Get it by email</a>
-  <p style="margin:16px 0 0; font-size:0.85rem; color:var(--text-muted);">Or on <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7211006447474651136" target="_blank" rel="noopener" style="color:var(--afm-gold);">LinkedIn</a>.</p>
-</div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-left">
-    <div class="footer-logo"></div>
-    <div class="footer-brand">
-      <div class="footer-brand-name">mpgink</div>
-      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="images/mpgink-favicon.png" alt="mpgink logomark" style="width:40px;height:40px;border-radius:9px">
+        <span style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:24px">mpgink</span>
+      </div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.62);max-width:38ch;margin:0 0 20px">a creative collective — mission · passion · gratitude · building AI&#8209;augmented products people actually use.</p>
+      <p style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.2px;color:#8a8172;margin:0">13 · 16 · 7</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE EXHIBITS</span>
+      <a class="footer-link" href="phreezer.html">PHREEZER</a>
+      <a class="footer-link" href="job-odyssey.html">JOB ODYSSEY</a>
+      <a class="footer-link" href="one-percent.html">ONE PERCENT</a>
+      <a class="footer-link" href="newsletter.html">ALOHA FRIDAY MOTIVATION</a>
+      <a class="footer-link" href="metta.html">METTA — SOON</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE STUDIO</span>
+      <a class="footer-link-gold" href="signup.html">JOIN THE LIST ✶</a>
+      <a class="footer-link" href="studio.html">BOOKS + BLOG</a>
+      <a class="footer-link" href="shop.html">THE SHOP</a>
+      <a class="footer-link" href="ai-usage.html">AI USAGE</a>
+      <a class="footer-link" href="about.html">ABOUT</a>
+      <a class="footer-link" href="contact.html">SAY ALOHA</a>
     </div>
   </div>
-  <div class="footer-links">
-    <a href="index.html#build">What we build</a>
-    <a href="index.html#studio">The studio</a>
-    <a href="contact.html">Contact</a>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 MPGINK — BUILT LO-FI. SHIPPED FAST. ITERATED IN PUBLIC.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://mattymattemodgepodge.etsy.com" target="_blank" rel="noopener">ETSY</a>
+        <a href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">COFFEE</a>
+      </span>
+    </div>
   </div>
 </footer>
 
-<script>
-  const menu = document.querySelector('.menu-container');
-  const sidebar = document.getElementById('sidebar');
-  menu.addEventListener('click', () => sidebar.classList.toggle('open'));
-
-  // Email capture → the owned mpgink list (pm.mpgink.com/api/subscribe).
-  // Every terminal state says what actually happened — success, pending
-  // welcome email, already-subscribed, or failure. None are blank.
-  const afmForm = document.getElementById('afmForm');
-  const afmState = document.getElementById('afmState');
-  function afmSet(kind, msg) {
-    const styles = {
-      ok:      'background:rgba(80,200,120,0.1); border:1px solid rgba(80,200,120,0.45);',
-      pending: 'background:rgba(255,207,107,0.1); border:1px solid rgba(255,207,107,0.45);',
-      err:     'background:rgba(255,90,90,0.1); border:1px solid rgba(255,90,90,0.5);',
-    };
-    afmState.style.cssText = 'display:block; margin-top:14px; max-width:52ch; padding:12px 16px; border-radius:12px; font-size:0.95rem; line-height:1.55;' + styles[kind];
-    afmState.textContent = msg;
-  }
-  afmForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('afmEmail').value.trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      afmSet('err', 'That email doesn’t look complete — double-check it and try again.');
-      return;
-    }
-    const btn = document.getElementById('afmBtn');
-    btn.disabled = true;
-    afmSet('pending', 'Adding you to the list…');
-    try {
-      const r = await fetch('https://pm.mpgink.com/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'afm-page', website: document.getElementById('afmHp').value }),
-      });
-      let d = null; try { d = await r.json(); } catch (_) {}
-      if (r.status === 200 && d && d.ok) {
-        if (d.already) afmSet('ok', 'You’re already on the list — see you Friday. 🤙');
-        else if (d.welcomed) afmSet('ok', 'You’re in! A welcome email is on its way — check your inbox (and spam, the first time).');
-        else afmSet('ok', 'You’re on the list! The welcome email is lagging behind — it may arrive later, but your spot is saved either way.');
-      } else if (r.status === 429) {
-        afmSet('err', 'Too many signups from this connection right now — wait a few minutes and try again.');
-      } else {
-        afmSet('err', 'Signup failed on our end — this one’s on us, not you. Try again in a minute, or email matthew@mpgink.com and I’ll add you by hand.');
-      }
-    } catch (err) {
-      afmSet('err', 'Couldn’t reach the signup service — check your connection and try again. Still stuck? Email matthew@mpgink.com.');
-    } finally {
-      btn.disabled = false;
-    }
-  });
-</script>
 </body>
 </html>

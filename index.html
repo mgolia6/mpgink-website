@@ -26,349 +26,266 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#0a0e27">
+  <meta name="theme-color" content="#0f0c07">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* ---- Homepage 2026-07 overhaul: collective framing ---- */
-
-    .hero-eyebrow {
-      font-size: 0.8rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-      font-weight: 600;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.1s;
-    }
-
-    .hero-text h1 .dot { color: var(--accent); font-weight: 600; }
-
-    /* What we build */
-    .build-section { padding: 110px 8vw 30px; max-width: 1220px; margin: 0 auto; }
-    .build-head { text-align: center; margin-bottom: 56px; }
-    .build-head h2 { font-size: clamp(1.9rem, 3vw, 2.5rem); margin: 0 0 14px; }
-    .build-head p { color: var(--text-muted); font-size: 1.05rem; margin: 0 auto; max-width: 60ch; line-height: 1.65; }
-
-    .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
-    @media (max-width: 1080px) { .products { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px)  { .products { grid-template-columns: 1fr; } }
-
-    .product {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .product:hover { transform: translateY(-6px); box-shadow: 0 10px 28px rgba(0,0,0,0.3); }
-    .product-visual {
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .product-body { padding: 20px 26px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-    .product-name { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 800; }
-    .product-desc { font-size: 0.93rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
-    .product-link { font-size: 0.82rem; letter-spacing: 0.08em; font-weight: 600; }
-    /* status ribbon — sits between the image and the copy, never over the art */
-    .chip {
-      align-self: flex-start;
-      font-size: 0.66rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding: 5px 11px;
-      border-radius: 50px;
-      margin-bottom: 2px;
-      white-space: nowrap;
-    }
-
-    .v-phreezer { background: #0a0a0a; }
-    .v-phreezer::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.35) 2px 4px);
-    }
-    .v-phreezer img { width: 86%; max-height: 80px; object-fit: contain; z-index: 1; filter: drop-shadow(0 0 12px rgba(0,224,208,0.3)); }
-    .chip-phreezer { background: rgba(255,102,0,0.18); color: #ff9d57; border: 1px solid rgba(255,102,0,0.4); }
-    .product-link.l-phreezer { color: #00e0d0; }
-
-    .v-odyssey { background: #2a3550; }
-    .v-odyssey img { height: 112px; width: 112px; }
-    .chip-odyssey { background: rgba(232,182,76,0.14); color: #e8b64c; border: 1px solid rgba(232,182,76,0.4); }
-    .product-link.l-odyssey { color: #e8b64c; }
-
-    .v-onepct { background: #0b1512; }
-    .v-onepct img { width: 100%; height: 100%; object-fit: cover; }
-    .chip-onepct { background: rgba(20,35,30,0.75); color: #4ade80; border: 1px solid rgba(74,222,128,0.4); }
-    .product-link.l-onepct { color: #4ade80; }
-
-    .v-afm img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
-    .chip-afm { background: rgba(255,207,107,0.14); color: #ffcf6b; border: 1px solid rgba(255,207,107,0.35); }
-    .product-link.l-afm { color: #ffcf6b; }
-
-    /* Metta — coming soon strip */
-    .coming-soon {
-      margin-top: 26px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      background: #0c0c10;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 20px 26px;
-    }
-    .coming-soon img { width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; }
-    .coming-soon-name { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 800; }
-    .coming-soon-note { font-size: 0.9rem; color: var(--text-muted); }
-    .coming-soon-chip {
-      margin-left: auto;
-      font-size: 0.66rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding: 5px 11px;
-      border-radius: 50px;
-      background: rgba(139,124,246,0.14);
-      color: #a99bf5;
-      border: 1px solid rgba(139,124,246,0.4);
-      white-space: nowrap;
-    }
-    @media (max-width: 640px) {
-      .coming-soon { flex-wrap: wrap; }
-      .coming-soon-chip { margin-left: 0; }
-    }
-
-    .umbrella {
-      text-align: center;
-      margin: 48px auto 0;
-      max-width: 62ch;
-      font-size: 1rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    .umbrella strong { color: var(--text); font-weight: 600; }
-
-    /* The studio */
-    .studio-section { padding: 110px 8vw 30px; max-width: 1220px; margin: 0 auto; }
-    .studio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
-    .studio-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 26px;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: block;
-    }
-    .studio-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
-    .studio-card img {
-      width: 100%; height: 190px; object-fit: contain;
-      background: rgba(255,255,255,0.02); border-radius: 14px;
-      padding: 10px; box-sizing: border-box; margin-bottom: 18px;
-    }
-    .studio-title { font-family: 'Fraunces', serif; font-size: 1.15rem; margin-bottom: 8px; }
-    .studio-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
-
-    .footer { margin-top: 110px; }
-    .footer-brand-line { max-width: 46ch; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-eyebrow { animation: none; opacity: 1; }
-    }
-  </style>
+  <script src="site.js" defer></script>
 </head>
-
 <body>
 
-<!-- MENU -->
-<div class="menu-container">
-  <div class="menu-icon" style="background-image:url('images/mpgink-favicon.png');"></div>
-  <div class="menu-label">Menu</div>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/mpgink-favicon.png" alt="mpgink logomark">
+      <span class="nav-wordmark">mpgink</span>
+      <span class="nav-cipher">13·16·7</span>
+    </a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    <nav id="site-menu">
+      <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
+      <a class="nav-link" href="newsletter.html">AFM</a>
+      <a class="nav-link" href="studio.html">STUDIO</a>
+      <a class="nav-link" href="shop.html">SHOP</a>
+      <a class="nav-link" href="about.html">ABOUT</a>
+      <a class="nav-link" href="ai-usage.html">AI</a>
+      <a class="nav-cta" href="contact.html">SAY ALOHA</a>
+    </nav>
+  </div>
+</header>
+
+<!-- First-visit list modal (shown 1.2s after load, once; see script at bottom) -->
+<div id="list-modal" class="modal-backdrop" hidden>
+  <div id="list-modal-panel" style="background:#17130c;border:1px solid rgba(255,207,107,0.4);max-width:520px;width:100%;padding:46px 46px 42px;position:relative;border-radius:2px;box-shadow:0 40px 120px rgba(0,0,0,0.7);text-align:center">
+    <button type="button" class="modal-close" data-modal-dismiss aria-label="Close">✕</button>
+    <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2.4px;color:#ffcf6b;margin-bottom:18px">THE MPGINK LIST</div>
+    <div style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:28px;letter-spacing:-0.02em;line-height:1.1;margin-bottom:14px">One list. No algorithm between us<span style="color:#ff5a1f">.</span></div>
+    <p style="font-size:15px;line-height:1.7;color:rgba(243,240,232,0.65);margin:0 0 28px">Aloha Friday Motivation every Friday since 2018, plus what the studio ships — straight to your inbox.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="signup.html" class="btn btn-gold" style="padding:14px 28px;font-size:12.5px;letter-spacing:2px">JOIN THE LIST →</a>
+      <button type="button" class="modal-notnow" data-modal-dismiss>NOT NOW</button>
+    </div>
+  </div>
 </div>
 
-<!-- SIDEBAR -->
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-header">mpgink</div>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="phreezer.html">Phreezer</a>
-  <a href="job-odyssey.html">Job Odyssey</a>
-  <a href="one-percent.html">One Percent</a>
-  <a href="newsletter.html">Aloha Friday Motivation</a>
-  <a href="studio.html">The Studio</a>
-  <a href="ai-usage.html">AI Usage</a>
-  <a href="contact.html">Contact</a>
-</nav>
+<div class="grain"></div>
 
-<!-- HERO -->
-<section class="hero">
-  <img src="images/mpgink-graffiti-hero.jpg" class="hero-image" alt="mpgink graffiti hero painting">
-
-  <div class="hero-text">
-    <div class="hero-eyebrow">mpgink — a creative collective</div>
-    <h1>mission<span class="dot"> · </span>passion<span class="dot"> · </span>gratitude<span class="dot">.</span></h1>
-    <p>One founder and an AI build partner, run like a full product org — building AI&#8209;augmented products people actually use. Built lo&#8209;fi. Shipped fast. Iterated in public.</p>
-
-    <div class="cta-row">
-      <a href="#build" class="cta cta-primary">See what we build</a>
-      <a href="studio.html" class="cta cta-secondary">Step into the studio</a>
+<section style="position:relative;overflow:hidden;background:radial-gradient(1100px 500px at 50% 12%,rgba(255,170,80,0.12),transparent 70%),#0f0c07">
+  <div class="gutter" style="max-width:1440px;margin:0 auto;padding:76px 40px 72px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;margin-bottom:56px">
+      <div>
+        <div style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:3px;color:#9a8f7d;margin-bottom:28px;animation:fadeUp 0.8s ease both 0.05s">MPGINK — A CREATIVE COLLECTIVE · THE GALLERY IS OPEN LATE</div>
+        <h1 style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:clamp(40px,4.6vw,76px);line-height:1.02;letter-spacing:-0.035em;margin:0;animation:fadeUp 0.8s ease both 0.2s">mission<span style="color:#ff5a1f">.</span> passion<span style="color:#ff5a1f">.</span><br>gratitude<span style="color:#ff5a1f">.</span></h1>
+      </div>
+      <div style="max-width:44ch">
+        <p style="font-size:clamp(15.5px,1.2vw,18px);line-height:1.65;color:rgba(243,240,232,0.66);margin:0 0 28px;animation:fadeUp 0.8s ease both 0.35s">One founder and an AI build partner, run like a full product org — building AI&#8209;augmented products people actually use. Built lo&#8209;fi. Shipped fast. Iterated in public.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 0.8s ease both 0.5s">
+          <a href="#exhibits" class="btn btn-cream" style="padding:15px 30px;font-size:13px;letter-spacing:2px">SEE THE EXHIBITS ↓</a>
+          <a href="studio.html" class="btn btn-outline" style="padding:15px 30px;font-size:13px;letter-spacing:2px">THE STUDIO →</a>
+        </div>
+      </div>
+    </div>
+    <div style="animation:fadeUp 0.9s ease both 0.55s">
+      <div style="border:10px solid #fbf9f4;outline:1px solid rgba(0,0,0,0.6);box-shadow:0 12px 34px rgba(0,0,0,0.55), 0 55px 130px rgba(0,0,0,0.6)">
+        <img src="images/mpgink-linkedin-personal-banner.jpg" alt="mpgink graffiti canvas — scribble script with the 13 · 16 · 7 cipher" style="width:100%;display:block">
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:18px;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#9a8f7d">
+        <span>UNTITLED (MPGINK), MIXED MEDIA — FROM THE SCRIBBLE SERIES</span>
+        <span style="color:#ff5a1f">13 · 16 · 7</span>
+      </div>
     </div>
   </div>
-
-  <a class="scroll-cue" href="#build" aria-label="Scroll to What we build">⌄</a>
 </section>
 
-<!-- WHAT WE BUILD -->
-<section class="build-section" id="build">
-  <div class="build-head">
-    <h2>What we build</h2>
-    <p>Real products, real users, one operating standard — automated quality gates, daily canaries, and a mission-control dashboard keeping the whole portfolio honest.</p>
+<div style="border-top:1px solid rgba(243,240,232,0.14);border-bottom:1px solid rgba(243,240,232,0.14);background:#0f0c07">
+  <div class="grid-3 gutter" style="max-width:1440px;margin:0 auto;padding:28px 40px;gap:32px">
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Courier Prime',monospace;font-size:11px;color:#ff5a1f">01</span><span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:rgba(243,240,232,0.85)">Built lo-fi, shipped fast</span></div>
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Courier Prime',monospace;font-size:11px;color:#ff5a1f">02</span><span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:rgba(243,240,232,0.85)">Iterated in public</span></div>
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'Courier Prime',monospace;font-size:11px;color:#ff5a1f">03</span><span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:rgba(243,240,232,0.85)">Real products, real users</span></div>
   </div>
+</div>
 
-  <div class="products">
-
-    <a class="product" href="https://phreezer.mpgink.com" target="_blank" rel="noopener">
-      <div class="product-visual v-phreezer">
-        <img src="images/phreezer-logo.png" alt="Phreezer — rate. track. relive.">
-      </div>
-      <div class="product-body">
-        <span class="chip chip-phreezer">Signal goes solo Aug 1</span>
-        <div class="product-name">Phreezer</div>
-        <div class="product-desc">Rate, track, and relive Phish shows — live rating during shows, lifetime stats, audio relisten, an AI concierge named Uncle Ebenezer, and a community of phans.</div>
-        <div class="product-link l-phreezer">phreezer.mpgink.com →</div>
-      </div>
-    </a>
-
-    <a class="product" href="https://jobodyssey.mpgink.com" target="_blank" rel="noopener">
-      <div class="product-visual v-odyssey">
-        <img src="images/job-odyssey-icon.png" alt="Job Odyssey compass mark">
-      </div>
-      <div class="product-body">
-        <span class="chip chip-odyssey">Now accepting beta users</span>
-        <div class="product-name">Job Odyssey</div>
-        <div class="product-desc">An AI-powered job-search platform — scraped openings scored against your actual résumé and goals on an anchored rubric, tailored materials, pipeline tracking, and a growing career-coaching marketplace.</div>
-        <div class="product-link l-odyssey">jobodyssey.mpgink.com →</div>
-      </div>
-    </a>
-
-    <a class="product" href="https://onepercent.mpgink.com" target="_blank" rel="noopener">
-      <div class="product-visual v-onepct">
-        <img src="images/one-percent-card.jpg" alt="One Percent — one percent smarter every day">
-      </div>
-      <div class="product-body">
-        <span class="chip chip-onepct">Launching end of August</span>
-        <div class="product-name">One Percent</div>
-        <div class="product-desc">One concept a day across ten categories — every factual claim human-verified against primary sources before it publishes. 1% better every day.</div>
-        <div class="product-link l-onepct">onepercent.mpgink.com →</div>
-      </div>
-    </a>
-
-    <a class="product" href="newsletter.html">
-      <div class="product-visual v-afm">
-        <img src="images/afm-hero.jpg" alt="Aloha Friday Motivation">
-      </div>
-      <div class="product-body">
-        <span class="chip chip-afm">Every Friday since 2018</span>
-        <div class="product-name">Aloha Friday Motivation</div>
-        <div class="product-desc">Your weekly dose of motivation, every Friday — storytelling, philosophy, and perspective shifts that land in your feed before the weekend does.</div>
-        <div class="product-link l-afm">Subscribe on LinkedIn →</div>
-      </div>
-    </a>
-
-  </div>
-
-  <a class="coming-soon" href="metta.html" style="text-decoration:none; color:inherit;">
-    <img src="images/metta-icon.png" alt="Metta mark">
-    <div>
-      <div class="coming-soon-name">Metta</div>
-      <div class="coming-soon-note">Something new is taking shape.</div>
+<section id="exhibits" class="gutter" style="max-width:1440px;margin:0 auto;padding:130px 40px 40px">
+  <div class="reveal-40">
+    <div style="display:flex;align-items:baseline;gap:24px;margin-bottom:16px;flex-wrap:wrap">
+      <h2 style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:clamp(44px,5.5vw,84px);letter-spacing:-0.04em;margin:0">The exhibits<span style="color:#ff5a1f">.</span></h2>
+      <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2.5px;color:#9a8f7d">WING A — WHAT WE BUILD</span>
     </div>
-    <span class="coming-soon-chip">Coming soon</span>
+    <p style="font-size:16.5px;line-height:1.65;color:rgba(243,240,232,0.6);max-width:66ch;margin:0 0 72px">Real products with real users, hung on one operating standard — automated quality gates, daily canaries, and a mission&#8209;control dashboard keeping the whole portfolio honest.</p>
+  </div>
+
+  <div class="exhibit-grid">
+
+    <a href="phreezer.html" class="reveal lift-6" style="text-decoration:none;color:inherit;display:block">
+      <div style="background:#000;border:8px solid #fbf9f4;outline:1px solid rgba(0,0,0,0.6);box-shadow:0 10px 26px rgba(0,0,0,0.5), 0 40px 90px rgba(0,0,0,0.55);transform:rotate(-0.6deg);overflow:hidden;height:300px">
+        <img src="images/phreezer-shot-archive.png" alt="Phreezer — My Archive dashboard with signal, lifetime stats, and Uncle Ebenezer" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block">
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:26px;padding:0 4px">
+        <div style="flex:1">
+          <div style="font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:900;font-size:28px;letter-spacing:-0.02em">Phreezer</div>
+          <div style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.6px;color:#9a8f7d;margin-top:7px">NO. 01 — RATING INSTRUMENT · PHISH.NET API · A COMMUNITY OF PHANS</div>
+        </div>
+        <span style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:1.4px;color:#ff6b35;border:1px solid rgba(255,107,53,0.6);padding:5px 10px;white-space:nowrap">SIGNAL SOLO AUG 1</span>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:rgba(243,240,232,0.55);margin:10px 4px 0;max-width:56ch">Rate, track, and relive Phish shows — live rating during shows, lifetime stats, audio relisten, an AI concierge named Uncle Ebenezer.</p>
+    </a>
+
+    <a href="job-odyssey.html" class="reveal lift-6" style="text-decoration:none;color:inherit;display:block">
+      <div style="background:#151b2c;border:8px solid #fbf9f4;outline:1px solid rgba(0,0,0,0.6);box-shadow:0 10px 26px rgba(0,0,0,0.5), 0 40px 90px rgba(0,0,0,0.55);transform:rotate(0.5deg);overflow:hidden;height:300px">
+        <img src="images/job-odyssey-shot-leads.png" alt="Job Odyssey — Leads dashboard with OdysseyVal fit scores" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block">
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:26px;padding:0 4px">
+        <div style="flex:1">
+          <div style="font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:900;font-size:28px;letter-spacing:-0.02em">Job Odyssey</div>
+          <div style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.6px;color:#9a8f7d;margin-top:7px">NO. 02 — AI JOB-SEARCH PLATFORM · SIX ATS SOURCES · ONE RUBRIC</div>
+        </div>
+        <span style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:1.4px;color:#ff6b35;border:1px solid rgba(255,107,53,0.6);padding:5px 10px;white-space:nowrap">BETA OPEN</span>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:rgba(243,240,232,0.55);margin:10px 4px 0;max-width:56ch">Scraped openings scored against your actual résumé and goals on an anchored rubric — tailored materials, pipeline tracking, and a growing career&#8209;coaching marketplace.</p>
+    </a>
+
+    <a href="one-percent.html" class="reveal lift-6" style="text-decoration:none;color:inherit;display:block">
+      <div style="background:#0e141c;border:8px solid #fbf9f4;outline:1px solid rgba(0,0,0,0.6);box-shadow:0 10px 26px rgba(0,0,0,0.5), 0 40px 90px rgba(0,0,0,0.55);transform:rotate(0.7deg);overflow:hidden;height:300px">
+        <img src="images/one-percent-shot-today.png" alt="One Percent — Today's drop with streak grid and tracks" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block">
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:26px;padding:0 4px">
+        <div style="flex:1">
+          <div style="font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:900;font-size:28px;letter-spacing:-0.02em">One Percent</div>
+          <div style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.6px;color:#9a8f7d;margin-top:7px">NO. 03 — ONE CONCEPT A DAY · TEN CATEGORIES · HUMAN-VERIFIED</div>
+        </div>
+        <span style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:1.4px;color:#ff6b35;border:1px solid rgba(255,107,53,0.6);padding:5px 10px;white-space:nowrap">LAUNCHING END OF AUGUST</span>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:rgba(243,240,232,0.55);margin:10px 4px 0;max-width:56ch">One concept a day across ten categories — every factual claim human&#8209;verified against primary sources before it publishes. 1% better every day.</p>
+    </a>
+
+    <a href="newsletter.html" class="reveal lift-6" style="text-decoration:none;color:inherit;display:block">
+      <div style="border:8px solid #fbf9f4;outline:1px solid rgba(0,0,0,0.6);box-shadow:0 10px 26px rgba(0,0,0,0.5), 0 40px 90px rgba(0,0,0,0.55);transform:rotate(-0.5deg);overflow:hidden;position:relative;height:300px">
+        <img src="images/afm-hero.jpg" alt="Aloha Friday Motivation artwork" style="display:block;width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(15,12,5,0.85));padding:36px 18px 12px;display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#ffcf6b">EVERY FRIDAY · NO EXCEPTIONS</span>
+          <span style="font-family:'Courier Prime',monospace;font-size:11px;color:rgba(255,255,255,0.7)">ED. 312+</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:26px;padding:0 4px">
+        <div style="flex:1">
+          <div style="font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:900;font-size:28px;letter-spacing:-0.02em">Aloha Friday Motivation</div>
+          <div style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.6px;color:#9a8f7d;margin-top:7px">NO. 04 — WEEKLY NEWSLETTER · WORDS, REBUSES + PERSPECTIVE</div>
+        </div>
+        <span style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:1.4px;color:#ff6b35;border:1px solid rgba(255,107,53,0.6);padding:5px 10px;white-space:nowrap">SINCE 2018</span>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:rgba(243,240,232,0.55);margin:10px 4px 0;max-width:56ch">Your weekly dose of motivation — storytelling, philosophy, and perspective shifts that land in your feed before the weekend does.</p>
+    </a>
+
+  </div>
+
+  <a href="metta.html" id="metta-teaser" class="reveal-40" style="margin:80px auto 0;width:max-content;max-width:100%;display:flex;align-items:center;gap:20px;text-decoration:none;color:#f3f0e8;padding:18px 30px;border:1px solid rgba(169,155,245,0.3);border-radius:2px;transition:border-color 0.2s ease,background 0.2s ease">
+    <img src="images/metta-icon.png" alt="Metta mark" style="width:52px;height:52px;border-radius:13px;box-shadow:0 0 36px rgba(169,155,245,0.5)">
+    <span>
+      <span style="display:block;font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:900;font-size:21px">metta</span>
+      <span style="display:block;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2px;color:#9a8f7d;margin-top:4px">NEXT INSTALLATION — <span style="color:#a99bf5">COMING SOON →</span></span>
+    </span>
   </a>
+  <style>
+    #metta-teaser:hover { border-color: rgba(169,155,245,0.7) !important; background: rgba(169,155,245,0.05); color: #f3f0e8; }
+  </style>
 
 </section>
 
-<!-- THE STUDIO -->
-<section class="studio-section" id="studio">
-  <div class="build-head">
-    <h2>The studio</h2>
-    <p>Where mpgink started — and where the ink still dries. Words, art, and things you can hold.</p>
-  </div>
-  <div class="studio-grid">
-    <a class="studio-card" href="studio.html#books">
-      <img src="images/arlo-ash-logo.png" alt="Arlo &amp; Ash">
-      <div class="studio-title">Books</div>
-      <div class="studio-desc">The Arlo &amp; Ash Explorers Series — a space for the whimsical, the heartfelt, and the beautifully unexpected.</div>
-    </a>
-    <a class="studio-card" href="studio.html#blog">
-      <img src="images/mattymattemodgepodge-blog.jpg" alt="Matty Matte Modge Podge blog">
-      <div class="studio-title">The Blog</div>
-      <div class="studio-desc">mattymattemodgepodge — essays and explorations, the things that don't fit anywhere else.</div>
-    </a>
-    <a class="studio-card" href="studio.html#store">
-      <img src="images/mattymattemodgepodge-modgepodge.jpg" alt="mpgink store">
-      <div class="studio-title">The Store</div>
-      <div class="studio-desc">Art, prints, and pieces from the studio — made with intention, shipped with aloha.</div>
-    </a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-left">
-    <div class="footer-logo"></div>
-    <div class="footer-brand">
-      <div class="footer-brand-name">mpgink</div>
-      <div class="footer-brand-line">a creative collective — mission · passion · gratitude · building AI-augmented products people actually use</div>
+<section style="border-top:1px solid rgba(243,240,232,0.14);margin-top:110px;padding:100px 0 130px">
+  <div class="gutter" style="max-width:1440px;margin:0 auto;padding:0 40px">
+    <div class="reveal-40">
+      <div style="display:flex;align-items:baseline;gap:24px;margin-bottom:16px;flex-wrap:wrap">
+        <h2 style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:clamp(44px,5.5vw,84px);letter-spacing:-0.04em;margin:0">The studio<span style="color:#ff5a1f">.</span></h2>
+        <span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2.5px;color:#9a8f7d">WING B — DAYLIGHT · WHERE THE INK STILL DRIES</span>
+      </div>
+      <p style="font-size:16.5px;line-height:1.65;color:rgba(243,240,232,0.6);max-width:66ch;margin:0 0 64px">Where mpgink started. Words, art, and things you can hold.</p>
+    </div>
+    <div class="grid-3" style="gap:44px">
+      <a href="studio.html#books" class="reveal lift-5" style="text-decoration:none;color:inherit;display:block">
+        <div style="background:linear-gradient(160deg,#fdf6e3,#f4e3bc);border:7px solid #fff;outline:1px solid rgba(23,19,12,0.18);box-shadow:0 3px 6px rgba(23,19,12,0.1), 0 18px 40px rgba(23,19,12,0.18);transform:rotate(-0.8deg);display:flex;align-items:center;justify-content:center;height:200px;overflow:hidden"><img src="images/arlo-ash-logo-cropped.png" alt="Arlo &amp; Ash Explorers Series" style="height:88%;object-fit:contain"></div>
+        <div style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.6px;color:#9a8f7d;margin:20px 4px 6px">BOOKS</div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;padding:0 4px">Arlo &amp; Ash Explorers Series</div>
+        <p style="font-size:14px;line-height:1.6;color:rgba(243,240,232,0.55);margin:8px 4px 0">A space for the whimsical, the heartfelt, and the beautifully unexpected — first book by my son.</p>
+      </a>
+      <a href="studio.html#blog" class="reveal lift-5" style="text-decoration:none;color:inherit;display:block">
+        <div style="border:7px solid #fff;outline:1px solid rgba(23,19,12,0.18);box-shadow:0 3px 6px rgba(23,19,12,0.1), 0 18px 40px rgba(23,19,12,0.18);transform:rotate(0.6deg);height:200px;overflow:hidden"><img src="images/mattymattemodgepodge-blog.jpg" alt="Matty Matte Modge Podge blog" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.6px;color:#9a8f7d;margin:20px 4px 6px">THE BLOG</div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;padding:0 4px">mattymattemodgepodge</div>
+        <p style="font-size:14px;line-height:1.6;color:rgba(243,240,232,0.55);margin:8px 4px 0">Essays and explorations — the things that don't fit anywhere else. Dormant, not dead.</p>
+      </a>
+      <a href="shop.html" class="reveal lift-5" style="text-decoration:none;color:inherit;display:block">
+        <div style="border:7px solid #fff;outline:1px solid rgba(23,19,12,0.18);box-shadow:0 3px 6px rgba(23,19,12,0.1), 0 18px 40px rgba(23,19,12,0.18);transform:rotate(-0.5deg);height:200px;overflow:hidden"><img src="images/mattymattemodgepodge-modgepodge.jpg" alt="The mpgink store" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.6px;color:#9a8f7d;margin:20px 4px 6px">THE SHOP</div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;padding:0 4px">Made with intention, shipped with aloha</div>
+        <p style="font-size:14px;line-height:1.6;color:rgba(243,240,232,0.55);margin:8px 4px 0">Art, prints, and pieces from the studio — browse here, buy on Etsy.</p>
+      </a>
     </div>
   </div>
+</section>
 
-  <div class="footer-links">
-    <a href="#build">What we build</a>
-    <a href="#studio">The studio</a>
-    <a href="ai-usage.html">AI Usage</a>
-    <a href="contact.html">Contact</a>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="images/mpgink-favicon.png" alt="mpgink logomark" style="width:40px;height:40px;border-radius:9px">
+        <span style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:24px">mpgink</span>
+      </div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.62);max-width:38ch;margin:0 0 20px">a creative collective — mission · passion · gratitude · building AI&#8209;augmented products people actually use.</p>
+      <p style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.2px;color:#8a8172;margin:0">13 · 16 · 7</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE EXHIBITS</span>
+      <a class="footer-link" href="phreezer.html">PHREEZER</a>
+      <a class="footer-link" href="job-odyssey.html">JOB ODYSSEY</a>
+      <a class="footer-link" href="one-percent.html">ONE PERCENT</a>
+      <a class="footer-link" href="newsletter.html">ALOHA FRIDAY MOTIVATION</a>
+      <a class="footer-link" href="metta.html">METTA — SOON</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE STUDIO</span>
+      <a class="footer-link-gold" href="signup.html">JOIN THE LIST ✶</a>
+      <a class="footer-link" href="studio.html">BOOKS + BLOG</a>
+      <a class="footer-link" href="shop.html">THE SHOP</a>
+      <a class="footer-link" href="ai-usage.html">AI USAGE</a>
+      <a class="footer-link" href="about.html">ABOUT</a>
+      <a class="footer-link" href="contact.html">SAY ALOHA</a>
+    </div>
   </div>
-  <div class="footer-social">
-    <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram — @mpgink">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    </a>
-    <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-    </a>
-    <a href="https://mattymattemodgepodge.etsy.com" target="_blank" aria-label="Etsy" title="Etsy">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.016 2.246c.226-1.29.717-2.246 2.18-2.246h7.124c.48 0 .742.317.657.777l-.338 1.839c-.085.46-.452.777-.934.777H10.22c-.48 0-.742-.317-.657-.777l.453-2.37zm-5.43 5.17H19.81c.48 0 .855.36.855.84v.48c0 .48-.374.84-.855.84H3.586c-.48 0-.855-.36-.855-.84v-.48c0-.48.374-.84.855-.84zM2.76 11.49h18.48c.48 0 .855.36.855.84v8.49c0 1.77-1.44 3.18-3.21 3.18H5.115c-1.77 0-3.21-1.41-3.21-3.18v-8.49c0-.48.374-.84.855-.84zm6.36 8.7h5.76c.48 0 .855-.374.855-.855s-.374-.855-.855-.855H9.12c-.48 0-.855.374-.855.855s.374.855.855.855zm0-3.84h5.76c.48 0 .855-.374.855-.855s-.374-.855-.855-.855H9.12c-.48 0-.855.374-.855.855s.374.855.855.855z"/></svg>
-    </a>
-    <a href="https://buymeacoffee.com/mpgink" target="_blank" aria-label="Buy Me a Coffee" title="Buy Me a Coffee">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.216 6.415l-.132-.666c-.119-.598-.388-1.163-1.001-1.379-.197-.069-.42-.098-.57-.241-.152-.143-.196-.366-.231-.572-.065-.378-.125-.756-.192-1.133-.057-.325-.102-.69-.25-.987-.195-.4-.597-.634-.996-.634H7.006c-.399 0-.801.234-.996.634-.148.297-.193.662-.25.987-.067.377-.127.755-.192 1.133-.035.206-.079.429-.231.572-.15.143-.373.172-.57.241-.613.216-.882.781-1.001 1.379l-.132.666c-.312 1.538-.625 3.077-.937 4.615-.26 1.281-.52 2.562-.788 3.844-.151.736-.324 1.485-.324 2.238 0 3.44 2.796 6.24 6.24 6.24h5.52c3.44 0 6.24-2.8 6.24-6.24 0-.753-.173-1.502-.324-2.238-.268-1.282-.528-2.563-.788-3.844-.312-1.538-.625-3.077-.937-4.615zM12 18.24c-2.649 0-4.8-2.151-4.8-4.8 0-.386.049-.76.132-1.12H16.668c.083.36.132.734.132 1.12 0 2.649-2.151 4.8-4.8 4.8z"/></svg>
-    </a>
-    <a href="https://www.amazon.com/dp/B0D889QGV2/" target="_blank" aria-label="Amazon" title="Amazon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.074-1.052-.872-1.238-1.276-1.814-2.106-1.734 1.767-2.962 2.297-5.209 2.297-2.66 0-4.731-1.641-4.731-4.925 0-2.565 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.095v-.41c0-.753.06-1.642-.384-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.897-.054.285-.261.567-.549.582l-3.064-.333c-.259-.056-.548-.266-.472-.66C5.87 1.079 8.698 0 11.261 0c1.312 0 3.026.349 4.062 1.34 1.312 1.225 1.187 2.86 1.187 4.638v4.2c0 1.26.524 1.814 1.017 2.494.175.245.213.538-.009.719l-1.374 1.404zm3.587 1.459C18.771 21.753 15.065 24 11.252 24c-5.138 0-8.006-2.806-8.006-5.933 0-.643.146-1.26.461-1.848.219-.41.694-.22.476.189-.295.584-.437 1.231-.437 1.912 0 3.416 3.521 5.51 7.493 5.51 2.74 0 5.747-1.018 8.115-2.956.431-.344.832.127.387.469z"/></svg>
-    </a>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 MPGINK — BUILT LO-FI. SHIPPED FAST. ITERATED IN PUBLIC.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://mattymattemodgepodge.etsy.com" target="_blank" rel="noopener">ETSY</a>
+        <a href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">COFFEE</a>
+      </span>
+    </div>
   </div>
 </footer>
 
-<!-- SIDEBAR JS -->
 <script>
-  const menu = document.querySelector('.menu-container');
-  const sidebar = document.getElementById('sidebar');
-
-  menu.addEventListener('click', () => {
-    sidebar.classList.toggle('open');
-  });
+(function () {
+  var KEY = 'mpgink-list-modal-v1';
+  var modal = document.getElementById('list-modal');
+  var panel = document.getElementById('list-modal-panel');
+  if (!modal) return;
+  function dismiss() {
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    modal.hidden = true;
+  }
+  try {
+    if (!localStorage.getItem(KEY)) {
+      setTimeout(function () { modal.hidden = false; }, 1200);
+    }
+  } catch (e) {}
+  modal.addEventListener('click', dismiss);
+  panel.addEventListener('click', function (e) { e.stopPropagation(); });
+  var closers = modal.querySelectorAll('[data-modal-dismiss]');
+  for (var i = 0; i < closers.length; i++) closers[i].addEventListener('click', dismiss);
+})();
 </script>
 
 </body>

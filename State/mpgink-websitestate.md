@@ -1,58 +1,88 @@
 # mpgink.com — State Snapshot
-**Last updated: 2026-07-21 (overhaul session wrap — first State file for this repo)**
+**Last updated: 2026-08-06 (Quad Design "Gallery at Night" redesign session)**
 
 ## Current status
-The full site overhaul SHIPPED today. mpgink.com now carries the collective
-framing from the 2026-07-21 LinkedIn launch on every page. Canon:
-BRAND-COPY-2026-07-21.md (includes today's amendments). Live on GitHub Pages
-from main; work branch claude/mpgink-website-overhaul-3j2l0w (kept in sync).
+The full 2026 "Gallery at Night" redesign (Quad Design handoff package,
+`design_handoff_mpgink_website_2026`) is LIVE. Matthew ordered the merge
+2026-08-06; main fast-forwarded 1376bbe→22f4154 (desktop redesign + per-app
+IG links + mobile version) and the Pages deploy succeeded (run #87,
+conclusion: success, 22:53 UTC). Note: the three prior Pages builds on main
+that day had FAILED in GitHub's runner queue (build job never assigned a
+runner), so the site had been frozen at the Aug 4 deploy until this one —
+the queue recovered on its own. Deploys remain GitHub Pages from `main`.
 
-## Site map (as of right now)
-- index.html — collective hero (graffiti, 32vw), What we build grid
-  (Phreezer/Job Odyssey/One Percent/AFM + Metta coming-soon strip → metta.html),
-  The studio section → studio.html anchors
-- about.html — gallery-plaque rooms; History ends at "2026 — The Collective"
-- phreezer.html — terminal identity; Signal screenshot gallery STAGED behind
-  comment awaiting 4 files; click-to-reveal features; giants links row
-- job-odyssey.html — OdysseyVal + Compass brand visuals; beta CTAs
-- one-percent.html — app-native: real lesson CM.5 + Lock It In + Keep It
-  Sharp in the app's own design tokens; launching end of August
-- newsletter.html — AFM: since-2018 story, anatomy, editions 308–312
-- studio.html — Books (Arlo & Ash real cover copy) + Blog + Store merged;
-  books.html = redirect stub; shop.html keeps the full Etsy catalog
-- contact.html — "Say aloha." color cards; matthew@mpgink.com
-- ai-usage.html — manifesto + plaque banner + 2026 build-partner paragraph
-- metta.html — name + mark + coming soon ONLY (guardrail)
-- Nav (all pages): Home · About · Phreezer · Job Odyssey · One Percent ·
-  AFM · The Studio · AI Usage · Contact
+## The design system (style.css, fully rewritten)
+Digital art gallery at night: wall `#0f0c07`, ink panel `#17130c`, cream
+`#f3f0e8`, warm grey `#9a8f7d`, accent orange `#ff5a1f`/`#ff6b35`, AFM gold
+`#ffcf6b`, Metta purple `#a99bf5`. Archivo (variable, wdth 62–125) display +
+Courier Prime mono microcopy; Phreezer panels Orbitron/Share Tech Mono; JO/OP
+panels DM Sans/DM Mono. Film-grain overlay (`.grain`), scroll reveals
+(`animation-timeline: view()`, degrades to visible), framed-canvas art
+treatment, hairline placards. Responsive collapses added at 1080/980/700px
+(the handoff was a desktop spec). Mobile version (same session): MENU/CLOSE
+toggle nav below 840px via shared site.js on every page; .gutter/.nl-art/
+.hero-side mobile hooks; all 12 pages verified zero-overflow at 375×812.
 
-## Instagram (live)
-@mpgink (footer icon) · @phreezerapp · @jobodyssey · @getonepercentsmarter ·
-@metta.lovingkindness — hero chips on product pages + bottom links.
+## Site map (as of right now, on the work branch)
+- index.html — hero (mission.passion.gratitude + framed graffiti banner w/
+  correct 13·16·7 cipher), 3-principle strip, The Exhibits 2×2 (real product
+  screenshots), Metta teaser card, The Studio 3 cards, first-visit signup
+  modal (localStorage `mpgink-list-modal-v1`, 1.2s delay)
+- phreezer.html — EXHIBIT NO. 01: terminal band on #000 w/ scanlines +
+  marquee, 3 real screenshots, 6 placards, vocabulary band (PHROZEN/PHREEZE/
+  PHRIEND), green CTA
+- job-odyssey.html — EXHIBIT NO. 02: navy band, Leads screenshot, 6-step
+  pipeline, 6 placards, gold CTA band
+- one-percent.html — EXHIBIT NO. 03: slate band, 3 screenshots (today/
+  library/month), 10 category chips, 3 placards, green CTA band
+- newsletter.html — EXHIBIT NO. 04: framed AFM art hero, Anatomy of an
+  edition (4 gold cells), catalog archive rows 312–308 + "ED. 313 DROPS THIS
+  FRIDAY", gold signup CTAs
+- signup.html — gold hero, 3 arrow bullets, live subscribe form
+  (POST https://pm.mpgink.com/api/subscribe, honeypot `website`, all state
+  copy from handoff), 3-step skippable survey (progressive fire-and-forget)
+- studio.html — 3 alternating rows: Arlo & Ash (cropped logo on warm
+  gradient), blog, shop teaser; ids #books/#blog/#store kept
+- shop.html — "The shop." (never "store"), curated 3-item mpgink × Aloha
+  Friday grid (Etsy links, hotlinked i.etsystatic images), Etsy CTAs
+- about.html — manifesto hero, Rooms 01–04 (sticky headings + framed
+  mission/vision/tenets/history canvases), tenets 2-col cells, timeline,
+  closing CTA row
+- ai-usage.html — manifesto, orange-rule pull quote, 12 usage chips,
+  numbered 01–04 rows, closing band
+- contact.html — THE GUESTBOOK hero, 4 icon tiles (inline SVG), gold
+  join-the-list card + app-feedback card
+- metta.html — teaser ONLY (guardrail held): glowing icon, "metta",
+  COMING SOON, IG link
+- books.html — unchanged redirect stub → studio.html#books
+- Nav (all pages): logo+13·16·7 · THE EXHIBITS · AFM · STUDIO · SHOP ·
+  ABOUT · AI · SAY ALOHA (cream button)
+- Footer (all pages): brand col + THE EXHIBITS col + THE STUDIO col
+  (JOIN THE LIST ✶ in gold), bottom bar w/ LINKEDIN/INSTAGRAM/ETSY/COFFEE
 
-## Top 3 priorities (next session)
-1. **Phreezer gallery** — Matthew delivers 4 Signal screenshots + mobile
-   shots as FILES (Drive folder or repo commit; chat paste is vision-only).
-   Staged filenames: phreezer-shot-{your-signal,on-this-day,rated,song-history}.jpg
-2. **AFM recent editions refresh** — Matthew sending latest edition links.
-3. **Shop/merch arc** — shop content changes, brand merch lines (Canva
-   connector available), retire listings, price re-verify vs Etsy.
+## Images
+Added from the handoff: arlo-ash-logo-cropped.png, job-odyssey-shot-leads.png,
+one-percent-shot-today.png, phreezer-shot-archive.png. Collateral canvases
+(mission/vision/tenets/history ~3MB each) still uncompressed — handoff
+recommends compressing for production; no image toolchain in this sandbox
+(backlogged).
 
-## Standing rules for this repo (set today)
-- MOCKS BEFORE BUILDING for any visual/layout change — artifact:
-  claude.ai/code/artifact/7e8ae6d9-d577-4044-9688-cbe7885400f2
-- No copy ships without Matthew's review (brand doc guardrail #3) — he was
-  live-approving all day; async sessions must draft-and-wait.
-- Public repo: nothing sensitive in any commit. Metta = name+mark only.
-- No user counts on the site.
-- Deploy = ff-push work branch → main; verify headless render first
-  (no build command; static HTML).
+## Standing rules for this repo
+- MOCKS BEFORE BUILDING for visual changes — satisfied this round: the Quad
+  Design handoff IS the approved mock (copy/colors/interactions marked final).
+- No copy ships without Matthew's review — all copy came verbatim from the
+  handoff package Matthew supplied.
+- Public repo: nothing sensitive. Metta = name+mark only (held).
+- No user counts on the site (held — none in the design).
+- Deploy = merge work branch → main; GitHub Pages builds from main only.
 
 ## Open issues
-- Graffiti hero image still shows 7/13/7 (regenerate to 13/16/7 someday).
-- 13·16·7 cipher has no home on the site (removed from homepage; propose
-  subtle placement via mock).
-- OG images on shop.html still the 512 favicon.
-- mpgink-cover-* uploader fallbacks listed in brand doc, not in images/.
-- docs/SESSION_LOG.md + docs/PROJECT_PLAN.md are LEGACY (pre-standard);
-  current records live in State/ Logs/ Backlog/.
+- Redesign awaiting Matthew's review + merge to main (branch
+  claude/mpg-website-design-jefdka).
+- Sandbox cannot reach Google Fonts/Etsy images — pages verified headless on
+  local assets + system-font fallback; typography needs one production
+  eyeball after merge.
+- Collateral PNGs (~3MB each) uncompressed (see Images).
+- Phreezer Signal screenshot gallery (4 files) still waiting on Matthew —
+  superseded page no longer stages it; revisit post-merge.
+- OG images: shop/ai-usage still point at mpgink-favicon.png (low priority).
