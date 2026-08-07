@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Solo Operating Standard — mpgink</title>
+  <meta name="description" content="How one person and an AI run five live products without dropping any of them. Six rules, six prompts you can paste and run today. Free.">
+
+  <!-- Open Graph / Link Preview -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mpgink.com/solo-operating-standard">
+  <meta property="og:title" content="The Solo Operating Standard — a free field guide">
+  <meta property="og:description" content="Six rules for running real products solo with AI — each one born from something that broke, each with a prompt you can run today.">
+  <meta property="og:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Solo Operating Standard — a free field guide">
+  <meta name="twitter:description" content="Six rules for running real products solo with AI. Six prompts you can paste and run today.">
+  <meta name="twitter:image" content="https://mpgink.com/images/mpgink-linkedin-company-cover.jpg">
+
+  <!-- Favicon / home-screen icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0f0c07">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+  <style>
+    /* ── Guide page ──────────────────────────────────────────────────────
+       Long-form reading inside the Gallery at Night shell. Four block types
+       carry the rhythm of every rule: what broke · the rule · the prompt ·
+       how to run it. */
+    .gd a { color: #ffcf6b; }
+    .gd a:hover { color: #ff6b35; }
+    @keyframes gdFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .gd * { animation: none !important; } }
+
+    .gd-body { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+    .gd-body p { font-size: 17px; line-height: 1.78; color: rgba(243,240,232,0.8); margin: 0 0 20px; }
+    .gd-body p strong, .gd-body li strong { color: #f3f0e8; font-weight: 700; }
+    .gd-body ul { margin: 0 0 20px; padding-left: 22px; }
+    .gd-body li { font-size: 16.5px; line-height: 1.7; color: rgba(243,240,232,0.8); margin: 10px 0; }
+
+    /* contents */
+    .gd-toc { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
+    @media (max-width: 620px) { .gd-toc { grid-template-columns: 1fr; } }
+    .gd-toc a {
+      display: flex; gap: 14px; align-items: baseline; text-decoration: none;
+      border-top: 1px solid rgba(243,240,232,0.16); padding: 16px 0;
+      transition: border-color 0.2s ease;
+    }
+    .gd-toc a:hover { border-top-color: #ffcf6b; }
+    .gd-toc .n { font-family: 'Courier Prime',monospace; font-size: 11px; letter-spacing: 2px; color: #ffcf6b; flex: none; }
+    .gd-toc .t { font-family: 'Archivo',sans-serif; font-weight: 700; font-size: 15.5px; line-height: 1.4; color: #f3f0e8; }
+    .gd-toc a:hover .t { color: #ff6b35; }
+
+    /* rule header */
+    .gd-rule { border-top: 1px solid rgba(243,240,232,0.16); margin-top: 84px; padding-top: 30px; scroll-margin-top: 90px; }
+    .gd-rule .num { font-family: 'Courier Prime',monospace; font-size: 11.5px; letter-spacing: 2.4px; color: #ffcf6b; display: block; margin-bottom: 14px; }
+    .gd-rule h2 {
+      font-family: 'Archivo',sans-serif; font-stretch: 112%; font-weight: 900;
+      font-size: clamp(26px, 3.2vw, 38px); letter-spacing: -1px; line-height: 1.12;
+      margin: 0 0 28px; text-wrap: balance;
+    }
+
+    /* typed blocks */
+    .blk { padding: 20px 22px; margin: 0 0 22px; border-left: 2px solid; border-radius: 2px; }
+    .blk > :last-child { margin-bottom: 0; }
+    .blk .lbl {
+      display: block; font-family: 'Courier Prime',monospace; font-size: 10.5px;
+      letter-spacing: 2.2px; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .blk-broke { border-color: rgba(255,90,31,0.55); background: rgba(255,90,31,0.055); }
+    .blk-broke .lbl { color: #ff8a5c; }
+    .blk-rule  { border-color: #ffcf6b; background: rgba(255,207,107,0.08); }
+    .blk-rule .lbl { color: #ffcf6b; }
+    .blk-rule p { font-size: 18px; color: rgba(243,240,232,0.92); }
+    .blk-run   { border-color: rgba(125,201,139,0.55); background: rgba(125,201,139,0.05); }
+    .blk-run .lbl { color: #7dc98b; }
+
+    /* prompt card */
+    .blk-prompt { border-color: #6ec9d8; background: rgba(110,201,216,0.045); }
+    .blk-prompt .lbl { color: #6ec9d8; }
+    .gd-pre { position: relative; background: #0a0805; border: 1px solid rgba(110,201,216,0.24); border-radius: 3px; padding: 18px 18px 16px; overflow-x: auto; }
+    .gd-pre pre {
+      margin: 0; font-family: 'Courier Prime',monospace; font-size: 13px; line-height: 1.75;
+      color: #dfe8e6; white-space: pre-wrap; word-wrap: break-word;
+    }
+    .gd-copy {
+      position: absolute; top: 12px; right: 12px;
+      font-family: 'Courier Prime',monospace; font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase;
+      padding: 6px 11px; border-radius: 2px; cursor: pointer;
+      border: 1px solid rgba(110,201,216,0.45); background: #0a0805; color: #6ec9d8;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .gd-copy:hover { background: rgba(110,201,216,0.16); color: #f3f0e8; }
+    .gd-copy:focus-visible { outline: 2px solid #6ec9d8; outline-offset: 2px; }
+
+    /* figures */
+    .gd-fig { margin: 34px 0; padding: 26px 20px 18px; border: 1px solid rgba(243,240,232,0.14); border-radius: 3px; background: rgba(243,240,232,0.03); overflow-x: auto; }
+    .gd-fig svg { display: block; width: 100%; height: auto; max-width: 560px; margin: 0 auto; }
+    .gd-fig figcaption {
+      font-family: 'Courier Prime',monospace; font-size: 10.5px; letter-spacing: 1.6px;
+      text-transform: uppercase; color: #9a8f7d; text-align: center; margin-top: 18px; line-height: 1.8;
+    }
+
+    /* pull line between rules */
+    .gd-pull {
+      font-family: 'Archivo',sans-serif; font-weight: 800; font-stretch: 108%;
+      font-size: clamp(20px, 2.6vw, 27px); line-height: 1.35; letter-spacing: -0.5px;
+      color: #ffcf6b; text-align: center; margin: 0; padding: 8px 0;
+    }
+  </style>
+</head>
+<body class="gd">
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/mpgink-favicon.png" alt="mpgink logomark">
+      <span class="nav-wordmark">mpgink</span>
+      <span class="nav-cipher">13·16·7</span>
+    </a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    <nav id="site-menu">
+      <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
+      <a class="nav-link" href="newsletter.html">AFM</a>
+      <a class="nav-link" href="studio.html">STUDIO</a>
+      <a class="nav-link" href="shop.html">SHOP</a>
+      <a class="nav-link" href="about.html">ABOUT</a>
+      <a class="nav-link" href="ai-usage.html">AI</a>
+      <a class="nav-cta" href="contact.html">SAY ALOHA</a>
+    </nav>
+  </div>
+</header>
+
+<div class="grain"></div>
+
+<!-- HERO -->
+<section style="position:relative;background:radial-gradient(900px 520px at 50% 0%,rgba(255,207,107,0.1),transparent 70%),#0f0c07;padding:92px 32px 20px">
+  <div style="max-width:720px;margin:0 auto">
+    <div style="font-family:'Courier Prime',monospace;font-size:12.5px;letter-spacing:2.4px;color:#9a8f7d;margin-bottom:22px;animation:gdFadeUp 0.7s ease both 0.05s">A FREE FIELD GUIDE · <a href="index.html" class="kicker-link">FROM THE STUDIO</a></div>
+    <h1 style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:clamp(38px,5vw,68px);letter-spacing:-0.032em;line-height:1.02;margin:0 0 26px;animation:gdFadeUp 0.7s ease both 0.15s">The Solo Operating Standard<span style="color:#ff5a1f">.</span></h1>
+    <p style="font-size:20px;line-height:1.65;color:rgba(243,240,232,0.78);max-width:54ch;margin:0 0 18px;animation:gdFadeUp 0.7s ease both 0.25s">How one person and an AI run five live products without dropping any of them — the actual rulebook, not the theory.</p>
+    <p style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:1.6px;color:#9a8f7d;margin:0;animation:gdFadeUp 0.7s ease both 0.32s">SIX RULES · SIX PROMPTS YOU CAN RUN TODAY · ~10 MINUTES</p>
+  </div>
+</section>
+
+<div class="gd-body" style="padding-top:56px">
+  <p>I'm Matthew. mpgink is a creative collective founded by one person. The name is the operating system: <strong>mission · passion · gratitude</strong>.</p>
+  <p>I design, build, and ship real products for real users — <a href="phreezer.html">Phreezer</a>, a companion app for Phish shows; <a href="job-odyssey.html">Job Odyssey</a>, an AI-powered job-search platform; <a href="one-percent.html">One Percent</a>, a daily learning app where every factual claim is human-verified before it publishes. I work with AI as a build partner. Built lo-fi. Shipped fast. Iterated in public.</p>
+  <p>People ask how one person keeps that many live products from falling over. The answer isn't a tool stack or a productivity system. It's a <strong>written standard</strong> — rules an AI can follow as literally as I can.</p>
+  <p>Here's the part nobody tells you: <strong>every rule in it exists because something broke first.</strong> None of it was designed up front. Each one is a scar with a date on it.</p>
+  <p>Six rules below. Each gets the failure that caused it, the rule itself, and <strong>a prompt you can paste into Claude, ChatGPT, or Cursor right now</strong> and run against your own project. Steal all of it.</p>
+</div>
+
+<!-- CONTENTS -->
+<div class="gd-body" style="padding-top:44px;padding-bottom:16px">
+  <div style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2px;color:#8a8172;margin-bottom:10px">WHAT'S INSIDE</div>
+  <div class="gd-toc">
+    <a href="#r1"><span class="n">01</span><span class="t">Write the rule the day it breaks</span></a>
+    <a href="#r2"><span class="n">02</span><span class="t">Prove it exists before you touch it</span></a>
+    <a href="#r3"><span class="n">03</span><span class="t">"Done" is a claim about verified reality</span></a>
+    <a href="#r4"><span class="n">04</span><span class="t">The same thing must not live in two places</span></a>
+    <a href="#r5"><span class="n">05</span><span class="t">Unmeasured is worse than expensive</span></a>
+    <a href="#r6"><span class="n">06</span><span class="t">Start and end every session the same way</span></a>
+  </div>
+</div>
+
+<!-- 01 -->
+<div class="gd-body">
+  <section class="gd-rule" id="r1">
+    <span class="num">RULE 01</span>
+    <h2>Write the rule the day it breaks</h2>
+
+    <div class="blk blk-broke">
+      <span class="lbl">What broke</span>
+      <p>You fix something, learn something real, and three weeks later the identical bug bites in a different corner of the same project. The lesson was never written down — it lived in your head, or worse, in a chat window that closed.</p>
+      <p>Working with AI makes this sharper. "How we do things here" doesn't survive the end of a conversation. The next session starts from nothing — confidently.</p>
+    </div>
+
+    <div class="blk blk-rule">
+      <span class="lbl">The rule</span>
+      <p>Every lesson becomes a written rule, in a file, the same day you learn it — and the rule carries the incident that caused it. <strong>A rule without its origin story gets deleted by a future you who doesn't know what it cost.</strong></p>
+    </div>
+
+    <div class="blk blk-prompt">
+      <span class="lbl">The prompt · run once to start your rulebook</span>
+      <div class="gd-pre">
+        <button type="button" class="gd-copy">Copy</button>
+<pre>Help me start an operating standard for this project.
+
+Ask me one question at a time about the last three things
+that broke here — what happened, what it cost me, how I
+found it.
+
+For each one, write a short rule file containing:
+  1. The incident, with the date
+  2. The rule that would have prevented it, stated as an
+     instruction you could follow literally
+  3. How to run it — the concrete check, not the principle
+
+Save them as rules/&lt;short-name&gt;.md, one file per rule.
+Do not invent rules for failures I haven't actually had.</pre>
+      </div>
+    </div>
+
+    <div class="blk blk-run">
+      <span class="lbl">How to run it</span>
+      <p>Point your AI tool at that folder in its instructions file so the rules load automatically, every session, without you remembering to mention them. A standard nobody reads is a document; a standard your tools read is a system.</p>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="gd-rule" id="r2">
+    <span class="num">RULE 02</span>
+    <h2>Prove it exists before you touch it</h2>
+
+    <div class="blk blk-broke">
+      <span class="lbl">What broke</span>
+      <p>An AI will confidently reference a function that doesn't exist, a database column nobody created, a route nobody registered. It isn't lying — it's pattern-matching from a thousand codebases that <em>did</em> have those things. The code looks perfect. It fails the moment it runs.</p>
+      <p>Humans do the same thing. You just do it slower, so you catch yourself more often.</p>
+    </div>
+
+    <div class="blk blk-rule">
+      <span class="lbl">The rule</span>
+      <p>Before writing a line: prove the file exists, prove every function and endpoint you're calling exists, prove every database column you're writing to is really in the schema, and prove any new route is actually registered. <strong>If you can't prove it exists, you don't touch it.</strong></p>
+    </div>
+
+    <div class="blk blk-prompt">
+      <span class="lbl">The prompt · paste before any coding task</span>
+      <div class="gd-pre">
+        <button type="button" class="gd-copy">Copy</button>
+<pre>Before you write any code for this task, run a reality check
+and show me the results:
+
+  - List the exact files you plan to change, and confirm each
+    one exists by reading it. Not from memory.
+  - For every function, component, or endpoint you'll call,
+    show me where it is defined.
+  - For every database field you'll write to, show me the
+    schema line that proves it exists.
+  - If this adds a route, show me where routes get registered
+    and confirm yours is there.
+
+If you cannot verify any one of these, STOP and tell me which
+one — do not proceed on an assumption.</pre>
+      </div>
+    </div>
+
+    <div class="blk blk-run">
+      <span class="lbl">How to run it</span>
+      <p>Put it in your tool's instructions so it happens unprompted. The few seconds it takes to open a file is the cheapest insurance in software.</p>
+    </div>
+  </section>
+</div>
+
+<section style="background:rgba(255,207,107,0.05);border-top:1px solid rgba(255,207,107,0.2);border-bottom:1px solid rgba(255,207,107,0.2);margin:80px 0;padding:52px 32px">
+  <p class="gd-pull" style="max-width:24ch;margin:0 auto">A green build is not proof the bug is fixed.</p>
+</section>
+
+<!-- 03 -->
+<div class="gd-body">
+  <section class="gd-rule" id="r3" style="border-top:none;margin-top:0;padding-top:0">
+    <span class="num">RULE 03</span>
+    <h2>"Done" is a claim about verified reality</h2>
+
+    <div class="blk blk-broke">
+      <span class="lbl">What broke</span>
+      <p>Twice in two days I was handed work reported as finished that wasn't. The first blamed a failure on caching — it wasn't caching, and an unverified change went to production behind that theory. The second claimed a design had been built to spec when large parts of it hadn't been built at all.</p>
+      <p>Neither was malicious. Both were <em>intentions reported as outcomes</em>. And the cost of that lands entirely on whoever discovers it later — which is you, or your client.</p>
+    </div>
+
+    <div class="blk blk-rule">
+      <span class="lbl">The rule</span>
+      <p><strong>Done, fixed, working</strong> and <strong>shipped</strong> are claims about verified reality. State the evidence beside the claim, every time. Fixed a bug? Show the reproduction now failing to reproduce. Can't verify it yourself? Say <em>"built, not verified — here's the one thing to check."</em> Never round unverified up to done.</p>
+    </div>
+
+    <figure class="gd-fig">
+      <svg viewBox="0 0 560 150" role="img" aria-label="A passing build, a 200 response and a live deploy all sit upstream of the only real proof: watching the thing work.">
+        <g font-family="'Courier Prime', monospace" font-size="11" letter-spacing="1">
+          <rect x="6" y="34" width="118" height="46" rx="3" fill="none" stroke="rgba(243,240,232,0.22)"/>
+          <text x="65" y="54" fill="#9a8f7d" text-anchor="middle">BUILD</text>
+          <text x="65" y="69" fill="#7dc98b" text-anchor="middle">PASSED</text>
+          <rect x="146" y="34" width="118" height="46" rx="3" fill="none" stroke="rgba(243,240,232,0.22)"/>
+          <text x="205" y="54" fill="#9a8f7d" text-anchor="middle">RESPONSE</text>
+          <text x="205" y="69" fill="#7dc98b" text-anchor="middle">200 OK</text>
+          <rect x="286" y="34" width="118" height="46" rx="3" fill="none" stroke="rgba(243,240,232,0.22)"/>
+          <text x="345" y="54" fill="#9a8f7d" text-anchor="middle">DEPLOY</text>
+          <text x="345" y="69" fill="#7dc98b" text-anchor="middle">LIVE</text>
+          <rect x="426" y="26" width="128" height="62" rx="3" fill="rgba(255,207,107,0.1)" stroke="#ffcf6b"/>
+          <text x="490" y="50" fill="#ffcf6b" text-anchor="middle">I CLICKED IT</text>
+          <text x="490" y="66" fill="#ffcf6b" text-anchor="middle">AND SAW IT</text>
+          <text x="490" y="80" fill="#ffcf6b" text-anchor="middle">WORK</text>
+          <path d="M124 57 L142 57 M264 57 L282 57 M404 57 L422 57" stroke="rgba(243,240,232,0.3)"/>
+          <path d="M138 53 l5 4 -5 4 M278 53 l5 4 -5 4 M418 53 l5 4 -5 4" fill="rgba(243,240,232,0.4)"/>
+          <text x="205" y="118" fill="#ff8a5c" text-anchor="middle" font-size="10.5">NONE OF THESE ARE PROOF</text>
+          <text x="490" y="118" fill="#ffcf6b" text-anchor="middle" font-size="10.5">THIS IS</text>
+        </g>
+      </svg>
+      <figcaption>Three things that can all be true while the feature is broken</figcaption>
+    </figure>
+
+    <div class="blk blk-broke">
+      <span class="lbl">The trap underneath it</span>
+      <p><strong>A convenient cause is not a diagnosis.</strong> "It's probably the cache" is a hypothesis until evidence says otherwise. Pull the real signal — the log line, the actual status code, the error text — and quote it before naming a cause. On a "page won't load," get the status first: a 200 means the server is fine and you've been debugging the wrong layer.</p>
+      <p><strong>And build-clean is not runtime-clean.</strong> A tidy-up once left a variable deleted in one place and still referenced in another. Valid syntax. Clean build. 200 response. It threw the instant someone clicked. If a change is interactive, execute the path before calling it done. "It compiled" is not "I saw it work."</p>
+    </div>
+
+    <div class="blk blk-prompt">
+      <span class="lbl">The prompt · paste when you're told something is finished</span>
+      <div class="gd-pre">
+        <button type="button" class="gd-copy">Copy</button>
+<pre>Before you tell me this is done, give me a completion report:
+
+  1. WHAT YOU CHANGED — files, and what each change does.
+  2. THE EVIDENCE — what you actually observed proving it
+     works. A passing build does not count. Quote the log
+     line, the response, or the state you saw.
+  3. WHAT YOU DID NOT DO — anything skipped, assumed, or
+     left half-finished.
+  4. WHAT I MUST CHECK MYSELF — anything you could not
+     verify (needs a login, real data, a real device).
+
+If you cannot produce section 2, say "built, not verified"
+instead of "done". Do not describe intentions as outcomes.</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="gd-rule" id="r4">
+    <span class="num">RULE 04</span>
+    <h2>The same thing must not live in two places</h2>
+
+    <div class="blk blk-broke">
+      <span class="lbl">What broke</span>
+      <p>One product, one afternoon, eight instances of the same structural mistake. Not logic errors — duplication. The same rule written twice, drifting quietly apart.</p>
+      <p>What users actually saw: a score of 60 rendering <strong>amber on one screen and red on another</strong>, because four copies of the same grading ladder had drifted apart. A reordered sentence painted as a total rewrite, because two files each decided "what changed" their own way. And the worst one — <strong>the document a user could edit was not the document they were being scored on.</strong></p>
+      <p>Every one of them was invisible until a real person hit it. Several had been wrong for weeks.</p>
+    </div>
+
+    <figure class="gd-fig">
+      <svg viewBox="0 0 560 194" role="img" aria-label="One rule copied into two files; a change to one leaves the other behind, and the two surfaces disagree in front of the user.">
+        <g font-family="'Courier Prime', monospace" font-size="11" letter-spacing="1">
+          <rect x="212" y="8" width="136" height="38" rx="3" fill="rgba(255,207,107,0.1)" stroke="#ffcf6b"/>
+          <text x="280" y="32" fill="#ffcf6b" text-anchor="middle">ONE RULE</text>
+          <path d="M258 46 L152 78 M302 46 L408 78" stroke="rgba(243,240,232,0.28)"/>
+          <rect x="70" y="80" width="160" height="46" rx="3" fill="none" stroke="rgba(243,240,232,0.25)"/>
+          <text x="150" y="100" fill="#9a8f7d" text-anchor="middle">COPY A</text>
+          <text x="150" y="116" fill="#7dc98b" text-anchor="middle">score &gt;= 65</text>
+          <rect x="330" y="80" width="160" height="46" rx="3" fill="none" stroke="rgba(255,90,31,0.5)"/>
+          <text x="410" y="100" fill="#9a8f7d" text-anchor="middle">COPY B</text>
+          <text x="410" y="116" fill="#ff8a5c" text-anchor="middle">score &gt;= 60</text>
+          <path d="M150 126 L150 150 M410 126 L410 150" stroke="rgba(243,240,232,0.28)"/>
+          <text x="150" y="166" fill="#7dc98b" text-anchor="middle">SHOWS AMBER</text>
+          <text x="410" y="166" fill="#ff8a5c" text-anchor="middle">SHOWS RED</text>
+          <text x="280" y="188" fill="#9a8f7d" text-anchor="middle" font-size="10">SAME USER · SAME SCORE · SAME MOMENT</text>
+        </g>
+      </svg>
+      <figcaption>Drift doesn't announce itself — it contradicts you in front of a customer</figcaption>
+    </figure>
+
+    <div class="blk blk-rule">
+      <span class="lbl">The rule</span>
+      <p>Before writing a second implementation of anything a user sees, stop. Same <strong>logic</strong> in two places → collapse it into one; "they're identical today" is the state every drift starts from. Same <strong>value</strong> on two surfaces → compute it once and carry it, with a note of where it came from and a check that its inputs haven't changed since.</p>
+    </div>
+
+    <div class="blk blk-prompt">
+      <span class="lbl">The prompt · run on any codebase more than a few months old</span>
+      <div class="gd-pre">
+        <button type="button" class="gd-copy">Copy</button>
+<pre>Audit this codebase for duplicated logic that users can see.
+
+Look specifically for:
+  - The same threshold or cutoff number written in more than
+    one file (a score, a limit, a price tier)
+  - Comments containing "keep in sync", "mirrors", or
+    "same as" — each one is a promise no code is keeping
+  - The same calculation or formatting implemented twice
+  - The same value stored in two places without one being
+    clearly derived from the other
+
+For each finding, report:
+  WHAT is duplicated · WHERE each copy lives · WHAT A USER
+  WOULD SEE if the copies disagreed by one step.
+
+Rank by user-visible impact. Don't fix anything yet.</pre>
+      </div>
+    </div>
+
+    <div class="blk blk-run">
+      <span class="lbl">How to run it</span>
+      <p>When you fix one, test the <em>wiring</em>, not just the shared function — a unit test on the helper won't catch a caller that quietly stopped using it. Then put the bug back on purpose and watch the test go red. A guard you've never seen fail is a guard you're guessing about.</p>
+    </div>
+  </section>
+</div>
+
+<section style="background:rgba(255,207,107,0.05);border-top:1px solid rgba(255,207,107,0.2);border-bottom:1px solid rgba(255,207,107,0.2);margin:80px 0;padding:52px 32px">
+  <p class="gd-pull" style="max-width:26ch;margin:0 auto">A cost you can't see is a liability, because it grows without anyone choosing it.</p>
+</section>
+
+<!-- 05 -->
+<div class="gd-body">
+  <section class="gd-rule" id="r5" style="border-top:none;margin-top:0;padding-top:0">
+    <span class="num">RULE 05</span>
+    <h2>Unmeasured is worse than expensive</h2>
+
+    <div class="blk blk-broke">
+      <span class="lbl">What broke</span>
+      <p>I audited my hosting bill, found the waste, and felt responsible. Then I looked at a second vendor. The real monthly number was substantially higher than the one I'd just "fixed" — the AI spend on a single product was nearly half of everything I'd been congratulating myself on. Of the projects making AI calls, exactly one was logging what it spent.</p>
+    </div>
+
+    <div class="blk blk-rule">
+      <span class="lbl">The rule</span>
+      <p>Never report an unmeasured cost as zero. It's <strong>"no number"</strong> — never $0. Rounding an unknown down to zero is how a bill becomes a surprise. Label every figure: <strong>measured</strong> (from a bill), <strong>estimated</strong> (price × observed volume), or <strong>unmeasured</strong> (we know it bills; we don't know what).</p>
+    </div>
+
+    <div class="blk blk-prompt">
+      <span class="lbl">The prompt · the audit that found mine</span>
+      <div class="gd-pre">
+        <button type="button" class="gd-copy">Copy</button>
+<pre>Find every place this project spends money per-use.
+
+For each one, report:
+  - Where the call is made (file and line)
+  - Which vendor and which model or service
+  - Whether the cost of that call is logged anywhere I could
+    query later — and if not, say UNMEASURED, never $0
+  - Whether it is rate-limited or capped, and what happens
+    if someone calls it in a loop
+
+Then list every free tier this project depends on and how
+close it is to its ceiling. A hit ceiling is an outage, not
+a bill.
+
+Flag the quiet ones explicitly: anything billed per-character
+or per-second (speech, audio, video) can outspend text by an
+order of magnitude while looking harmless in a diff.</pre>
+      </div>
+    </div>
+
+    <div class="blk blk-run">
+      <span class="lbl">How to run it</span>
+      <p>Log the cost of a paid call in the same commit that adds the call — never in a "hardening pass" later, because that pass is exactly what doesn't happen. And know your cost per user before you set a price: on anything usage-based, a low price means your most engaged users are your least profitable, and you find that out after launch.</p>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section class="gd-rule" id="r6">
+    <span class="num">RULE 06</span>
+    <h2>Start and end every session the same way</h2>
+
+    <div class="blk blk-broke">
+      <span class="lbl">What broke</span>
+      <p>Working with AI turns your written records into the memory. So the failure mode isn't forgetting — it's <strong>confidently remembering wrong</strong>. I had a status file claiming a catalog held 126 items on a day it actually held 234. The correct number was in the code the whole time. The file wasn't even old; it had been updated that same day. It just wasn't true anymore.</p>
+    </div>
+
+    <figure class="gd-fig">
+      <svg viewBox="0 0 560 176" role="img" aria-label="A loop: read the records, reconcile them against the code, do the work, then write it back before the session ends.">
+        <g font-family="'Courier Prime', monospace" font-size="10.5" letter-spacing="1">
+          <rect x="22" y="20" width="120" height="44" rx="3" fill="none" stroke="rgba(243,240,232,0.25)"/>
+          <text x="82" y="40" fill="#9a8f7d" text-anchor="middle">1 · READ</text>
+          <text x="82" y="55" fill="#f3f0e8" text-anchor="middle">the records</text>
+          <rect x="170" y="20" width="140" height="44" rx="3" fill="rgba(255,207,107,0.1)" stroke="#ffcf6b"/>
+          <text x="240" y="40" fill="#ffcf6b" text-anchor="middle">2 · RECONCILE</text>
+          <text x="240" y="55" fill="#ffcf6b" text-anchor="middle">against the code</text>
+          <rect x="338" y="20" width="120" height="44" rx="3" fill="none" stroke="rgba(243,240,232,0.25)"/>
+          <text x="398" y="40" fill="#9a8f7d" text-anchor="middle">3 · WORK</text>
+          <text x="398" y="55" fill="#f3f0e8" text-anchor="middle">one arc only</text>
+          <rect x="170" y="110" width="140" height="44" rx="3" fill="rgba(125,201,139,0.08)" stroke="#7dc98b"/>
+          <text x="240" y="130" fill="#7dc98b" text-anchor="middle">4 · WRAP</text>
+          <text x="240" y="145" fill="#7dc98b" text-anchor="middle">write it back</text>
+          <path d="M142 42 L166 42 M310 42 L334 42" stroke="rgba(243,240,232,0.3)"/>
+          <path d="M162 38 l5 4 -5 4 M330 38 l5 4 -5 4" fill="rgba(243,240,232,0.4)"/>
+          <path d="M398 64 L398 132 L314 132" stroke="rgba(243,240,232,0.3)" fill="none"/>
+          <path d="M318 128 l-5 4 5 4" fill="rgba(243,240,232,0.4)"/>
+          <path d="M170 132 L82 132 L82 68" stroke="rgba(243,240,232,0.3)" fill="none"/>
+          <path d="M78 72 l4 -5 4 5" fill="rgba(243,240,232,0.4)"/>
+          <text x="82" y="152" fill="#9a8f7d" font-size="9.5">NEXT SESSION</text>
+        </g>
+      </svg>
+      <figcaption>Step 2 is the one everybody skips — and the one that catches a lie</figcaption>
+    </figure>
+
+    <div class="blk blk-rule">
+      <span class="lbl">The rule</span>
+      <p><strong>Start:</strong> read your notes, then reconcile them against what the code and commit history actually say. <strong>If the notes and the commits disagree, the commits win</strong> — flag the gap, don't paper over it. <strong>End:</strong> write back what shipped, what's open, and what's next, before the session closes. A session that never ends never wraps.</p>
+    </div>
+
+    <div class="blk blk-prompt">
+      <span class="lbl">The prompt · paste at the start of every session</span>
+      <div class="gd-pre">
+        <button type="button" class="gd-copy">Copy</button>
+<pre>Before we start work, get oriented and tell me the truth:
+
+  1. Read my project notes and status files.
+  2. Read the recent commit history.
+  3. Compare them. Where the notes and the commits disagree,
+     the commits win — list every discrepancy you find
+     instead of quietly going with the notes.
+  4. Check any number in my notes (counts, versions, totals)
+     against the code it describes. Recently written is not
+     the same as still true.
+
+Then give me: what is actually true right now, what my notes
+claim that isn't, and what you think the next task is.</pre>
+      </div>
+    </div>
+
+    <div class="blk blk-prompt">
+      <span class="lbl">The prompt · paste before you close the session</span>
+      <div class="gd-pre">
+        <button type="button" class="gd-copy">Copy</button>
+<pre>Wrap this session:
+
+  1. Write a log entry — what shipped, the evidence for each
+     claim, decisions made, what's still open.
+  2. Update my status file so it reflects reality as of now.
+     Regenerate it; don't patch the old numbers.
+  3. Run the build/test check and report the real result.
+  4. List what I should pick up first next time.
+
+Be honest about anything half-finished. A wrap that hides a
+loose end just moves the cost to next week.</pre>
+      </div>
+    </div>
+
+    <div class="blk blk-run">
+      <span class="lbl">How to run it</span>
+      <p>Keep sessions bounded — one arc each: an evening, a feature, a bug-hunt. Long sessions accumulate context that lives nowhere but the conversation, and it dies with them. If a fresh session comes back confused, your records drifted. That's a finding, not an inconvenience.</p>
+    </div>
+  </section>
+
+  <!-- WHERE TO START -->
+  <section class="gd-rule" id="start">
+    <span class="num">WHERE TO START</span>
+    <h2>Pick the one whose failure you've already had</h2>
+    <p style="font-size:17px;line-height:1.78;color:rgba(243,240,232,0.8);margin:0 0 20px">Don't adopt six rules on a Monday.</p>
+    <ul>
+      <li>Shipped a fix you never actually confirmed → <a href="#r3"><strong>Rule 03</strong></a></li>
+      <li>Two screens showing different numbers for the same thing → <a href="#r4"><strong>Rule 04</strong></a></li>
+      <li>No idea what your AI usage costs this month → <a href="#r5"><strong>Rule 05</strong></a></li>
+      <li>Come back to a project and can't tell what's true → <a href="#r6"><strong>Rule 06</strong></a></li>
+    </ul>
+    <p>Run that one prompt today. Write the rule it produces. Add the next one the next time something breaks.</p>
+    <p>That's the whole method. The standard isn't something you design in advance — it's the accumulated record of everything that's already gone wrong, written down before you forget what it cost.</p>
+  </section>
+</div>
+
+<!-- CLOSING CTA -->
+<section style="border-top:1px solid rgba(243,240,232,0.14);margin-top:80px">
+  <div style="max-width:720px;margin:0 auto;padding:70px 32px 90px;text-align:center">
+    <div style="display:inline-block;font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:2.4px;color:#ffcf6b;border:1px solid rgba(255,207,107,0.45);padding:7px 15px;margin-bottom:26px">ONE ASK, AND IT'S A REAL ONE</div>
+    <h2 style="font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:900;font-size:clamp(26px,3.2vw,40px);letter-spacing:-1px;line-height:1.15;margin:0 0 20px;text-wrap:balance">Tell me what you're building<span style="color:#ff5a1f">.</span></h2>
+    <p style="font-size:17px;line-height:1.75;color:rgba(243,240,232,0.72);max-width:52ch;margin:0 auto 32px">Reply to any email from me and tell me what you're working on — or stuck on. I read and answer every reply, and what comes back decides what I write next.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="signup.html" class="btn btn-gold" style="padding:15px 30px;font-size:13px;letter-spacing:2px">GET THE FRIDAY EMAIL →</a>
+      <a href="index.html#exhibits" class="btn btn-outline" style="padding:15px 30px;font-size:13px;letter-spacing:2px">SEE WHAT I BUILD</a>
+    </div>
+    <p style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.5px;color:#8a8172;margin:34px 0 0">— MATTHEW · MPGINK</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="images/mpgink-favicon.png" alt="mpgink logomark" style="width:40px;height:40px;border-radius:9px">
+        <span style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:24px">mpgink</span>
+      </div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.62);max-width:38ch;margin:0 0 20px">a creative collective — mission · passion · gratitude · building AI&#8209;augmented products people actually use.</p>
+      <p style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.2px;color:#8a8172;margin:0">13 · 16 · 7</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE EXHIBITS</span>
+      <a class="footer-link" href="phreezer.html">PHREEZER</a>
+      <a class="footer-link" href="job-odyssey.html">JOB ODYSSEY</a>
+      <a class="footer-link" href="one-percent.html">ONE PERCENT</a>
+      <a class="footer-link" href="newsletter.html">ALOHA FRIDAY MOTIVATION</a>
+      <a class="footer-link" href="metta.html">METTA — SOON</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE STUDIO</span>
+      <a class="footer-link-gold" href="signup.html">JOIN THE LIST ✶</a>
+      <a class="footer-link" href="studio.html">BOOKS + BLOG</a>
+      <a class="footer-link" href="shop.html">THE SHOP</a>
+      <a class="footer-link" href="ai-usage.html">AI USAGE</a>
+      <a class="footer-link" href="about.html">ABOUT</a>
+      <a class="footer-link" href="contact.html">SAY ALOHA</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 MPGINK — BUILT LO-FI. SHIPPED FAST. ITERATED IN PUBLIC.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://mattymattemodgepodge.etsy.com" target="_blank" rel="noopener">ETSY</a>
+        <a href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">COFFEE</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Copy buttons on the runnable prompts. Clipboard access can be refused;
+  // say so rather than claiming a copy that never happened.
+  Array.prototype.forEach.call(document.querySelectorAll('.gd-copy'), function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = btn.parentNode.querySelector('pre');
+      if (!pre) return;
+      var done = function (ok) {
+        btn.textContent = ok ? 'Copied' : 'Select it';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pre.textContent).then(function () { done(true); }, function () { done(false); });
+      } else {
+        done(false);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
