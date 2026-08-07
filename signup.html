@@ -87,18 +87,20 @@
       <div id="su-step-1">
         <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin-bottom:14px">What brought you here?</div>
         <div style="display:grid;gap:10px">
-          <button type="button" class="su-choice" data-q="brought_here" data-step="1">Aloha Friday Motivation</button>
-          <button type="button" class="su-choice" data-q="brought_here" data-step="1">Building things with AI</button>
-          <button type="button" class="su-choice" data-q="brought_here" data-step="1">One of the apps</button>
-          <button type="button" class="su-choice" data-q="brought_here" data-step="1">Just curious</button>
+          <button type="button" class="su-choice" data-q="brought_here" data-value="afm" data-step="1">Aloha Friday Motivation</button>
+          <button type="button" class="su-choice" data-q="brought_here" data-value="one-percent" data-step="1">One Percent</button>
+          <button type="button" class="su-choice" data-q="brought_here" data-value="phreezer" data-step="1">Phreezer</button>
+          <button type="button" class="su-choice" data-q="brought_here" data-value="job-odyssey" data-step="1">Job Odyssey</button>
+          <button type="button" class="su-choice" data-q="brought_here" data-value="building-ai" data-step="1">Building things with AI</button>
+          <button type="button" class="su-choice" data-q="brought_here" data-value="curious" data-step="1">Just curious</button>
         </div>
       </div>
       <div id="su-step-2" hidden>
         <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin-bottom:14px">Are you building (or wanting to build) something of your own?</div>
         <div style="display:grid;gap:10px">
-          <button type="button" class="su-choice" data-q="building" data-step="2">Yes, actively</button>
-          <button type="button" class="su-choice" data-q="building" data-step="2">Thinking about it</button>
-          <button type="button" class="su-choice" data-q="building" data-step="2">No — here for the reading</button>
+          <button type="button" class="su-choice" data-q="building" data-value="yes" data-step="2">Yes, actively</button>
+          <button type="button" class="su-choice" data-q="building" data-value="maybe" data-step="2">Thinking about it</button>
+          <button type="button" class="su-choice" data-q="building" data-value="no" data-step="2">No — here for the reading</button>
         </div>
       </div>
       <div id="su-step-3" hidden>
@@ -237,7 +239,9 @@
     choices[i].addEventListener('click', function () {
       var q = this.getAttribute('data-q');
       var s = parseInt(this.getAttribute('data-step'), 10);
-      answers[q] = this.textContent;
+      // Stable slug, never the label — see data-value on each button.
+      // Rewording a button must not fork the data or break a trigger.
+      answers[q] = this.getAttribute('data-value') || this.textContent;
       sendAnswers();
       showStep(s + 1);
     });
