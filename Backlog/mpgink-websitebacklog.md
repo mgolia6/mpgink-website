@@ -1,11 +1,16 @@
 # mpgink.com — Backlog / Overhaul Roadmap
 
-## 🖼 2026 "Gallery at Night" redesign (Quad Design handoff) — BUILT 2026-08-06
-Branch `claude/mpg-website-design-jefdka`; all 12 pages + style.css rebuilt
-from `design_handoff_mpgink_website_2026`. See State/ + Logs/ 2026-08-06.
-- [ ] **Matthew: review branch + merge to main** (deploy = Pages from main)
-- [ ] Production eyeball after merge: Google Fonts typography + Etsy shop
-      images (sandbox egress blocked both; verified on system-font fallback)
+## 🖼 2026 "Gallery at Night" redesign (Quad Design handoff) — ✅ LIVE 2026-08-06
+All 12 pages + style.css + mobile version rebuilt from
+`design_handoff_mpgink_website_2026`. See State/ + Logs/ 2026-08-06.
+- [x] Merge to main — ✅ 2026-08-06 on Matthew's go; Pages run #87 SUCCESS
+      (note: the 3 prior main builds died unrunnered in GitHub's queue —
+      site had been silently frozen since Aug 4 until this deploy)
+- [x] Mobile version — ✅ same session: MENU/CLOSE toggle nav <840px
+      (site.js), zero-overflow verified on all 12 pages at 375×812
+- [ ] **Matthew: production eyeball (STILL OPEN)** — Google Fonts
+      typography, Etsy shop images, mobile nav on a real phone
+      (no sandbox can reach mpgink.com; three sessions have flagged this)
 - [ ] Compress collateral canvases (mission/vision/tenets/history ~3MB each;
       handoff says compress for production — no image toolchain in sandbox)
 - [ ] Shop OG image still favicon (design has no dedicated shop share image)

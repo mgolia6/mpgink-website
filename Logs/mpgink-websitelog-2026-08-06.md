@@ -119,3 +119,15 @@ toggle hidden at 1440px). Screenshots eyeballed: index w/ modal, open menu.
   typography, Etsy shop images, and a real-phone pass of the mobile nav.
 - Hard-refresh may be needed (GitHub Pages caches aggressively).
 
+### Session close (wrap run 2026-08-08)
+Session spanned 08-06 (build → merge → deploy) and closed 08-08 via /wrap.
+Wrap reconciliation: two 2026-08-07 sessions had since landed the
+list-ingress arc on main (PRs #4–#6: lead-magnet pages, One Percent
+capture-only, ?src tagging) with their own log
+(mpgink-websitelog-2026-08-07.md) but WITHOUT regenerating State/ — this
+wrap regenerated State dated 08-08 covering both days, and updated the
+Backlog (redesign marked LIVE; production-eyeball item kept open).
+Records audit: not wired in this repo (no KIT_RECORD_CHECKS — honest
+empty). Build check: no build command (static HTML); this session's
+verification was the headless-render + executed-path evidence above.
+
