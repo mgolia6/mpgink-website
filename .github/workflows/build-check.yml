@@ -1,0 +1,50 @@
+name: Site check
+
+# WHY THIS EXISTS (2026-08-12)
+# mpgink-website carried `ci: { expected: true }` in the PM dashboard's repo
+# registry and `KIT_BUILD_CHECK_CMD=""` in its own kit config. Each was
+# defensible alone — there is genuinely nothing to compile — but together they
+# meant the one tier-1 property with no framework had no check of any kind.
+#
+# "No build step" is not "nothing can break". What breaks on a static site is
+# links and assets, and none of it throws anywhere: it just 404s for a visitor.
+# scripts/check-site.mjs resolves every local href/src/poster on disk (441 of
+# them today), requires a <title> on every page, and asserts signup.html still
+# parses the `?src=` attribution param — the single thread holding up every
+# piece of signup attribution this site has.
+#
+# Each of those was proven to FAIL before being trusted: a bad stylesheet href
+# and a renamed URLSearchParams each turned it red, then restored clean.
+#
+# No dependencies and no package.json — `node scripts/check-site.mjs` runs on a
+# bare runner, so this repo does not grow a toolchain to run a link check.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['Logs/**', 'State/**', 'Backlog/**', 'docs/**']
+  pull_request:
+    paths-ignore: ['Logs/**', 'State/**', 'Backlog/**', 'docs/**']
+  workflow_dispatch:
+
+concurrency:
+  group: site-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # NOTE: markdown is NOT in paths-ignore above, unlike the other repos'
+      # workflows. Here the .md files under docs/ are excluded by path, but a
+      # README edit is cheap to check and an .html file is never a doc — keeping
+      # the filter on directories rather than extensions means a page can never
+      # be skipped because someone gave it a markdown-ish name.
+      - name: node scripts/check-site.mjs
+        run: node scripts/check-site.mjs
