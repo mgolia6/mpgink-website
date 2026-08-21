@@ -1,5 +1,24 @@
 # mpgink.com — Backlog / Overhaul Roadmap
 
+## 📰 AFM web archive — ✅ SHIPPED 2026-08-21 (branch `claude/afm-archive-website-t5cjkn`)
+mpgink.com now carries the editions themselves: `afm/ed308.html`–`afm/ed316.html`
+generated from `scripts/afm-editions.json` + `afm/content/ed###.md` by
+`scripts/build-afm-pages.mjs` (also generates newsletter.html's catalog rows —
+never hand-edit either). 7 card JPGs rendered for 308–314. check-site PASS;
+headless-verified desktop+375px. Weekly flow = AFM directions Step 11.
+- [ ] **Merge + Matthew's browser check** of mpgink.com/afm/ed316.html, the
+      catalog links, and one older page — nothing live-verified from sandbox
+- [ ] **Deep backfill arc (Matthew, 2026-08-21):** Google Drive "Motivation"
+      folder (id 1YiV4u7DwRkA0S_Z6_keM0mdke6PKaL6g) holds the pre-repo era:
+      `Newsletters/` narrative docx for eds 262/270/279/290/291/304/305/307,
+      DM279–DM305 card PNGs at folder root, ed306 HTML + ed306/307 screenshots,
+      and `Archive/` with 30+ .eml originals from the pre-LinkedIn "Half Rider"
+      team-email era. Matthew also has all 68 LinkedIn edition links. The
+      generator handles it (content file + manifest entry per edition;
+      LinkedIn-only editions can start card-only like ed313). Needs Matthew's
+      curation: numbering/dating the unnumbered emails, which get pages.
+      Own the arc — don't bolt onto a Friday session.
+
 ## 🖼 2026 "Gallery at Night" redesign (Quad Design handoff) — ✅ LIVE 2026-08-06
 All 12 pages + style.css + mobile version rebuilt from
 `design_handoff_mpgink_website_2026`. See State/ + Logs/ 2026-08-06.
@@ -112,7 +131,9 @@ native recreation is the pattern for app visuals without screenshots.
   Gallery markup is staged in phreezer.html behind a comment with final
   filenames: phreezer-shot-{your-signal,on-this-day,rated,song-history}.jpg
 - **Phreezer mobile images** (Matthew has them)
-- **AFM latest edition links** (Matthew sending)
+- ~~**AFM latest edition links** (Matthew sending)~~ — moot 2026-08-21: the
+  archive now hosts 308–316 with LinkedIn URLs from the content log; the
+  68-edition link list folds into the deep-backfill arc above
 
 ## 🅿 Parked / blocked
 - **13·16·7 cipher: find it a graceful home** — band removed from homepage;
