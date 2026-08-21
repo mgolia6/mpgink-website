@@ -1,0 +1,83 @@
+{
+  "_comment": "Single source for the AFM web archive. build-afm-pages.mjs reads this to generate afm/ed###.html pages AND the catalog rows in newsletter.html. Add a new edition here + drop its narrative at afm/content/ed###.md + its card at images/afm/afm-ed###-card.jpg, then run: node scripts/build-afm-pages.mjs",
+  "editions": [
+    {
+      "num": 308,
+      "date": "2026-04-24",
+      "dateDisplay": "4/24/2026",
+      "title": "Rooted",
+      "teaser": "Two women writers, one date, and a treeless prairie that became everything — this week's AFM is about what we plant when no one is watching.",
+      "catalog": "Legacy, and planting things for people you'll never meet."
+    },
+    {
+      "num": 309,
+      "date": "2026-05-01",
+      "dateDisplay": "5/1/2026",
+      "title": "Last Night",
+      "teaser": "A dying cassette player on a trestle bridge, a philosopher's last words, and what your kids already know that language can't fully say.",
+      "catalog": "Language, time, and childhood."
+    },
+    {
+      "num": 310,
+      "date": "2026-05-08",
+      "dateDisplay": "5/8/2026",
+      "title": "Let It Be",
+      "teaser": "Two people died on the same day 90 years apart — one walked away from the woods, one stepped back from the classroom. This week's AFM is about the women who hold everything together by knowing when to let go.",
+      "catalog": "Relinquishing control — a Mother's Day meditation."
+    },
+    {
+      "num": 311,
+      "date": "2026-05-15",
+      "dateDisplay": "5/15/2026",
+      "title": "Corrugated Dreams & Other Inflated Expectations",
+      "teaser": "A cardboard blimp, a child's ungrounded confidence, and two artists who made magic from the most unlikely materials — proof that the flimsiest things sometimes float the furthest.",
+      "catalog": "Impermanence, creativity, and the joy of making things."
+    },
+    {
+      "num": 312,
+      "date": "2026-05-22",
+      "dateDisplay": "5/22/2026",
+      "title": "Grateful Dogs",
+      "teaser": "He made that sound exactly once. The moment we untied him from that bellhop cart, it was gone. He never needed it again. He knew exactly what he was doing.",
+      "catalog": "Rescue, kismet, and Kauai — part one of a trilogy.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-grateful-dogs-part-1-312-matthew-golia-shdoe"
+    },
+    {
+      "num": 313,
+      "date": "2026-07-03",
+      "dateDisplay": "7/3/2026",
+      "title": "Happy Little Accidents",
+      "catalog": "Blank canvases, happy accidents, and building in public.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-happy-little-accidents-313-matthew-golia-hrpwe/",
+      "cardOnly": true,
+      "cardOnlyNote": "The narrative for this edition lives on LinkedIn — the visual card is preserved here in full."
+    },
+    {
+      "num": 314,
+      "date": "2026-07-31",
+      "dateDisplay": "7/31/2026",
+      "title": "Burgers and Dogs",
+      "teaser": "I told myself it was recon — a look, nothing more, with a cheeseburger waiting on the other end of the drive regardless. Then a worker walked into the waiting room with a dog in each hand, and recon was over. Part 2 of the Grateful Dogs trilogy.",
+      "catalog": "Grateful Dogs part two — getting waylaid for the better.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-burgers-dogs-314-matthew-golia-rpnec"
+    },
+    {
+      "num": 315,
+      "date": "2026-08-07",
+      "dateDisplay": "8/7/2026",
+      "title": "Dupree's Diamond Blondes",
+      "teaser": "We'd been trying for a baby for a while. It wasn't working. So we did the audacious thing — we dared the universe to give us one anyway, and got a dog instead. Part 3, the finale, of the Grateful Dogs trilogy.",
+      "catalog": "The Grateful Dogs finale — daring fate in Alabama.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-duprees-diamond-blondes-315-matthew-golia-zkblc"
+    },
+    {
+      "num": 316,
+      "date": "2026-08-21",
+      "dateDisplay": "8/21/2026",
+      "title": "Two Sleeping Giants",
+      "teaser": "An icebreaker where nobody says their name. A mountain that followed me five thousand miles across an ocean. And the day Hawaii became a state — sixty-seven years ago today.",
+      "catalog": "Hawaii Statehood Day, belonging, and two mountains with the same name.",
+      "linkedin": "https://www.linkedin.com/feed/update/urn:li:ugcPost:7496586372561092608/"
+    }
+  ]
+}
