@@ -1,0 +1,5 @@
+Happy Aloha Friday!
+
+It seems kismet that we celebrate the life and passing of Harriet Tubman during Women’s Herstory Month, just days after International Women’s Day! Inspiring, gritty, tenacious, self-less, determined, resilient, brave, heroic…the list goes on for words to describe Harriet Tubman. Tubman, born Araminta Ross in 1822 is considered to be the “Moses of her people.” Her name (Harriet Tubman) was actually an assumed name combining her mother’s first and her husband’s last that she adopted right before she escaped slavery. The list of her heroic actions are innumerable and you can click here to find [Harriet Tubman | Astonishing Facts](https://www.npca.org/articles/2314-5-facts-you-might-not-know-about-harriet-tubman). From her time conducting the Underground Railroad, to her role in the Union Army during the Civil War, and then as an abolitionist and her work for the women’s suffrage movement, Tubman’s life is truly a tail of activism. Check out these Jazz [tracks](https://marcusshelby.bandcamp.com/album/harriet-tubman-through-the-eyes-of-children) inspired by Tubman from musician Marcus Shelby.
+
+Mahalo Nui

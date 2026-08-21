@@ -1,0 +1,3 @@
+Happy Aloha Friday,
+
+This week marks the beginning of women’s history month and today we celebrate Patsy Cline who died, tragically, 59 years ago, tomorrow. Virginia “Ginny” Hensley, aka Patsy Cline, died at the age of 30 in a plane crash in Tennessee. Though known for her song [Crazy](https://youtu.be/MbnrdCS57d0), it was her mark she left on the music industry, as a pioneer and her vast catalog that endures. A musical prodigy, with perfect pitch, Patsy could not read music but that did not stop her from creating some of the most iconic music of her time. Like many musicians that died tragically at a young age, her music has lived on and that has only added to her impact and inspiration.

@@ -1,0 +1,5 @@
+Happy Aloha Friday,
+
+I’ll keep it short and simple today because much of Mozart’s work did not. Here is a link to [Requiem in D Minor](https://youtu.be/XmttZ-BnwaI). Many say they don’t enjoy classical music, but in the end, all that is music today is built on the foundation laid many years ago by this type of music. Case in point, Phish’s song [Stash](https://youtu.be/79NAC9vNThU). While Stash draws it’s main inspiration from Jazz, “Jazz is fundamentally based upon what is called a “ii-V7-I” progression, which is vocally pronounced “two-five-one.” Many of Benny Goodman’s songs took advantage of the tension created by going from the fifth degree of a key back to the root note, or “home base.” It was simply a reinterpretation of the same music theory and harmony that [Mozart](https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart) and [Bach](https://en.wikipedia.org/wiki/Johann_Sebastian_Bach) used to write their symphonies, applied in a modern context.”
+
+If you are looking for an escape, look no further than down the rabbit hole. Enjoy these Lewis Carroll [Fun Facts](https://www.mentalfloss.com/article/535136/10-fascinating-facts-about-lewis-carroll)!

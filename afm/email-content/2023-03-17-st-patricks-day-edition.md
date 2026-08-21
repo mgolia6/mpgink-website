@@ -1,0 +1,7 @@
+Sláinte and Happy Aloha Friday!
+
+St Paddy’s day is a lot of things to a lot of people, the least of which is a celebration of the actual St. Patrick. In fact, if you looked from afar at the debauchery and hooliganism you would swear you were witnessing a celebration of Bacchus, god of wine and giver of ecstasy (of course substitute the wine for Guinness and Irish Whiskey)!
+
+In 2008, for one entire year, 52 consecutive Sundays I spent my afternoons at an Irish Pub, Anna Liffey’s (The Liff), in New Haven CT taking in pints of Smithwicks and a troop of amateur Irish Musicians who would gather from 10AM until whenever each Sunday to play a Jam session, not that dissimilar to this [video](https://www.youtube.com/watch?v=O9a8pVGa1Mo). Some Sunday’s saw 20 musicians, some saw two, but there was always music emanating from the traditional irish pub on Sundays. Every Sunday was St. Paddy’s day that year and now every St Paddy’s Day brings me back to that basement bar, where the music lingered in the air just a little longer and louder than the low rumble of the crowd and the Guinness flowed freely.
+
+Here are some [Interesting St Paddy's Day Facts](https://www.history.com/news/st-patricks-day-facts) for you to chew on along with your Corned Beef Hash. Chase it down with a Guinness or a Smithwicks, or a Tullamore D.E.W. Lest Jameson and Bushmills be the death of you!

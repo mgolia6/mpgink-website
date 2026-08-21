@@ -1,0 +1,7 @@
+Happy Aloha Friday!
+
+Yesterday marked 40 years since the passing of Thelonious Monk. Jazz music is in itself elusive and there might not be a more elusive jazz artist than Thelonious Monk. His style of play, his look, his approach to his music, his audience, and the world were so unique…it added to the allure. Monk would often, during a performance, stop playing and stand up to do a little dance. Then, as if it never happened, sit down and continue performing. Here is [Link](https://youtu.be/zre0u5XyNfY) to what would be considered his most famous song, Round Midnight. It comes in at just over 3 minutes but clearly establishes his style on piano. I urge you tonight to grab a glass of wine and take in some Thelonious Monk!
+
+On a complete sidebar, two weeks ago, on three straight nights of Wheel of Fortune (Monday, Tuesday & Wednesday), three contestants won the elevated cash prize of $100K during the bonus round. The odds of that happening are ridiculous, one of them having just a 4% chance to land on that prize during the bonus round. Add to that the fact that three straight contestants solved the puzzle. The wheel puzzle for one of those nights, shown below, hit so close to home, I had recycle it from last week’s daily riddle (Sorry Rachel, I know you figured out instantly)!
+
+Mahalo Nui!

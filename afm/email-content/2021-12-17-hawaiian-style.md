@@ -1,0 +1,7 @@
+Happy Aloha Friday!
+
+We have had a drought on the riddle, maybe someone will break that streak today. Did you know that the Wright Brothers direct competition for first in flight were government funded and consisted of the brightest minds of the time with access to the latest technologies. It’s true, yet the Wright brothers succeeded. Always one of the more inspirational stories, Simon Sinek recounts that it was the passion and ability to lead, focusing on the Why, that got them airborne before Samuel Pierpont Langley.
+
+Another story of how passion trumps mere talent alone is Nirmal "Nims" Purja, who accomplished a feat so outlandish, even those watching him do it, simply scoffed at him. Nims climbed all 14 eight-thousanders (mountain peaks above 8,000 metres or 26,000 feet) in a record time of six months and six days. Prior to Nims, the previous record was over 7 years. Check out his website https://www.nimsdai.com/bremont-project-possible to learn more and watch the Netflix documentary. It is truly inspiring.
+
+Lastly, this team is truly inspiring. Such a well balanced, well rounded team with so many talents. I wanted to wish everyone a Mele Kalikimaka and Hau’oli Makahiki hou! I will not be able to attend Monday’s Holiday Party, but wanted to share my gratitude for the team and wish everyone a happy holiday.

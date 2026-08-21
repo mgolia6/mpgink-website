@@ -1,0 +1,9 @@
+Happy Aloha Friday!
+
+There is a Japanese proverb that says, “A wise-man climbs Mt. Fuji once; a fool climbs it twice.” 316 years ago tomorrow marks the last eruption of Mt Fuji, Japan’s most [kenspeckle](https://www.merriam-webster.com/dictionary/kenspeckle) landmark. Situated roughly 2 hours from Tokyo, it is the highest mountain in Japan with its 12,000 ft stature rising up from the landscape like the platonic form of a volcano. Though deemed a low risk eruption threat, Fuji is still an active volcano, part of the [Pacific Ring of Fire](https://www.universetoday.com/59341/pacific-ring-of-fire/), home to 452 volcanoes surrounding the Pacific Ocean, roughly 75% of the world’s active and dormant volcanoes, accounting for almost 90% of the world’s earthquakes. Put another way: Major tectonic activity!
+
+Fuji holds a lot of spiritual significance, being one of Japan’s three holy mountains, along with Mount Tate and Mount Haku. Sitting atop Fuji is [Okumiya shrine](https://www.nippon.com/en/guide-to-japan/gu009003/), the highest shrine in all of Japan. Ironically, or fittingly depending on how you slice it, lying in the northwest foothills of Fuji is Aokigahara, also known as the “suicide forest” which is second only to the Golden Gate Bridge in suicide rate (man this got dark fast…yikes). On a lighter and more inspiring note, the rising and setting sun, as well as the moon, perfectly align with the peak at certain times of year, during these celestial events, the mountain is referred to as [Diamond or Pearl Fuji](https://tokyocheapo.com/entertainment/sightseeing/diamond-fuji/). Want to climb Mt Fuji, you better hurry up. The official climbing season is from early July to mid-September each year. Check out this [Fuji climbing guide](https://www.japan-guide.com/e/e6901.html) for more details.
+
+For a more in-depth look at Mt Fuji, check out these [Mt Fuji Facts](https://www.mentalfloss.com/posts/mount-fuji-facts).
+
+Mahalo Nui,

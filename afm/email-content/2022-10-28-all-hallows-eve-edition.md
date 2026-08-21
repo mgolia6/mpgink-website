@@ -1,0 +1,9 @@
+Happy Aloha Friday!
+
+This weekend and Monday we will all inevitably encounter some sort of Halloween event. Whether it is toilet paper in our front yard or a haunted house or hayride at our local Halloween haunt, Halloween invokes so many different emotions and memories that vary from individual to individual. But the 28th of October also marks a very controversial day in US history, as the Volstead Act was put into place on this day in 1919. Check this link out to learn about how, before and during the Depression, [Halloween was once so dangerous that some cities banned it altogether](https://www.history.com/news/halloween-was-once-so-dangerous-that-some-cities-considered-banning-it).
+
+Also 12 years ago this weekend, in Atlantic City, the band Phish took the stage for a series of concerts culminating in 3 set Halloween performance. On Halloween, Phish is known for donning a Musical Costume and this year, [10/31/2010](https://phish.net/setlists/phish-october-31-2010-boardwalk-hall-atlantic-city-nj-usa.html?highlight=532), they chose the band Little Feat and performed their entire album “Waiting for Columbus” for the second of three sets of music.
+
+Their first set of the night included songs alluding to the Halloween holiday and here is a link to a beautiful piece of musical mastery from that set: [Ghost -> Spooky](https://youtu.be/aEanzsq9uWg). The segue from Ghost into Spooky is silky smooth (scary almost) and warrants a listen to at least that section which starts at the 7 minute mark and happens at around 8:15 seconds. If you squint just right and look to the far right of the video, you might see MY head bobbling up and down hanging onto the front rail.
+
+Matthew

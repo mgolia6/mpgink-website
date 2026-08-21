@@ -1,0 +1,3 @@
+I remember a friend of mine said once, “When you grow older you forget the way to live, how easy it is to function, get through a day of playing in the sandbox and eating a grilled cheese.” I was reminded of this when I saw that 9/24 was a pivotal day for children, being both the birth and death day of two of the most pre-eminent entertainment producers of all time; Jim Henson and Dr. Seuss. I invite you to research this weekend and find some past episodes of The Muppet Show. The guest list is substantial and includes the likes of Harry Belafonte, Steve Martin, Julie Andrews, Liza Minelli, and Elton John to name a few. These episodes hold up.
+
+Anyway, my buddy Peter’s words hold up too.

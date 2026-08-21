@@ -1,0 +1,9 @@
+Happy Aloha Friday!
+
+It is with a somber heart that I announce the deprecation of the Friday Motivation email. After careful consideration of the metrics, the subscription and response rate, the OPS, CP, etc…it is clear that the hours of back breaking work that go into sourcing material, fine tuning templates, editing for content, and brining the FUNK, do not outweigh the cost of doing business.
+
+In all, since 2019, there have been over 200 emails generated, across 9 templates. And what better day then on March 31st, now officially coined National Apres Day, to put this old stead out of its misery. Apres Ski is French for after ski, for what transpires after a good day of skiing. National Apres day seeks to expand that feeling of accomplishment to any situation. Apres a monster sales call, apres a wonderful (or difficult) work week, by beckoning you to have some Whisky. Yup, its all wrapped up in corporate sponsorship…just the way I like it…cynical and melancholy, terse and tepid!
+
+So to end things on a tepid note, here is an ode to “The End” of things, musically, of course; a [compilation of songs about the end of the world](https://zinginstruments.com/songs-about-the-end-of-the-world/). Bob Marley once said, “Emancipate yourselves from mental slavery, not but ourselves can free our minds. Have no fear for atomic energy, cause none of them can stop the times…” While this is the end of something, probably not much, the show will go on, the big show of life…the world will continue turning, the seasons will continue to blend into each other. I’ll see you on the [EDISPILF](https://en.wikipedia.org/wiki/April_Fools%27_Day)
+
+Here is one last Phishy take on a moment in time ending, the [Moma Dance – Live In Brooklyn](https://youtu.be/hV0te5pf0NE). If you look really hard at 3:14 mark of the video on the bottom left, you might get a quick glimpse of me from the back!

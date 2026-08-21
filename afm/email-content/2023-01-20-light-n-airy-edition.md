@@ -1,0 +1,5 @@
+Happy Aloha Friday!
+
+Man, nothing makes me shutter quite like the opening notes and vocals of Etta James’ “[At Last](https://youtu.be/nQ45Q7ZuTEs).” Sultry and seductive, Etta James proved that its not only the boys who can do the crooning or sing the blues. Her lifelong struggles are clearly evident in her performances as she pours her soul into her lyrics, her riffing, her improvisation. A perfect example of this can be found in this version of [I'd Rather Go Blind (Featuring Dr John)](https://youtu.be/NVvtb71y6PE): 5 minutes to capture what many take a lifetime to try to explain. Just unreal. Her influence is truly pervasive: Blues, Pop, Soul, Rock and Roll, you name it, she did it and she inspired others to do it better. As we celebrate her passing, 11 years ago today, enjoy this additional track from James, [Something's Got a Hold of Me](https://youtu.be/OueyaMoUUt4), and go suss some out on your own, I promise, you won’t be disappointed.
+
+A special shout out to [a teammate's DJ project](https://www.reverbnation.com/djflanz) on this National DJ Day! If you click only one link, let that one be it! Scroll down and watch the video! EPIC!!!!!!!!

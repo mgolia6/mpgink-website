@@ -1,0 +1,7 @@
+Happy Aloha Friday,
+
+This week marks the beginning of the Little League Baseball World Series ([LLWS](https://en.wikipedia.org/wiki/Little_League_World_Series)) in Willamsport, PA. This year LLBWS is celebrating 75 years! Each year thousands will descend upon the small Pennsylvania town to watch as the these kids vie for a piece of history. My fascination started when I was 8 years old watching the team from Trumbull, CT become only the 3rd team to beat their international opponent in the championship game. In 2018 the team from Honolulu HI defeated the South Korea Team for their 3rd international victory. Another Honolulu team is back this year and are a top contender to take home victory! Each year, as mid-august approaches, I am immediately driven back, like a line drive, to my youth and tune in as each game is played for a chance to be transported back to youth.
+
+I think back to Lorca’s quote below as I watch the teams compete ferociously for victory. This passion they have, that they burn with, is worn on their sleeve and serves as a reminder of that youthful exuberance and determination that can sometimes wane in adulthood. But there is a bigger lesson: the sportsmanship that these teams exude is unparalleled in sports. Regardless of their drive and passion, they understand the value of being humble and gracious and that is on full display throughout the week and half. Make sure you check it out!
+
+Mahalo Nui,
