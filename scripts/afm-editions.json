@@ -2,12 +2,557 @@
   "_comment": "Single source for the AFM web archive. build-afm-pages.mjs reads this to generate afm/ed###.html pages AND the catalog rows in newsletter.html. Add a new edition here + drop its narrative at afm/content/ed###.md + its card at images/afm/afm-ed###-card.jpg, then run: node scripts/build-afm-pages.mjs",
   "editions": [
     {
+      "num": 252,
+      "date": "2024-06-28",
+      "dateDisplay": "6/28/2024",
+      "title": "Twilight Zone Edition",
+      "catalog": "Word of the week: nascent — Rousseau, Rod Serling, and the Twilight Zone.",
+      "linkedin": "https://www.linkedin.com/pulse/twilight-zone-edition-252-matthew-golia-zpmme",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 253,
+      "date": "2024-07-03",
+      "dateDisplay": "7/3/2024",
+      "title": "A \"Good\" Phishing Email",
+      "catalog": "Word of the week: deference — Kafka, Jim Morrison, and Phish's Baker's Dozen.",
+      "linkedin": "https://www.linkedin.com/pulse/good-phishing-email-253-matthew-golia-7bgce",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 254,
+      "date": "2024-07-12",
+      "dateDisplay": "7/12/2024",
+      "title": "Simplicity Edition",
+      "catalog": "Word of the week: archetypal — Thoreau, Hamilton, and a Sandy Huntington quote.",
+      "linkedin": "https://www.linkedin.com/pulse/simplicity-edition-254-matthew-golia-we2ae",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 255,
+      "date": "2024-07-19",
+      "dateDisplay": "7/19/2024",
+      "title": "The Lunar Edition",
+      "catalog": "Word of the week: culpable — Degas, Petrarch, and a moonlit Maya Angelou quote.",
+      "linkedin": "https://www.linkedin.com/pulse/lunar-edition-255-matthew-golia-ltjee",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 256,
+      "date": "2024-08-02",
+      "dateDisplay": "8/2/2024",
+      "title": "The Days Between Edition",
+      "catalog": "Word of the week: mondegreen — Jerry Garcia, Fela Kuti, and Robert Hunter's lyrics.",
+      "linkedin": "https://www.linkedin.com/pulse/days-between-edition-256-matthew-golia-i8ide",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 257,
+      "date": "2024-08-09",
+      "dateDisplay": "8/9/2024",
+      "title": "Kokua for Maui — One Year Later",
+      "catalog": "Word of the week: Kuleana — remembering Jerry Garcia and Hermann Hesse; Murakami's storm.",
+      "linkedin": "https://www.linkedin.com/pulse/kokua-maui-one-year-later-matthew-golia-nlzze",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 258,
+      "date": "2024-08-16",
+      "dateDisplay": "8/16/2024",
+      "title": "WALL-E Edition",
+      "catalog": "Word of the week: Tchotchke — Steve Martin, Les Paul, Earl Nightingale.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-wall-e-edition-258-matthew-golia-a6cke",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 259,
+      "date": "2024-08-23",
+      "dateDisplay": "8/23/2024",
+      "title": "Dog Days Edition",
+      "catalog": "Word of the week: newfangled — Kobe Bryant, William Wallace, the Dalai Lama.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-dog-days-edition-259-matthew-golia-bbyce",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 260,
+      "date": "2024-08-30",
+      "dateDisplay": "8/30/2024",
+      "title": "Labor Day Edition",
+      "catalog": "Word of the week: accretive — Warren Buffett's chains of habit; remembering Princess Diana.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-labor-day-edition-260-matthew-golia-usffe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 261,
+      "date": "2024-09-06",
+      "dateDisplay": "9/6/2024",
+      "title": "Perspective",
+      "catalog": "Word of the week: petulant — Freddie Mercury, Mother Teresa, James Clear.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-perspective-261-matthew-golia-nzkhe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 262,
+      "date": "2024-09-11",
+      "dateDisplay": "9/11/2024",
+      "title": "Requiem for 9/11",
+      "catalog": "A 9/11 requiem — and the poem first read aloud in Byron Bay.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-requiem-911-262-matthew-golia-9paue"
+    },
+    {
+      "num": 263,
+      "date": "2024-09-20",
+      "dateDisplay": "9/20/2024",
+      "title": "James Marshall Hendrix Edition",
+      "catalog": "Word of the week: incendiary — H.G. Wells and Jimi Hendrix.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-james-marshall-hendrix-edition-matthew-golia-zb0ie",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 264,
+      "date": "2024-10-18",
+      "dateDisplay": "10/18/2024",
+      "title": "A Comet's Tails",
+      "catalog": "Word of the week: Fortitude — Eminem, Thomas Edison, and why comets have two tails.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-comets-tails-264-matthew-golia-8u42f",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 265,
+      "date": "2024-11-08",
+      "dateDisplay": "11/8/2024",
+      "title": "Joni Mitchell Edition",
+      "catalog": "Word of the week: Auspicious — Joni Mitchell, Anne Sexton, and lucid dreams.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-joni-mitchell-edition-265-matthew-golia-91lke",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 266,
+      "date": "2024-11-15",
+      "dateDisplay": "11/15/2024",
+      "title": "Restart Your Mind",
+      "catalog": "Word of the week: Inspire — Kurt Vonnegut and Kierkegaard.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-restart-your-mind-266-matthew-golia-bzpme",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 267,
+      "date": "2024-11-26",
+      "dateDisplay": "11/26/2024",
+      "title": "Grateful Edition",
+      "catalog": "An Aloha Tuesday: denigrate — Hendrix, Bruce Lee, and how Thanksgiving became a holiday.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-tuesday-motivation-grateful-edition-267-matthew-golia-xeloe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 268,
+      "date": "2024-12-13",
+      "dateDisplay": "12/13/2024",
+      "title": "Edition 268",
+      "catalog": "Word of the year: Polarization — Taylor Swift, Mary Todd Lincoln, Friday the 13th.",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card."
+    },
+    {
+      "num": 269,
+      "date": "2025-02-14",
+      "dateDisplay": "2/14/2025",
+      "title": "St. Maceo Day",
+      "catalog": "Word of the week: Balance — Maceo Parker, Saint Valentine, and the telephone patent.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-st-maceo-day-269-matthew-golia-ctnnf",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 270,
+      "date": "2025-02-21",
+      "dateDisplay": "2/21/2025",
+      "title": "Voices of Fire",
+      "catalog": "Nina Simone and Malcolm X — two revolutionary voices, one shared defiance.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-voices-fire-270-matthew-golia-uieje"
+    },
+    {
+      "num": 271,
+      "date": "2025-02-28",
+      "dateDisplay": "2/28/2025",
+      "title": "Nassau Edition",
+      "catalog": "Word of the week: Serendipity — Phish's Nassau Tweezer turns 22; Henry James.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-nassau-edition-271-matthew-golia-ywgie",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 272,
+      "date": "2025-03-14",
+      "dateDisplay": "3/14/2025",
+      "title": "Going Lefty",
+      "catalog": "Word of the week: neuroplasticity — Einstein, Karl Marx, and Pi Day.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-going-lefty-272-matthew-golia-vmqve",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 273,
+      "date": "2025-03-21",
+      "dateDisplay": "3/21/2025",
+      "title": "Paddy's Pub Edition",
+      "catalog": "Word of the week: iambic — Spike Lee, Saint Patrick, World Poetry Day.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-paddys-pub-edition-273-matthew-golia-lsbqe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 274,
+      "date": "2025-03-28",
+      "dateDisplay": "3/28/2025",
+      "title": "Justice for the Weasel",
+      "catalog": "Word of the week: Cunning — Lady Gaga, Virginia Woolf, and one weaselly Homer Simpson quote.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-justice-weasel-274-matthew-golia-rwcle",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 275,
+      "date": "2025-04-04",
+      "dateDisplay": "4/4/2025",
+      "title": "Masters Edition",
+      "catalog": "Word of the week: effusive — Maya Angelou born and Dr. King lost, the same April date.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-masters-edition-275-matthew-golia-dhzce",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 276,
+      "date": "2025-04-25",
+      "dateDisplay": "4/25/2025",
+      "title": "The Count, The Duke and The Earl Edition",
+      "catalog": "Word of the week: Syncopation — Count Basie's \"same damn note\" and Wittgenstein.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-count-duke-earl-edition-276-matthew-golia-bmd1e",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 277,
+      "date": "2025-05-02",
+      "dateDisplay": "5/2/2025",
+      "title": "High-Flying with Leo",
+      "catalog": "Word of the week: renaissance — Leonardo da Vinci and David Beckham.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-high-flying-leo-277-matthew-golia-llg9e",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 278,
+      "date": "2025-05-09",
+      "dateDisplay": "5/9/2025",
+      "title": "Mother of all Mothers Edition",
+      "catalog": "Word of the week: telemetry — Billy Joel, Tenzing Norgay, and Mother's Day's origins.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-mother-all-mothers-edition-278-matthew-golia-9n9ke",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 279,
+      "date": "2025-05-16",
+      "dateDisplay": "5/16/2025",
+      "title": "Turn Your Blues Into Jazz",
+      "catalog": "Django Reinhardt's two-fingered genius — pun-forward for O. Henry Pun-Off Day.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-turn-your-blues-jazz-edition-279-golia-sxcne"
+    },
+    {
+      "num": 280,
+      "date": "2025-05-22",
+      "dateDisplay": "5/22/2025",
+      "title": "Meditation Edition",
+      "catalog": "Word of the day: metta — Walt Whitman, Timothy Leary, and why meditation is free.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-meditation-edition-280-matthew-golia-vh6oe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 281,
+      "date": "2025-05-30",
+      "dateDisplay": "5/30/2025",
+      "title": "Creativity Edition",
+      "catalog": "Word of the week: éclaircissement — Sun Ra, Joan of Arc, and the first Indy 500.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-creativity-edition-281-matthew-golia-d8fxe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 282,
+      "date": "2025-06-13",
+      "dateDisplay": "6/13/2025",
+      "title": "A Sliver of Blue Sky Edition",
+      "catalog": "Word of the week: chasten — Yeats, Miyamoto Musashi, and the interrobang.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-sliver-blue-sky-edition-282-matthew-golia-queie",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 283,
+      "date": "2025-06-20",
+      "dateDisplay": "6/20/2025",
+      "title": "God Only Knows (What Summer Holds)",
+      "catalog": "Word of the week: Syncopation — Brian Wilson, Sartre, and the first day of summer.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-283-god-only-knows-what-summer-matthew-golia-wqgoe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 284,
+      "date": "2025-07-11",
+      "dateDisplay": "7/11/2025",
+      "title": "Charged for Greatness",
+      "catalog": "Word of the week: Galvanize — Tesla born in a lightning storm; Pablo Neruda.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-charged-greatness-283-matthew-golia-hacwe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 285,
+      "date": "2025-07-18",
+      "dateDisplay": "7/18/2025",
+      "title": "Echoes of Defiance",
+      "catalog": "Word of the week: Motif — Mandela Day and John Coltrane's force for good.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-245-echoes-defiance-matthew-golia-xrpse",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 286,
+      "date": "2025-08-01",
+      "dateDisplay": "8/1/2025",
+      "title": "Shameless Plug Edition",
+      "catalog": "Word of the week: Dissociate — Jerry Garcia, Herman Melville, World Wide Web Day.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-shameless-plug-edition-286-matthew-golia-kyxde",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 287,
+      "date": "2025-08-22",
+      "dateDisplay": "8/22/2025",
+      "title": "Little League, Big Dreams Edition",
+      "catalog": "Word of the week: pratfall — Wilt Chamberlain, García Lorca, and the Little League World Series.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-little-league-big-dreams-edition-golia-kkupe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 288,
+      "date": "2025-08-29",
+      "dateDisplay": "8/29/2025",
+      "title": "Labor of Love Edition",
+      "catalog": "Word of the week: laborious — Ingrid Bergman, born and died on August 29.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-labor-love-edition-288-matthew-golia-9n5le",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 289,
+      "date": "2025-09-05",
+      "dateDisplay": "9/5/2025",
+      "title": "Beat of Your Own Hum Edition",
+      "catalog": "Word of the week: brackish — Freddie Mercury, Crazy Horse, and hummingbird hearts.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-beat-your-own-hum-edition-289-matthew-golia-f2wvf",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 290,
+      "date": "2025-09-18",
+      "dateDisplay": "9/18/2025",
+      "title": "Big Chill Vibes",
+      "catalog": "Back to Pine Lake — dedicating a house to Sandy Huntington.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-thursday-motivation-big-chill-vibes-edition-290-matthew-golia-rldde",
+      "noCard": true
+    },
+    {
+      "num": 291,
+      "date": "2025-09-26",
+      "dateDisplay": "9/26/2025",
+      "title": "To End is to Begin",
+      "catalog": "The reunion after — Pine Lake, T.S. Eliot, and new beginnings.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-end-begin-edition-291-matthew-golia-8sfme"
+    },
+    {
+      "num": 292,
+      "date": "2025-10-24",
+      "dateDisplay": "10/24/2025",
+      "title": "The Last Shorts Day",
+      "catalog": "Word of the week: amalgamation — Rosa Parks, Jackie Robinson, and Houdini's last show.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-last-shorts-day-292-matthew-golia-ooe3f",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 293,
+      "date": "2025-11-14",
+      "dateDisplay": "11/14/2025",
+      "title": "The Pattern that Surrounds",
+      "catalog": "Word of the week: existential — Dostoyevsky, Kierkegaard, and Moby-Dick's debut.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-pattern-surrounds-293-matthew-golia-o3fbe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 294,
+      "date": "2025-11-21",
+      "dateDisplay": "11/21/2025",
+      "title": "Lessons Learned",
+      "catalog": "Word of the week: neurodivergent — Ken Griffey Jr., Björk, and Maria Montessori.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-lessons-learned-294-matthew-golia-4n8pe",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 295,
+      "date": "2025-12-05",
+      "dateDisplay": "12/5/2025",
+      "title": "The Island Carnival",
+      "catalog": "Word of the week: Ninja — Walt Disney, Mozart, and the end of Prohibition.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-island-carnival-295-matthew-golia-txd2e",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 296,
+      "date": "2025-12-12",
+      "dateDisplay": "12/12/2025",
+      "title": "The Intentional Breath",
+      "catalog": "Word of the week: prana — Sinatra, Bob Barker, and Thich Nhat Hanh's breath.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-intentional-breath-296-matthew-golia-wanee",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 297,
+      "date": "2025-12-30",
+      "dateDisplay": "12/30/2025",
+      "title": "A Farewell to 2025 in 3 Acts",
+      "catalog": "Tiger Woods, LeBron James, and the Festival of Enormous Changes at the Last Minute.",
+      "linkedin": "https://www.linkedin.com/pulse/aloha-friday-motivation-farewell-2025-3-acts-297-matthew-golia-qnpae",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 298,
+      "date": "2026-01-09",
+      "dateDisplay": "1/9/2026",
+      "title": "The Ritual of Failure",
+      "catalog": "Word of the week: Habitual — Jimmy Page, Joan Baez, National Quitters Day.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-ritual-failure-298-matthew-golia-bgimc",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 299,
+      "date": "2026-02-06",
+      "dateDisplay": "2/6/2026",
+      "title": "One Love Edition",
+      "catalog": "Word of the week: Accolade — Bob Marley reads palms; Babe Ruth.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-one-love-edition-299-matthew-golia-t9olc",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 300,
+      "date": "2026-02-13",
+      "dateDisplay": "2/13/2026",
+      "title": "Too Little To Fate",
+      "catalog": "Word of the week: Superstition — Peter Gabriel, Waylon Jennings, Friday the 13th.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-too-little-fate-300-matthew-golia-svfie",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 301,
+      "date": "2026-02-20",
+      "dateDisplay": "2/20/2026",
+      "title": "Tilt, Monk, and the Birth of a Jazz Writer",
+      "catalog": "Word of the week: Flux — Thelonious Monk's Pulitzer, Kurt Cobain, Hunter S. Thompson.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-tilt-monk-birth-jazz-writer-301-matthew-golia-p3dce",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 302,
+      "date": "2026-02-27",
+      "dateDisplay": "2/27/2026",
+      "title": "Nassau Tweezer Day Redux",
+      "catalog": "Word of the week: Nettle — Steinbeck, Longfellow, and Nassau Tweezer eve.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-nassau-tweezer-day-redux-302-matthew-golia-j50ne",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 303,
+      "date": "2026-03-06",
+      "dateDisplay": "3/6/2026",
+      "title": "How I Learned to Stop Worrying…Edition",
+      "catalog": "Word of the week: Fluctuation — David Gilmour, Ayn Rand, and Kubrick's own light.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-how-i-learned-stop-worryingedition-303-matthew-golia-iyevc",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 304,
+      "date": "2026-03-12",
+      "dateDisplay": "3/12/2026",
+      "title": "A Beat Writer, a Jazz Revolutionary, and a Civil Disobedient Walk Into a Bar…",
+      "catalog": "Kerouac, Charlie Parker, and Gandhi share March 12.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-beat-writer-jazz-revolutionary-civil-disobedient-walk-golia-sr6me"
+    },
+    {
+      "num": 305,
+      "date": "2026-04-03",
+      "dateDisplay": "4/3/2026",
+      "title": "The Lineage of Voice",
+      "catalog": "Maya Angelou, Dr. King — and the day mpgink.com went live.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-lineage-voice-305-matthew-golia-27e6e"
+    },
+    {
+      "num": 306,
+      "date": "2026-04-10",
+      "dateDisplay": "4/10/2026",
+      "title": "Masters Edition",
+      "catalog": "Word of the week: Ritual — Kurt Vonnegut, Joseph Pulitzer, and the Titanic setting sail.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-masters-edition-306-matthew-golia-vuose",
+      "cardOnly": true,
+      "cardOnlyNote": "This edition is preserved as its visual card — the full narrative lives on LinkedIn."
+    },
+    {
+      "num": 307,
+      "date": "2026-04-18",
+      "dateDisplay": "4/18/2026",
+      "title": "Universal Questions",
+      "catalog": "Sartre, Einstein, and three color songs — technically a Saturday.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-universal-questions-307-matthew-golia-cthee"
+    },
+    {
       "num": 308,
       "date": "2026-04-24",
       "dateDisplay": "4/24/2026",
       "title": "Rooted",
       "teaser": "Two women writers, one date, and a treeless prairie that became everything — this week's AFM is about what we plant when no one is watching.",
-      "catalog": "Legacy, and planting things for people you'll never meet."
+      "catalog": "Legacy, and planting things for people you'll never meet.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-work-outlives-us-308-matthew-golia-8u3qf"
     },
     {
       "num": 309,
@@ -15,7 +560,8 @@
       "dateDisplay": "5/1/2026",
       "title": "Last Night",
       "teaser": "A dying cassette player on a trestle bridge, a philosopher's last words, and what your kids already know that language can't fully say.",
-      "catalog": "Language, time, and childhood."
+      "catalog": "Language, time, and childhood.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-last-night-309-matthew-golia-i02xe"
     },
     {
       "num": 310,
@@ -23,7 +569,8 @@
       "dateDisplay": "5/8/2026",
       "title": "Let It Be",
       "teaser": "Two people died on the same day 90 years apart — one walked away from the woods, one stepped back from the classroom. This week's AFM is about the women who hold everything together by knowing when to let go.",
-      "catalog": "Relinquishing control — a Mother's Day meditation."
+      "catalog": "Relinquishing control — a Mother's Day meditation.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-let-310-matthew-golia-gikie"
     },
     {
       "num": 311,
@@ -31,7 +578,8 @@
       "dateDisplay": "5/15/2026",
       "title": "Corrugated Dreams & Other Inflated Expectations",
       "teaser": "A cardboard blimp, a child's ungrounded confidence, and two artists who made magic from the most unlikely materials — proof that the flimsiest things sometimes float the furthest.",
-      "catalog": "Impermanence, creativity, and the joy of making things."
+      "catalog": "Impermanence, creativity, and the joy of making things.",
+      "linkedin": "https://www.linkedin.com/pulse/afm-corrugated-dreams-other-inflated-expectations-311-matthew-golia-mxyme"
     },
     {
       "num": 312,

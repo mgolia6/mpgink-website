@@ -151,6 +151,8 @@ const PAGE_CSS = `<style>
 function pageHtml(ed, prev, next) {
   const slug = `ed${ed.num}`;
   const card = `afm-${slug}-card.jpg`;
+  const hasCard = !ed.noCard;
+  const ogImage = hasCard ? `https://mpgink.com/images/afm/${card}` : "https://mpgink.com/images/afm/afm-banner.jpg";
   const desc = ed.teaser || ed.catalog;
   const contentPath = join(ROOT, "afm", "content", `${slug}.md`);
   const hasNarrative = !ed.cardOnly && existsSync(contentPath);
@@ -182,13 +184,13 @@ function pageHtml(ed, prev, next) {
   <meta property="og:url" content="https://mpgink.com/afm/${slug}.html">
   <meta property="og:title" content="AFM #${ed.num} — ${esc(ed.title)}">
   <meta property="og:description" content="${esc(desc)}">
-  <meta property="og:image" content="https://mpgink.com/images/afm/${card}">
+  <meta property="og:image" content="${ogImage}">
 
   <!-- Twitter/X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AFM #${ed.num} — ${esc(ed.title)}">
   <meta name="twitter:description" content="${esc(desc)}">
-  <meta name="twitter:image" content="https://mpgink.com/images/afm/${card}">
+  <meta name="twitter:image" content="${ogImage}">
 
   <!-- Favicon / home-screen icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
@@ -224,9 +226,9 @@ ${NAV}
 ${ed.teaser ? `      <div class="afm-ed-teaser">${esc(ed.teaser)}</div>` : ""}
 ${paperInner}
     </div>
-    <div class="afm-card-wrap">
+${hasCard ? `    <div class="afm-card-wrap">
       <img src="../images/afm/${card}" alt="AFM Edition #${ed.num} — ${esc(ed.title)} — visual card">
-    </div>
+    </div>` : ""}
     <div class="afm-paper-foot">
       <div class="rule"></div>
       <img src="../images/afm/mpgink-monogram.png" alt="" width="34" height="34" style="display:block;margin:0 auto 10px;border-radius:50%;border:1px solid rgba(232,184,74,0.6)">
@@ -259,9 +261,18 @@ ${FOOTER}
 /* ── catalog rows in newsletter.html ────────────────────────────────────── */
 function catalogRows() {
   const newest = editions[editions.length - 1];
+  let lastYear = null;
   return editions.slice().reverse().map((ed) => {
     const isNewest = ed.num === newest.num;
-    return `    <a class="catalog-row" href="afm/ed${ed.num}.html" style="text-decoration:none;color:inherit">
+    const year = ed.date.slice(0, 4);
+    let divider = "";
+    if (year !== lastYear) {
+      if (lastYear !== null) {
+        divider = `    <div style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:2.4px;color:#8a8172;padding:44px 8px 6px;border-bottom:1px solid rgba(243,240,232,0.14)">${year}</div>\n`;
+      }
+      lastYear = year;
+    }
+    return `${divider}    <a class="catalog-row" href="afm/ed${ed.num}.html" style="text-decoration:none;color:inherit">
       <span style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:34px;letter-spacing:-0.03em;color:${isNewest ? "#ffcf6b" : "rgba(243,240,232,0.35)"}">${ed.num}</span>
       <span><span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;display:block;margin-bottom:5px">${esc(ed.title)}</span><span style="font-size:14px;color:rgba(243,240,232,0.55)">${esc(ed.catalog)}</span></span>
       <span style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1.6px;color:${isNewest ? "#ffcf6b" : "#9a8f7d"}">${isNewest ? "LATEST · READ →" : "READ →"}</span>
@@ -276,7 +287,7 @@ editions.forEach((ed, i) => {
   const next = editions[i + 1] || null;
   const out = join(ROOT, "afm", `ed${ed.num}.html`);
   const card = join(ROOT, "images", "afm", `afm-ed${ed.num}-card.jpg`);
-  if (!existsSync(card)) {
+  if (!ed.noCard && !existsSync(card)) {
     console.error(`FAIL ed${ed.num}: card image missing (${card}) — render it first`);
     process.exitCode = 1;
     return;
