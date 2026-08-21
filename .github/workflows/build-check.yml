@@ -48,3 +48,9 @@ jobs:
       # be skipped because someone gave it a markdown-ish name.
       - name: node scripts/check-site.mjs
         run: node scripts/check-site.mjs
+
+      # One search box spans three generated wings of the AFM catalog. A wing
+      # that drops the shared filter contract shows "nothing matches" over rows
+      # sitting on the same page — invisible to the link check.
+      - name: node scripts/check-filter-wiring.mjs
+        run: node scripts/check-filter-wiring.mjs

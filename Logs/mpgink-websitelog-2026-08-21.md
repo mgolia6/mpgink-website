@@ -130,3 +130,86 @@ already built for it.
 - Editions 61–242: unmapped era, no per-edition records found yet.
 - Claude-in-Chrome's full-copy file (all 65 editions' text) still being
   assembled — when it lands, card-only pages can upgrade to full narratives.
+
+## Arc 4 (same session): Wing C — the founding era, editions 1–60 (Aug–Dec 2018)
+
+The archive now reaches the first edition. `newsletter.html` carries three
+wings: A (numbered 252–316, LinkedIn era), B (96 email-era sends, 2021–2024),
+C (the 60 founding editions).
+
+### What the 2018 editions actually were
+Not essays. Every weekday, to one team, as a **card**: the national days,
+this-day-in-history, who was born, who died, a quote, and a riddle whose answer
+arrived the next morning. So Wing C pages print the card, not prose — and say
+so in a provenance banner. Nothing is written to fill the gap.
+
+### Shipped
+- **`scripts/build-afm-founding-pages.mjs`** + `scripts/afm-founding-editions.json`
+  (60 editions) → `afm/founding/ed001.html` … `ed060.html` and the Wing C block
+  in `newsletter.html` (between `AFM-FOUNDING` markers). Same generator contract
+  as the other two wings: no dependencies, the index cannot drift from the pages.
+- **Sources:** *Motivation Index.xlsx* (all 60 — quote, author, riddle answer)
+  enriched by *Day at a Glance v2.xlsx* (52 of 60 — national days, history,
+  born/died, riddle text). 8 editions carry index data only.
+
+### Two honesty calls in the data
+- **Born/died years are NOT claimed for 38 of 60.** The workbook's
+  name/year stride is inconsistent across editions, so matching each name to a
+  year would be inference. Those lists render as the source's single run, with
+  the line *"Recorded as a single run in the source sheet; we haven't matched
+  each name to a year."* Where the stride verified (27 editions), years render.
+- **43 editions have an answer but no riddle.** The index kept every answer and
+  only some questions. Printing "The answer: a stamp" alone would read as a
+  quiet loss, so those pages name which half survived.
+
+### Fixed while building — one search box was lying (pre-existing, worse with C)
+The box said "SEARCH THE ARCHIVE" and searched **Wing A only**. Typing `coffin`
+— which is ed001's riddle answer, on the same page — returned
+*"NOTHING IN THE WEB ARCHIVE MATCHES THAT."* Wing B's inline script also grabbed
+`.email-row` globally and spared Wing C purely because it ran before those rows
+were parsed: one block reorder from silently hiding 60 editions.
+
+- Three inline filter scripts collapsed into **one controller** in
+  `scripts/afm-chrome.mjs` (`FILTER_SCRIPT`), emitted once by
+  `build-afm-pages.mjs`. Rows/chips/dividers/empty-states speak one contract
+  (`afm-row` + `data-wing` + `data-year`).
+- Search now spans all three wings; year chips stay per-wing; each wing has its
+  own honest empty state instead of vanishing.
+- **`scripts/check-filter-wiring.mjs`** guards the wiring (a unit test on the
+  controller would not catch a wing that stopped calling it). Added to
+  `KIT_BUILD_CHECK_CMD` and to CI.
+- **Guard proven to fail**, per kit-single-source: dropping `data-wing` from the
+  Wing C row template → `FAIL … 161/221` + `FAIL all three wings render rows — AB`;
+  pasting a second filter script into Wing B → `FAIL exactly one inline <script> — found 2`.
+  Restored → PASS.
+
+### Verification
+- `node scripts/check-site.mjs` → PASS (236 pages, 8080 local refs).
+- `node scripts/check-filter-wiring.mjs` → PASS (12 checks, 221/221 rows wired).
+- Headless Chromium, `newsletter.html`, **0 page errors**, **0px overflow** at
+  1600px and 375px. Filter matrix observed:
+
+  | action | A | B | C | empty states shown |
+  |---|---|---|---|---|
+  | baseline | 65 | 96 | 60 | none |
+  | search "coffin" | 0 | 0 | **1** | A, B |
+  | search "kuleana" | 1 | 1 | 0 | C |
+  | search "zzzzzz" | 0 | 0 | 0 | A, B, C |
+  | wing A chip 2024 | 17 | 96 | 60 | none |
+  | + wing B chip 2022 | 17 | 24 | 60 | none |
+  | + FULL READS | 1 | 24 | 60 | none |
+
+- Pages eyeballed at 1280px and 375px: ed001 (riddle + answer + verified-stride
+  note), ed003 and ed060 (answer-only, missing-riddle note). No `undefined` in
+  any rendered body.
+
+### NOT verified by me
+Live mpgink.com — the sandbox proxy blocks it. **Matthew's browser check after
+merge:** scroll to Wing C, open ed001, and run the mobile pass on a real phone
+(still outstanding from arc 3).
+
+### Still missing after this arc
+- **Editions 61–242** — nothing found anywhere. 2019 and 2020 have no records.
+- **Editions 243–251** — dated in the Day at a Glance workbook, not yet built.
+- LinkedIn full copy for 252–265 (crawl's second run) → would upgrade 48
+  card-only Wing A pages to full narratives.

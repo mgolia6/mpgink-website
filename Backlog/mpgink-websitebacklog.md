@@ -1,24 +1,38 @@
 # mpgink.com — Backlog / Overhaul Roadmap
 
 ## 📰 AFM web archive — ✅ SHIPPED 2026-08-21 (branch `claude/afm-archive-website-t5cjkn`)
-mpgink.com now carries the editions themselves: `afm/ed308.html`–`afm/ed316.html`
-generated from `scripts/afm-editions.json` + `afm/content/ed###.md` by
-`scripts/build-afm-pages.mjs` (also generates newsletter.html's catalog rows —
-never hand-edit either). 7 card JPGs rendered for 308–314. check-site PASS;
-headless-verified desktop+375px. Weekly flow = AFM directions Step 11.
+mpgink.com now carries the editions themselves — **221 pages in three wings**:
+A `afm/ed252–316.html` (65, LinkedIn era) · B `afm/email/` (96, 2021–2024) ·
+C `afm/founding/` (60, Aug–Dec 2018, back to edition 1). Each wing has its own
+manifest + generator that produces the pages AND its block in newsletter.html
+(`AFM-CATALOG` / `AFM-EMAIL` / `AFM-FOUNDING` markers) — never hand-edit an
+output. One search box spans all three (`FILTER_SCRIPT` in `afm-chrome.mjs`),
+guarded by `scripts/check-filter-wiring.mjs`. Build check PASS; headless-verified
+at 1600px and 375px. Weekly flow = AFM directions Step 11.
 - [x] Merge (arc 1) — ✅ 2026-08-21, Pages run green on 5798ae2
-- [ ] **Matthew's browser check** of the live archive post-backfill-merge:
-      /afm/ed252.html, /newsletter.html (65-row catalog), /afm/ed290.html
-      (banner-fallback page) — nothing live-verified from sandbox
+- [ ] **Matthew's browser check** of the live archive post-merge:
+      /newsletter.html (all three wings + the search box),
+      /afm/founding/ed001.html (the first edition), /afm/ed290.html
+      (banner-fallback page) — nothing live-verified from the sandbox
 - [x] **Deep backfill, LinkedIn era (252–316)** — ✅ 2026-08-21 arc 2, same
       session: 65 pages live in the repo, dates from Day at a Glance v2.xlsx
       tabs + card faces, titles/URLs from the Claude-in-Chrome scraped CSV,
       8 narratives from Drive docx, 55 cards from DM PNGs/screenshots.
       Commit c4e9204. Provenance: AFM repo AFM_EditionRegistry_2026-08-21.csv.
-- [ ] **Deep backfill, remaining eras (future arc — needs Matthew's curation):**
-      eds 1–60 ("Half Rider" email era; registry has dates, 30+ .emls in Drive
-      `Archive/`), eds 61–242 (unmapped, no per-edition records found yet).
-      Own the arc — don't bolt onto a Friday session.
+- [x] **Email era (Wing B) — 2021–2024** ✅ 2026-08-21 arc 3: 96 editions
+      parsed from 100 `.eml` files in Drive `Motivation/Archive/`, published
+      date-first at `afm/email/<slug>.html`. No lifetime numbers invented.
+      Pipeline preserved in the AFM repo at `scripts/email-era/`.
+- [x] **Founding era (Wing C) — eds 1–60, Aug–Dec 2018** ✅ 2026-08-21 arc 4:
+      60 card pages at `afm/founding/ed###.html`, rebuilt from Motivation
+      Index.xlsx + Day at a Glance v2.xlsx. No prose survives from 2018 and
+      none was invented — the pages print the card and say so.
+- [ ] **Eds 243–251 (9 editions)** — dated in the Day at a Glance workbook,
+      not yet built. The only recoverable stretch still missing.
+- [ ] **Eds 61–242: no records found anywhere.** 2019 and 2020 are absent from
+      every source checked. Reopen only if Matthew finds another archive.
+- [ ] **Mobile pass on a real phone** — promised follow-up to arcs 2–4.
+      Headless 375px is clean; Matthew flagged layout issues by eye.
 - [ ] **Card-only pages → full narratives** when Claude-in-Chrome's full-copy
       file lands (all 65 editions' text): add content .md + drop cardOnly in
       the manifest, rebuild. 48 pages upgradeable.

@@ -13,7 +13,11 @@
 # signup attribution this site has). No dependencies, so this repo does not grow
 # a package.json to run a link check. Also enforced in CI by
 # .github/workflows/build-check.yml.
-KIT_BUILD_CHECK_CMD="node scripts/check-site.mjs"
+# scripts/check-filter-wiring.mjs joins it: the AFM catalog page is assembled by
+# three generators sharing one search box, and a wing that stops speaking the
+# shared filter contract fails silently as "nothing matches" over rows that are
+# right there on the page.
+KIT_BUILD_CHECK_CMD="node scripts/check-site.mjs && node scripts/check-filter-wiring.mjs"
 
 # Space-separated dirs whose .js/.mjs/.cjs files get node --check after every edit.
 # Leave EMPTY for repos whose JS is JSX/TSX (node --check would false-fail).

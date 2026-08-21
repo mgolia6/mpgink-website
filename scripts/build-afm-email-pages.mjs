@@ -137,8 +137,8 @@ ${FOOTER("../../")}
 /* ── the email-era block in newsletter.html ─────────────────────────────── */
 function emailBlock() {
   const years = [...new Set(editions.map((e) => e.date.slice(0, 4)))].sort().reverse();
-  const chips = [`<button type="button" class="afm-chip active" data-eyear="all">ALL</button>`]
-    .concat(years.map((y) => `<button type="button" class="afm-chip" data-eyear="${y}">${y}</button>`))
+  const chips = [`<button type="button" class="afm-chip active" data-wing="B" data-year="all">ALL</button>`]
+    .concat(years.map((y) => `<button type="button" class="afm-chip" data-wing="B" data-year="${y}">${y}</button>`))
     .join("\n      ");
 
   let lastYear = null;
@@ -147,14 +147,14 @@ function emailBlock() {
     let divider = "";
     if (y !== lastYear) {
       if (lastYear !== null) {
-        divider = `    <div class="email-year" style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:2.6px;color:#8a8172;padding:52px 8px 8px;border-bottom:1px solid rgba(243,240,232,0.14)">${y}</div>\n`;
+        divider = `    <div class="email-year afm-divider" data-wing="B" style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:2.6px;color:#8a8172;padding:52px 8px 8px;border-bottom:1px solid rgba(243,240,232,0.14)">${y}</div>\n`;
       }
       lastYear = y;
     }
     const num = ed.selfNumber
       ? `<span style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:30px;letter-spacing:-0.03em;line-height:1;color:rgba(243,240,232,0.35)">${ed.selfNumber}</span>`
       : `<span style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:1.4px;color:rgba(243,240,232,0.22)">NO&nbsp;NO.</span>`;
-    return `${divider}    <a class="email-row" href="afm/email/${ed.slug}.html" data-eyear="${y}" style="text-decoration:none;color:inherit">
+    return `${divider}    <a class="email-row afm-row" href="afm/email/${ed.slug}.html" data-wing="B" data-year="${y}" style="text-decoration:none;color:inherit">
       <span>${num}</span>
       <span><span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.3px;display:block;margin-bottom:6px">${esc(ed.title)}</span><span style="font-size:15.5px;line-height:1.5;color:rgba(243,240,232,0.62)">${esc(ed.catalog)}</span></span>
       <span style="text-align:right"><span style="display:block;font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:1.4px;color:rgba(243,240,232,0.55);margin-bottom:8px">${ed.dateDisplay}</span><span style="font-family:'Courier Prime',monospace;font-size:12.5px;letter-spacing:1.6px;color:#9a8f7d">READ →</span></span>
@@ -174,24 +174,9 @@ function emailBlock() {
     </div>
     <p style="font-size:16.5px;line-height:1.6;color:rgba(243,240,232,0.6);max-width:70ch;margin:0 0 34px">Before the newsletter moved to LinkedIn it went out as a plain email, and those sends were never numbered the way the LinkedIn run is. These ${editions.length} are what survived in the archive, keyed by the date they were sent. ${numbered} of them carry a number the original subject line assigned; the rest never had one, and we haven't invented any. Signature blocks and work links are stripped, and colleagues appear by role.</p>
 ${rows}
-    <div style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:1.8px;color:#8a8172;text-align:center;padding:40px 8px 0">RECOVERED FROM THE SENT-MAIL ARCHIVE · EDITIONS BEFORE 2021 HAVE NOT BEEN FOUND YET</div>
-    <script>
-    (function () {
-      var rows = [].slice.call(document.querySelectorAll(".email-row"));
-      var divs = [].slice.call(document.querySelectorAll(".email-year"));
-      var chips = [].slice.call(document.querySelectorAll(".afm-chip[data-eyear]"));
-      chips.forEach(function (c) {
-        c.addEventListener("click", function () {
-          var y = c.getAttribute("data-eyear");
-          chips.forEach(function (x) { x.classList.toggle("active", x === c); });
-          rows.forEach(function (r) {
-            r.style.display = (y === "all" || r.getAttribute("data-eyear") === y) ? "" : "none";
-          });
-          divs.forEach(function (d) { d.style.display = (y === "all") ? "" : "none"; });
-        });
-      });
-    })();
-    </script>`;
+    <div class="afm-empty" data-wing="B" style="display:none;font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:1.8px;color:#9a8f7d;text-align:center;padding:56px 8px">NOTHING IN THE EMAIL ERA MATCHES THAT.<br><br><span style="color:#8a8172;font-size:13px">THIS WING COVERS 2021&ndash;2024 ONLY. THE SAME SEARCH IS RUNNING OVER THE OTHER TWO WINGS ON THIS PAGE.</span></div>
+    <div style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:1.8px;color:#8a8172;text-align:center;padding:40px 8px 0">RECOVERED FROM THE SENT-MAIL ARCHIVE &middot; 2019 AND 2020 ARE STILL MISSING &middot; THE 2018 RUN IS IN <a href="#founding-era" style="color:#ffcf6b">WING C</a></div>
+`;
 }
 
 /* ── build ──────────────────────────────────────────────────────────────── */

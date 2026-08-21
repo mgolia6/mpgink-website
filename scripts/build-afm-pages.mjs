@@ -18,7 +18,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { NAV, FOOTER, PAGE_CSS, esc, inline, narrativeToHtml, weekdayName } from "./afm-chrome.mjs";
+import { FILTER_SCRIPT, NAV, FOOTER, PAGE_CSS, esc, inline, narrativeToHtml, weekdayName } from "./afm-chrome.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const manifest = JSON.parse(readFileSync(join(ROOT, "scripts", "afm-editions.json"), "utf8"));
@@ -150,12 +150,12 @@ function catalogRows() {
     let divider = "";
     if (year !== lastYear) {
       if (lastYear !== null) {
-        divider = `    <div class="catalog-year" style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:2.6px;color:#8a8172;padding:52px 8px 8px;border-bottom:1px solid rgba(243,240,232,0.14)">${year}</div>\n`;
+        divider = `    <div class="catalog-year afm-divider" data-wing="A" style="font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:2.6px;color:#8a8172;padding:52px 8px 8px;border-bottom:1px solid rgba(243,240,232,0.14)">${year}</div>\n`;
       }
       lastYear = year;
     }
     const thumb = ed.noCard ? "images/afm/thumbs/afm-banner-thumb.jpg" : `images/afm/thumbs/afm-ed${ed.num}-thumb.jpg`;
-    return `${divider}    <a class="catalog-row" href="afm/ed${ed.num}.html" data-year="${year}" data-full="${hasNarrative(ed) ? 1 : 0}" style="text-decoration:none;color:inherit">
+    return `${divider}    <a class="catalog-row afm-row" href="afm/ed${ed.num}.html" data-wing="A" data-year="${year}" data-full="${hasNarrative(ed) ? 1 : 0}" style="text-decoration:none;color:inherit">
       <span style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:900;font-size:42px;letter-spacing:-0.03em;line-height:1;color:${isNewest ? "#ffcf6b" : "rgba(243,240,232,0.35)"}">${ed.num}</span>
       <span class="catalog-thumb"><img src="${thumb}" alt="" loading="lazy" style="display:block;width:100%;height:112px;object-fit:cover;object-position:center top;border:1px solid rgba(243,240,232,0.18);border-radius:4px"></span>
       <span><span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:25px;letter-spacing:-0.3px;display:block;margin-bottom:7px">${esc(ed.title)}</span><span style="font-size:16.5px;line-height:1.5;color:rgba(243,240,232,0.68)">${esc(ed.catalog)}</span></span>
@@ -167,8 +167,8 @@ function catalogRows() {
 function catalogBlock() {
   const years = [...new Set(editions.map((ed) => ed.date.slice(0, 4)))].sort().reverse();
   const oldest = editions[0];
-  const yearChips = [`<button type="button" class="afm-chip active" data-year="all">ALL</button>`]
-    .concat(years.map((y) => `<button type="button" class="afm-chip" data-year="${y}">${y}</button>`))
+  const yearChips = [`<button type="button" class="afm-chip active" data-wing="A" data-year="all">ALL</button>`]
+    .concat(years.map((y) => `<button type="button" class="afm-chip" data-wing="A" data-year="${y}">${y}</button>`))
     .join("\n      ");
   return `    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;margin-bottom:30px">
       <div>
@@ -179,52 +179,13 @@ function catalogBlock() {
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
       ${yearChips}
       <button type="button" class="afm-chip" id="afm-filter-full">FULL READS</button>
-      <input type="search" id="afm-filter-q" placeholder="SEARCH THE ARCHIVE…" aria-label="Search the archive">
+      <input type="search" id="afm-filter-q" placeholder="SEARCH ALL THREE WINGS…" aria-label="Search the archive">
     </div>
     </div>
 ${catalogRows()}
-    <div id="afm-catalog-empty" style="display:none;font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:1.8px;color:#9a8f7d;text-align:center;padding:56px 8px">NOTHING IN THE WEB ARCHIVE MATCHES THAT.<br><br><span style="color:#8a8172;font-size:13px">THE ARCHIVE CURRENTLY REACHES BACK TO ED. ${oldest.num} (${esc(oldest.dateDisplay)}) — CLEAR A FILTER, OR IT MAY LIVE IN AN EARLIER ERA STILL BEING RESTORED.</span></div>
-    <div style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:1.8px;color:#8a8172;text-align:center;padding:40px 8px 0">THE WEB ARCHIVE REACHES BACK TO ED. ${oldest.num} · EDITIONS 1–${oldest.num - 1} LIVED IN EMAIL BEFORE LINKEDIN — RESTORATION IN PROGRESS.</div>
-    <script>
-    (function () {
-      var rows = [].slice.call(document.querySelectorAll(".catalog-row"));
-      var dividers = [].slice.call(document.querySelectorAll(".catalog-year"));
-      var chips = [].slice.call(document.querySelectorAll(".afm-chip[data-year]"));
-      var fullBtn = document.getElementById("afm-filter-full");
-      var q = document.getElementById("afm-filter-q");
-      var empty = document.getElementById("afm-catalog-empty");
-      var state = { year: "all", full: false, q: "" };
-      function apply() {
-        var any = false;
-        var filtering = state.year !== "all" || state.full || state.q;
-        rows.forEach(function (r) {
-          var ok = (state.year === "all" || r.getAttribute("data-year") === state.year)
-            && (!state.full || r.getAttribute("data-full") === "1")
-            && (!state.q || r.textContent.toLowerCase().indexOf(state.q) > -1);
-          r.style.display = ok ? "" : "none";
-          if (ok) any = true;
-        });
-        dividers.forEach(function (d) { d.style.display = filtering ? "none" : ""; });
-        empty.style.display = any ? "none" : "";
-      }
-      chips.forEach(function (c) {
-        c.addEventListener("click", function () {
-          state.year = c.getAttribute("data-year");
-          chips.forEach(function (x) { x.classList.toggle("active", x === c); });
-          apply();
-        });
-      });
-      fullBtn.addEventListener("click", function () {
-        state.full = !state.full;
-        fullBtn.classList.toggle("active", state.full);
-        apply();
-      });
-      q.addEventListener("input", function () {
-        state.q = q.value.trim().toLowerCase();
-        apply();
-      });
-    })();
-    </script>`;
+    <div class="afm-empty" data-wing="A" style="display:none;font-family:'Courier Prime',monospace;font-size:14px;letter-spacing:1.8px;color:#9a8f7d;text-align:center;padding:56px 8px">NOTHING IN THE NUMBERED CATALOG MATCHES THAT.<br><br><span style="color:#8a8172;font-size:13px">THIS WING STARTS AT ED. ${oldest.num} (${esc(oldest.dateDisplay)}) — KEEP SCROLLING, THE SAME SEARCH IS RUNNING OVER THE EMAIL ERA AND THE FOUNDING ERA BELOW.</span></div>
+    <div style="font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:1.8px;color:#8a8172;text-align:center;padding:40px 8px 0">THE NUMBERED CATALOG REACHES BACK TO ED. ${oldest.num} · EDITIONS 1–${oldest.num - 1} LIVED IN EMAIL BEFORE LINKEDIN — WHAT SURVIVED IS IN <a href="#email-era" style="color:#ffcf6b">WING B</a> AND <a href="#founding-era" style="color:#ffcf6b">WING C</a> BELOW.</div>
+${FILTER_SCRIPT}`;
 }
 
 /* ── build ──────────────────────────────────────────────────────────────── */
