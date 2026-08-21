@@ -140,6 +140,9 @@ const PAGE_CSS = `<style>
   .afm-paper-body strong { color: #163b5c; }
   .afm-ed-head { font-family: Georgia, 'Times New Roman', serif; font-weight: bold; font-size: 24px; color: #163b5c; margin: 0 0 12px; }
   .afm-ed-teaser { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 16px; color: #6a7a8a; line-height: 1.62; border-left: 3px solid #e8b84a; padding-left: 14px; margin: 0 0 22px; }
+  /* A reader landing cold on an April Fools edition must not read it as reporting. */
+  .afm-ed-satire { font-family: Georgia, 'Times New Roman', serif; font-size: 15.5px; line-height: 1.55; color: #7a3b12; background: #fdf0e4; border: 1px solid #e0a877; border-radius: 4px; padding: 13px 16px; margin: 0 0 22px; }
+  .afm-ed-satire strong { color: #7a3b12; }
   .afm-card-wrap { padding: 4px 48px 34px; }
   .afm-card-wrap img { display: block; width: 100%; height: auto; border: 1px solid #e4dabf; border-radius: 4px; }
   .afm-paper-foot { background: #163b5c; text-align: center; padding: 24px 32px 22px; }
@@ -229,6 +232,7 @@ ${NAV}
     <img src="../images/afm/afm-banner.jpg" alt="Aloha Friday Motivation" style="display:block;width:100%;height:auto">
     <div class="afm-paper-body">
       <div class="afm-ed-head">AFM | ${esc(ed.title)} | #${ed.num}</div>
+${ed.satire ? `      <div class="afm-ed-satire"><strong>SATIRE — this edition is a joke.</strong> ${esc(ed.satireNote || "It was written as an April Fools piece; the people, quotes, and sources in it are invented. Nothing here is reporting.")}</div>` : ""}
 ${ed.teaser ? `      <div class="afm-ed-teaser">${esc(ed.teaser)}</div>` : ""}
 ${paperInner}
     </div>
