@@ -6,18 +6,25 @@ generated from `scripts/afm-editions.json` + `afm/content/ed###.md` by
 `scripts/build-afm-pages.mjs` (also generates newsletter.html's catalog rows —
 never hand-edit either). 7 card JPGs rendered for 308–314. check-site PASS;
 headless-verified desktop+375px. Weekly flow = AFM directions Step 11.
-- [ ] **Merge + Matthew's browser check** of mpgink.com/afm/ed316.html, the
-      catalog links, and one older page — nothing live-verified from sandbox
-- [ ] **Deep backfill arc (Matthew, 2026-08-21):** Google Drive "Motivation"
-      folder (id 1YiV4u7DwRkA0S_Z6_keM0mdke6PKaL6g) holds the pre-repo era:
-      `Newsletters/` narrative docx for eds 262/270/279/290/291/304/305/307,
-      DM279–DM305 card PNGs at folder root, ed306 HTML + ed306/307 screenshots,
-      and `Archive/` with 30+ .eml originals from the pre-LinkedIn "Half Rider"
-      team-email era. Matthew also has all 68 LinkedIn edition links. The
-      generator handles it (content file + manifest entry per edition;
-      LinkedIn-only editions can start card-only like ed313). Needs Matthew's
-      curation: numbering/dating the unnumbered emails, which get pages.
+- [x] Merge (arc 1) — ✅ 2026-08-21, Pages run green on 5798ae2
+- [ ] **Matthew's browser check** of the live archive post-backfill-merge:
+      /afm/ed252.html, /newsletter.html (65-row catalog), /afm/ed290.html
+      (banner-fallback page) — nothing live-verified from sandbox
+- [x] **Deep backfill, LinkedIn era (252–316)** — ✅ 2026-08-21 arc 2, same
+      session: 65 pages live in the repo, dates from Day at a Glance v2.xlsx
+      tabs + card faces, titles/URLs from the Claude-in-Chrome scraped CSV,
+      8 narratives from Drive docx, 55 cards from DM PNGs/screenshots.
+      Commit c4e9204. Provenance: AFM repo AFM_EditionRegistry_2026-08-21.csv.
+- [ ] **Deep backfill, remaining eras (future arc — needs Matthew's curation):**
+      eds 1–60 ("Half Rider" email era; registry has dates, 30+ .emls in Drive
+      `Archive/`), eds 61–242 (unmapped, no per-edition records found yet).
       Own the arc — don't bolt onto a Friday session.
+- [ ] **Card-only pages → full narratives** when Claude-in-Chrome's full-copy
+      file lands (all 65 editions' text): add content .md + drop cardOnly in
+      the manifest, rebuild. 48 pages upgradeable.
+- [ ] **Ed268 numbering conflict — Matthew's call:** card/tab say 12/13/24,
+      LinkedIn "End of Year Edition #268" is 12/28/24. LinkedIn URL held back
+      from the archive page until resolved.
 
 ## 🖼 2026 "Gallery at Night" redesign (Quad Design handoff) — ✅ LIVE 2026-08-06
 All 12 pages + style.css + mobile version rebuilt from
