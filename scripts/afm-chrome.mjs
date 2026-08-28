@@ -51,6 +51,12 @@ export function narrativeToHtml(md) {
     if (line.startsWith("**Teaser:**")) continue;              // manifest carries it
     if (/^\[MICROCAST LINK/.test(line)) continue;              // Matthew-embed placeholder
     if (/^\*\[Aloha Friday Motivation\]/.test(line)) continue; // md sign-off — page renders its own
+    // "## Heading" -> a real section heading. Added 2026-08-28 for the card-only
+    // upgrades: several older editions (Ed287 is the first) are written in
+    // sections rather than continuous prose, and flattening a heading into a
+    // paragraph loses the structure the piece was written with.
+    const h2 = line.match(/^##\s+(.*)$/);
+    if (h2) { out.push(`<h2>${inline(h2[1])}</h2>`); continue; }
     out.push(`<p>${inline(line)}</p>`);
   }
   return out.join("\n");
@@ -124,6 +130,10 @@ export const PAGE_CSS = `<style>
   .afm-paper { max-width: 720px; margin: 0 auto; background: #fffdf8; color: #2c2a24; box-shadow: 0 4px 10px rgba(0,0,0,0.35), 0 30px 80px rgba(0,0,0,0.5); border-radius: 6px; overflow: hidden; }
   .afm-paper-body { padding: 30px 48px 10px; font-family: Georgia, 'Times New Roman', serif; }
   .afm-paper-body p { margin: 0 0 19px; font-size: 18px; line-height: 1.72; }
+  .afm-paper-body h2 { margin: 32px 0 14px; font-family: 'Archivo', sans-serif; font-stretch: 88%;
+                       font-weight: 700; font-size: 21px; line-height: 1.25; color: #17130c;
+                       letter-spacing: -0.1px; }
+  .afm-paper-body h2:first-child { margin-top: 0; }
   .afm-paper-body a { color: #a9791f; text-decoration: underline; }
   .afm-paper-body strong { color: #163b5c; }
   .afm-ed-head { font-family: Georgia, 'Times New Roman', serif; font-weight: bold; font-size: 24px; color: #163b5c; margin: 0 0 12px; }
