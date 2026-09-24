@@ -1,5 +1,26 @@
 # mpgink.com — Backlog / Overhaul Roadmap
 
+## 🚀 One Percent launch copy — ✅ SHIPPED 2026-09-18 (`ab0673d`, merged to main)
+The app went live 12:18 UTC and the site still said "LAUNCHING END OF AUGUST".
+Fixed on `index.html` (status chip → LIVE SEPT 18) and `one-percent.html`
+(meta/OG launch-framed, hero chip NOW LIVE, both CTAs → onepercent.mpgink.com
+with utm tags, sign-in → /login, a terms line under the placard, the `#join`
+block reframed from waitlist to the AFM letter). `#join` and the
+`one-percent-page` source tag kept on purpose — the app's daily reminder email
+lands there and the subscribe endpoint attributes by that tag. Lesson count
+deliberately left off the page; a typed number rots. Site check #13 + Pages #108
+green; headless 0px overflow at 1280 and 375.
+- [ ] **Matthew: open /one-percent.html and tap START TODAY on a phone.** Nothing
+      here is live-verified — the sandbox proxy blocks mpgink.com.
+- [x] OG description launch-framed — closes the old "product-framed, not
+      early-access framed" item from the 08-21 state.
+
+## ⚠ PORT THE HARD-WRAP GUARD — highest-value open fix in this repo
+`scripts/build-afm-pages.mjs` splits paragraphs on newlines, so a hard-wrapped
+narrative shatters an archive page **silently**. The AFM repo now refuses at the
+email step; this repo does not. **It already bit once** — ed318 was pushed broken
+on 2026-09-11 and only the email build exposed it.
+
 ## 📰 AFM web archive — ✅ SHIPPED 2026-08-21 (branch `claude/afm-archive-website-t5cjkn`)
 mpgink.com now carries the editions themselves — **221 pages in three wings**:
 A `afm/ed252–316.html` (65, LinkedIn era) · B `afm/email/` (96, 2021–2024) ·
