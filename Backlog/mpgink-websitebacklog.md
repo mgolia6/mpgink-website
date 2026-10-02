@@ -15,7 +15,17 @@ green; headless 0px overflow at 1280 and 375.
 - [x] OG description launch-framed — closes the old "product-framed, not
       early-access framed" item from the 08-21 state.
 
+## 📸 AFM Ed319 + photo support — ✅ SHIPPED 2026-10-02 (`5fe4522`, on main)
+- [ ] **Matthew: open https://mpgink.com/afm/ed319.html** — five photos after the
+  cardboard-fleet and costume lines; two across on desktop, stacked on a phone.
+- [ ] **Regenerate the 96 Wing B pages** in their own commit — they predate the 08-28 `h2`
+  CSS; `build-afm-email-pages.mjs` rewrites every one. Harmless, but the outputs are stale
+  against their generator. Run check-site after.
+
 ## ⚠ PORT THE HARD-WRAP GUARD — highest-value open fix in this repo
+**When porting (2026-10-02):** the AFM email builder's guard rejected every standard edition
+until it learned to exempt the 🌺 greeting/sign-off lines (`Happy Aloha Friday`, `Mahalo Nui`)
+and `![caption](url)` photo lines. Port those exemptions with it.
 `scripts/build-afm-pages.mjs` splits paragraphs on newlines, so a hard-wrapped
 narrative shatters an archive page **silently**. The AFM repo now refuses at the
 email step; this repo does not. **It already bit once** — ed318 was pushed broken

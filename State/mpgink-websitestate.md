@@ -1,5 +1,23 @@
 # mpgink.com — State Snapshot
-**Last updated: 2026-09-24** (regenerated at the session-010 wrap; supersedes the
+**Last updated: 2026-10-02** (AFM Ed319 + photo support, AFM session 010). Prior snapshot
+text below was regenerated 2026-09-24 and is carried forward where still true.
+
+## 2026-10-02 — AFM Ed319 "Pure Imagination" + narratives can carry photos
+- `main` at **`5fe4522`**. `check-site.mjs` PASS (**239 pages / 8,192 refs**);
+  `check-filter-wiring.mjs` PASS. Wing A is now **68** (ed252…ed319); archive **224 editions**.
+- `afm/ed319.html`, card `images/afm/afm-ed319-card.jpg`, thumb, manifest row; Ed318's footer
+  now links forward to 319.
+- **New: `![caption](url)` photo lines** in a narrative render as a wrapping photo group
+  (`afm-chrome.mjs` `IMG_LINE`/`photoGroup`; mpgink.com URLs rewritten relative so
+  check-site verifies them). Mirrors the AFM repo's `build-afm-email.py`, changed in the same
+  session — the narrative stays the one source for both. `narrativeToHtml(md, prefix)` now
+  takes a depth prefix; `build-afm-email-pages.mjs` passes `"../../"`.
+- Ed319's five build photos at `images/afm/ed319/` — 1200px, metadata stripped.
+- **Found, not fixed:** rerunning `build-afm-email-pages.mjs` rewrites all 96 Wing B pages —
+  they predate the 2026-08-28 `h2` CSS in the shared chrome. Harmless drift; reverted to keep
+  this change scoped. See backlog.
+
+**Previously (2026-09-24):** (regenerated at the session-010 wrap; supersedes the
 2026-08-21 arc-4 snapshot, which was 34 days and 11 commits stale and still claimed
 236 pages / 221 editions.)
 
@@ -49,7 +67,7 @@ bar** — `one-percent.html` and `index.html` were both re-verified headless at 
 white, deliberately distinct from the gallery chrome.
 
 ## The AFM archive
-- **Wing A** `afm/ed252.html` … `afm/ed318.html` (67). 46 remain card-only. Ed290 and Ed318
+- **Wing A** `afm/ed252.html` … `afm/ed319.html` (68). 46 remain card-only. Ed290 and Ed318
   use `noCard` → AFM banner fallback. **Ed274 renders a SATIRE banner.** Ed268's LinkedIn URL
   is deliberately unattached pending Matthew's numbering call.
 - **Wing B** `afm/email/<date-slug>.html` (96, 2021–2024), published date-first from 100
