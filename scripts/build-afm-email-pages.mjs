@@ -103,7 +103,7 @@ ${NAV("../../")}
     <div class="afm-paper-body">
       <div class="afm-ed-head">AFM | ${esc(ed.title)} | ${ed.dateDisplay}</div>
       <div class="afm-ed-provenance">${ed.fragment ? "<strong>Only the greeting survives.</strong> The archived copy of this send contains no body text — what you see below is all of it. " : ""}${PROVENANCE}${ed.recovered ? ` ${esc(ed.recovered)}` : ""}${ed.numberNote ? ` ${esc(ed.numberNote)}` : ""}</div>
-${narrativeToHtml(readFileSync(md, "utf8"))}
+${narrativeToHtml(readFileSync(md, "utf8"), "../../")}
     </div>
     <div class="afm-paper-foot">
       <div class="rule"></div>

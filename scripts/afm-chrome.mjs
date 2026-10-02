@@ -41,11 +41,28 @@ export function inline(s) {
   h = h.replace(/\*([^*]+)\*/g, "<em>$1</em>");
   return h;
 }
-export function narrativeToHtml(md) {
+// A line of the form ![caption](url) is a PHOTO (added AFM Ed319, 2026-10-02, the
+// same day the email builder learned it — build-afm-email.py IMG_LINE mirrors this
+// regex). Consecutive photo lines form one wrapping group. mpgink.com URLs are
+// rewritten relative so check-site verifies the file exists in the repo.
+const IMG_LINE = /^!\[([^\]]*)\]\((https?:\/\/\S+)\)$/;
+function photoGroup(items, p) {
+  const figs = items.map(([cap, url]) => {
+    const src = url.replace(/^https?:\/\/(www\.)?mpgink\.com\//, p);
+    return `<figure style="flex:1 1 240px;margin:0;min-width:0"><img src="${src}" alt="${esc(cap)}" loading="lazy" style="display:block;width:100%;height:auto"><figcaption style="font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:0.5px;line-height:1.4;color:#7d7466;margin-top:6px">${esc(cap)}</figcaption></figure>`;
+  });
+  return `<div class="afm-photos" style="display:flex;flex-wrap:wrap;gap:14px;margin:4px 0 24px">${figs.join("")}</div>`;
+}
+export function narrativeToHtml(md, p = "../") {
   const out = [];
+  let photos = [];
+  const flush = () => { if (photos.length) { out.push(photoGroup(photos, p)); photos = []; } };
   for (const raw of md.split(/\r?\n/)) {
     const line = raw.trim();
     if (!line) continue;
+    const img = line.match(IMG_LINE);
+    if (img) { photos.push([img[1], img[2]]); continue; }
+    flush();
     if (line.startsWith("# ")) continue;                       // H1 — page has its own
     if (line === "---") continue;                              // hr plumbing
     if (line.startsWith("**Teaser:**")) continue;              // manifest carries it
@@ -59,6 +76,7 @@ export function narrativeToHtml(md) {
     if (h2) { out.push(`<h2>${inline(h2[1])}</h2>`); continue; }
     out.push(`<p>${inline(line)}</p>`);
   }
+  flush();
   return out.join("\n");
 }
 
