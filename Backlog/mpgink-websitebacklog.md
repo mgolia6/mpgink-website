@@ -1,5 +1,24 @@
 # mpgink.com — Backlog / Overhaul Roadmap
 
+## 👕 mpgink hoodie sleeve: sponsor stack + PIT PASS QR (session 011, 2026-11-22, IN PROGRESS)
+Listing: mpgink Graffiti Logo Hooded Tee (Etsy 4483243244). v1 sleeve art built and sent to
+Matthew: MPGINK.COM spine + packed decal stack (m, 13·16·7, Phreezer, One Percent, Job Odyssey,
+Metta, AFM, PIT PASS QR, lo-fi strip, Modge Podge strip). 3.5×13in @300dpi transparent PNG.
+QR (v3, EC level H) → `https://mpgink.com/pit`, decoded 10/10 in simulated print/phone tests.
+Not yet a scan of real fabric. Art and build script live only in the session scratchpad: commit them to the repo once approved.
+- [ ] **BLOCKER: `/pit` does not exist yet (404).** Must be live before anything prints.
+      Proposed: redirect to `signup.html?src=hoodie-pit` (signup already reads `?src=`). Matthew's call.
+- [ ] Confirm the hooded tee is long-sleeve + get the provider's real sleeve print area.
+- [ ] Matthew approves new copy: PIT PASS, EST. 2018, M·P·G key, "1% SMARTER · EVERY DAY".
+- [ ] Sleeve print per-unit cost: unmeasured. Check before holding $42.99.
+- [ ] Higher-res m mark if one exists (current source is the 653px favicon, ~1.5× upscaled).
+- [ ] Etsy: listing copy draft (Claude) → upload + new mockups (Matthew; no Etsy connector).
+
+## ⚠ Process gap: AFM close-outs skip this repo's records (found 2026-11-22)
+Ed320 (10-09) and Ed321 (11-06) were pushed here from AFM sessions with no Logs/ entry and
+no State/ update. Records went 35 days stale. Fix belongs in the AFM skill's close-out:
+when it pushes an edition here, it also appends this repo's log + bumps State counts.
+
 ## 🚀 One Percent launch copy — ✅ SHIPPED 2026-09-18 (`ab0673d`, merged to main)
 The app went live 12:18 UTC and the site still said "LAUNCHING END OF AUGUST".
 Fixed on `index.html` (status chip → LIVE SEPT 18) and `one-percent.html`

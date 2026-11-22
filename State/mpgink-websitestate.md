@@ -1,6 +1,14 @@
 # mpgink.com — State Snapshot
-**Last updated: 2026-10-02** (AFM Ed319 + photo support, AFM session 010). Prior snapshot
-text below was regenerated 2026-09-24 and is carried forward where still true.
+**Last updated: 2026-11-22** (session 011 start — catch-up reconciliation from git log).
+
+## 2026-11-22 — reconciled against git (records were 35 days / 3 commits stale)
+- `main` at **`82d8642`** (2026-11-06). Site check #18 + Pages #115 green.
+- **Measured today:** `check-site.mjs` PASS (**241 pages / 8,264 refs**);
+  `check-filter-wiring.mjs` PASS. Wing A **70** (ed252…ed321), Wing B 96, Wing C 60 —
+  archive **226 editions**.
+- Since the last snapshot: **Ed320 "Step Into the Freezer"** (10-09) and **Ed321 "Songs Are
+  Like Tattoos"** (11-06), both pushed by AFM sessions that skipped this repo's records.
+- Everything below is from 2026-10-02 and carried forward; edition counts above supersede it.
 
 ## 2026-10-02 — AFM Ed319 "Pure Imagination" + narratives can carry photos
 - `main` at **`5fe4522`**. `check-site.mjs` PASS (**239 pages / 8,192 refs**);
