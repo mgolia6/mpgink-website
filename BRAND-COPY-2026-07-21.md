@@ -6,6 +6,8 @@ THIS file first. Note: this repo is public — everything here is public-safe.
 
 ## Positioning
 - **mpgink** — a creative collective founded by Matthew Golia. Always lowercase.
+  **(Matthew, 2026-11-22): never ad-lib the mpgink wordmark.** No improvised fonts or styling.
+  Lowercase always, and only an approved mark. The mark itself is in progress (see Backlog).
 - The name is the operating system: **m**ission · **p**assion · **g**ratitude.
 - Honest frame: one founder + an AI build partner, run like a full product org —
   one operating standard, automated quality gates and daily canaries, a

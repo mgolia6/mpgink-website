@@ -1,117 +1,80 @@
-# mpgink.com — State Snapshot
-**Last updated: 2026-11-22** (session 011 start — catch-up reconciliation from git log).
-
-## 2026-11-22 — reconciled against git (records were 35 days / 3 commits stale)
-- `main` at **`82d8642`** (2026-11-06). Site check #18 + Pages #115 green.
-- **Measured today:** `check-site.mjs` PASS (**241 pages / 8,264 refs**);
-  `check-filter-wiring.mjs` PASS. Wing A **70** (ed252…ed321), Wing B 96, Wing C 60 —
-  archive **226 editions**.
-- Since the last snapshot: **Ed320 "Step Into the Freezer"** (10-09) and **Ed321 "Songs Are
-  Like Tattoos"** (11-06), both pushed by AFM sessions that skipped this repo's records.
-- Everything below is from 2026-10-02 and carried forward; edition counts above supersede it.
-
-## 2026-10-02 — AFM Ed319 "Pure Imagination" + narratives can carry photos
-- `main` at **`5fe4522`**. `check-site.mjs` PASS (**239 pages / 8,192 refs**);
-  `check-filter-wiring.mjs` PASS. Wing A is now **68** (ed252…ed319); archive **224 editions**.
-- `afm/ed319.html`, card `images/afm/afm-ed319-card.jpg`, thumb, manifest row; Ed318's footer
-  now links forward to 319.
-- **New: `![caption](url)` photo lines** in a narrative render as a wrapping photo group
-  (`afm-chrome.mjs` `IMG_LINE`/`photoGroup`; mpgink.com URLs rewritten relative so
-  check-site verifies them). Mirrors the AFM repo's `build-afm-email.py`, changed in the same
-  session — the narrative stays the one source for both. `narrativeToHtml(md, prefix)` now
-  takes a depth prefix; `build-afm-email-pages.mjs` passes `"../../"`.
-- Ed319's five build photos at `images/afm/ed319/` — 1200px, metadata stripped.
-- **Found, not fixed:** rerunning `build-afm-email-pages.mjs` rewrites all 96 Wing B pages —
-  they predate the 2026-08-28 `h2` CSS in the shared chrome. Harmless drift; reverted to keep
-  this change scoped. See backlog.
-
-**Previously (2026-09-24):** (regenerated at the session-010 wrap; supersedes the
-2026-08-21 arc-4 snapshot, which was 34 days and 11 commits stale and still claimed
-236 pages / 221 editions.)
+# mpgink.com: State Snapshot
+**Last updated: 2026-11-24**, regenerated at the session 011 wrap (brand mark + merch arc).
 
 ## Current status
-The 2026 "Gallery at Night" redesign is LIVE, with the 08-07 list-ingress arc on top.
-`main` is at **`ab0673d`** — Site check run #13 and Pages run #108 both green.
+- **Live site:** `main` at **`82d8642`** (2026-11-06, AFM Ed321). Site check #18 + Pages #115 green.
+  Nothing from session 011 is on `main`.
+- **Session branch `claude/vigilant-darwin-1pxjh7`:** records catch-up (`72898d3`) + this wrap, which adds
+  `merch/` (print assets, not linked from any page) and records. **Not merged.** Merging is safe: no
+  page changed, and `merch/` would only be served at mpgink.com/merch/... if someone had the path.
+- **Measured at this wrap:** `check-site.mjs` PASS, **241 HTML pages / 8,264 local refs**;
+  `check-filter-wiring.mjs` PASS. AFM archive **226 editions**: Wing A **70** (ed252–ed321),
+  Wing B 96, Wing C 60.
 
-**Measured at this wrap, not typed:** `check-site.mjs` PASS at **238 HTML pages / 8,151
-local references**; `check-filter-wiring.mjs` PASS. AFM archive is **223 editions across
-three wings** — Wing A **67**, Wing B **96**, Wing C **60**.
+## What changed since the last snapshot (session 011, 2026-11-22 → 11-24)
+- **Records reconciled.** They were 35 days / 3 commits stale; Ed320 and Ed321 had been pushed by AFM
+  sessions that skipped this repo's records. Logged as a process gap in the backlog.
+- **`merch/brand-stack/`:** each brand's real favicon, URL and a QR to it, stacked (mpgink, Phreezer,
+  Job Odyssey, One Percent). Light, dark, and dark-with-QR-backing versions, transparent. Every QR
+  decodes to exactly its own URL in simulation. **Not yet scanned from a real print.** Minimum print
+  width ~4in. Generator + QR check live with the assets; see `merch/README.md`.
+- **`merch/drawn-mark/`:** Matthew's hand-drawn mpgink (11-24 phone sketch), traced to vector as drawn.
+  Inspiration, not an approved logo.
+- **The mpgink mark is still open.** Many directions were tried and rejected; the list is in the 11-22
+  log ("What was ruled out"). The next step is Matthew's own drawing; Claude traces it, not redesigns it.
+- **Brand canon amended** (BRAND-COPY): never ad-lib the mpgink wordmark. Lowercase, approved mark only.
+- Phish_Scorecard was attached read-only to pull Phreezer's icon (sparse checkout, no changes).
 
-## What changed since the last snapshot
-
-### One Percent launch copy (2026-09-18) — the newest work
-One Percent went live 2026-09-18 ~12:18 UTC and this site still said otherwise. Shipped:
-- `index.html` — the One Percent card chip, "LAUNCHING END OF AUGUST" → **"LIVE SEPT 18"**.
-- `one-percent.html` — meta/OG/Twitter descriptions launch-framed (closes the old
-  "OG still product-framed" item); hero chip **"NOW LIVE — SEPT 18, 2026"**; both CTAs
-  → **START TODAY** at `onepercent.mpgink.com` with `utm_source=mpgink&utm_campaign=one-percent-page`;
-  sign-in → `/login`; a terms line under the placard (free to start · 14 days of Compound
-  free, no card · then $8/mo or $72/yr · $1 of every membership to the Mockingbird
-  Foundation); the `#join` block reframed from waitlist to the AFM letter.
-- **`#join` and the `one-percent-page` source tag were deliberately kept** — the app's daily
-  reminder email lands on `one-percent.html#join` and the subscribe endpoint attributes by
-  that tag. Breaking either would silently kill attribution.
-- **The lesson count is deliberately NOT on the page.** A typed number on a static page rots
-  the day the catalogue grows (kit-single-source; the "103 entries" lesson).
-- Swept every page for early-access / opening-soon / launching / beta / waitlist wording.
-  Only those two files carried it. Remaining "coming soon" hits are Metta, still true.
-
-### AFM archive: Ed317 and Ed318 (2026-08-28, 2026-09-11)
-- **Ed317 "Safe at Home"** — first edition on the Gallery at Night card system. Ed287
-  upgraded card-only → full narrative and cross-linked from Ed317.
-- **Ed318 "11 September"** — the archive's **first cardless edition**. `"noCard": true` was
-  already supported; no generator change was needed. Its page was pushed with shattered
-  paragraphs (the source narrative was hard-wrapped) and fixed the same night.
-
-## The design system (style.css — Gallery at Night)
+## The design system (style.css, Gallery at Night)
 Wall `#0f0c07` · ink `#17130c` · cream `#f3f0e8` · warm grey `#9a8f7d` ·
 accent `#ff5a1f`/`#ff6b35` · AFM gold `#ffcf6b` · Metta purple `#a99bf5`.
 Archivo (variable, wdth 62–125) display + Courier Prime mono microcopy; Phreezer panels
 Orbitron/Share Tech Mono; JO/OP panels DM Sans/DM Mono. Film grain, scroll reveals,
 framed-canvas art, hairline placards. Responsive collapses at 1080/980/700px + a MENU/CLOSE
-toggle below 840px (shared `site.js`); **zero horizontal overflow at 375px is the standing
-bar** — `one-percent.html` and `index.html` were both re-verified headless at 1280px and
-375px this session, 0px overflow. Inside an AFM edition page the "paper" is Georgia serif on
-white, deliberately distinct from the gallery chrome.
+toggle below 840px (shared `site.js`); **zero horizontal overflow at 375px is the standing bar**.
+Inside an AFM edition page the "paper" is Georgia serif on white, deliberately distinct.
+Brand app colours (sampled this session): Phreezer cyan `#39d4cc`, One Percent green `#5dca9a`
+(icon `#3DE88A`), Job Odyssey navy `#2a3550` / gold `#e8b84b`.
 
 ## The AFM archive
-- **Wing A** `afm/ed252.html` … `afm/ed319.html` (68). 46 remain card-only. Ed290 and Ed318
-  use `noCard` → AFM banner fallback. **Ed274 renders a SATIRE banner.** Ed268's LinkedIn URL
-  is deliberately unattached pending Matthew's numbering call.
-- **Wing B** `afm/email/<date-slug>.html` (96, 2021–2024), published date-first from 100
-  `.eml` files. Provenance banner on every page.
-- **Wing C** `afm/founding/ed001.html` … `ed060.html` (60, Aug–Dec 2018). Cards, not prose —
-  none is invented. 38 of 60 make no born/died year claim; 43 have an answer with no riddle.
-- **Generators are the single source — never hand-edit an output.** `afm-chrome.mjs` (shared
-  chrome + `FILTER_SCRIPT`) and the three `build-afm-*-pages.mjs`, each generating its pages
-  AND its block in `newsletter.html`. One search box spans all three wings, guarded by
-  `check-filter-wiring.mjs`.
+- **Wing A** `afm/ed252.html` … `afm/ed321.html` (70). **48 are card-only** (measured from
+  `scripts/afm-editions.json` at this wrap; the previous snapshot's "46" was wrong). Ed290 and Ed318
+  use `noCard` → AFM banner fallback. **Ed274 renders a SATIRE banner.** Ed268's LinkedIn URL is
+  deliberately unattached pending Matthew's numbering call.
+- **Wing B** `afm/email/<date-slug>.html` (96, 2021–2024), from 100 `.eml` files. Provenance banner on every page.
+- **Wing C** `afm/founding/ed001.html` … `ed060.html` (60, Aug–Dec 2018). Cards, not prose. None is invented.
+- **Generators are the single source. Never hand-edit an output.** `afm-chrome.mjs` (shared chrome
+  + `FILTER_SCRIPT`) and the three `build-afm-*-pages.mjs`, each generating its pages AND its block in
+  `newsletter.html`. One search box spans all three wings, guarded by `check-filter-wiring.mjs`.
+- Narratives can carry photos: `![caption](url)` lines → wrapping photo group (since 2026-10-02).
 
 ## Build checks
-`KIT_BUILD_CHECK_CMD="node scripts/check-site.mjs && node scripts/check-filter-wiring.mjs"`,
-both also enforced in `.github/workflows/build-check.yml`. Both PASS as of this wrap.
+`KIT_BUILD_CHECK_CMD="node scripts/check-site.mjs && node scripts/check-filter-wiring.mjs"`, both
+enforced in `.github/workflows/build-check.yml`. Both PASS at this wrap. `KIT_RECORD_CHECKS` is not
+configured in this repo, so no automated records audit runs. These numbers were measured by hand.
 
 ## Standing rules
 Mocks before building · no copy without Matthew's review · public repo, nothing sensitive ·
 Metta name+mark only · no user counts · deploy = merge to main (Pages builds main only) ·
-build check must PASS before commit · AFM archive: edit the manifest, run the generator.
+build check must PASS before commit · AFM archive: edit the manifest, run the generator ·
+**mpgink is always lowercase and never set in an improvised font**.
 
 ## Open issues
+- **Brand mark + merch arc**: see Backlog "🧢". Brand stack needs placement + a real print scan;
+  the mark waits on Matthew's drawing; the Etsy listing itself is untouched.
 - **⚠ The hard-wrap guard is still not ported.** `build-afm-pages.mjs` splits paragraphs on
-  newlines exactly as the email builder did, so a hard-wrapped narrative still shatters an
-  archive page **silently**. The AFM repo refuses; this repo does not. **It has already bitten
-  once** (ed318, 2026-09-11). Highest-value fix in this repo.
-- **Matthew's browser check of the live site** — nothing here is live-verified; the sandbox
-  proxy blocks mpgink.com. Outstanding: `/one-percent.html` and a tap on START TODAY (new),
-  plus the carried `/newsletter.html` all-wings check, `/afm/founding/ed001.html`,
-  `/afm/ed290.html`, `/afm/ed317.html`, `/afm/ed287.html`.
-- **The real-phone mobile pass** — promised across four sessions, still outstanding.
-- **Editions 243–251** — dated in the Day at a Glance workbook, not yet built. The only
-  recoverable stretch still missing.
-- **Editions 61–242** — no records found in any source. Not a build gap, an archive gap.
-- **46 Wing A pages are still card-only** — upgradeable when the full-copy crawl lands.
-- **Ed268 numbering conflict** (card/tab 12/13/24 vs LinkedIn 12/28/24) — Matthew's call.
+  newlines, so a hard-wrapped narrative shatters an archive page **silently**. It already bit once
+  (ed318, 2026-09-11). Highest-value code fix in this repo.
+- **AFM close-outs skip this repo's records.** Two in a row (Ed320, Ed321). The fix belongs in the AFM skill.
+- **Matthew's browser check of the live site.** Nothing here is live-verified; the sandbox proxy blocks
+  mpgink.com. Outstanding: `/one-percent.html` + START TODAY, `/newsletter.html` all wings,
+  `/afm/founding/ed001.html`, `/afm/ed290.html`, `/afm/ed317.html`, `/afm/ed287.html`, `/afm/ed319.html`.
+- **The real-phone mobile pass.** Promised across four sessions, still outstanding.
+- **Regenerate the 96 Wing B pages** (stale against the 08-28 `h2` CSS). Harmless drift, own commit.
+- **Editions 243–251.** Dated in the Day at a Glance workbook, not yet built.
+- **Editions 61–242.** No records in any source. An archive gap, not a build gap.
+- **48 Wing A pages card-only.** Upgradeable when the full-copy crawl lands.
+- **Ed268 numbering conflict** (card/tab 12/13/24 vs LinkedIn 12/28/24). Matthew's call.
 - Collateral canvases (~3MB each) uncompressed; shop/ai-usage OG images still the favicon.
 - Phreezer Signal gallery: 4 screenshots waiting on Matthew.
-- Watch Pages runs after each merge — three builds died unrunnered in GitHub's queue on
-  08-06. A green run means deployed; no run means not deployed.
+- Watch Pages runs after each merge. A green run means deployed; no run means not deployed.

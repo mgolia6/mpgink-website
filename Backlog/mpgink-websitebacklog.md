@@ -1,18 +1,30 @@
 # mpgink.com — Backlog / Overhaul Roadmap
 
-## 👕 mpgink hoodie sleeve: sponsor stack + PIT PASS QR (session 011, 2026-11-22, IN PROGRESS)
-Listing: mpgink Graffiti Logo Hooded Tee (Etsy 4483243244). v1 sleeve art built and sent to
-Matthew: MPGINK.COM spine + packed decal stack (m, 13·16·7, Phreezer, One Percent, Job Odyssey,
-Metta, AFM, PIT PASS QR, lo-fi strip, Modge Podge strip). 3.5×13in @300dpi transparent PNG.
-QR (v3, EC level H) → `https://mpgink.com/pit`, decoded 10/10 in simulated print/phone tests.
-Not yet a scan of real fabric. Art and build script live only in the session scratchpad: commit them to the repo once approved.
-- [ ] **BLOCKER: `/pit` does not exist yet (404).** Must be live before anything prints.
-      Proposed: redirect to `signup.html?src=hoodie-pit` (signup already reads `?src=`). Matthew's call.
-- [ ] Confirm the hooded tee is long-sleeve + get the provider's real sleeve print area.
-- [ ] Matthew approves new copy: PIT PASS, EST. 2018, M·P·G key, "1% SMARTER · EVERY DAY".
-- [ ] Sleeve print per-unit cost: unmeasured. Check before holding $42.99.
-- [ ] Higher-res m mark if one exists (current source is the 653px favicon, ~1.5× upscaled).
-- [ ] Etsy: listing copy draft (Claude) → upload + new mockups (Matthew; no Etsy connector).
+## 🧢 Brand mark + merch arc (session 011, 2026-11-22 → 11-24) — IN PROGRESS
+Started as "update the mpgink hoodie Etsy listing with a stealth QR". Became two tracks. The
+Etsy listing itself is **not touched yet** (no Etsy connector; listing changes are Matthew's).
+
+**Track 1: brand stack. Built, not printed.** `merch/brand-stack/`: each brand's real favicon,
+URL and QR (mpgink, Phreezer, Job Odyssey, One Percent), stacked. Light, dark, and dark-with-QR-backing
+versions, transparent. Every QR decodes to exactly its own URL; see merch/README.md for the test.
+- [ ] Matthew: placement + garment (back shoulder was floated), then a **printed test**. Scan it
+      with a phone before ordering. Simulated decoding is not a fabric scan.
+- [ ] Add Aloha Friday Motivation (mpgink.com/newsletter.html) and/or Metta (no live URL yet)? Matthew's call.
+- [ ] QR codes carry no tracking tag, so hoodie scans can't be attributed. Add utm_source=merch? Matthew's call.
+- [ ] Phreezer and One Percent favicons have dark backgrounds that disappear on black garments.
+      Thin outline, or leave it? Matthew's call.
+- [ ] Print-on-demand cost for the extra print area: **unmeasured**. Check before pricing.
+- [ ] Then: the Etsy listing update (copy draft by Claude; upload and mockups by Matthew).
+
+**Track 2: the mpgink mark. Open, Matthew drawing.** Many directions were tried and rejected this
+session (see the 11-22 log, "What was ruled out"). **Next step is Matthew's own hand-drawn mark.** His
+2026-11-24 phone sketch is traced at `merch/drawn-mark/` as inspiration. Claude traces drawings
+faithfully; it does not redesign them.
+- [ ] Matthew: redraw on a bigger canvas or paper, with room below for the g's tail, black on white,
+      several takes. Claude traces the one he circles.
+- [ ] Favicon: derive from the final mark (a single letter, since the full word is too fine below ~120px).
+
+**Track 3: one QR → a landing page listing every brand.** Discussed, not started.
 
 ## ⚠ Process gap: AFM close-outs skip this repo's records (found 2026-11-22)
 Ed320 (10-09) and Ed321 (11-06) were pushed here from AFM sessions with no Logs/ entry and
