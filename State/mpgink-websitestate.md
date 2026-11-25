@@ -2,11 +2,10 @@
 **Last updated: 2026-11-24**, regenerated at the session 011 wrap (brand mark + merch arc).
 
 ## Current status
-- **Live site:** `main` at **`82d8642`** (2026-11-06, AFM Ed321). Site check #18 + Pages #115 green.
-  Nothing from session 011 is on `main`.
-- **Session branch `claude/vigilant-darwin-1pxjh7`:** records catch-up (`72898d3`) + this wrap, which adds
-  `merch/` (print assets, not linked from any page) and records. **Not merged.** Merging is safe: no
-  page changed, and `merch/` would only be served at mpgink.com/merch/... if someone had the path.
+- **Live site:** `main` at **`a1a5d5e`** (merged 2026-11-25 on Matthew's go, fast-forward). Site check #19 +
+  Pages #116 green. Session 011 shipped no page changes; `merch/` is served at unlinked paths,
+  e.g. mpgink.com/merch/brand-stack/out/brand-stack-preview.png. Not live-checked from the sandbox,
+  which can't reach mpgink.com.
 - **Measured at this wrap:** `check-site.mjs` PASS, **241 HTML pages / 8,264 local refs**;
   `check-filter-wiring.mjs` PASS. AFM archive **226 editions**: Wing A **70** (ed252–ed321),
   Wing B 96, Wing C 60.
