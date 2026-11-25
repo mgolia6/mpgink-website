@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arlo &amp; Ash Explorers Series — mpgink</title>
+  <meta name="description" content="Picture books written by two brothers, Arlo and Ash Golia (with a little help from dad). Real photos, real places. Share them with another kid who likes to explore.">
+
+  <!-- Open Graph / Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mpgink.com/explore">
+  <meta property="og:title" content="Arlo &amp; Ash Explorers Series">
+  <meta property="og:description" content="Picture books by two brothers. Know another kid who likes to explore? Share these with them.">
+  <meta property="og:image" content="https://mpgink.com/images/arlo-ash/explore-og.jpg">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arlo &amp; Ash Explorers Series">
+  <meta name="twitter:description" content="Picture books by two brothers. Know another kid who likes to explore? Share these with them.">
+  <meta name="twitter:image" content="https://mpgink.com/images/arlo-ash/explore-og.jpg">
+
+  <!-- Favicon / home-screen icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0f0c07">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Courier+Prime:wght@400;700&family=Schoolbell&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://mpgink.com/explore">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/mpgink-favicon.png" alt="mpgink logomark">
+      <span class="nav-wordmark">mpgink</span>
+      <span class="nav-cipher">13·16·7</span>
+    </a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    <nav id="site-menu">
+      <a class="nav-link" href="index.html#exhibits">THE EXHIBITS</a>
+      <a class="nav-link" href="newsletter.html">AFM</a>
+      <a class="nav-link" href="studio.html">STUDIO</a>
+      <a class="nav-link" href="shop.html">SHOP</a>
+      <a class="nav-link" href="about.html">ABOUT</a>
+      <a class="nav-link" href="ai-usage.html">AI</a>
+      <a class="nav-cta" href="contact.html">SAY ALOHA</a>
+    </nav>
+  </div>
+</header>
+
+<div class="grain"></div>
+
+
+<!-- The page behind the QR code printed in every Arlo & Ash book (mpgink.com/explore).
+     The URL is printed in paper books: never rename, move or delete this file. -->
+<style>
+  .ex-wrap{max-width:1180px;margin:0 auto;padding:72px 32px 24px}
+  .ex-kicker{font-family:'Courier Prime',monospace;font-size:12.5px;letter-spacing:2.4px;color:#9a8f7d;margin-bottom:22px}
+  .ex-line{font-family:'Schoolbell',cursive;font-weight:400;font-size:clamp(34px,5vw,64px);line-height:1.15;margin:0 0 22px;max-width:20ch;transform:rotate(-1.2deg);transform-origin:left}
+  .ex-sub{font-size:18px;line-height:1.65;color:rgba(243,240,232,0.62);max-width:56ch;margin:0 0 30px}
+  .ex-share{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .ex-status{font-family:'Courier Prime',monospace;font-size:12.5px;letter-spacing:1px;color:#9a8f7d;min-height:1em}
+  .ex-books{max-width:1180px;margin:0 auto;padding:40px 32px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px}
+  .ex-book img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block;border:8px solid #fff;outline:1px solid rgba(23,19,12,0.18);box-shadow:0 4px 8px rgba(23,19,12,0.1),0 22px 48px rgba(23,19,12,0.2)}
+  .ex-book:nth-child(1) img{transform:rotate(-1deg)} .ex-book:nth-child(2) img{transform:rotate(0.9deg)}
+  .ex-num{font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:2px;color:#8a8172;margin:28px 0 10px}
+  .ex-book h2{font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:900;font-size:28px;letter-spacing:-0.6px;margin:0 0 8px}
+  .ex-by{font-size:15.5px;color:rgba(243,240,232,0.62);margin:0 0 12px}
+  .ex-book p.ex-desc{font-size:15.5px;line-height:1.75;color:rgba(243,240,232,0.62);margin:0 0 22px}
+  .ex-btns{display:flex;flex-wrap:wrap;gap:12px}
+  .ex-gift{max-width:1180px;margin:0 auto;padding:8px 32px 96px}
+  .ex-gift p{font-size:15.5px;line-height:1.75;color:rgba(243,240,232,0.62);max-width:62ch;margin:0}
+  .ex-gift strong{color:#f3f0e8}
+</style>
+
+<section class="ex-wrap">
+  <div class="ex-kicker">ARLO &amp; ASH EXPLORERS SERIES</div>
+  <h1 class="ex-line">If you know another kid who likes to explore, share this with them.</h1>
+  <p class="ex-sub">Picture books written by two brothers, Arlo and Ash Golia <em>(with a little help from dad)</em>. Real photos, real places, and the stuff kids notice that grown-ups walk right past.</p>
+  <div class="ex-share">
+    <button type="button" class="btn btn-cream" id="ex-share-btn" style="padding:14px 28px;font-size:12.5px;letter-spacing:2px">SHARE THIS PAGE</button>
+    <span class="ex-status" id="ex-share-status" role="status" aria-live="polite"></span>
+  </div>
+</section>
+
+<section class="ex-books">
+  <article class="ex-book">
+    <img src="images/arlo-ash/truck-front.jpg" alt="Cover of Arlo and the Million-Mile Truck: Arlo in front of a red vintage truck" width="800" height="800" loading="lazy">
+    <div class="ex-num">BOOK 1</div>
+    <h2>Arlo and the Million-Mile Truck</h2>
+    <p class="ex-by">By Arlo Golia <em>(with a little help from dad)</em></p>
+    <p class="ex-desc">Arlo loves trucks — big ones, important ones, and the ones with stories to tell. When he visits a real fleet shop with his dad, he discovers a million-mile truck and the fleet it belongs to.</p>
+    <div class="ex-btns">
+      <a href="https://www.amazon.com/dp/B0GVN5P47Y" target="_blank" rel="noopener" class="btn btn-cream" style="padding:14px 24px;font-size:12px;letter-spacing:2px">PAPERBACK ON AMAZON ↗</a>
+      <a href="https://www.amazon.com/dp/B0D889QGV2" target="_blank" rel="noopener" class="btn btn-outline" style="padding:14px 24px;font-size:12px;letter-spacing:2px">KINDLE ↗</a>
+    </div>
+  </article>
+  <article class="ex-book">
+    <img src="images/arlo-ash/signs-front.jpg" alt="Cover of Ash and the Secret Language of Signs: Ash holding a signpost whose sign is the title" width="800" height="800" loading="lazy">
+    <div class="ex-num">BOOK 2</div>
+    <h2>Ash and the Secret Language of Signs</h2>
+    <p class="ex-by">By Ash Golia <em>(with a little help from dad)</em></p>
+    <p class="ex-desc">Signs aren’t just for cars. Ash notices the signs most people walk straight past, and he knows exactly what each one is telling you. Photographed on real walks around his own neighborhood.</p>
+    <div class="ex-btns">
+      <a href="https://www.amazon.com/dp/B0HHKBK3GD" target="_blank" rel="noopener" class="btn btn-cream" style="padding:14px 24px;font-size:12px;letter-spacing:2px">PAPERBACK ON AMAZON ↗</a>
+    </div>
+  </article>
+</section>
+
+<section class="ex-gift">
+  <p><strong>Sending one as a gift?</strong> Pick the paperback, choose gift options at Amazon checkout, and ship it straight to the kid you're thinking of.</p>
+</section>
+
+<script>
+(function () {
+  var btn = document.getElementById('ex-share-btn');
+  var status = document.getElementById('ex-share-status');
+  var url = 'https://mpgink.com/explore';
+  var data = { title: 'Arlo & Ash Explorers Series', text: 'Know a kid who likes to explore? These books are by two brothers.', url: url };
+  function say(msg) { status.textContent = msg; }
+  btn.addEventListener('click', function () {
+    say('');
+    if (navigator.share) {
+      navigator.share(data).then(function () { say('Shared. Thank you!'); })
+        .catch(function (e) { if (e && e.name !== 'AbortError') say("Couldn't open sharing. The link is mpgink.com/explore"); });
+      return;
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () { say('Link copied: mpgink.com/explore'); },
+        function () { say("Couldn't copy. The link is mpgink.com/explore"); });
+      return;
+    }
+    say('The link is mpgink.com/explore');
+  });
+})();
+</script>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <img src="images/mpgink-favicon.png" alt="mpgink logomark" style="width:40px;height:40px;border-radius:9px">
+        <span style="font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:900;font-size:24px">mpgink</span>
+      </div>
+      <p style="font-family:'Archivo',sans-serif;font-size:14.5px;line-height:1.7;color:rgba(243,240,232,0.62);max-width:38ch;margin:0 0 20px">a creative collective — mission · passion · gratitude · building AI&#8209;augmented products people actually use.</p>
+      <p style="font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:1.2px;color:#8a8172;margin:0">13 · 16 · 7</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE EXHIBITS</span>
+      <a class="footer-link" href="phreezer.html">PHREEZER</a>
+      <a class="footer-link" href="job-odyssey.html">JOB ODYSSEY</a>
+      <a class="footer-link" href="one-percent.html">ONE PERCENT</a>
+      <a class="footer-link" href="newsletter.html">ALOHA FRIDAY MOTIVATION</a>
+      <a class="footer-link" href="metta.html">METTA — SOON</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">THE STUDIO</span>
+      <a class="footer-link-gold" href="signup.html">JOIN THE LIST ✶</a>
+      <a class="footer-link" href="studio.html">BOOKS + BLOG</a>
+      <a class="footer-link" href="shop.html">THE SHOP</a>
+      <a class="footer-link" href="ai-usage.html">AI USAGE</a>
+      <a class="footer-link" href="about.html">ABOUT</a>
+      <a class="footer-link" href="contact.html">SAY ALOHA</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 MPGINK — BUILT LO-FI. SHIPPED FAST. ITERATED IN PUBLIC.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/matthew-golia/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.instagram.com/mpgink" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://mattymattemodgepodge.etsy.com" target="_blank" rel="noopener">ETSY</a>
+        <a href="https://buymeacoffee.com/mpgink" target="_blank" rel="noopener">COFFEE</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
